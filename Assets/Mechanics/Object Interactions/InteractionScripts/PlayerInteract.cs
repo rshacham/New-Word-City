@@ -103,7 +103,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (Vector2.SqrMagnitude(mousePos - _rigidbody2D.position) > clickDistance * clickDistance)
             {
                 Debug.Log(
-                    $"<color=yellow>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
+                    $"<color=green>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
                     hit ? hit.collider.gameObject : gameObject
                 );
                 return;

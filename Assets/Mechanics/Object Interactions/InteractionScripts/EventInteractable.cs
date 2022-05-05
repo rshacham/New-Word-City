@@ -9,7 +9,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class EventInteractable : InteractableObject
     {
         #region Inspector
-
+        
         [Header("Interaction Events")]
         [SerializeField]
         private UnityEvent onInteraction = new UnityEvent();
@@ -22,7 +22,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         private UnityEvent<InteractableObject> onHighlightEnd =
             new UnityEvent<InteractableObject>();
 
-        [Header("")]
+        [Space]
         [SerializeField]
         [Tooltip("Use the script or just the events. if not inherited - should set to false")]
         private bool useDebugScriptInteract = true;
