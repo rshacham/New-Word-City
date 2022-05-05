@@ -6,7 +6,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// <summary>
     /// Base class for InteractableObjects that enable setting up interactions using events, or script.
     /// </summary>
-    public class EventInteractable : AbstractInteractableObject
+    public class EventInteractable : InteractableObject
     {
         #region Inspector
 
@@ -15,12 +15,12 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         private UnityEvent onInteraction = new UnityEvent();
 
         [SerializeField]
-        private UnityEvent<AbstractInteractableObject> onHighlight =
-            new UnityEvent<AbstractInteractableObject>();
+        private UnityEvent<InteractableObject> onHighlight =
+            new UnityEvent<InteractableObject>();
 
         [SerializeField]
-        private UnityEvent<AbstractInteractableObject> onHighlightEnd =
-            new UnityEvent<AbstractInteractableObject>();
+        private UnityEvent<InteractableObject> onHighlightEnd =
+            new UnityEvent<InteractableObject>();
 
         [Header("")]
         [SerializeField]

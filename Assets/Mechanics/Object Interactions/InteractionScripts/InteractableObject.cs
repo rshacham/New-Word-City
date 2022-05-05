@@ -6,7 +6,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// <summary>
     /// GameObject that can have an interactions
     /// </summary>
-    public abstract class AbstractInteractableObject : MonoBehaviour
+    public class InteractableObject : MonoBehaviour
     {
         #region Public Properties
 
@@ -15,7 +15,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <summary>
         /// The strategy that the object uses when interacted with
         /// </summary>
-        public InteractStrategy Strategy { get; set; }
+        public InteractStrategy Strategy { get; set; } = () => true;
 
         /// <summary>
         /// Currently in held by user?
@@ -43,10 +43,25 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <returns>true if the object was attached successfully to other</returns>
         public virtual bool SetInteraction(PlayerInteract other)
         {
+#if UNITY_EDITOR
+            var transform1 = transform;
+            var transformPosition = transform1.position;
+            var transformUp = transform1.up;
+            var transformRight = transform1.right;
+            Debug.DrawLine(transformPosition + transformUp,
+                transformPosition - transformUp,
+                CanInteract ? Color.green : Color.red,
+                1f);
+            Debug.DrawLine(transformPosition + transformRight,
+                transformPosition - transformRight,
+                CanInteract ? Color.green : Color.red,
+                1f);
+#endif
             if (!CanInteract)
             {
                 return false;
             }
+
 
             Player = other;
             InContact = true;

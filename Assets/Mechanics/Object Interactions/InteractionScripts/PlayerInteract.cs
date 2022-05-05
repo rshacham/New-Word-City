@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
@@ -9,13 +10,22 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     [RequireComponent(typeof(Collider2D))]
     public class PlayerInteract : MonoBehaviour
     {
+        #region Inspector
+
+        [SerializeField]
+        private float clickDistance = 3f;
+
+        #endregion
+
         #region Private Fields
 
+        private Rigidbody2D _rigidbody2D;
         private Collider2D _collider2D;
+
         /// <summary>
         /// Current object that the user is attached to
         /// </summary>
-        private AbstractInteractableObject _currentActive;
+        private InteractableObject _currentActive;
 
         #endregion
 
@@ -23,6 +33,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void Awake()
         {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
         }
 
@@ -35,7 +46,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                     return;
                 }
 
-                var interactable = col.gameObject.GetComponent<AbstractInteractableObject>();
+                var interactable = col.gameObject.GetComponent<InteractableObject>();
                 if (interactable.SetInteraction(this))
                 {
                     _currentActive = interactable;
@@ -47,7 +58,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         {
             if (other.collider.CompareTag("Interactable"))
             {
-                var interactable = other.gameObject.GetComponent<AbstractInteractableObject>();
+                var interactable = other.gameObject.GetComponent<InteractableObject>();
                 if (interactable == _currentActive)
                 {
                     _currentActive.RemoveInteraction(this);
@@ -85,6 +96,18 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
             Vector2 mousePos = Camera.main!.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             var hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            Debug.DrawLine(_rigidbody2D.position, 
+                mousePos,
+                hit ? Color.green : Color.yellow, 
+                1f);
+            if (Vector2.SqrMagnitude(mousePos - _rigidbody2D.position) > clickDistance * clickDistance)
+            {
+                Debug.Log(
+                    $"<color=yellow>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
+                    hit ? hit.collider.gameObject : gameObject
+                );
+                return;
+            }
 
             if (hit && hit.collider.CompareTag("Interactable"))
             {
@@ -103,7 +126,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <param name="hit"></param>
         private void ClickedInteractable(RaycastHit2D hit)
         {
-            var interactable = hit.collider.GetComponent<AbstractInteractableObject>();
+            var interactable = hit.collider.GetComponent<InteractableObject>();
 
             if (_currentActive == interactable)
             {
