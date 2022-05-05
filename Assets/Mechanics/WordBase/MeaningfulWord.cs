@@ -21,6 +21,8 @@ namespace Mechanics.WordBase
 
         #region Public Properties
 
+        public bool WordComplete { get; set; }
+
         public string Word => word;
 
         public List<MeaningDescriptor> Meanings => meanings;
@@ -28,6 +30,20 @@ namespace Mechanics.WordBase
         public int MeaningFoundCount
         {
             get { return Meanings.Sum(descriptor => descriptor.Found ? 1 : 0); }
+        }
+
+        #endregion
+
+        #region Type Conversions
+
+        public static implicit operator string(MeaningfulWord t)
+        {
+            return t.ToString();
+        }
+
+        public override string ToString()
+        {
+            return word;
         }
 
         #endregion
@@ -90,7 +106,8 @@ namespace Mechanics.WordBase
             }
 
             Found = true;
-            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}");
+            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", LinkedObject);
+            WordsGameManager.MeaningFoundCount++;
             UnRegisterMeaning();
             return Found;
         }

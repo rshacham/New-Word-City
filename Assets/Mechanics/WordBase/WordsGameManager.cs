@@ -23,6 +23,24 @@ namespace Mechanics.WordBase
 
         public static List<MeaningfulWord> Words => _instance.words;
 
+        public static int MeaningFoundCount
+        {
+            get => _instance._meaningFoundCount;
+            set
+            {
+                _instance._meaningFoundCount = value;
+                if (Current != null && _instance._meaningFoundCount == Current.Meanings.Count)
+                {
+                    Current.WordComplete = true;
+                    Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
+                    // TODO: switch Word Method based on game design
+                    _instance._currentIndex++;
+                    _instance._currentIndex %= Words.Count;
+                    SwitchToWord(_instance._currentIndex);
+                }
+            }
+        }
+
         #endregion
 
         #region Private Fields
@@ -35,6 +53,10 @@ namespace Mechanics.WordBase
 
         #region Instance
 
+        private int _meaningFoundCount;
+
+        private int _currentIndex;
+
         private MeaningfulWord _current = null;
 
         #endregion
@@ -43,21 +65,36 @@ namespace Mechanics.WordBase
 
         #region Public Methods
 
-        public static void SwitchToWord(string word)
+        public static void SwitchToWord(int newWord)
         {
-            var newWord = Words.Find(x => x.Word == word);
-            if (newWord == null)
+            if (newWord < -1 || newWord > Words.Count)
             {
                 return;
             }
 
             if (Current != null)
             {
+                MeaningFoundCount = 0;
                 UnRegisterCurrentMeanings();
             }
 
-            Current = newWord;
+            if (Words[newWord].WordComplete)
+            {
+                Current = null;
+                return;
+            }
+
+            Current = Words[newWord];
+            _instance._currentIndex = newWord;
             RegisterCurrentMeanings();
+            MeaningFoundCount = Current.MeaningFoundCount;
+            Debug.Log($"New word: <color=blue>{Current}</color>");
+        }
+
+        public static void SwitchToWord(string word)
+        {
+            var newWord = Words.FindIndex(x => x.Word == word);
+            SwitchToWord(newWord);
         }
 
 
