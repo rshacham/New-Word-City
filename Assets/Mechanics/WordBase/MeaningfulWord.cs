@@ -36,12 +36,38 @@ namespace Mechanics.WordBase
     [Serializable]
     public class MeaningDescriptor
     {
+        #region Inspector
+
         [SerializeField]
         [Multiline]
         private string meaning;
 
         [SerializeField]
         private InteractableObject linkedObject;
+
+        #endregion
+
+        #region Register Methods
+
+        public void RegisterMeaning()
+        {
+            if (linkedObject != null)
+            {
+                linkedObject.OnInteractionEnd += FoundMeaning;
+            }
+        }
+
+        public void UnRegisterMeaning()
+        {
+            if (linkedObject != null)
+            {
+                linkedObject.OnInteractionEnd -= FoundMeaning;
+            }
+        }
+
+        #endregion
+
+        #region Public Properties
 
         public bool Found { get; set; } = false;
         public string Meaning => meaning;
@@ -51,5 +77,17 @@ namespace Mechanics.WordBase
             get => linkedObject;
             set => linkedObject = value;
         }
+
+        #endregion
+
+        #region Private Methods
+
+        private bool FoundMeaning()
+        {
+            Found = true;
+            return Found;
+        }
+
+        #endregion
     }
 }

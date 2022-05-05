@@ -6,11 +6,14 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// <summary>
     /// GameObject that can have an interactions
     /// </summary>
+    [RequireComponent(typeof(Collider2D))]
     public class InteractableObject : MonoBehaviour
     {
         #region Public Properties
 
         public delegate bool InteractStrategy();
+
+        public event InteractStrategy OnInteractionEnd;
 
         /// <summary>
         /// The strategy that the object uses when interacted with
@@ -84,7 +87,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <returns></returns>
         public bool Interact()
         {
-            return CanInteract && Strategy();
+            var result = CanInteract && Strategy() && OnInteractionEnd!.Invoke();
+            return result;
         }
 
         #endregion

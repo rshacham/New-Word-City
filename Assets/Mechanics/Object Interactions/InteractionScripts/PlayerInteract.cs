@@ -7,7 +7,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// <summary>
     /// Class that handles user interactions with objects
     /// </summary>
-    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerInteract : MonoBehaviour
     {
         #region Inspector
