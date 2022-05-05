@@ -13,7 +13,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         public delegate bool InteractStrategy();
 
-        public event InteractStrategy OnInteractionEnd;
+        public event InteractStrategy OnInteractionEnd; 
+        //TODO: The event shouldn't be InteractStrategy, or if it is, the return value should be checked somehow?
 
         /// <summary>
         /// The strategy that the object uses when interacted with
@@ -87,7 +88,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <returns></returns>
         public bool Interact()
         {
-            var result = CanInteract && Strategy() && OnInteractionEnd!.Invoke();
+            var result = CanInteract && Strategy();
+            if (result)
+            {
+                OnInteractionEnd?.Invoke();
+            }
             return result;
         }
 

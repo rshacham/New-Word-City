@@ -51,7 +51,7 @@ namespace Mechanics.WordBase
 
         public void RegisterMeaning()
         {
-            if (linkedObject != null)
+            if (linkedObject != null && !Found)
             {
                 linkedObject.OnInteractionEnd += FoundMeaning;
             }
@@ -84,7 +84,14 @@ namespace Mechanics.WordBase
 
         private bool FoundMeaning()
         {
+            if (Found)
+            {
+                return true;
+            }
+
             Found = true;
+            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}");
+            UnRegisterMeaning();
             return Found;
         }
 
