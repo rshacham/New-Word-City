@@ -10,8 +10,12 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     {
         #region Inspector
 
+        [Header("Basic Events")]
         [SerializeField]
         private bool startInteractable = true;
+
+        [SerializeField]
+        private bool interactMultipleTimes = true;
         
         [Header("Interaction Events")]
         [SerializeField]
@@ -41,6 +45,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 ScriptInteract();
                 onInteraction.Invoke();
+                CanInteract = interactMultipleTimes;
                 return true;
             };
         }
