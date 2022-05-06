@@ -89,7 +89,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <param name="context"></param>
         public void OnMouseInteract(InputAction.CallbackContext context)
         {
-            if (!context.started)
+            if (!context.started || !Mouse.current.leftButton.wasPressedThisFrame)
             {
                 return;
             }
