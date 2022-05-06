@@ -6,6 +6,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// InteractableObject that sticks itself to the user.
     /// </summary>
     /// TODO: dont allow to remove as the attached object if stuck to player?
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PickAndMoveInteractable : EventInteractable
     {
         #region Private Fields

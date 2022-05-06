@@ -40,6 +40,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         protected override void Awake()
         {
+            base.Awake();
             if (otherPaired == null)
             {
                 Debug.LogError("Must have pair!");
@@ -49,8 +50,6 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 CanInteract = enabler;
             }
-
-            base.Awake();
         }
 
         private void OnValidate()

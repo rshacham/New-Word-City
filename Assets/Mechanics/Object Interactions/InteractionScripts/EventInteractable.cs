@@ -9,6 +9,9 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class EventInteractable : InteractableObject
     {
         #region Inspector
+
+        [SerializeField]
+        private bool startInteractable = true;
         
         [Header("Interaction Events")]
         [SerializeField]
@@ -33,6 +36,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         protected virtual void Awake()
         {
+            CanInteract = startInteractable;
             Strategy = () =>
             {
                 ScriptInteract();
