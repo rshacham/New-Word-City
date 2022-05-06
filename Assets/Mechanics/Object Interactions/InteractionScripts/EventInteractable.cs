@@ -42,6 +42,10 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         [Tooltip("Use the script or just the events. if not inherited - should set to false")]
         private bool useScriptedInteraction = true;
 
+        [SerializeField]
+        [Tooltip("the return value of the Interact")]
+        private bool strategyReturnTrue = true;
+
         #endregion
 
         #region MonoBehaviour
@@ -54,7 +58,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 ScriptInteract();
                 onInteraction.Invoke(this);
                 CanInteract = interactMultipleTimes;
-                return true;
+                return strategyReturnTrue;
             };
         }
 
