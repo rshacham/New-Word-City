@@ -1,0 +1,46 @@
+{
+    "name": "HoverCheck",
+    "maps": [
+        {
+            "name": "CursorControl",
+            "id": "a9057cea-8e11-43b1-bcb3-edf2586643d3",
+            "actions": [
+                {
+                    "name": "MouseHover",
+                    "type": "Value",
+                    "id": "960f9b8a-fc72-4b2e-96e1-78d11efb5b9f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5d35dcdc-772c-4ec1-ba60-16e9bdc01f0f",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "MouseHover",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

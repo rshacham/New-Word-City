@@ -1,4 +1,5 @@
 using System;
+using Mechanics.Cursor_Change;
 using UnityEngine;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
@@ -11,6 +12,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class InteractableObject : MonoBehaviour
     {
         #region Public Properties
+
         /// <summary>
         /// delegate that represents interaction strategy, to allow various wat to set strategy.
         /// </summary>
@@ -21,7 +23,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// interaction occured.
         /// return value is ignored.
         /// </summary>
-        public event InteractStrategy OnInteractionEnd; 
+        public event InteractStrategy OnInteractionEnd;
         //TODO: The event shouldn't be InteractStrategy, or if it is, the return value should be checked somehow?
         // TODO: change this to EventHandler?
 
@@ -43,7 +45,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <summary>
         /// Can this object be used for interactions?
         /// </summary>
-        public bool CanInteract { get; set; } = true; // TODO: when set as false, inform player, if possible.
+        public bool CanInteract { get; set; } =
+            true; // TODO: when set as false, inform player, if possible.
 
         #endregion
 
@@ -102,6 +105,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 OnInteractionEnd?.Invoke();
             }
+
             return result;
         }
 
