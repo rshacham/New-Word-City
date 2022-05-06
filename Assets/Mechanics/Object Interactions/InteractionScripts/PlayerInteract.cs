@@ -23,6 +23,14 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         #endregion
 
+        #region Public Properties
+
+        // TODO: to ve used with cursor if required
+        // public float ClickDistance => clickDistance;
+
+        #endregion
+
+
         #region Private Fields
 
         private Rigidbody2D _rigidbody2D;
@@ -32,7 +40,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// Current object that the user is attached to
         /// </summary>
         private InteractableObject _currentActive;
-
+        
         #endregion
 
         #region MonoBehaviour

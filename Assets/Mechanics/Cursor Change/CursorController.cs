@@ -16,6 +16,9 @@ namespace Mechanics.Cursor_Change
         [SerializeField]
         private InputActionReference mouseHover;
 
+        // TODO: players register at awake, and cursor change can depend on their location/distance
+        // public PlayerInteract Player { get; set; }
+
         public static void HoverInteractable()
         {
             if (_currentType == CurrentType.Normal)

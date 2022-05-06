@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
 
 namespace Mechanics.WordBase
@@ -9,7 +10,45 @@ namespace Mechanics.WordBase
     /// </summary>
     public class EventFromScriptTest : MonoBehaviour
     {
+        [Serializable]
+        public struct RegisterToEvents
+        {
+            //TODO: add possible observer events here as some sort of factory class
+            [SerializeField]
+            private bool informObjects;
+
+            public void Register(EventHandler<InteractableObject> e)
+            {
+                if (informObjects)
+                {
+                    RegisterInformObjects(e);
+                }
+            }
+            public void UnRegister(EventHandler<InteractableObject> e)
+            {
+                if (informObjects)
+                {
+                    UnRegisterInformObjects(e);
+                }
+            }
+        }
         #region Static methods For Events
+
+        // TODO: create this option for different times somehow?
+        private static event EventHandler<InteractableObject> InformObjects;
+
+        public static void RegisterInformObjects(EventHandler<InteractableObject> e)
+        {
+            InformObjects += e;
+        }
+        public static void UnRegisterInformObjects(EventHandler<InteractableObject> e)
+        {
+            InformObjects -= e;
+        }
+        public static void OnInformObjects(InteractableObject e)
+        {
+            InformObjects?.Invoke(null, e);
+        }
 
         /// <summary>
         /// Debug: display all completed words.
