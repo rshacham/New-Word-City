@@ -102,6 +102,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 1f);
             if (Vector2.SqrMagnitude(mousePos - _rigidbody2D.position) > clickDistance * clickDistance)
             {
+                if (_currentActive != null) // TODO: duplicated
+                {
+                    _currentActive.RemoveInteraction(this);
+                    _currentActive = null;
+                }
                 Debug.Log(
                     $"<color=green>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
                     hit ? hit.collider.gameObject : gameObject

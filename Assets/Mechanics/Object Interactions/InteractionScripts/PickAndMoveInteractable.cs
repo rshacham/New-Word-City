@@ -29,6 +29,12 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         #region EventInteractable
 
+        public override void RemoveInteraction(PlayerInteract other)
+        {
+            ScriptInteract();
+            base.RemoveInteraction(other);
+        }
+
         /// <summary>
         /// The script that will run on Interact with this object, before the events.
         /// </summary>
@@ -46,7 +52,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             _rigidbody2D.transform.parent = Player.GetComponent<Rigidbody2D>().transform;
             _connected = true;
         }
-    }
+        #endregion
 
-    #endregion
+    }
 }
