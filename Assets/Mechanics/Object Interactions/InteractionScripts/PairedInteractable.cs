@@ -15,20 +15,20 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         [Header("PairedInteractable")]
         [SerializeField]
-        private PairedInteractable otherPaired;
+        protected PairedInteractable otherPaired;
 
         [Space]
         [SerializeField]
-        private bool enabler = true;
+        protected bool enabler = true;
 
         [SerializeField]
-        private PairType enablerType = PairType.Switch;
+        protected PairType enablerType = PairType.Switch;
 
         #endregion
 
         #region Private Properties
 
-        private bool Enabled
+        protected bool Enabled
         {
             get => enabler || CanInteract;
             set => CanInteract = value;

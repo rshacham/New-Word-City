@@ -271,7 +271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &658709046
 BoxCollider2D:
@@ -415,7 +415,7 @@ MonoBehaviour:
   - word: Cut
     meanings:
     - meaning: Cut Grass
-      linkedObject: {fileID: 0}
+      linkedObject: {fileID: 1946421847}
 --- !u!4 &992142495
 Transform:
   m_ObjectHideFlags: 0
@@ -443,8 +443,8 @@ GameObject:
   - component: {fileID: 1008779981}
   - component: {fileID: 1008779980}
   m_Layer: 0
-  m_Name: Drop 4
-  m_TagString: Interactable
+  m_Name: Parking
+  m_TagString: Interactable Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,7 +459,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -484,25 +484,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008779979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
+  m_Script: {fileID: 11500000, guid: ea6cb8e858384486af8e568c9cbea407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startInteractable: 1
   onInteraction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 992142494}
-        m_TargetAssemblyTypeName: Mechanics.WordBase.WordsSceneManager, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: WordManager2
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onHighlight:
     m_PersistentCalls:
       m_Calls: []
@@ -510,6 +498,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useDebugScriptInteract: 1
+  otherPaired: {fileID: 1946421847}
+  enabler: 1
+  enablerType: 1
+  required: {fileID: 1100781941}
 --- !u!212 &1008779982
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -569,11 +561,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008779979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.04, y: -3.13, z: 0}
+  m_LocalPosition: {x: -2.1, y: -1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100781940
 GameObject:
@@ -607,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128232893d2f4b5181e9a84759c5f66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startInteractable: 1
+  startInteractable: 0
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -719,7 +711,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1100781940}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -970,8 +962,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1946421849}
   - component: {fileID: 1946421848}
-  - component: {fileID: 1946421850}
   - component: {fileID: 1946421847}
+  - component: {fileID: 1946421850}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Interactable
@@ -1002,8 +994,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useDebugScriptInteract: 1
-  otherPaired: {fileID: 0}
-  enabler: 1
+  otherPaired: {fileID: 1008779981}
+  enabler: 0
   enablerType: 1
 --- !u!212 &1946421848
 SpriteRenderer:
@@ -1068,7 +1060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1946421850
 BoxCollider2D:
