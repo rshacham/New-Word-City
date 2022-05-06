@@ -3,31 +3,47 @@ using UnityEngine;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
 {
+    /// <summary>
+    /// Create dependency 2 paired object.
+    /// Sub can interact only after main informs it.
+    /// TODO: functionality is mostly not required because events can be used instead.
+    /// </summary>
     class PairedInteractable : EventInteractable
     {
+        #region Enums
+
+        /// <summary>
+        /// Type of control:
+        /// </summary>
         public enum PairType
         {
             Trigger,
             Switch
         }
 
+        #endregion
+
         #region Inspector
 
         [Header("PairedInteractable")]
         [SerializeField]
+        [Tooltip("The other paired object. required.")]
         protected PairedInteractable otherPaired;
 
         [Space]
         [SerializeField]
+        [Tooltip("Is this object the enabler?")]
         protected bool enabler = true;
 
         [SerializeField]
+        [Tooltip("What type of enabler this object is")]
         protected PairType enablerType = PairType.Switch;
 
         #endregion
 
-        #region Private Properties
+        #region Protected Properties
 
+        // TODO: remove, can be swapped directly with CanInteract?
         protected bool Enabled
         {
             get => enabler || CanInteract;
@@ -60,7 +76,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 if (enabler)
                 {
                     otherPaired.enabler = false;
-                    otherPaired.CanInteract = false;
+                    otherPaired.CanInteract = false; // TODO: Enabled= false, if kept
                 }
             }
         }

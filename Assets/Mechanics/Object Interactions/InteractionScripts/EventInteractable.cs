@@ -9,30 +9,38 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class EventInteractable : InteractableObject
     {
         #region Inspector
+        //TODO: add field for "used by composite", if we need something like that
 
-        [Header("Basic Events")]
+        [Header("Basic Behaviour")]
         [SerializeField]
+        [Tooltip("Start this object in interactable state")]
         private bool startInteractable = true;
 
         [SerializeField]
+        [Tooltip("Allow the object to be interacted with multiple times")]
         private bool interactMultipleTimes = true;
-        
+
+        [SerializeField]
+        [Tooltip("One click to highlight and interact")]
+        private bool highlightInteract = true;
+
         [Header("Interaction Events")]
         [SerializeField]
-        private UnityEvent onInteraction = new UnityEvent();
+        [Tooltip("Will be called after scripted interaction")]
+        private UnityEvent<InteractableObject> onInteraction = new UnityEvent<InteractableObject>();
 
         [SerializeField]
-        private UnityEvent<InteractableObject> onHighlight =
-            new UnityEvent<InteractableObject>();
+        [Tooltip("Will be called when player first highlights this object")]
+        private UnityEvent<InteractableObject> onHighlight = new UnityEvent<InteractableObject>();
 
         [SerializeField]
-        private UnityEvent<InteractableObject> onHighlightEnd =
-            new UnityEvent<InteractableObject>();
+        [Tooltip("Will be called when player un-selects this object")]
+        private UnityEvent<InteractableObject> onHighlightEnd = new UnityEvent<InteractableObject>();
 
         [Space]
         [SerializeField]
         [Tooltip("Use the script or just the events. if not inherited - should set to false")]
-        private bool useDebugScriptInteract = true;
+        private bool useScriptedInteraction = true;
 
         #endregion
 
@@ -44,7 +52,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             Strategy = () =>
             {
                 ScriptInteract();
-                onInteraction.Invoke();
+                onInteraction.Invoke(this);
                 CanInteract = interactMultipleTimes;
                 return true;
             };
@@ -61,14 +69,20 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <returns>true if the object was attached successfully to other</returns>
         public override bool SetInteraction(PlayerInteract other)
         {
+            var ret = base.SetInteraction(other);
+            if (ret && highlightInteract)
+            {
+                ret = Interact();
+            }
+
             onHighlight.Invoke(this);
-            return base.SetInteraction(other);
+            return ret;
         }
 
         /// <summary>
         /// un-attach this object from other.
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other"></param> // TODO: set return value?
         public override void RemoveInteraction(PlayerInteract other)
         {
             onHighlightEnd.Invoke(this);
@@ -84,7 +98,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// </summary>
         protected virtual void ScriptInteract()
         {
-            if (!useDebugScriptInteract)
+            if (!useScriptedInteraction)
             {
                 return;
             }

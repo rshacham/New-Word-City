@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
 {
+    /// <summary>
+    /// Implementation of PairedInteractable for enablers -
+    /// require another object to trigger this enabler to activate the sub.
+    /// </summary>
     class RequiredObjectInteractable : PairedInteractable
     {
         [Header("Required Interactable")]
@@ -16,7 +20,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         protected override void Awake()
         {
             _collider2D = GetComponent<Collider2D>();
-            // _collider2D.enabled = false;
+            // _collider2D set trigger?
             enabler = true;
             base.Awake();
         }

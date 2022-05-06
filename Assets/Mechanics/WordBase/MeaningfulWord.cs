@@ -6,27 +6,46 @@ using UnityEngine;
 
 namespace Mechanics.WordBase
 {
+    /// <summary>
+    /// Data structure to represent a word with meanings
+    /// </summary>
     [Serializable]
     public class MeaningfulWord
     {
         #region Inspector
 
         [SerializeField]
+        [Tooltip("The word itself. dont change in runtime - readonly, without the proper attribute")]
         private string word;
 
+        [Space]
         [SerializeField]
+        [Tooltip("List of meanings of this word.")]
         private List<MeaningDescriptor> meanings = new List<MeaningDescriptor>();
 
         #endregion
 
         #region Public Properties
 
+        /// <summary>
+        /// All meanings found.
+        /// </summary>
         public bool WordComplete { get; set; }
 
+        /// <summary>
+        /// Readonly for the word
+        /// TODO: remove, auto conversion should be good enough?
+        /// </summary>
         public string Word => word;
 
+        /// <summary>
+        /// Getter for the Meanings of this word
+        /// </summary>
         public List<MeaningDescriptor> Meanings => meanings;
 
+        /// <summary>
+        /// How many meanings were found?
+        /// </summary>
         public int MeaningFoundCount
         {
             get { return Meanings.Sum(descriptor => descriptor.Found ? 1 : 0); }
@@ -34,7 +53,9 @@ namespace Mechanics.WordBase
 
         #endregion
 
+        
         #region Type Conversions
+        // Allow converting the word to string implicitly
 
         public static implicit operator string(MeaningfulWord t)
         {
@@ -49,7 +70,7 @@ namespace Mechanics.WordBase
         #endregion
 
         #region Object
-
+        // Allow using the word in hashed sets/dictionaries
         public override bool Equals(object obj)
         {
             return obj != null && obj.ToString().Equals(word);
@@ -63,6 +84,9 @@ namespace Mechanics.WordBase
         #endregion
     }
 
+    /// <summary>
+    /// Meaning of a word.
+    /// </summary>
     [Serializable]
     public class MeaningDescriptor
     {

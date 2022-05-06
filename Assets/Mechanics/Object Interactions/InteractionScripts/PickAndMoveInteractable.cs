@@ -5,7 +5,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// <summary>
     /// InteractableObject that sticks itself to the user.
     /// </summary>
-    /// TODO: dont allow to remove as the attached object if stuck to player?
+    // TODO: change movement to animation/body/follow script/something else.
     [RequireComponent(typeof(Rigidbody2D))]
     public class PickAndMoveInteractable : EventInteractable
     {
@@ -35,9 +35,6 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             base.RemoveInteraction(other);
         }
 
-        /// <summary>
-        /// The script that will run on Interact with this object, before the events.
-        /// </summary>
         protected override void ScriptInteract()
         {
             if (_connected)

@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInteractable: 1
   interactMultipleTimes: 0
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -490,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInteractable: 1
   interactMultipleTimes: 1
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -603,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInteractable: 0
   interactMultipleTimes: 1
+  highlightInteract: 0
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -988,6 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInteractable: 1
   interactMultipleTimes: 0
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls:

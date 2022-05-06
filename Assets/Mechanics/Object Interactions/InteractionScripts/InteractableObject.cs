@@ -5,16 +5,25 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 {
     /// <summary>
     /// GameObject that can have an interactions
+    /// Note: should probably inherit from EventInteractable, it has more robust features set.
     /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class InteractableObject : MonoBehaviour
     {
         #region Public Properties
-
+        /// <summary>
+        /// delegate that represents interaction strategy, to allow various wat to set strategy.
+        /// </summary>
         public delegate bool InteractStrategy();
 
+        /// <summary>
+        /// This event is called after Interaction is completed. used to notify observers that the
+        /// interaction occured.
+        /// return value is ignored.
+        /// </summary>
         public event InteractStrategy OnInteractionEnd; 
         //TODO: The event shouldn't be InteractStrategy, or if it is, the return value should be checked somehow?
+        // TODO: change this to EventHandler?
 
         /// <summary>
         /// The strategy that the object uses when interacted with
@@ -34,7 +43,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <summary>
         /// Can this object be used for interactions?
         /// </summary>
-        public bool CanInteract { get; set; } = true;
+        public bool CanInteract { get; set; } = true; // TODO: when set as false, inform player, if possible.
 
         #endregion
 

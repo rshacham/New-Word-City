@@ -13,7 +13,13 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         #region Inspector
 
         [SerializeField]
+        [Tooltip("Distance in with clicks are accepted")]
+        [Min(0)]
         private float clickDistance = 3f;
+
+        [SerializeField]
+        [Tooltip("Are collisions with interactable objects count as setting them active?")]
+        private bool highlightOnCollision = true;
 
         #endregion
 
@@ -39,6 +45,10 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void OnCollisionEnter2D(Collision2D col)
         {
+            if (!highlightOnCollision)
+            {
+                return;
+            }
             if (col.collider.CompareTag("Interactable"))
             {
                 if (_currentActive != null)
@@ -56,6 +66,10 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void OnCollisionExit2D(Collision2D other)
         {
+            if (!highlightOnCollision)
+            {
+                return;
+            }
             if (other.collider.CompareTag("Interactable"))
             {
                 var interactable = other.gameObject.GetComponent<InteractableObject>();
@@ -118,7 +132,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 ClickedInteractable(hit);
             }
-            else if (_currentActive != null)
+            else if (_currentActive != null) // tODO: duplicated.
             {
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
@@ -145,7 +159,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 }
 
                 _currentActive = interactable;
-                _currentActive.Interact();
+                // TODO: first click highlights, second click interacts?
+                // _currentActive.Interact();
             }
         }
 
