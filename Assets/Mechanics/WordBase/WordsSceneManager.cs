@@ -9,7 +9,7 @@ namespace Mechanics.WordBase
     public class WordsSceneManager : MonoBehaviour
     {
         //TODO: index? scene object itself?
-        private static Dictionary<string, List<MeaningfulWord>> _savedScenesData =
+        private static readonly Dictionary<string, List<MeaningfulWord>> SavedScenesData =
             new Dictionary<string, List<MeaningfulWord>>();
 
         #region Inspector
@@ -44,10 +44,10 @@ namespace Mechanics.WordBase
         private void Awake()
         {
             // TODO: check on default getters?
-            if (_savedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
+            if (SavedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
             {
                 //TODO: move to MeaningfulWord as update method!
-                var saved = _savedScenesData[SceneManager.GetActiveScene().name];
+                var saved = SavedScenesData[SceneManager.GetActiveScene().name];
                 for (int i = 0; i < words.Count; i++)
                 {
                     for (int j = 0; j < words[i].Meanings.Count; j++)
@@ -55,10 +55,6 @@ namespace Mechanics.WordBase
                         words[i].Meanings[j].Found = saved[i].Meanings[j].Found;
                     }
                 }
-            }
-            else
-            {
-                _savedScenesData[SceneManager.GetActiveScene().name] = words;
             }
 
             WordsGameManager.Instance = this;
@@ -70,7 +66,7 @@ namespace Mechanics.WordBase
 
         private void OnDisable()
         {
-            _savedScenesData[SceneManager.GetActiveScene().name] = words;
+            SavedScenesData[SceneManager.GetActiveScene().name] = words;
             WordsGameManager.Instance = null;
         }
 
