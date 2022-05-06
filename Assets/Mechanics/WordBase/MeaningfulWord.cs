@@ -47,6 +47,20 @@ namespace Mechanics.WordBase
         }
 
         #endregion
+
+        #region Object
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj.ToString().Equals(word);
+        }
+
+        public override int GetHashCode()
+        {
+            return Word.GetHashCode();
+        }
+
+        #endregion
     }
 
     [Serializable]

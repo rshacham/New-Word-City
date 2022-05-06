@@ -18,6 +18,7 @@ namespace Mechanics.WordBase
 
         internal int MeaningFoundCount;
 
+        // TODO: setter auto modulo
         internal int CurrentIndex;
 
         internal MeaningfulWord Current;
@@ -38,9 +39,10 @@ namespace Mechanics.WordBase
         private void Awake()
         {
             WordsGameManager.Instance = this;
-            WordsGameManager.Current = words[0];
+            WordsGameManager.SwitchToNextAvailableWord();
+            // WordsGameManager.Current = words[0];
             // TODO if empty, changing based on level, so on and so forth.
-            WordsGameManager.RegisterCurrentMeanings();
+            // WordsGameManager.RegisterCurrentMeanings();
         }
 
         private void OnDisable()

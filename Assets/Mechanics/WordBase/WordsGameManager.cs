@@ -41,9 +41,10 @@ namespace Mechanics.WordBase
                     Completed.Add(Current);
                     Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
                     // TODO: switch Word Method based on game design
-                    Instance.CurrentIndex++;
-                    Instance.CurrentIndex %= Words.Count;
-                    SwitchToWord(Instance.CurrentIndex);
+                    SwitchToNextAvailableWord();
+                    // Instance.CurrentIndex++;
+                    // Instance.CurrentIndex %= Words.Count;
+                    // SwitchToWord(Instance.CurrentIndex);
                 }
             }
         }
@@ -60,7 +61,7 @@ namespace Mechanics.WordBase
             }
         }
 
-        public static List<MeaningfulWord> Completed
+        public static HashSet<MeaningfulWord> Completed
         {
             get => _completed;
             set => _completed = value;
@@ -72,12 +73,31 @@ namespace Mechanics.WordBase
 
         private static WordsSceneManager _instance;
 
-        private static List<MeaningfulWord> _completed = new List<MeaningfulWord>();
+        private static HashSet<MeaningfulWord> _completed = new HashSet<MeaningfulWord>();
 
         #endregion
 
         #region Public Methods
 
+        public static void SwitchToNextAvailableWord()
+        {
+            if (!Active)
+            {
+                return;
+            }
+            while (Instance.CurrentIndex < Words.Count)
+            {
+                if (Words[Instance.CurrentIndex].WordComplete || Completed.Contains(Words[Instance.CurrentIndex]))
+                {
+                    Instance.CurrentIndex++;
+                    continue;
+                }
+                SwitchToWord(Instance.CurrentIndex);
+                return;
+            }
+            Instance.CurrentIndex %= Words.Count;
+            Active = false;
+        }
         public static void SwitchToWord(int newWord)
         {
             if (!Active || newWord < -1 || newWord > Words.Count)
@@ -92,7 +112,7 @@ namespace Mechanics.WordBase
                 UnRegisterCurrentMeanings();
             }
 
-            if (Words[newWord].WordComplete)
+            if (Words[newWord].WordComplete || Completed.Contains(Words[newWord]))
             {
                 Current = null;
                 return;
