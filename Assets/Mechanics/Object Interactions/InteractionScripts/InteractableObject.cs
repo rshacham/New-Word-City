@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Mechanics.Cursor_Change;
 using UnityEngine;
 
@@ -11,7 +12,19 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     [RequireComponent(typeof(Collider2D))]
     public class InteractableObject : MonoBehaviour
     {
+        [Header("Word Connection")]
+        [SerializeField]
+        private bool requiresWord;
+
+        [SerializeField]
+        private InteractableObject lastLink;
+
+        private bool _wordActive;
+        private bool _canInteract = true;
+
         #region Public Properties
+
+        public event EventHandler InformChain;
 
         /// <summary>
         /// delegate that represents interaction strategy, to allow various wat to set strategy.
@@ -45,8 +58,12 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <summary>
         /// Can this object be used for interactions?
         /// </summary>
-        public bool CanInteract { get; set; } =
-            true; // TODO: when set as false, inform player, if possible.
+        public bool CanInteract
+        {
+            get => requiresWord ? _wordActive && _canInteract : _canInteract;
+            set => _canInteract = value;
+        }
+        // TODO: when set as false, inform player, if possible.
 
         #endregion
 
@@ -107,6 +124,25 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             }
 
             return result;
+        }
+
+        public virtual void OnInformChain()
+        {
+            _wordActive = !_wordActive;
+            // Debug.Log($"<color=white>{_wordActive ? "Interactable Active" : "Interactable disabled"}</color>", gameObject);
+            InformChain?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
+
+        #region MonoBehaviour
+
+        protected virtual void Awake()
+        {
+            if (requiresWord && lastLink != null)
+            {
+                lastLink.InformChain += (sender, args) => OnInformChain();
+            }
         }
 
         #endregion

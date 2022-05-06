@@ -50,8 +50,9 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         #region MonoBehaviour
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             CanInteract = startInteractable;
             Strategy = () =>
             {

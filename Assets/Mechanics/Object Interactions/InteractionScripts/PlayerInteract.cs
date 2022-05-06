@@ -49,6 +49,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 return;
             }
+
             if (col.collider.CompareTag("Interactable"))
             {
                 if (_currentActive != null)
@@ -70,11 +71,13 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 return;
             }
+
             if (other.collider.CompareTag("Interactable"))
             {
                 var interactable = other.gameObject.GetComponent<InteractableObject>();
                 if (interactable == _currentActive)
                 {
+                    //TODO: Duplicated
                     _currentActive.RemoveInteraction(this);
                     _currentActive = null;
                 }
@@ -93,7 +96,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         {
             if (context.started && _currentActive != null)
             {
-                _currentActive.Interact();
+                if (!_currentActive.Interact())
+                {
+                    _currentActive.RemoveInteraction(this);
+                    _currentActive = null;
+                }
             }
         }
 
@@ -110,9 +117,9 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
             Vector2 mousePos = Camera.main!.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             var hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            Debug.DrawLine(_rigidbody2D.position, 
+            Debug.DrawLine(_rigidbody2D.position,
                 mousePos,
-                hit ? Color.green : Color.yellow, 
+                hit ? Color.green : Color.yellow,
                 1f);
             if (Vector2.SqrMagnitude(mousePos - _rigidbody2D.position) > clickDistance * clickDistance)
             {
@@ -121,6 +128,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                     _currentActive.RemoveInteraction(this);
                     _currentActive = null;
                 }
+
                 Debug.Log(
                     $"<color=green>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
                     hit ? hit.collider.gameObject : gameObject
@@ -149,7 +157,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
             if (_currentActive == interactable)
             {
-                _currentActive.Interact();
+                if (!_currentActive.Interact())
+                {
+                    _currentActive.RemoveInteraction(this);
+                    _currentActive = null;
+                }
             }
             else if (interactable.SetInteraction(this))
             {

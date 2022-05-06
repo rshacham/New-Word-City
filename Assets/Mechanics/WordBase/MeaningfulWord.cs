@@ -114,6 +114,7 @@ namespace Mechanics.WordBase
             {
                 // TODO: if single use interaction, have a way to re-enable it!
                 linkedObject.OnInteractionEnd += FoundMeaning;
+                linkedObject.OnInformChain();
             }
         }
 
@@ -122,9 +123,10 @@ namespace Mechanics.WordBase
         /// </summary>
         public void UnRegisterMeaning()
         {
-            if (linkedObject != null)
+            if (!Found && linkedObject != null)
             {
                 linkedObject.OnInteractionEnd -= FoundMeaning;
+                linkedObject.OnInformChain();
             }
         }
 
@@ -169,10 +171,10 @@ namespace Mechanics.WordBase
                 return true;
             }
 
-            Found = true;
             Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", LinkedObject);
-            WordsGameManager.MeaningFoundCount++;
             UnRegisterMeaning();
+            Found = true;
+            WordsGameManager.MeaningFoundCount++;
             return Found;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,7 +33,7 @@ namespace Mechanics.Cursor_Change
                 _currentType = CurrentType.Normal;
             }
         }
-        
+
         private static void ChangeCursor(Texture2D cursor)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
@@ -56,7 +57,7 @@ namespace Mechanics.Cursor_Change
                 Destroy(gameObject);
                 return;
             }
-            
+
             _instance = this;
             DontDestroyOnLoad(gameObject);
             ChangeCursor(cursorNormal);
@@ -81,13 +82,17 @@ namespace Mechanics.Cursor_Change
         public void OnMouseHover(InputAction.CallbackContext context)
         {
             Vector2 mousePos = Camera.main!.ScreenToWorldPoint(context.ReadValue<Vector2>());
-            print(mousePos);
             var hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit && hit.collider.CompareTag("Interactable"))
             {
-                HoverInteractable();
-                return;
+                var interactable = hit.collider.GetComponent<InteractableObject>();
+                if (interactable.CanInteract)
+                {
+                    HoverInteractable();
+                    return;
+                }
             }
+
             UnHoverInteractable();
         }
     }
