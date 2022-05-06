@@ -93,24 +93,33 @@ namespace Mechanics.WordBase
         #region Inspector
 
         [SerializeField]
+        [Tooltip("A string to represent this meaning. should be readonly?")]
         [Multiline]
         private string meaning;
 
         [SerializeField]
+        [Tooltip("The interactable object that hides this meaning")]
         private InteractableObject linkedObject;
 
         #endregion
 
         #region Register Methods
 
+        /// <summary>
+        /// Link this meaning to the objects interaction.
+        /// </summary>
         public void RegisterMeaning()
         {
             if (linkedObject != null && !Found)
             {
+                // TODO: if single use interaction, have a way to re-enable it!
                 linkedObject.OnInteractionEnd += FoundMeaning;
             }
         }
 
+        /// <summary>
+        /// Unlink this meaning from the object.
+        /// </summary>
         public void UnRegisterMeaning()
         {
             if (linkedObject != null)
@@ -123,9 +132,22 @@ namespace Mechanics.WordBase
 
         #region Public Properties
 
+        // TODO: add getter/setter for the word itself if we require this? and update in the manager?
+        // public MeaningfulWord Word { get; set; }
+        
+        /// <summary>
+        /// Did we find this meaning?
+        /// </summary>
         public bool Found { get; set; } = false;
+        /// <summary>
+        /// Getter for the meaning itself.
+        /// </summary>
         public string Meaning => meaning;
 
+        /// <summary>
+        /// Getter/Setter for the linked object - this allows us to still serialize the object if required.
+        /// TODO: Active in scene check.
+        /// </summary>
         public InteractableObject LinkedObject
         {
             get => linkedObject;
@@ -136,6 +158,10 @@ namespace Mechanics.WordBase
 
         #region Private Methods
 
+        /// <summary>
+        /// Function to be called when the interaction to find it has ended.
+        /// </summary>
+        /// <returns></returns>
         private bool FoundMeaning()
         {
             if (Found)
