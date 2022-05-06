@@ -1,65 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Mechanics.WordBase
 {
-    public class WordsGameManager : MonoBehaviour
+    public static class WordsGameManager
     {
-        #region Inspector
-
-        [SerializeField]
-        private List<MeaningfulWord> words = new List<MeaningfulWord>();
-
-        #endregion
-
         #region Static Properties
 
         public static MeaningfulWord Current
         {
-            get => _instance._current;
-            private set => _instance._current = value;
+            get => Active ? Instance.Current : null;
+            internal set
+            {
+                if (Active)
+                {
+                    Instance.Current = value;
+                }
+            }
         }
 
-        public static List<MeaningfulWord> Words => _instance.words;
+        public static List<MeaningfulWord> Words => Active ? Instance.words : null;
 
         public static int MeaningFoundCount
         {
-            get => _instance._meaningFoundCount;
+            get => Active ? Instance.MeaningFoundCount : -1;
             set
             {
-                _instance._meaningFoundCount = value;
-                if (Current != null && _instance._meaningFoundCount == Current.Meanings.Count)
+                if (!Active)
+                {
+                    return;
+                }
+
+                Instance.MeaningFoundCount = value;
+                // TODO: work with active
+                if (Current != null && Instance.MeaningFoundCount == Current.Meanings.Count)
                 {
                     Current.WordComplete = true;
+                    Completed.Add(Current);
                     Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
                     // TODO: switch Word Method based on game design
-                    _instance._currentIndex++;
-                    _instance._currentIndex %= Words.Count;
-                    SwitchToWord(_instance._currentIndex);
+                    Instance.CurrentIndex++;
+                    Instance.CurrentIndex %= Words.Count;
+                    SwitchToWord(Instance.CurrentIndex);
                 }
             }
+        }
+
+        public static bool Active { get; private set; }
+
+        public static WordsSceneManager Instance
+        {
+            get => _instance;
+            internal set
+            {
+                _instance = value;
+                Active = value != null;
+            }
+        }
+
+        public static List<MeaningfulWord> Completed
+        {
+            get => _completed;
+            set => _completed = value;
         }
 
         #endregion
 
         #region Private Fields
 
-        #region Static
+        private static WordsSceneManager _instance;
 
-        private static WordsGameManager _instance = null;
-
-        #endregion
-
-        #region Instance
-
-        private int _meaningFoundCount;
-
-        private int _currentIndex;
-
-        private MeaningfulWord _current = null;
-
-        #endregion
+        private static List<MeaningfulWord> _completed = new List<MeaningfulWord>();
 
         #endregion
 
@@ -67,10 +80,11 @@ namespace Mechanics.WordBase
 
         public static void SwitchToWord(int newWord)
         {
-            if (newWord < -1 || newWord > Words.Count)
+            if (!Active || newWord < -1 || newWord > Words.Count)
             {
                 return;
             }
+            //TODO: check if in completed
 
             if (Current != null)
             {
@@ -85,7 +99,7 @@ namespace Mechanics.WordBase
             }
 
             Current = Words[newWord];
-            _instance._currentIndex = newWord;
+            Instance.CurrentIndex = newWord;
             RegisterCurrentMeanings();
             MeaningFoundCount = Current.MeaningFoundCount;
             Debug.Log($"New word: <color=blue>{Current}</color>");
@@ -93,6 +107,11 @@ namespace Mechanics.WordBase
 
         public static void SwitchToWord(string word)
         {
+            if (!Active)
+            {
+                return;
+            }
+
             var newWord = Words.FindIndex(x => x.Word == word);
             SwitchToWord(newWord);
         }
@@ -100,6 +119,11 @@ namespace Mechanics.WordBase
 
         public static void RegisterCurrentMeanings()
         {
+            if (!Active)
+            {
+                return;
+            }
+
             foreach (var descriptor in Current.Meanings)
             {
                 descriptor.RegisterMeaning();
@@ -108,29 +132,15 @@ namespace Mechanics.WordBase
 
         public static void UnRegisterCurrentMeanings()
         {
+            if (!Active)
+            {
+                return;
+            }
+
             foreach (var descriptor in Current.Meanings)
             {
                 descriptor.UnRegisterMeaning();
             }
-        }
-
-        #endregion
-
-
-        #region MonoBehaviour
-
-        private void Awake()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-                Current = words[0]; // TODO if empty, changing based on level, so on and so forth.
-                RegisterCurrentMeanings();
-                DontDestroyOnLoad(gameObject);
-                return;
-            }
-
-            Destroy(gameObject);
         }
 
         #endregion

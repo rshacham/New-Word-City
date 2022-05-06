@@ -398,22 +398,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   words:
-  - word: Drop
+  - word: Left
     meanings:
-    - meaning: Drop of water
+    - meaning: Left side of the screen
       linkedObject: {fileID: 1100781941}
-    - meaning: Drop from high place
+    - meaning: Left - Leave
       linkedObject: {fileID: 1946421847}
-    - meaning: Drop another object
-      linkedObject: {fileID: 658709043}
-  - word: Cut
-    meanings:
-    - meaning: Cut Grass
-      linkedObject: {fileID: 1100781941}
-    - meaning: Cut movie scene
-      linkedObject: {fileID: 1946421847}
-    - meaning: Cut ribbon
-      linkedObject: {fileID: 658709043}
 --- !u!4 &992142495
 Transform:
   m_ObjectHideFlags: 0
