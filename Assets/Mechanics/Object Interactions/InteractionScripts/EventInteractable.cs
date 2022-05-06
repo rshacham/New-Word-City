@@ -11,6 +11,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         #region Inspector
         //TODO: add field for "used by composite", if we need something like that
 
+        [Space(2)]
         [Header("Basic Behaviour")]
         [SerializeField]
         [Tooltip("Start this object in interactable state")]
@@ -44,7 +45,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         [SerializeField]
         [Tooltip("the return value of the Interact")]
-        private bool strategyReturnTrue = true;
+        // TODO: Notice this does nor work with interactions that have words at the moment!
+        private bool stayHighlightAfterInteract = true;
 
         #endregion
 
@@ -59,7 +61,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 ScriptInteract();
                 onInteraction.Invoke(this);
                 CanInteract = interactMultipleTimes;
-                return strategyReturnTrue;
+                return stayHighlightAfterInteract;
             };
         }
 

@@ -1,6 +1,4 @@
 using System;
-using JetBrains.Annotations;
-using Mechanics.Cursor_Change;
 using UnityEngine;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
@@ -12,15 +10,25 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     [RequireComponent(typeof(Collider2D))]
     public class InteractableObject : MonoBehaviour
     {
+        #region Inspector
+
         [Header("Word Connection")]
+        [Space]
         [SerializeField]
         private bool requiresWord;
 
         [SerializeField]
         private InteractableObject lastLink;
+        // TODO: add case where after word complete we want to keep the interaction possible
+
+        #endregion
+
+        #region Private Fields
 
         private bool _wordActive;
         private bool _canInteract = true;
+
+        #endregion
 
         #region Public Properties
 
@@ -128,6 +136,10 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         public virtual void OnInformChain()
         {
+            if (!requiresWord)
+            {
+                return;
+            }
             _wordActive = !_wordActive;
             // Debug.Log($"<color=white>{_wordActive ? "Interactable Active" : "Interactable disabled"}</color>", gameObject);
             InformChain?.Invoke(this, EventArgs.Empty);
