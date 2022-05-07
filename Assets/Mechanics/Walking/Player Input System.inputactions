@@ -1,0 +1,94 @@
+{
+    "name": "Player Input System",
+    "maps": [
+        {
+            "name": "Regular Movement",
+            "id": "91bfe7c6-06b8-43c3-bcff-0dedce818a57",
+            "actions": [
+                {
+                    "name": "Walk Right",
+                    "type": "Button",
+                    "id": "224e79d9-eaf7-42af-8958-ad35cf47e47c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Walk Left",
+                    "type": "Button",
+                    "id": "24706610-236e-4119-be8e-844ee0bbfc9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Walk Up",
+                    "type": "Button",
+                    "id": "dc1c39ac-5adc-41b0-92af-09e2a5fd17da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Walk Down",
+                    "type": "Button",
+                    "id": "f34b5e72-de6b-483c-a9a7-d3b09b4682ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a8d4faec-6ae5-4b19-bc8d-14f87136743e",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bed2b8c1-77b4-4ddd-bb87-64f7c0ce5aaa",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce4f7db2-b573-472e-85cc-3d1ff3f03459",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "422270f6-9c10-48dc-ad04-badaebf6c3d0",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
