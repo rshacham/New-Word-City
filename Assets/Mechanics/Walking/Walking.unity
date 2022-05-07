@@ -470,6 +470,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dc1c39ac-5adc-41b0-92af-09e2a5fd17da
     m_ActionName: Regular Movement/Walk Up[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 157971937304949741}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: MovevLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 24706610-236e-4119-be8e-844ee0bbfc9a
+    m_ActionName: Regular Movement/Walk Left[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 157971937304949741}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: MoveDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f34b5e72-de6b-483c-a9a7-d3b09b4682ec
+    m_ActionName: Regular Movement/Walk Down[/Keyboard/downArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Regular Movement

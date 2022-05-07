@@ -21,28 +21,6 @@ public class Movement : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
-    {
-        // Vector2 oldVelocity = playerRigidBody.velocity;
-        //
-        // if (MovingRight)
-        // {
-        //     playerRigidBody.velocity = new Vector2(maxSpeed, oldVelocity.y);
-        // }
-        //
-        // else if (MovingLeft)
-        // {
-        //     playerRigidBody.velocity = new Vector2(-maxSpeed, oldVelocity.y);
-        // }
-        //
-        // else
-        // {
-        //     playerRigidBody.velocity = new Vector2(0f, oldVelocity.y);
-        // }
-        //
-        // if (movingUp)
-    }
-
     public void MoveRight(InputAction.CallbackContext context)
     {
         Vector2 oldVelocity = playerRigidBody.velocity;
