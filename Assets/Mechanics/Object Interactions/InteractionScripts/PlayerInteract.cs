@@ -1,4 +1,5 @@
 ﻿using System;
+using Mechanics.Object_Interactions.Highlight_Proximity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class PlayerInteract : MonoBehaviour
     {
         #region Inspector
-
+        
         [SerializeField]
         [Tooltip("Distance in with clicks are accepted")]
         [Min(0)]
@@ -20,6 +21,10 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         [SerializeField]
         [Tooltip("Are collisions with interactable objects count as setting them active?")]
         private bool highlightOnCollision = true;
+
+        [SerializeField]
+        [Tooltip("Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
+        private bool highlightOnProximity;
 
         #endregion
 
@@ -30,17 +35,17 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         #endregion
 
-
         #region Private Fields
 
         private Rigidbody2D _rigidbody2D;
+
         private Collider2D _collider2D;
 
         /// <summary>
         /// Current object that the user is attached to
         /// </summary>
         private InteractableObject _currentActive;
-        
+
         #endregion
 
         #region MonoBehaviour
@@ -51,6 +56,20 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             _collider2D = GetComponent<Collider2D>();
         }
 
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (!highlightOnProximity)
+            {
+                return;
+            }
+
+            if (col.gameObject.CompareTag("Interactable"))
+            {
+                var parentCollider = col.GetComponent<ProximityHighlighter>().ParentCollider;
+                CollisionHighlighter(parentCollider);
+            }
+        }
+
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (!highlightOnCollision)
@@ -58,18 +77,37 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 return;
             }
 
-            if (col.collider.CompareTag("Interactable"))
+            if (col.gameObject.CompareTag("Interactable"))
             {
-                if (_currentActive != null)
-                {
-                    return;
-                }
+                CollisionHighlighter(col.collider);
+            }
+        }
 
-                var interactable = col.gameObject.GetComponent<InteractableObject>();
-                if (interactable.SetInteraction(this))
-                {
-                    _currentActive = interactable;
-                }
+        private void CollisionHighlighter(Collider2D col)
+        {
+            if (_currentActive != null)
+            {
+                return;
+            }
+
+            var interactable = col.gameObject.GetComponent<InteractableObject>();
+            if (interactable.SetInteraction(this))
+            {
+                _currentActive = interactable;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (!highlightOnProximity)
+            {
+                return;
+            }
+
+            if (other.CompareTag("Interactable"))
+            {
+                var parentCollider = other.GetComponent<ProximityHighlighter>().ParentCollider;
+                CollisionUnHighlighter(parentCollider);
             }
         }
 
@@ -82,13 +120,18 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
             if (other.collider.CompareTag("Interactable"))
             {
-                var interactable = other.gameObject.GetComponent<InteractableObject>();
-                if (interactable == _currentActive)
-                {
-                    //TODO: Duplicated
-                    _currentActive.RemoveInteraction(this);
-                    _currentActive = null;
-                }
+                CollisionUnHighlighter(other.collider);
+            }
+        }
+
+        private void CollisionUnHighlighter(Collider2D other)
+        {
+            var interactable = other.gameObject.GetComponent<InteractableObject>();
+            if (interactable == _currentActive)
+            {
+                //TODO: Duplicated
+                _currentActive.RemoveInteraction(this);
+                _currentActive = null;
             }
         }
 
