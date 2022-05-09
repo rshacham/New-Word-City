@@ -184,8 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -195,7 +198,8 @@ MonoBehaviour:
   onHighlightEnd:
     m_PersistentCalls:
       m_Calls: []
-  useDebugScriptInteract: 1
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
 --- !u!212 &658709044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -408,6 +412,14 @@ MonoBehaviour:
       linkedObject: {fileID: 1946421847}
     - meaning: Drop another object
       linkedObject: {fileID: 658709043}
+    - meaning: Drop a passenger (Taxi)
+      linkedObject: {fileID: 0}
+    - meaning: Drop a coin
+      linkedObject: {fileID: 0}
+    - meaning: Drop the beat (Music)
+      linkedObject: {fileID: 0}
+    - meaning: Drop the mic
+      linkedObject: {fileID: 0}
   - word: Cut
     meanings:
     - meaning: Cut Grass
@@ -487,8 +499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -510,7 +525,8 @@ MonoBehaviour:
   onHighlightEnd:
     m_PersistentCalls:
       m_Calls: []
-  useDebugScriptInteract: 1
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
 --- !u!212 &1008779982
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -607,8 +623,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -618,7 +637,8 @@ MonoBehaviour:
   onHighlightEnd:
     m_PersistentCalls:
       m_Calls: []
-  useDebugScriptInteract: 1
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
 --- !u!212 &1100781942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -839,6 +859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickDistance: 3
+  highlightOnCollision: 1
+  highlightOnProximity: 0
 --- !u!58 &1467576162
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -971,8 +993,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
+  highlightInteract: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -982,7 +1007,8 @@ MonoBehaviour:
   onHighlightEnd:
     m_PersistentCalls:
       m_Calls: []
-  useDebugScriptInteract: 1
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
 --- !u!212 &1946421848
 SpriteRenderer:
   m_ObjectHideFlags: 0

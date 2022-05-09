@@ -6,32 +6,38 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    private Rigidbody2D playerRigidBody;
-
-    private bool movingRight;
-
-    private bool movingLeft;
-
-    private bool movingUp;
-
-    private bool movingDown;
+    private const string Controller = "Controller";
 
     [SerializeField]
     private float maxSpeed;
+
     [SerializeField]
-    private float speedPerFrame;
+    private float maxAcceleration;
+
+    [SerializeField]
+    private float smoothedTime = 1f;
 
     [SerializeField]
     private bool moveIsometric;
-    
+
     [SerializeField]
     [Range(0, 180)]
     private int isometricAngle = 120;
+
+    private Rigidbody2D playerRigidBody;
 
     private Vector2 _isoVector;
 
     private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
 
+    private Vector2 _desiredVelocity;
+
+    private Vector2 _currentDamp;
+
+    private PlayerInput _playerInput;
+
+    [SerializeField]
+    private bool smoothing;
 
     private void OnValidate()
     {
@@ -41,108 +47,42 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        _playerInput = GetComponent<PlayerInput>();
         playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void MoveRight(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        Vector2 oldVelocity = playerRigidBody.velocity;
-        if (context.started && !movingLeft)
+        if (smoothing)
         {
-            movingRight = true;
+            playerRigidBody.velocity = Vector2.SmoothDamp(
+                playerRigidBody.velocity,
+                _desiredVelocity,
+                ref _currentDamp,
+                smoothedTime,
+                maxAcceleration,
+                Time.fixedDeltaTime
+            );
         }
-
-        if (movingRight)
+        else
         {
-            playerRigidBody.velocity = new Vector2(maxSpeed, oldVelocity.y);
-        }
-
-        if (context.canceled)
-        {
-            playerRigidBody.velocity = new Vector2(0, oldVelocity.y);
-            movingRight = false;
-        }
-    }
-
-    public void MovevLeft(InputAction.CallbackContext context)
-    {
-        Vector2 oldVelocity = playerRigidBody.velocity;
-        if (context.started && !movingRight)
-        {
-            movingLeft = true;
-        }
-
-        if (movingLeft)
-        {
-            playerRigidBody.velocity = new Vector2(-maxSpeed, oldVelocity.y);
-        }
-
-        if (context.canceled)
-        {
-            playerRigidBody.velocity = new Vector2(0, oldVelocity.y);
-            movingLeft = false;
-        }
-    }
-
-    public void MoveUp(InputAction.CallbackContext context)
-    {
-        Vector2 oldVelocity = playerRigidBody.velocity;
-        if (context.started && !movingDown)
-        {
-            movingUp = true;
-        }
-
-        if (movingUp)
-        {
-            playerRigidBody.velocity = new Vector2(oldVelocity.x, maxSpeed);
-        }
-
-        if (context.canceled)
-        {
-            playerRigidBody.velocity = new Vector2(oldVelocity.x, 0);
-            movingUp = false;
-        }
-    }
-
-    public void MoveDown(InputAction.CallbackContext context)
-    {
-        Vector2 oldVelocity = playerRigidBody.velocity;
-        if (context.started && !movingUp)
-        {
-            movingDown = true;
-        }
-
-        if (movingDown)
-        {
-            playerRigidBody.velocity = new Vector2(oldVelocity.x, -maxSpeed);
-        }
-
-        if (context.canceled)
-        {
-            playerRigidBody.velocity = new Vector2(oldVelocity.x, 0);
-            movingDown = false;
+            playerRigidBody.velocity = _desiredVelocity;
         }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         var movementVector = context.action.ReadValue<Vector2>();
-        if (moveIsometric)
+        if (_playerInput.currentControlScheme != Controller)
         {
-            movementVector = _moveAngle * movementVector;
+            if (moveIsometric)
+            {
+                movementVector = _moveAngle * movementVector;
+            }
+
+            movementVector *= _isoVector;
         }
 
-        playerRigidBody.velocity = movementVector * _isoVector * maxSpeed;
-    }
-
-    public void OnMovementUnNormalized(InputAction.CallbackContext context)
-    {
-        // var movementVector = context.action.ReadValue<Vector2>();
-        // if (moveIsometric)
-        // {
-        //     // TODO: check if should normalize or not based on feedback
-        //     movementVector = _moveAngle * movementVector.normalized;
-        // }
-        // playerRigidBody.velocity = movementVector * _isoVector * maxSpeed;
+        _desiredVelocity = movementVector * maxSpeed;
     }
 }

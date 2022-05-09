@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830513036587249131}
   - component: {fileID: 6188368676122312999}
+  - component: {fileID: 2952884323134895216}
   - component: {fileID: 6267474628486685449}
   - component: {fileID: 5573016478976545007}
   - component: {fileID: 1374308241759709736}
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2423514075409922120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.06, y: 3.71, z: 0}
-  m_LocalScale: {x: 2.5961637, y: 2.2871134, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.65}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,9 +48,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 1.5
-  speedPerFrame: 0.05
+  maxAcceleration: 500
+  smoothedTime: 0.1
   moveIsometric: 0
   isometricAngle: 130
+  smoothing: 1
+--- !u!114 &2952884323134895216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423514075409922120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db5b6fa0a204e5fa45eb068d28fd002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickDistance: 3
+  highlightOnCollision: 0
+  highlightOnProximity: 1
 --- !u!114 &6267474628486685449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 80e5d909b01c82e4fa98c96a14e4d129, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: e20f892cc38d6e54c8fe8145e38a129d, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -77,9 +95,10 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: MoveRight
+      - m_Target: {fileID: 2952884323134895216}
+        m_TargetAssemblyTypeName: Mechanics.Object_Interactions.InteractionScripts.PlayerInteract,
+          Assembly-CSharp
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -89,59 +108,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 224e79d9-eaf7-42af-8958-ad35cf47e47c
-    m_ActionName: Regular Movement/Walk Right[/Keyboard/rightArrow]
+    m_ActionId: 80e44b83-00e6-4fd0-ae41-cb2e8a0ea8aa
+    m_ActionName: PlayerMovement/Interact[/Keyboard/e,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99be8aa1-8d1b-4af3-86a9-6c954ac5589f
+    m_ActionName: PlayerMovement/MouseInteract[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6cd5c691-10b2-41ea-a3a5-e101ae13fe7d
+    m_ActionName: PlayerMovement/SecondaryInteract[/XInputControllerWindows/buttonEast,/Keyboard/ctrl]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: MoveUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: dc1c39ac-5adc-41b0-92af-09e2a5fd17da
-    m_ActionName: Regular Movement/Walk Up[/Keyboard/upArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: MovevLeft
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 24706610-236e-4119-be8e-844ee0bbfc9a
-    m_ActionName: Regular Movement/Walk Left[/Keyboard/leftArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: MoveDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f34b5e72-de6b-483c-a9a7-d3b09b4682ec
-    m_ActionName: Regular Movement/Walk Down[/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6188368676122312999}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
@@ -153,27 +132,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: f9f93d26-cade-4ae1-9e75-7bb663b8d5ea
-    m_ActionName: Combined Movement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: 42345f15-971c-4c32-8c62-bc9dcde0df20
+    m_ActionName: PlayerMovement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: OnMovementUnNormalized
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 52ae0e3a-2199-4370-b48c-968a0ee1a263
-    m_ActionName: Combined Movement/Movement UnNormalized[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+      m_Calls: []
+    m_ActionId: a6ce064a-0e95-415d-8315-37afea2946de
+    m_ActionName: PlayerMovement/Movement UnNormalized[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Combined Movement
+  m_DefaultControlScheme: Controller
+  m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!212 &5573016478976545007
@@ -235,9 +202,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2423514075409922120}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

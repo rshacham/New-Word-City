@@ -16,6 +16,9 @@ namespace Mechanics.Cursor_Change
         [SerializeField]
         private InputActionReference mouseHover;
 
+        [SerializeField]
+        private LayerMask hoverMask;
+
         // TODO: players register at awake, and cursor change can depend on their location/distance
         // public PlayerInteract Player { get; set; }
 
@@ -85,7 +88,7 @@ namespace Mechanics.Cursor_Change
         public void OnMouseHover(InputAction.CallbackContext context)
         {
             Vector2 mousePos = Camera.main!.ScreenToWorldPoint(context.ReadValue<Vector2>());
-            var hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            var hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, hoverMask);
             if (hit && hit.collider.CompareTag("Interactable"))
             {
                 var interactable = hit.collider.GetComponent<InteractableObject>();

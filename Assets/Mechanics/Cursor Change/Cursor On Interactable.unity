@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 517759408}
   - component: {fileID: 517759410}
   - component: {fileID: 517759407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 1
@@ -267,7 +269,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useScriptedInteraction: 1
-  strategyReturnTrue: 1
+  stayHighlightAfterInteract: 1
 --- !u!212 &517759408
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -371,7 +373,7 @@ GameObject:
   - component: {fileID: 643771556}
   - component: {fileID: 643771559}
   - component: {fileID: 643771558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -455,6 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
   startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 1
@@ -468,7 +472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useScriptedInteraction: 1
-  strategyReturnTrue: 1
+  stayHighlightAfterInteract: 1
 --- !u!61 &643771559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -527,6 +531,9 @@ MonoBehaviour:
   cursorNormal: {fileID: 2800000, guid: a6cb39fa1816f3e4598dc7a0fad9e2db, type: 3}
   cursorHover: {fileID: 2800000, guid: 737762f463f31d547b21902ca6576671, type: 3}
   mouseHover: {fileID: -4125279070166160822, guid: 7e98fd50a18da0a4bb91f54282981088, type: 3}
+  hoverMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1817577989
 Transform:
   m_ObjectHideFlags: 0
