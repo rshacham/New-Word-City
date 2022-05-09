@@ -17,7 +17,7 @@ namespace Mechanics.Object_Interactions.Highlight_Proximity
         {
             if (parent != null)
             {
-                ParentCollider = parent.GetComponent<Collider2D>();
+                ParentCollider = parent.Collider;
             }
         }
 
@@ -30,7 +30,7 @@ namespace Mechanics.Object_Interactions.Highlight_Proximity
                 {
                     Debug.LogError("Must have InteractableObject as parent!", this);
                 }
-                ParentCollider = parent.GetComponent<Collider2D>();
+                ParentCollider = parent.Collider;
             }
             else
             {

@@ -63,7 +63,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 return;
             }
 
-            if (col.gameObject.CompareTag("Interactable"))
+            if (col.gameObject.CompareTag("InteractableHighlighter"))
             {
                 var parentCollider = col.GetComponent<ProximityHighlighter>().ParentCollider;
                 CollisionHighlighter(parentCollider);
@@ -90,7 +90,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 return;
             }
 
-            var interactable = col.gameObject.GetComponent<InteractableObject>();
+            var interactable = col.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable.SetInteraction(this))
             {
                 _currentActive = interactable;
@@ -104,7 +104,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
                 return;
             }
 
-            if (other.CompareTag("Interactable"))
+            if (other.gameObject.CompareTag("InteractableHighlighter"))
             {
                 var parentCollider = other.GetComponent<ProximityHighlighter>().ParentCollider;
                 CollisionUnHighlighter(parentCollider);
@@ -126,7 +126,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void CollisionUnHighlighter(Collider2D other)
         {
-            var interactable = other.gameObject.GetComponent<InteractableObject>();
+            var interactable = other.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable == _currentActive)
             {
                 //TODO: Duplicated
@@ -204,7 +204,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <param name="hit"></param>
         private void ClickedInteractable(RaycastHit2D hit)
         {
-            var interactable = hit.collider.GetComponent<InteractableObject>();
+            var interactable = hit.collider.GetComponentInParent<InteractableObject>();
 
             if (_currentActive == interactable)
             {

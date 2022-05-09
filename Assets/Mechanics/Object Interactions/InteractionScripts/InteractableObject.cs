@@ -7,7 +7,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     /// GameObject that can have an interactions
     /// Note: should probably inherit from EventInteractable, it has more robust features set.
     /// </summary>
-    [RequireComponent(typeof(Collider2D))]
+    // [RequireComponent(typeof(Collider2D))]
     public class InteractableObject : MonoBehaviour
     {
         #region Inspector
@@ -20,6 +20,9 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         [SerializeField]
         private InteractableObject lastLink;
         // TODO: add case where after word complete we want to keep the interaction possible
+
+        [SerializeField]
+        private Collider2D myCollider;
 
         #endregion
 
@@ -62,6 +65,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// The user currently holding this object
         /// </summary>
         public PlayerInteract Player { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Collider2D Collider => myCollider;
 
         /// <summary>
         /// Can this object be used for interactions?
@@ -140,6 +148,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             {
                 return;
             }
+
             _wordActive = !_wordActive;
             // Debug.Log($"<color=white>{_wordActive ? "Interactable Active" : "Interactable disabled"}</color>", gameObject);
             InformChain?.Invoke(this, EventArgs.Empty);
@@ -154,6 +163,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (requiresWord && lastLink != null)
             {
                 lastLink.InformChain += (sender, args) => OnInformChain();
+            }
+
+            if (myCollider == null)
+            {
+                myCollider = GetComponentInChildren<Collider2D>();
             }
         }
 
