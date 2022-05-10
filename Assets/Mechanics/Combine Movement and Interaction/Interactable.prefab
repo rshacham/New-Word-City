@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiresWord: 0
   lastLink: {fileID: 0}
-  myCollider: {fileID: 0}
+  myCollider: {fileID: 1713515508419968632}
   startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 0

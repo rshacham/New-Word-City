@@ -33,6 +33,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         // TODO: to ve used with cursor if required
         // public float ClickDistance => clickDistance;
 
+        public bool IsActive { get; set; } = true;
+
         #endregion
 
         #region Private Fields
@@ -58,7 +60,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (!highlightOnProximity)
+            if (!highlightOnProximity || !IsActive)
             {
                 return;
             }
@@ -72,7 +74,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (!highlightOnCollision)
+            if (!highlightOnCollision || !IsActive)
             {
                 return;
             }
@@ -85,7 +87,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         private void CollisionHighlighter(Collider2D col)
         {
-            if (_currentActive != null)
+            if (_currentActive != null || !IsActive)
             {
                 return;
             }
@@ -130,6 +132,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (interactable == _currentActive)
             {
                 //TODO: Duplicated
+                Debug.Log("<color=cyan>UnHighlight</color>", other);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
             }
@@ -145,7 +148,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <param name="context"></param>
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.started && _currentActive != null)
+            if (context.started && _currentActive != null && IsActive)
             {
                 if (!_currentActive.Interact())
                 {
@@ -161,7 +164,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <param name="context"></param>
         public void OnMouseInteract(InputAction.CallbackContext context)
         {
-            if (!context.started || !Mouse.current.leftButton.wasPressedThisFrame)
+            if (!context.started || !Mouse.current.leftButton.wasPressedThisFrame || !IsActive)
             {
                 return;
             }
