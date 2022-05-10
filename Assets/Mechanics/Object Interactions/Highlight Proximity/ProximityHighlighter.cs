@@ -1,4 +1,5 @@
 using System;
+using Avrahamy;
 using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Mechanics.Object_Interactions.Highlight_Proximity
         [SerializeField]
         [Tooltip("This objects parent")]
         private InteractableObject parent;
-        
+
         private Collider2D _myCollider2D;
 
         private void OnValidate()
@@ -28,15 +29,16 @@ namespace Mechanics.Object_Interactions.Highlight_Proximity
                 parent = GetComponentInParent<InteractableObject>();
                 if (parent == null)
                 {
-                    Debug.LogError("Must have InteractableObject as parent!", this);
+                    DebugLog.LogError("Must have InteractableObject as parent!", this);
                 }
+
                 ParentCollider = parent.Collider;
             }
             else
             {
                 transform.parent = parent.transform;
             }
-            
+
             _myCollider2D = GetComponent<Collider2D>();
             _myCollider2D.isTrigger = true;
         }
@@ -61,12 +63,12 @@ namespace Mechanics.Object_Interactions.Highlight_Proximity
 
         public virtual void HighlightEvent(InteractableObject o)
         {
-            Debug.Log("<color=green>Highlight</color>", o);
+            DebugLog.Log("Highlight", Color.green, o);
         }
-        
+
         public virtual void UnHighlightEvent(InteractableObject o)
         {
-            Debug.Log("<color=white>UnHighlight</color>", o);
+            DebugLog.Log("UnHighlight", Color.green, o);
         }
     }
 }

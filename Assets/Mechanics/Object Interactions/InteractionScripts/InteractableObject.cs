@@ -1,4 +1,5 @@
 using System;
+using Avrahamy;
 using UnityEngine;
 
 namespace Mechanics.Object_Interactions.InteractionScripts
@@ -92,20 +93,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// <returns>true if the object was attached successfully to other</returns>
         public virtual bool SetInteraction(PlayerInteract other)
         {
-#if UNITY_EDITOR
-            var transform1 = transform;
-            var transformPosition = transform1.position;
-            var transformUp = transform1.up;
-            var transformRight = transform1.right;
-            Debug.DrawLine(transformPosition + transformUp,
-                transformPosition - transformUp,
-                CanInteract ? Color.green : Color.red,
-                1f);
-            Debug.DrawLine(transformPosition + transformRight,
-                transformPosition - transformRight,
-                CanInteract ? Color.green : Color.red,
-                1f);
-#endif
+            DebugDraw.DrawCross2D(transform.position, 1, CanInteract ? Color.green : Color.red, 1f);
+            
             if (!CanInteract)
             {
                 return false;

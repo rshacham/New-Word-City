@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Avrahamy;
 using Mechanics.WordBase;
 using UnityEngine;
 
@@ -43,7 +44,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         private void CallbackEvent(object sender, InteractableObject interactableObject)
         {
             _received++;
-            Debug.Log($"<color=red>Callback received</color> {Received}", this);
+            DebugLog.Log($"<color=red>Callback received</color> {Received}", this);
             if (_received < target)
             {
                 return;
@@ -59,7 +60,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         protected override void ScriptInteract()
         {
             base.ScriptInteract();
-            Debug.Log(_received, this);
+            DebugLog.Log(_received, this);
         }
     }
 }
