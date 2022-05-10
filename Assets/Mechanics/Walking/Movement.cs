@@ -9,6 +9,9 @@ public class Movement : MonoBehaviour
     private const string Controller = "Controller";
 
     [SerializeField]
+    private bool enableMovement = true;
+    
+    [SerializeField]
     private float maxSpeed;
 
     [SerializeField]
@@ -38,6 +41,18 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private bool smoothing;
+
+    public bool EnableMovement
+    {
+        get => enableMovement;
+        set => enableMovement = value;
+    }
+
+    public Vector2 DesiredVelocity
+    {
+        get => _desiredVelocity;
+        set => _desiredVelocity = value;
+    }
 
     private void OnValidate()
     {
@@ -72,6 +87,11 @@ public class Movement : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+        if (!enableMovement)
+        {
+            return;
+        }
+
         var movementVector = context.action.ReadValue<Vector2>();
         if (_playerInput.currentControlScheme != Controller)
         {

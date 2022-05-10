@@ -7,6 +7,7 @@ namespace Mechanics.Object_Moves_Player
     public class PlayerTaxiExitState : StateMachineBehaviour
     {
         private PlayerInteract _player;
+
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo,
             int layerIndex)
         {
@@ -17,6 +18,9 @@ namespace Mechanics.Object_Moves_Player
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo,
             int layerIndex)
         {
+            _player.GetComponent<Movement>().EnableMovement = true;
+            _player.transform.parent = null;
+            _player.CurrentActive.Interact();
             _player.IsActive = true;
         }
         //

@@ -35,6 +35,11 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         public bool IsActive { get; set; } = true;
 
+        /// <summary>
+        /// Current object that the user is attached to
+        /// </summary>
+        public InteractableObject CurrentActive => _currentActive;
+
         #endregion
 
         #region Private Fields
@@ -132,7 +137,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (interactable == _currentActive)
             {
                 //TODO: Duplicated
-                Debug.Log("<color=cyan>UnHighlight</color>", other);
+                // Debug.Log("<color=cyan>UnHighlight</color>", other);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
             }

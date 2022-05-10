@@ -1,4 +1,5 @@
-﻿using Mechanics.Object_Interactions.InteractionScripts;
+﻿using System;
+using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
 
 namespace Mechanics.Object_Moves_Player
@@ -12,29 +13,60 @@ namespace Mechanics.Object_Moves_Player
         [SerializeField]
         private string exitAnimationTrigger = "TaxiExit";
 
-        // protected override void Awake()
-        // {
-        //     // OnInteractionEnd += OnMoveEnd;
-        //     base.Awake();
-        // }
+        private enum TaxiState
+        {
+            Hold,
+            Wait,
+            Move,
+            Stop
+        }
+
+        private TaxiState _waitForPlayer = TaxiState.Hold;
+
+        private Animator _myAnimator;
+
+        private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
+
+        private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
+
+        protected override void Awake()
+        {
+            _myAnimator = GetComponent<Animator>();
+            base.Awake();
+        }
 
         // TODO: define the animation on the player when he is a child of the taxi! then use the animation on this
         //  object instead of on the player!
+        // TODO: do all of this from state behaviour machine?
         protected override void ScriptInteract()
         {
-            Debug.Log("<color=yellow>Taxi Enter</color>", this);
-            var playerAnimator = Player.GetComponent<Animator>();
-            playerAnimator.SetTrigger(enterAnimationTrigger);
-            Player.transform.parent = transform;
+            Animator playerAnimator;
+            switch (_waitForPlayer)
+            {
+                case TaxiState.Hold:
+                    Debug.Log("<color=yellow>Taxi Enter</color>", this);
+                    _waitForPlayer = TaxiState.Wait;
+                    playerAnimator = Player.GetComponent<Animator>();
+                    playerAnimator.SetTrigger(enterAnimationTrigger);
+                    break;
+                case TaxiState.Wait:
+                    Debug.Log("<color=yellow>Taxi Move</color>", this);
+                    _waitForPlayer = TaxiState.Move;
+                    _myAnimator.SetTrigger(TaxiMove);
+                    break;
+                case TaxiState.Move:
+                    Debug.Log("<color=yellow>Taxi Exit</color>", this);
+                    _waitForPlayer = TaxiState.Stop;
+                    playerAnimator = Player.GetComponent<Animator>();
+                    playerAnimator.SetTrigger(exitAnimationTrigger);
+                    break;
+                case TaxiState.Stop:
+                    Debug.Log("<color=yellow>Taxi Hold</color>", this);
+                    _waitForPlayer = TaxiState.Hold;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-
-        public bool OnMoveEnd()
-        {
-            var playerAnimator = Player.GetComponent<Animator>();
-            playerAnimator.SetTrigger(exitAnimationTrigger);
-            Debug.Log("<color=yellow>Taxi Exit</color>", this);
-            Player.transform.parent = null;
-            return true;
-        }
-    }   
+    }
 }
