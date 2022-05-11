@@ -637,6 +637,7 @@ MonoBehaviour:
   distanceBetweenMarks: 256
   questionMark: {fileID: 3370218916140285199, guid: 8287585aba6df4c4b8d86aeffd1fe084, type: 3}
   questionMarksHolder: {fileID: 2045290906}
+  achievementObject: {fileID: 8612206018515334265, guid: 79fcd2e7f2b7f694fb08b7ec1d751bf8, type: 3}
   questionMarksList: []
 --- !u!1001 &3370218916132436222
 PrefabInstance:
