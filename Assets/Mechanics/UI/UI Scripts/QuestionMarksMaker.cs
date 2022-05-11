@@ -26,10 +26,7 @@ public class QuestionMarksMaker : MonoBehaviour
 
     #region Private Properties
 
-    /// <summary>
-    /// A list that will hold all the question marks we instantiated, sorted by index
-    /// </summary>
-    private List<GameObject> questionMarksList = new List<GameObject>();
+
 
     #endregion
 
@@ -45,6 +42,11 @@ public class QuestionMarksMaker : MonoBehaviour
     /// </summary>
 
     public int NextQuestionMark { get; set; } = 0;
+    
+    /// <summary>
+    /// A list that will hold all the question marks we instantiated, sorted by index
+    /// </summary>
+    public List<GameObject> questionMarksList = new List<GameObject>();
 
     #endregion
 
@@ -54,7 +56,6 @@ public class QuestionMarksMaker : MonoBehaviour
     {
         for (int i = 0; i < MarksAmount; i++)
         {
-            
             GameObject newMark = (GameObject) Instantiate(questionMark, questionMarksHolder.transform, false);
             RectTransform newTransform = newMark.GetComponent<RectTransform>();
             var rectPosition = newTransform.position;
