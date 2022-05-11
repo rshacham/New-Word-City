@@ -82,6 +82,8 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         }
         // TODO: when set as false, inform player, if possible.
 
+        public bool UseOnEnd { get; set; } = true;
+
         #endregion
 
         #region Public Methods
@@ -123,7 +125,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         public bool Interact()
         {
             var result = CanInteract && Strategy();
-            if (result)
+            if (result && UseOnEnd)
             {
                 OnInteractionEnd?.Invoke();
             }

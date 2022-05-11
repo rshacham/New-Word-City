@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AnimatedWaterDropController
+  m_Controller: {fileID: 9100000, guid: d9fc0a46a8e0c7c45b9cc186d3b3b02c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fccfca30253474044a8173444944142e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c28d89ba8e7062439d8b64a8ab57244, type: 2}
