@@ -105,6 +105,7 @@ namespace Mechanics.WordBase
             {
                 return;
             }
+            // TODO: loop back to original using for loop with index modulo, not just to the end.
             while (Instance.CurrentIndex < Words.Count)
             {
                 if (Words[Instance.CurrentIndex].WordComplete || Completed.Contains(Words[Instance.CurrentIndex]))
@@ -161,6 +162,7 @@ namespace Mechanics.WordBase
 
             var newWord = Words.FindIndex(x => x == word);
             SwitchToWord(newWord);
+            // TODO: zone based words would use this, meaning we need to be able to have data if the word is finished?
         }
 
 

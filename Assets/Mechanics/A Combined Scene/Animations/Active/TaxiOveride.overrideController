@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TaxiOveride
+  m_Controller: {fileID: 9100000, guid: 83ddcb93d611ded4eb43630863726e5a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8531c1d8c80d20f46b315eee0f79c295, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9fa3702685dda454e8b5048626c4ea93, type: 2}

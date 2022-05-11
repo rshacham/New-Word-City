@@ -15,7 +15,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
 
         protected Collider2D _collider2D;
 
-        private bool _inContactWithRequired;
+        // private bool _inContactWithRequired;
 
         protected override void Awake()
         {
@@ -30,7 +30,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (col.gameObject == required.gameObject)
             {
                 Debug.Log($"<color=yellow>Required Pair</color> Trigger Enter");
-                _inContactWithRequired = true;
+                // _inContactWithRequired = true;
                 Interact();
             }
         }
@@ -40,7 +40,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             if (other.gameObject == required.gameObject)
             {
                 Debug.Log("<color=yellow>Required Pair</color> Trigger Exit");
-                _inContactWithRequired = false;
+                // _inContactWithRequired = false;
                 Interact();
             }
         }
