@@ -44,6 +44,7 @@ namespace Mechanics.Object_Moves_Player
             switch (_waitForPlayer)
             {
                 case TaxiState.Hold:
+                    UseOnEnd = false;
                     Debug.Log("<color=yellow>Taxi Enter</color>", this);
                     _waitForPlayer = TaxiState.Wait;
                     playerAnimator = Player.GetComponent<Animator>();
@@ -61,6 +62,7 @@ namespace Mechanics.Object_Moves_Player
                     playerAnimator.SetTrigger(exitAnimationTrigger);
                     break;
                 case TaxiState.Stop:
+                    UseOnEnd = true;
                     Debug.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
                     break;
