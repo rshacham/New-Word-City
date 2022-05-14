@@ -1,39 +1,46 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
 
-public class DropCar : MonoBehaviour
+public class DropCar : EventInteractable
 {
     #region Inspector
-    
-    [SerializeField] private AudioSource regularClip;
-    [SerializeField] private AudioSource dropClip;
-    [SerializeField] private float animationDelay;
-    
+    [Header("Sound Interaction")]
+    [SerializeField]
+    private AudioSource regularClip;
+
+    [SerializeField]
+    private AudioSource dropClip;
+
+    [SerializeField]
+    private float animationDelay;
+
     #endregion
-    
+
     #region Private Properties
-    
+
     private bool firstPlay;
     private Animator carAnimator;
-    
+
     #endregion
 
     #region Private Methods
+
     void Start()
     {
         carAnimator = GetComponentInParent<Animator>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DropSound();
-        }
-    }
-    
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         DropSound();
+    //     }
+    // }
+
     /// <summary>
     /// This Enumerator will start playing the default sound again.
     /// </summary>
@@ -44,7 +51,7 @@ public class DropCar : MonoBehaviour
         carAnimator.enabled = false;
         regularClip.Play();
     }
-    
+
     /// <summary>
     /// This Enumerator will start the animation.
     /// </summary>
@@ -52,27 +59,22 @@ public class DropCar : MonoBehaviour
     {
         yield return new WaitForSeconds(animationDelay);
         carAnimator.enabled = true;
-
     }
-    
+
     #endregion
 
     #region Public Methods
-    public void DropSound()
-    {
 
+    protected override void ScriptInteract()
+    {
         if (!dropClip.isPlaying)
         {
             regularClip.loop = false;
-            dropClip.PlayDelayed( + regularClip.clip.length - regularClip.time - 0.1f);
+            dropClip.PlayDelayed(+regularClip.clip.length - regularClip.time - 0.1f);
             StartCoroutine(RegularSound());
             StartCoroutine(StartAnimation());
-
-
         }
     }
-    
+
     #endregion
-
-
 }

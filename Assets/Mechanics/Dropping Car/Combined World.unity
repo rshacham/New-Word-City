@@ -3040,7 +3040,7 @@ MonoBehaviour:
       - {fileID: 1095077359}
     - meaning: Drop The Music
       linkedObjects:
-      - {fileID: 1702557313}
+      - {fileID: 0}
 --- !u!4 &1441776766
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,6 +3460,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1641995731 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 878638632950814075, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+  m_PrefabInstance: {fileID: 878638632198892347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1684529343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,17 +3495,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1702557313 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2014846710662525632, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
-  m_PrefabInstance: {fileID: 878638632198892347}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61338a5ffec4a32b846dc56ced6624c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1702768658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,6 +3774,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 878638632539194069, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 1641995731}
+    - target: {fileID: 878638632539194069, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: highlightInteract
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 878638632569996114, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3828,7 +3830,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drop Car
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2014846710662525632, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: useScriptedInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014846710662525632, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: onInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014846711888367720, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2014846710662525632, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
 --- !u!1001 &1320832564283734226
 PrefabInstance:
