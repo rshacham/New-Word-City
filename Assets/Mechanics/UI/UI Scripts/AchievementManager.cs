@@ -67,7 +67,9 @@ public class AchievementManager : MonoBehaviour
     private void Start()
     {
         GameObject marksHolder = GameObject.Find("QuestionMarksHolder");
+        print(marksHolder);
         marksManager = marksHolder.GetComponent<QuestionMarksMaker>();
+        print(marksManager);
         myTransform = gameObject.GetComponent<RectTransform>();
         otherTransform = marksManager.questionMarksList[marksManager.NextQuestionMark - 1]
             .GetComponent<RectTransform>();
@@ -81,9 +83,13 @@ public class AchievementManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
+        print(statringScale);
+        print(otherTransform.sizeDelta);
         if (t < 1f && startAnimation)
         {
+            print(statringScale);
+            print(otherTransform.sizeDelta);
             t += Time.deltaTime * animationSpeed;
             myTransform.sizeDelta = Vector3.Lerp(statringScale,
                 otherTransform.sizeDelta, t);

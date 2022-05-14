@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy.Utils;
 using UnityEngine;
 
 public class QuestionMarksMaker : MonoBehaviour
@@ -65,6 +66,7 @@ public class QuestionMarksMaker : MonoBehaviour
     private void Start()
     {
         CreateMarks();
+        print(Screen.currentResolution);
         _achievementsHolder = GameObject.Find("AchievementHolder");
     }
 
@@ -114,6 +116,5 @@ public class QuestionMarksMaker : MonoBehaviour
     }
 
     #endregion
-
 
 }
