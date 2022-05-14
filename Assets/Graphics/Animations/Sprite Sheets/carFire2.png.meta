@@ -146,8 +146,8 @@ TextureImporter:
         y: 58
         width: 258
         height: 280
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6150179, y: 0.35586628}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,8 +167,8 @@ TextureImporter:
         y: 58
         width: 274
         height: 312
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6559542, y: 0.32499596}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: carFire2_3
       rect:
         serializedVersion: 2
-        x: 1170
+        x: 1171
         y: 58
         width: 263
         height: 329
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6353978, y: 0.30697984}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: carFire2_6
       rect:
         serializedVersion: 2
-        x: 98
+        x: 107
         y: 58
-        width: 225
-        height: 239
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 210
+        height: 218
+      alignment: 9
+      pivot: {x: 0.519783, y: 0.46188593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

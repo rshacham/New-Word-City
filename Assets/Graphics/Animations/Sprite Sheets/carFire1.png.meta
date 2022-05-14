@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 4188914092317911342
     second: carFire1_3
+  - first:
+      213: 7759021322751343381
+    second: carFire1_8
+  - first:
+      213: 8538659420255676539
+    second: carFire1_10
+  - first:
+      213: 3120241445651861150
+    second: carFire1_12
+  - first:
+      213: 24548234699701138
+    second: carFire1_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,85 +151,96 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carFire1_0
+      name: carFire1_8
       rect:
         serializedVersion: 2
-        x: 85
-        y: 50
-        width: 268.75
-        height: 203
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 111
+        y: 58
+        width: 206
+        height: 196
+      alignment: 9
+      pivot: {x: 0.532344, y: 0.51416403}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 27, y: 8}
+        - {x: 1, y: 3}
+        - {x: -48, y: 18}
+        - {x: -88, y: 0}
+        - {x: -88, y: -32}
+        - {x: -64, y: -58}
+        - {x: 10, y: -98}
+        - {x: 45, y: -98}
+        - {x: 103, y: -65}
+        - {x: 103, y: -39}
+        - {x: 70, y: -14}
       tessellationDetail: 0
       bones: []
-      spriteID: ccfa3a5e8e52a8920800000000000000
-      internalID: 2993246584556466124
+      spriteID: 51b7643b8c49dab60800000000000000
+      internalID: 7759021322751343381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carFire1_1
+      name: carFire1_10
       rect:
         serializedVersion: 2
-        x: 441
-        y: 50
-        width: 269
-        height: 203
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 466
+        y: 58
+        width: 223
+        height: 175
+      alignment: 9
+      pivot: {x: 0.5566283, y: 0.56791556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6048af363308bc180800000000000000
-      internalID: -9094034064335535098
+      spriteID: b78e162c0896f7670800000000000000
+      internalID: 8538659420255676539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carFire1_2
+      name: carFire1_12
       rect:
         serializedVersion: 2
-        x: 820
-        y: 50
-        width: 269
-        height: 203
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 849
+        y: 58
+        width: 212
+        height: 224
+      alignment: 9
+      pivot: {x: 0.53503937, y: 0.44362497}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3620a3c8e4d0d5d80800000000000000
-      internalID: -8260431510516399517
+      spriteID: e9ec78520135d4b20800000000000000
+      internalID: 3120241445651861150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carFire1_3
+      name: carFire1_13
       rect:
         serializedVersion: 2
-        x: 1187
-        y: 50
-        width: 269
-        height: 203
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1214
+        y: 58
+        width: 219
+        height: 233
+      alignment: 9
+      pivot: {x: 0.5440953, y: 0.42667398}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e29ac335c23022a30800000000000000
-      internalID: 4188914092317911342
+      spriteID: 29b73294d76375000800000000000000
+      internalID: 24548234699701138
       vertices: []
       indices: 
       edges: []
