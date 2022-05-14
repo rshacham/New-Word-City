@@ -48,7 +48,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
         /// interaction occured.
         /// return value is ignored.
         /// </summary>
-        public event InteractStrategy OnInteractionEnd;
+        public event EventHandler<InteractableObject> OnInteractionEnd;
         //TODO: The event shouldn't be InteractStrategy, or if it is, the return value should be checked somehow?
         // TODO: change this to EventHandler?
 
@@ -127,7 +127,7 @@ namespace Mechanics.Object_Interactions.InteractionScripts
             var result = CanInteract && Strategy();
             if (result && UseOnEnd)
             {
-                OnInteractionEnd?.Invoke();
+                OnInteractionEnd?.Invoke(this, this);
             }
 
             return result;
