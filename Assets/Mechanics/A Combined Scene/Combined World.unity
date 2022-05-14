@@ -2866,11 +2866,15 @@ MonoBehaviour:
   - word: Drop
     meanings:
     - meaning: Drop of water
-      linkedObject: {fileID: 1498107994}
+      linkedObjects:
+      - {fileID: 1498107994}
     - meaning: Drop a passenger (Taxi)
-      linkedObject: {fileID: 517881799}
+      linkedObjects:
+      - {fileID: 517881799}
+      - {fileID: 1095077359}
     - meaning: Drop The Music
-      linkedObject: {fileID: 1702557313}
+      linkedObjects:
+      - {fileID: 1702557313}
 --- !u!4 &1441776766
 Transform:
   m_ObjectHideFlags: 0
@@ -3005,7 +3009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1713515508995985042, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1713515508995985046, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_RootOrder
