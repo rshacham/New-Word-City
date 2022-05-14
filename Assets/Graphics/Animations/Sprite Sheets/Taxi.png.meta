@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 7a6657ec8eed0bb44abdd8b7a98ef086
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -620194816691577197
+    second: Taxi_0
+  - first:
+      213: -2262144499928584368
+    second: Taxi_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Taxi_0
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 279
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 77.4939, y: 52.543423}
+        - {x: -43.570557, y: 114.354836}
+        - {x: -75.15259, y: 114.354836}
+        - {x: -135.68481, y: 85.42184}
+        - {x: -139.5, y: 51.228287}
+        - {x: -139.5, y: -19.789085}
+        - {x: -89.627686, y: -63.18859}
+        - {x: -65.94116, y: -52.6675}
+        - {x: 16.96167, y: -113.16378}
+        - {x: 68.28247, y: -113.16378}
+        - {x: 139.5, y: -71.07941}
+        - {x: 139.5, y: -38.200996}
+        - {x: 113.02368, y: 26.240692}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: 39e5f83a910a467f0800000000000000
+      internalID: -620194816691577197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Taxi_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 140
+        width: 279
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 116.12912, y: 31.501238}
+        - {x: -36.51737, y: 114.354836}
+        - {x: -78.62674, y: 114.354836}
+        - {x: -127.315704, y: 91.99751}
+        - {x: -136.52713, y: 74.90074}
+        - {x: -139.15897, y: 43.337467}
+        - {x: -139.15897, y: -21.104221}
+        - {x: -93.10184, y: -57.928043}
+        - {x: -77.31082, y: -56.612907}
+        - {x: -27.30594, y: -73.70968}
+        - {x: -22.042269, y: -107.90323}
+        - {x: -10.199007, y: -113.16378}
+        - {x: 62.176483, y: -113.16378}
+        - {x: 135.86789, y: -82.915634}
+        - {x: 139.5, y: -69.764275}
+        - {x: 139.5, y: -47.40695}
+        - {x: 137.1838, y: -32.940453}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: 05f272b009f3b90e0800000000000000
+      internalID: -2262144499928584368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
