@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mechanics.Object_Interactions.InteractionScripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mechanics.WordBase
 {
@@ -53,8 +54,9 @@ namespace Mechanics.WordBase
 
         #endregion
 
-        
+
         #region Type Conversions
+
         // Allow converting the word to string implicitly
 
         public static implicit operator string(MeaningfulWord t)
@@ -70,6 +72,7 @@ namespace Mechanics.WordBase
         #endregion
 
         #region Object
+
         // Allow using the word in hashed sets/dictionaries
         public override bool Equals(object obj)
         {
@@ -97,9 +100,10 @@ namespace Mechanics.WordBase
         [Multiline]
         private string meaning;
 
+        [FormerlySerializedAs("linkedObject")]
         [SerializeField]
         [Tooltip("The interactable object that hides this meaning")]
-        private InteractableObject linkedObject;
+        private List<InteractableObject> linkedObjects = new List<InteractableObject>();
 
         #endregion
 
@@ -110,11 +114,16 @@ namespace Mechanics.WordBase
         /// </summary>
         public void RegisterMeaning()
         {
-            if (linkedObject != null && !Found)
+            if (Found)
+            {
+                return;
+            }
+
+            foreach (var interactableObject in linkedObjects.Where(interactableObject => interactableObject != null))
             {
                 // TODO: if single use interaction, have a way to re-enable it!
-                linkedObject.OnInteractionEnd += FoundMeaning;
-                linkedObject.OnInformChain();
+                interactableObject.OnInteractionEnd += FoundMeaning;
+                interactableObject.OnInformChain();
             }
         }
 
@@ -123,10 +132,16 @@ namespace Mechanics.WordBase
         /// </summary>
         public void UnRegisterMeaning()
         {
-            if (!Found && linkedObject != null)
+            if (Found)
             {
-                linkedObject.OnInteractionEnd -= FoundMeaning;
-                linkedObject.OnInformChain();
+                return;
+            }
+
+            foreach (var interactableObject in linkedObjects.Where(interactableObject => interactableObject != null))
+            {
+                // TODO: if single use interaction, have a way to re-enable it!
+                interactableObject.OnInteractionEnd -= FoundMeaning;
+                interactableObject.OnInformChain();
             }
         }
 
@@ -136,11 +151,12 @@ namespace Mechanics.WordBase
 
         // TODO: add getter/setter for the word itself if we require this? and update in the manager?
         // public MeaningfulWord Word { get; set; }
-        
+
         /// <summary>
         /// Did we find this meaning?
         /// </summary>
         public bool Found { get; set; } = false;
+
         /// <summary>
         /// Getter for the meaning itself.
         /// </summary>
@@ -150,10 +166,10 @@ namespace Mechanics.WordBase
         /// Getter/Setter for the linked object - this allows us to still serialize the object if required.
         /// TODO: Active in scene check.
         /// </summary>
-        public InteractableObject LinkedObject
+        public List<InteractableObject> LinkedObjects
         {
-            get => linkedObject;
-            set => linkedObject = value;
+            get => linkedObjects;
+            set => linkedObjects = value;
         }
 
         #endregion
@@ -164,18 +180,17 @@ namespace Mechanics.WordBase
         /// Function to be called when the interaction to find it has ended.
         /// </summary>
         /// <returns></returns>
-        private bool FoundMeaning()
+        private void FoundMeaning(object sender, InteractableObject e)
         {
             if (Found)
             {
-                return true;
+                return;
             }
 
-            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", LinkedObject);
+            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
             UnRegisterMeaning();
             Found = true;
             WordsGameManager.MeaningFoundCount++;
-            return Found;
         }
 
         #endregion
