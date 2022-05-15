@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Avrahamy;
 using Avrahamy.Utils;
 using Mechanics.WordBase;
@@ -31,6 +32,9 @@ public class QuestionMarksMaker : MonoBehaviour
     /// A basic game object for achievement UI representation 
     /// </summary>
     [SerializeField] private GameObject achievementObject;
+
+    [SerializeField]
+    private TMP_Text word;
     
 
     #endregion
@@ -68,10 +72,10 @@ public class QuestionMarksMaker : MonoBehaviour
 
     private void Start()
     {
-        //TODO: update when word change, see getter for this number?
-        MarksAmount = WordsGameManager.Current.Meanings.Count;
         WordsGameManager.OnMeaningFound += CreateAchievement;
-        CreateMarks();
+        // WordsGameManager.OnWordSwitch += SetNewWord;
+        //TODO: update when word change, see getter for this number?
+        SetNewWord(this, WordsGameManager.Current);
         // print(Screen.currentResolution);
         var res = new Resolution
         {
@@ -81,6 +85,13 @@ public class QuestionMarksMaker : MonoBehaviour
         };
         // DebugLog.Log(LogTag.Gameplay,res);
         _achievementsHolder = GameObject.Find("AchievementHolder");
+    }
+
+    private void SetNewWord(object sender, MeaningfulWord meaningfulWord)
+    {
+        MarksAmount = meaningfulWord.Meanings.Count;
+        word.text = $"Find all of the meanings of the word {meaningfulWord}";
+        CreateMarks();
     }
 
     #endregion
@@ -94,7 +105,7 @@ public class QuestionMarksMaker : MonoBehaviour
     {
         for (int i = 0; i < MarksAmount; i++)
         {
-            CreateMark();
+            CreateMark(i);
         }
         // GetComponent<Canvas>().
     }
@@ -102,9 +113,12 @@ public class QuestionMarksMaker : MonoBehaviour
     /// <summary>
     /// Create a single question mark for the UI
     /// </summary>
-    public void CreateMark()
+    public void CreateMark(int i)
     {
         GameObject newMark = (GameObject) Instantiate(questionMark, questionMarksHolder.transform, false);
+        string meaning = WordsGameManager.Current.Meanings[i].Meaning;
+        meaning = Regex.Replace(meaning, "[^\\s]", "?");
+        newMark.GetComponentInChildren<TMP_Text>().text = meaning;
         // var tmpText = newMark.GetComponentInChildren<TMP_Text>();
         
         // RectTransform newTransform = newMark.GetComponent<RectTransform>();
@@ -133,8 +147,11 @@ public class QuestionMarksMaker : MonoBehaviour
         // DebugLog.Log(achievementText);
         achievementImage.sprite = meaning.image;
         achievementText.text = meaning.Meaning;
+        AchievementManager manager = newObject.GetComponent<AchievementManager>();
+        manager.Index = WordsGameManager.Current.Meanings.IndexOf(meaning);
         newObject.SetActive(true);
         NextQuestionMark++;
+        // questionMarksList[manager.Index].GetComponentInChildren<TMP_Text>().text = meaning.Meaning;
     }
 
     #endregion
