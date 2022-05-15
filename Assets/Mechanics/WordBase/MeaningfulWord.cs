@@ -98,7 +98,9 @@ namespace Mechanics.WordBase
         [SerializeField]
         [Tooltip("A string to represent this meaning. should be readonly?")]
         [Multiline]
-        private string meaning;
+        public string meaning;
+        
+        [SerializeField] public Sprite image;
 
         [FormerlySerializedAs("linkedObject")]
         [SerializeField]
