@@ -71,6 +71,7 @@ public class QuestionMarksMaker : MonoBehaviour
     {
         //TODO: update when word change, see getter for this number?
         MarksAmount = WordsGameManager.Current.Meanings.Count;
+        WordsGameManager.OnMeaningFound += CreateAchievement;
         CreateMarks();
         print(Screen.currentResolution);
         var res = new Resolution
@@ -126,9 +127,10 @@ public class QuestionMarksMaker : MonoBehaviour
         }
         GameObject newObject = Instantiate(achievementObject, _achievementsHolder.transform, false);
         Image achievementImage = newObject.GetComponentInChildren<Image>();
-        TextMeshPro achievementText = newObject.GetComponentInChildren<TextMeshPro>();
+        TMP_Text achievementText = newObject.GetComponentInChildren<TMP_Text>();
+        DebugLog.Log(achievementText);
         achievementImage.sprite = meaning.image;
-        achievementText.text = meaning.meaning;
+        achievementText.text = meaning.Meaning;
         newObject.SetActive(true);
         NextQuestionMark++;
     }
