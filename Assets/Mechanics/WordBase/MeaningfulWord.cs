@@ -190,6 +190,7 @@ namespace Mechanics.WordBase
             Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
             UnRegisterMeaning();
             Found = true;
+            WordsGameManager.OnMeaningFound?.Invoke(e, this);
             WordsGameManager.MeaningFoundCount++;
         }
 

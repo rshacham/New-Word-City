@@ -3460,11 +3460,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1641995731 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 878638632950814075, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
-  m_PrefabInstance: {fileID: 878638632198892347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1684529343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3774,14 +3769,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 878638632539194069, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
-      propertyPath: myCollider
-      value: 
-      objectReference: {fileID: 1641995731}
-    - target: {fileID: 878638632539194069, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
-      propertyPath: highlightInteract
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 878638632569996114, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: m_RootOrder
       value: 9

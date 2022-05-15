@@ -12,8 +12,9 @@ namespace Mechanics.WordBase
     public static class WordsGameManager
     {
         #region Static Properties
-        
-        // public 
+
+        public static EventHandler<MeaningDescriptor> OnMeaningFound;
+        public static EventHandler<MeaningfulWord> OnWordSwitch;
 
         /// <summary>
         /// The current word that the we search for.
@@ -140,10 +141,11 @@ namespace Mechanics.WordBase
             if (Words[newWord].WordComplete || Completed.Contains(Words[newWord]))
             {
                 MeaningFoundCount = 0; // TODO: not required?
+                OnWordSwitch?.Invoke(Current, null);
                 Current = null;
                 return;
             }
-
+            OnWordSwitch?.Invoke(Current, Words[newWord]);
             Current = Words[newWord]; // TODO: duplicated by the current index field, merge them.
             Instance.CurrentIndex = newWord;
             RegisterCurrentMeanings();
