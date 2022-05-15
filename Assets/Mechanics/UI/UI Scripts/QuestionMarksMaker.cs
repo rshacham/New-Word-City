@@ -41,7 +41,6 @@ public class QuestionMarksMaker : MonoBehaviour
     /// </summary>                                                 
     private GameObject _achievementsHolder;
 
-
     #endregion
 
     #region Public Properties
@@ -73,14 +72,14 @@ public class QuestionMarksMaker : MonoBehaviour
         MarksAmount = WordsGameManager.Current.Meanings.Count;
         WordsGameManager.OnMeaningFound += CreateAchievement;
         CreateMarks();
-        print(Screen.currentResolution);
+        // print(Screen.currentResolution);
         var res = new Resolution
         {
             width = Screen.width,
             height = Screen.height,
             refreshRate = Screen.currentResolution.refreshRate
         };
-        DebugLog.Log(LogTag.Gameplay,res);
+        // DebugLog.Log(LogTag.Gameplay,res);
         _achievementsHolder = GameObject.Find("AchievementHolder");
     }
 
@@ -97,6 +96,7 @@ public class QuestionMarksMaker : MonoBehaviour
         {
             CreateMark();
         }
+        // GetComponent<Canvas>().
     }
 
     /// <summary>
@@ -105,11 +105,13 @@ public class QuestionMarksMaker : MonoBehaviour
     public void CreateMark()
     {
         GameObject newMark = (GameObject) Instantiate(questionMark, questionMarksHolder.transform, false);
-        RectTransform newTransform = newMark.GetComponent<RectTransform>();
-        var rectPosition = newTransform.position;
-        rectPosition = new Vector3(rectPosition.x + (questionMarksList.Count * distanceBetweenMarks),
-            rectPosition.y, rectPosition.z);
-        newTransform.position = rectPosition;
+        // var tmpText = newMark.GetComponentInChildren<TMP_Text>();
+        
+        // RectTransform newTransform = newMark.GetComponent<RectTransform>();
+        // var rectPosition = newTransform.position;
+        // rectPosition = new Vector3(rectPosition.x + (questionMarksList.Count * distanceBetweenMarks),
+        //     rectPosition.y, rectPosition.z);
+        // newTransform.position = rectPosition;
         questionMarksList.Add(newMark);
     }
     
@@ -128,7 +130,7 @@ public class QuestionMarksMaker : MonoBehaviour
         GameObject newObject = Instantiate(achievementObject, _achievementsHolder.transform, false);
         Image achievementImage = newObject.GetComponentInChildren<Image>();
         TMP_Text achievementText = newObject.GetComponentInChildren<TMP_Text>();
-        DebugLog.Log(achievementText);
+        // DebugLog.Log(achievementText);
         achievementImage.sprite = meaning.image;
         achievementText.text = meaning.Meaning;
         newObject.SetActive(true);
