@@ -2989,6 +2989,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1205907573709628130, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205907573709628130, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205907573709628130, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205907573709628130, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
 --- !u!1 &1095077358 stripped
@@ -3903,12 +3919,12 @@ MonoBehaviour:
       image: {fileID: 21300000, guid: 5de0a43a48485fa4c85bbcb2367c390e, type: 3}
       linkedObjects:
       - {fileID: 1498107998}
-    - meaning: Drop a passenger (Taxi)
+    - meaning: Dropped as a passanger
       image: {fileID: -620194816691577197, guid: 7a6657ec8eed0bb44abdd8b7a98ef086, type: 3}
       linkedObjects:
       - {fileID: 517881799}
       - {fileID: 1095077359}
-    - meaning: Drop the beat (music)
+    - meaning: Dropped the beat
       image: {fileID: -8300226227446442860, guid: 1caba349add80a54aa21f0f72c2d53d4, type: 3}
       linkedObjects:
       - {fileID: 832755220}
