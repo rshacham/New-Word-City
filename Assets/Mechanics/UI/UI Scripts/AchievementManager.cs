@@ -65,14 +65,21 @@ public class AchievementManager : MonoBehaviour
     /// </summary>
     private RectTransform otherTransform;
 
+    /// <summary>
+    /// Image of the achievement UI object
+    /// </summary>
     private Image myImage;
-
+    
+    /// <summary>
+    /// Text of the achievement UI object
+    /// </summary>
+    private TMP_Text myText;
+    
+    /// <summary>
+    /// Current transparency of the image and text of the achievement
+    /// </summary>
     private float transparency = 0;
     
-    TMP_Text myText;
-
-
-
     #endregion
 
     #region Private Methods
@@ -98,6 +105,7 @@ public class AchievementManager : MonoBehaviour
 
     private void Update()
     { 
+        // Fading:
         if (t < 1f && !startAnimation)
         {
             t += Time.deltaTime * fadingSpeed;
@@ -106,6 +114,8 @@ public class AchievementManager : MonoBehaviour
             myText.color = new Color32(0, 0, 0, (byte)transparency);
             
         }
+        
+        // Animation to the left bottom of the screen
         if (t < 1f && startAnimation)
         {
             t += Time.deltaTime * animationSpeed;
@@ -122,11 +132,7 @@ public class AchievementManager : MonoBehaviour
         myText.enabled = false;
         startAnimation = true;
         t = 0f;
-
     }
-
-
+    
     #endregion
-
-
 }
