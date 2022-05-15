@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Avrahamy;
 using Avrahamy.Utils;
 using Mechanics.WordBase;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionMarksMaker : MonoBehaviour
 {
@@ -115,14 +117,19 @@ public class QuestionMarksMaker : MonoBehaviour
     /// TODO - each achievement should have a different picture,
     /// and probably some form of text matching the definition the player discovered(for example "You dropped yourself!")
     /// </summary>                                        
-    public void CreateAchievement()
+    public void CreateAchievement(object sender, MeaningDescriptor meaning)
     {
         if (NextQuestionMark == questionMarksList.Count)
         {
             Debug.Log("You achieved all trophies!");
             return;
         }
-        Instantiate(achievementObject, _achievementsHolder.transform, false).SetActive(true);
+        GameObject newObject = Instantiate(achievementObject, _achievementsHolder.transform, false);
+        Image achievementImage = newObject.GetComponentInChildren<Image>();
+        TextMeshPro achievementText = newObject.GetComponentInChildren<TextMeshPro>();
+        achievementImage.sprite = meaning.image;
+        achievementText.text = meaning.meaning;
+        newObject.SetActive(true);
         NextQuestionMark++;
     }
 
