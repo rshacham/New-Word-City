@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: interactMultipleTimes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 878638632539194070, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 878638632569996114, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -514,6 +518,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 878638632569996114, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878638632569996124, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 878638632569996125, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
@@ -575,6 +583,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419737228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2423514075409922120, guid: 8f9741085aea73f47bc750b872142b4b, type: 3}
+  m_PrefabInstance: {fileID: 764429003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &419737236
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419737228}
+  m_Enabled: 1
 --- !u!1001 &423024290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,7 +1898,6 @@ GameObject:
   m_Component:
   - component: {fileID: 691070851}
   - component: {fileID: 691070850}
-  - component: {fileID: 691070849}
   - component: {fileID: 691070848}
   m_Layer: 0
   m_Name: Main Camera
@@ -1920,14 +1940,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!81 &691070849
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691070847}
-  m_Enabled: 1
 --- !u!20 &691070850
 Camera:
   m_ObjectHideFlags: 0
