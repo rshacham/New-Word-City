@@ -12,6 +12,8 @@ namespace Mechanics.WordBase
     public static class WordsGameManager
     {
         #region Static Properties
+        
+        // public 
 
         /// <summary>
         /// The current word that the we search for.
@@ -180,6 +182,7 @@ namespace Mechanics.WordBase
             {
                 descriptor.RegisterMeaning();
             }
+            
         }
 
         /// <summary>

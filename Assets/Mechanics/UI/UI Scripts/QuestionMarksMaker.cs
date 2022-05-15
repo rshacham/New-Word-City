@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Avrahamy;
 using Avrahamy.Utils;
+using Mechanics.WordBase;
 using UnityEngine;
 
 public class QuestionMarksMaker : MonoBehaviour
@@ -32,7 +33,7 @@ public class QuestionMarksMaker : MonoBehaviour
 
     #endregion
     
-    #region Private Properties
+    #region Private Fields
     /// <summary>                                                  
     /// The game object that will holds the achievements           
     /// </summary>                                                 
@@ -66,6 +67,8 @@ public class QuestionMarksMaker : MonoBehaviour
 
     private void Start()
     {
+        //TODO: update when word change, see getter for this number?
+        MarksAmount = WordsGameManager.Current.Meanings.Count;
         CreateMarks();
         print(Screen.currentResolution);
         var res = new Resolution

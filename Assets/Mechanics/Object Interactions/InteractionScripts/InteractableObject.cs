@@ -12,7 +12,6 @@ namespace Mechanics.Object_Interactions.InteractionScripts
     public class InteractableObject : MonoBehaviour
     {
         #region Inspector
-
         [Header("Word Connection")]
         [Space]
         [SerializeField]
