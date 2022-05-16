@@ -1,6 +1,9 @@
-﻿using Interactable_Objects;
+﻿using System;
+using Interactable_Objects;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player_Control
 {
@@ -11,19 +14,27 @@ namespace Player_Control
     public class PlayerInteract : MonoBehaviour
     {
         #region Inspector
-        
+
         [SerializeField]
+        [HideInInspector]
         [Tooltip("Distance in with clicks are accepted")]
         [Min(0)]
         private float clickDistance = 3f;
 
         [SerializeField]
         [Tooltip("Are collisions with interactable objects count as setting them active?")]
-        private bool highlightOnCollision = true;
+        private bool highlightOnCollision = false;
 
         [SerializeField]
-        [Tooltip("Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
-        private bool highlightOnProximity;
+        [Tooltip(
+            "Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
+        private bool highlightOnProximity = true;
+
+        [SerializeField]
+        [Space]
+        [Tooltip("Events that are called on interaction")]
+        [InspectorName("Events On Interactions")]
+        private PlayerInteractEvents interactionEvents = new PlayerInteractEvents();
 
         #endregion
 
@@ -88,7 +99,7 @@ namespace Player_Control
                 CollisionHighlighter(col.collider);
             }
         }
-        
+
         // TODO: move to private methods region
         private void CollisionHighlighter(Collider2D col)
         {
@@ -154,13 +165,25 @@ namespace Player_Control
         /// <param name="context"></param>
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.started && _currentActive != null && IsActive)
+            if (!context.started || !IsActive)
             {
-                if (!_currentActive.Interact())
-                {
-                    _currentActive.RemoveInteraction(this);
-                    _currentActive = null;
-                }
+                return;
+            }
+
+            if (_currentActive == null)
+            {
+                interactionEvents.onEmptyInteract.Invoke();
+                return;
+            }
+
+            if (!_currentActive.Interact())
+            {
+                _currentActive.RemoveInteraction(this);
+                _currentActive = null;
+            }
+            else
+            {
+                interactionEvents.onInteractableObject.Invoke(_currentActive);
             }
         }
 
@@ -237,5 +260,16 @@ namespace Player_Control
         }
 
         #endregion
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Serializable]
+    public class PlayerInteractEvents
+    {
+        public UnityEvent<InteractableObject> onInteractableObject = new UnityEvent<InteractableObject>();
+
+        public UnityEvent onEmptyInteract = new UnityEvent();
     }
 }
