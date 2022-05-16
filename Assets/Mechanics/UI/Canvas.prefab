@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205907575199305355}
   - component: {fileID: 1205907575199305356}
-  - component: {fileID: 4623658680720896037}
+  - component: {fileID: 6692495833992108525}
   m_Layer: 5
   m_Name: QuestionMarksHolder
   m_TagString: Untagged
@@ -282,8 +282,8 @@ RectTransform:
   m_Father: {fileID: 1205907573538796765}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.01, y: 0.01}
-  m_AnchorMax: {x: 1, y: 0.15}
+  m_AnchorMin: {x: 0.02, y: 0.02}
+  m_AnchorMax: {x: 1, y: 0.16}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -304,7 +304,7 @@ MonoBehaviour:
   questionMarksHolder: {fileID: 1205907575199305354}
   achievementObject: {fileID: 8612206018515334265, guid: 79fcd2e7f2b7f694fb08b7ec1d751bf8, type: 3}
   questionMarksList: []
---- !u!114 &4623658680720896037
+--- !u!114 &6692495833992108525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -313,23 +313,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1205907575199305354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: -5
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 10
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 80, y: 80}
+  m_Spacing: {x: 20, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1001 &4501720235266383854
 PrefabInstance:
   m_ObjectHideFlags: 0
