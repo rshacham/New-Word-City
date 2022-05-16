@@ -19,6 +19,20 @@ public class TallBuilding : MonoBehaviour
 
     private Color _oldValue;
 
+    private void Awake()
+    {
+        if (mySprite == null)
+        {
+            mySprite = GetComponentInParent<SpriteRenderer>();
+        }
+
+        if (transparencyTrigger == null)
+        {
+            transparencyTrigger = GetComponent<Collider2D>();
+            transparencyTrigger.isTrigger = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
