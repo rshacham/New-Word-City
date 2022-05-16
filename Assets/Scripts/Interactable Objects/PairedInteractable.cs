@@ -7,6 +7,7 @@ namespace Interactable_Objects
     /// Sub can interact only after main informs it.
     /// TODO: functionality is mostly not required because events can be used instead.
     /// </summary>
+    // TODO: UNUSED - can be moved to mechanics
     class PairedInteractable : EventInteractable
     {
         #region Enums

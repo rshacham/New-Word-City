@@ -1,17 +1,28 @@
 ﻿using System;
-using Interactable_Objects;
 using UnityEngine;
 
-namespace Mechanics.Object_Moves_Player
+namespace Interactable_Objects
 {
+    /// <summary>
+    /// Interactable object that is a taxi - pickup and moves player
+    /// </summary>
     public class TaxiInteractable : EventInteractable
     {
+        #region Inspector
+
         [Space]
         [Header("Taxi Interaction")]
+        // TODO: not serialize - or hash at validate?
         [SerializeField]
         private string enterAnimationTrigger = "TaxiEnter";
         [SerializeField]
         private string exitAnimationTrigger = "TaxiExit";
+
+        #endregion
+
+        #region Private Fields
+
+        #region Private Enums
 
         private enum TaxiState
         {
@@ -21,13 +32,23 @@ namespace Mechanics.Object_Moves_Player
             Stop
         }
 
+        #endregion
+
         private TaxiState _waitForPlayer = TaxiState.Hold;
 
         private Animator _myAnimator;
 
+        #region Constants
+
         private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
 
         private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
+
+        #endregion
+
+        #endregion
+
+        #region EventInteractable
 
         protected override void Awake()
         {
@@ -70,5 +91,7 @@ namespace Mechanics.Object_Moves_Player
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        #endregion
     }
 }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Interactable_Objects;
+using Mechanics.WordBase;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Mechanics.WordBase
+namespace Managers
 {
     /// <summary>
     /// Data structure to represent a word with meanings

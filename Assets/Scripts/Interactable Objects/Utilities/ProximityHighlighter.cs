@@ -3,7 +3,7 @@ using Avrahamy;
 using Interactable_Objects;
 using UnityEngine;
 
-namespace Mechanics.Object_Interactions.Highlight_Proximity
+namespace Interactable_Objects
 {
     [RequireComponent(typeof(Collider2D))]
     public class ProximityHighlighter : MonoBehaviour

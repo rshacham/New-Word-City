@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mechanics.WordBase
+namespace Managers
 {
     /// <summary>
     /// Manager to handle actions related to words in current scene.

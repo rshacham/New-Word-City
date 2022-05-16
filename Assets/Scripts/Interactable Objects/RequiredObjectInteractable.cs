@@ -6,6 +6,7 @@ namespace Interactable_Objects
     /// Implementation of PairedInteractable for enablers -
     /// require another object to trigger this enabler to activate the sub.
     /// </summary>
+    // TODO: UNUSED - can be moved to mechanics
     class RequiredObjectInteractable : PairedInteractable
     {
         [Header("Required Interactable")]

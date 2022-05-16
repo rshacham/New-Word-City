@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
+    // TODO: UNUSED - can be moved to mechanics
     class SeparateInteractable : EventInteractable
     {
         [Space(2)]

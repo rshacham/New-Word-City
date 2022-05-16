@@ -5,11 +5,14 @@ namespace Player_Control
 {
     public class Movement : MonoBehaviour
     {
+        // TODO: serialize? even as hidden?
         private const string Controller = "Controller";
+
+        #region Inspector
 
         [SerializeField]
         private bool enableMovement = true;
-    
+
         [SerializeField]
         private float maxSpeed;
 
@@ -26,11 +29,16 @@ namespace Player_Control
         [Range(0, 180)]
         private int isometricAngle = 120;
 
+        [SerializeField]
+        private bool smoothing;
+
+        #endregion
+
+        #region Private Fields
+
         private Rigidbody2D playerRigidBody;
 
         private Vector2 _isoVector;
-
-        private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
 
         private Vector2 _desiredVelocity;
 
@@ -40,8 +48,11 @@ namespace Player_Control
 
         private Animator _playerAnimator;
 
-        [SerializeField]
-        private bool smoothing;
+        private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
+
+        #endregion
+        
+        #region Public Properties
 
         public bool EnableMovement
         {
@@ -54,6 +65,10 @@ namespace Player_Control
             get => _desiredVelocity;
             set => _desiredVelocity = value;
         }
+
+        #endregion
+
+        #region MonoBehaviour
 
         private void OnValidate()
         {
@@ -100,12 +115,17 @@ namespace Player_Control
             }
         }
 
+        #endregion
+
+        #region Input Callbacks
+
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (!enableMovement)
             {
                 return;
             }
+
             var movementVector = context.action.ReadValue<Vector2>();
             if (_playerInput.currentControlScheme != Controller)
             {
@@ -119,5 +139,7 @@ namespace Player_Control
 
             _desiredVelocity = movementVector * maxSpeed;
         }
+
+        #endregion
     }
 }

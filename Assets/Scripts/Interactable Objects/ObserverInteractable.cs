@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
+    // TODO: unused - can be moved to mechanics 
     class ObserverInteractable : EventInteractable
     {
         [Space]

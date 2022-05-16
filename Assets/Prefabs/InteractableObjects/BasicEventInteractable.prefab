@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1713515508995985041}
   - component: {fileID: 1713515508995985040}
   m_Layer: 6
-  m_Name: Interactable
+  m_Name: BasicEventInteractable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

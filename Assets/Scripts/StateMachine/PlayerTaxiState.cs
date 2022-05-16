@@ -1,10 +1,9 @@
 ﻿using Player_Control;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Mechanics.Object_Moves_Player
+namespace StateMachine
 {
-    public class PlayerTaxiExitState : StateMachineBehaviour
+    public class PlayerTaxiState : StateMachineBehaviour
     {
         private PlayerInteract _player;
 
@@ -12,16 +11,18 @@ namespace Mechanics.Object_Moves_Player
             int layerIndex)
         {
             _player = animator.GetComponent<PlayerInteract>();
-            _player.GetComponent<SpriteRenderer>().enabled = true;
+            _player.IsActive = false;
+            var m = _player.GetComponent<Movement>();
+            m.EnableMovement = false;
+            m.DesiredVelocity = Vector2.zero;
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo,
             int layerIndex)
         {
-            _player.GetComponent<Movement>().EnableMovement = true;
-            _player.transform.parent = null;
+            _player.GetComponent<SpriteRenderer>().enabled = false;
+            _player.transform.parent = _player.CurrentActive.transform;
             _player.CurrentActive.Interact();
-            _player.IsActive = true;
         }
         //
         // public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo,

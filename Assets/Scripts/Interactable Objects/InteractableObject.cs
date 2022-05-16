@@ -19,10 +19,12 @@ namespace Interactable_Objects
         private bool requiresWord;
 
         [SerializeField]
+        [Tooltip("If in required word chain, reference to earlier object in the chain")]
         private InteractableObject lastLink;
         // TODO: add case where after word complete we want to keep the interaction possible
 
         [SerializeField]
+        [Tooltip("This objects collider")] // TODO: get from code when possible!
         private Collider2D myCollider;
 
         #endregion

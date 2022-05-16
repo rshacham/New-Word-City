@@ -1,5 +1,4 @@
 ﻿using Interactable_Objects;
-using Mechanics.Object_Interactions.Highlight_Proximity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -89,7 +88,8 @@ namespace Player_Control
                 CollisionHighlighter(col.collider);
             }
         }
-
+        
+        // TODO: move to private methods region
         private void CollisionHighlighter(Collider2D col)
         {
             if (_currentActive != null || !IsActive)
@@ -131,6 +131,7 @@ namespace Player_Control
             }
         }
 
+        // TODO: move to private methods region
         private void CollisionUnHighlighter(Collider2D other)
         {
             var interactable = other.gameObject.GetComponentInParent<InteractableObject>();

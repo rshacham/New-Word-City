@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using Mechanics.WordBase;
 using UnityEngine;
 
-namespace Mechanics.WordBase
+namespace Managers
 {
     /// <summary>
     /// Static manager: To handle any action that need the words in the scene, completed words, and passing

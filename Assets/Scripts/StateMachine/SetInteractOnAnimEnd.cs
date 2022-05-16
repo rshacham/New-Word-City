@@ -1,13 +1,12 @@
+using Interactable_Objects;
 using UnityEngine;
 
-namespace Mechanics.Object_Interactions.AnimationInteractions
+namespace StateMachine
 {
-    public class ResetTriggerExit : StateMachineBehaviour
+    public class SetInteractOnAnimEnd : StateMachineBehaviour
     {
         [SerializeField]
-        private string trigger;
-        
-
+        private bool setTo = true;
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         //{
@@ -23,7 +22,7 @@ namespace Mechanics.Object_Interactions.AnimationInteractions
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.ResetTrigger(trigger);
+            animator.GetComponent<InteractableObject>().CanInteract = setTo;
         }
 
         // OnStateMove is called right after Animator.OnAnimatorMove()
