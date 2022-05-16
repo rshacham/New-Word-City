@@ -34,7 +34,7 @@ namespace Player_Control
         [Space]
         [Tooltip("Events that are called on interaction")]
         [InspectorName("Events On Interactions")]
-        private PlayerInteractEvents interactionEvents = new PlayerInteractEvents();
+        public PlayerInteractEvents interactionEvents = new PlayerInteractEvents();
 
         #endregion
 

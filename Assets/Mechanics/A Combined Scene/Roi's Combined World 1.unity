@@ -16510,6 +16510,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 3.640465
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.11083061
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: 0.06002924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 2.4008307
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -3.360387
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.15083067
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -3.4303956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.8391692
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: -0.04998419
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -2.8091693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 3.6204624
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776681063576259548, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.6891693
+      objectReference: {fileID: 0}
     - target: {fileID: 2776681063576259551, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
       propertyPath: m_Name
       value: ShortFlowersHouse
