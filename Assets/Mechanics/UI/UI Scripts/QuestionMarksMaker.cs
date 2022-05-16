@@ -1,8 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using Avrahamy.Utils;
+using Managers;
+using Mechanics.WordBase;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionMarksMaker : MonoBehaviour
 {
@@ -31,12 +36,11 @@ public class QuestionMarksMaker : MonoBehaviour
 
     #endregion
     
-    #region Private Properties
+    #region Private Fields
     /// <summary>                                                  
     /// The game object that will holds the achievements           
     /// </summary>                                                 
     private GameObject _achievementsHolder;
-
 
     #endregion
 
@@ -65,8 +69,18 @@ public class QuestionMarksMaker : MonoBehaviour
 
     private void Start()
     {
+        //TODO: update when word change, see getter for this number?
+        MarksAmount = WordsGameManager.Current.Meanings.Count;
+        WordsGameManager.OnMeaningFound += CreateAchievement;
         CreateMarks();
         print(Screen.currentResolution);
+        var res = new Resolution
+        {
+            width = Screen.width,
+            height = Screen.height,
+            refreshRate = Screen.currentResolution.refreshRate
+        };
+        DebugLog.Log(LogTag.Gameplay,res);
         _achievementsHolder = GameObject.Find("AchievementHolder");
     }
 
@@ -83,6 +97,7 @@ public class QuestionMarksMaker : MonoBehaviour
         {
             CreateMark();
         }
+        // GetComponent<Canvas>().
     }
 
     /// <summary>
@@ -104,14 +119,19 @@ public class QuestionMarksMaker : MonoBehaviour
     /// TODO - each achievement should have a different picture,
     /// and probably some form of text matching the definition the player discovered(for example "You dropped yourself!")
     /// </summary>                                        
-    public void CreateAchievement()
+    public void CreateAchievement(object sender, MeaningDescriptor meaning)
     {
         if (NextQuestionMark == questionMarksList.Count)
         {
             Debug.Log("You achieved all trophies!");
             return;
         }
-        Instantiate(achievementObject, _achievementsHolder.transform, false).SetActive(true);
+        GameObject newObject = Instantiate(achievementObject, _achievementsHolder.transform, false);
+        Image achievementImage = newObject.GetComponentInChildren<Image>();
+        TMP_Text achievementText = newObject.GetComponentInChildren<TMP_Text>();
+        achievementImage.sprite = meaning.image;
+        achievementText.text = meaning.meaning;
+        newObject.SetActive(true);
         NextQuestionMark++;
     }
 

@@ -1,3 +1,4 @@
+using Managers;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class CustomInspector : Editor
         QuestionMarksMaker script = (QuestionMarksMaker) target;
         if (GUILayout.Button("Create Object"))
         {
-            script.CreateAchievement();
+            // script.CreateAchievement(this, WordsGameManager.Current);
         }
     }
 }

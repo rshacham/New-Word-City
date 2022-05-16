@@ -17425,6 +17425,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_Spacing.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
+      propertyPath: m_CellSize.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7893930590346072160, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
