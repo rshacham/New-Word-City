@@ -1,5 +1,5 @@
 {
-    "name": "Combined",
+    "name": "PlayerMovement",
     "maps": [
         {
             "name": "PlayerMovement",
@@ -70,6 +70,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2ff32cd-1a10-444a-b2ce-8a352449b83e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
