@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Player_Control;
+using UnityEngine;
 using UnityEngine.Events;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     /// <summary>
     /// Base class for InteractableObjects that enable setting up interactions using events, or script.

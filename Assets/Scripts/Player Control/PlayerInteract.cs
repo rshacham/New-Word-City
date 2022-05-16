@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Interactable_Objects;
 using Mechanics.Object_Interactions.Highlight_Proximity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Player_Control
 {
     /// <summary>
     /// Class that handles user interactions with objects

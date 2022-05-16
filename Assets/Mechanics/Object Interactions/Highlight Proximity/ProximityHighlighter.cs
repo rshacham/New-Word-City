@@ -1,6 +1,6 @@
 using System;
 using Avrahamy;
-using Mechanics.Object_Interactions.InteractionScripts;
+using Interactable_Objects;
 using UnityEngine;
 
 namespace Mechanics.Object_Interactions.Highlight_Proximity

@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     /// <summary>
     /// Implementation of PairedInteractable for enablers -

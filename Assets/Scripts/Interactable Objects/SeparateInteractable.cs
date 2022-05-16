@@ -1,8 +1,7 @@
-﻿using System;
-using Avrahamy;
+﻿using Avrahamy;
 using UnityEngine;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     class SeparateInteractable : EventInteractable
     {

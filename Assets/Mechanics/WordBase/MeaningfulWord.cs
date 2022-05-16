@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mechanics.Object_Interactions.InteractionScripts;
+using Interactable_Objects;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -1,8 +1,9 @@
 using System;
 using Avrahamy;
+using Player_Control;
 using UnityEngine;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     /// <summary>
     /// GameObject that can have an interactions

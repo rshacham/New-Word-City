@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Player_Control;
+using UnityEngine;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     /// <summary>
     /// InteractableObject that sticks itself to the user.

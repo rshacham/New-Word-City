@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Avrahamy;
+﻿using Avrahamy;
 using Mechanics.WordBase;
 using UnityEngine;
 
-namespace Mechanics.Object_Interactions.InteractionScripts
+namespace Interactable_Objects
 {
     class ObserverInteractable : EventInteractable
     {

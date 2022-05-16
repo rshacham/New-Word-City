@@ -1,4 +1,4 @@
-using Mechanics.Object_Interactions.InteractionScripts;
+using Interactable_Objects;
 using UnityEngine;
 
 namespace Mechanics.Object_Moves_Player

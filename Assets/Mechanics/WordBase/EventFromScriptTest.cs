@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Mechanics.Object_Interactions.InteractionScripts;
+using Interactable_Objects;
 using UnityEngine;
 
 namespace Mechanics.WordBase

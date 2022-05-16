@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Mechanics.Object_Interactions.InteractionScripts;
+using Interactable_Objects;
 using UnityEngine;
 
 public class SetInteractOnAnimEnd : StateMachineBehaviour
