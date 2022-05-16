@@ -98,8 +98,8 @@ public class AchievementManager : MonoBehaviour
         marksManager = marksHolder.GetComponent<QuestionMarksMaker>();
         myTransform = gameObject.GetComponent<RectTransform>();
         otherImage = marksManager.questionMarksList[Index].GetComponentInChildren<Image>();
-        // otherTransform = otherImage.GetComponent<RectTransform>();
-        otherTransform = marksManager.questionMarksList[Index].GetComponent<RectTransform>();
+        otherTransform = otherImage.GetComponent<RectTransform>();
+        // otherTransform = marksManager.questionMarksList[Index].GetComponent<RectTransform>();
         statringScale = myTransform.sizeDelta;
         startingPosition = myTransform.position;
         myImage = gameObject.GetComponent<Image>();
@@ -138,7 +138,7 @@ public class AchievementManager : MonoBehaviour
         {
             // otherImage.enabled = true;
             otherImage.sprite = myImage.sprite;
-            otherTransform.GetComponentInChildren<TMP_Text>().text = _meaningText.text;
+            marksManager.questionMarksList[Index].GetComponentInChildren<TMP_Text>().text = _meaningText.text;
             Destroy(gameObject);
         }
     }
