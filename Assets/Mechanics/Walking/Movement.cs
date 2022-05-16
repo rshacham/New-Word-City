@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,6 +40,8 @@ public class Movement : MonoBehaviour
 
     private PlayerInput _playerInput;
 
+    private Animator _playerAnimator;
+
     [SerializeField]
     private bool smoothing;
 
@@ -63,7 +66,21 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
+        _playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        var speed = playerRigidBody.velocity.magnitude;
+        var angle = Vector2.SignedAngle(new Vector2(1f, 0f), playerRigidBody.velocity.normalized);
+        _playerAnimator.SetFloat("Velocity", speed);
+        if (speed > 0.02f)
+        {
+            _playerAnimator.SetFloat("Angle", angle);
+            _playerAnimator.SetFloat("PosX", playerRigidBody.velocity.normalized.x);
+            _playerAnimator.SetFloat("PosY", playerRigidBody.velocity.normalized.y);
+        }
     }
 
     private void FixedUpdate()
@@ -91,7 +108,6 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-
         var movementVector = context.action.ReadValue<Vector2>();
         if (_playerInput.currentControlScheme != Controller)
         {
