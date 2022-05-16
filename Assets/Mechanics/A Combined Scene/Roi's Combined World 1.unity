@@ -2471,14 +2471,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 878638632539194068, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: MaxDistance
-      value: 6.8573627
+      value: 6.4877434
       objectReference: {fileID: 0}
     - target: {fileID: 878638632539194068, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: MinDistance
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 878638632539194068, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878638632539194068, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 878638632539194069, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
@@ -2491,7 +2495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 878638632539194070, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: MaxDistance
-      value: 12
+      value: 8.159317
       objectReference: {fileID: 0}
     - target: {fileID: 878638632539194070, guid: 54e9811b8cbb1084c902335985c565c2, type: 3}
       propertyPath: MinDistance
