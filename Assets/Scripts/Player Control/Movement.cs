@@ -32,6 +32,10 @@ namespace Player_Control
         [SerializeField]
         private bool smoothing;
 
+        [Header("Material Transparency Tests")]
+        [SerializeField]
+        private Material peepingMat;
+
         #endregion
 
         #region Private Fields
@@ -49,6 +53,7 @@ namespace Player_Control
         private Animator _playerAnimator;
 
         private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
+        // private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
 
         #endregion
         
@@ -113,6 +118,7 @@ namespace Player_Control
             {
                 playerRigidBody.velocity = _desiredVelocity;
             }
+            // peepingMat.SetVector(PlayerPos, playerRigidBody.position);
         }
 
         #endregion

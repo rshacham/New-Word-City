@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,9 @@ public class TallBuilding : MonoBehaviour
     [Header("Hide Tall Objects")]
     [SerializeField]
     private Collider2D transparencyTrigger;
+
+    // [SerializeField]
+    // private bool usePeepingMaterial;
 
     [SerializeField]
     private SpriteRenderer mySprite;
@@ -32,8 +36,9 @@ public class TallBuilding : MonoBehaviour
     private Color _normalColor;
     private Color _fadeColor;
 
-    private Color _ColorA;
-    private Color _ColorB;
+    // private static readonly int PlayerBehind = Shader.PropertyToID("_PlayerBehind");
+    private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
+    // private Material _sharedMaterial;
 
     #endregion
 
@@ -45,6 +50,11 @@ public class TallBuilding : MonoBehaviour
         {
             mySprite = GetComponentInParent<SpriteRenderer>();
         }
+
+        // if (usePeepingMaterial)
+        // {
+        //     _sharedMaterial = mySprite.sharedMaterial;
+        // }
 
         if (transparencyTrigger == null)
         {
@@ -58,6 +68,12 @@ public class TallBuilding : MonoBehaviour
 
     private void Update()
     {
+        // if (usePeepingMaterial)
+        // {
+        //     var playerPos = _sharedMaterial.GetVector(PlayerPos);
+        //     DebugLog.Log(playerPos, this);
+        //     mySprite.material.SetVector(PlayerPos, playerPos);
+        // }
         if (_notActive)
         {
             return;
@@ -75,7 +91,15 @@ public class TallBuilding : MonoBehaviour
         {
             // (_ColorA, _ColorB) = (_normalColor, _fadeColor);
             _direction = 1;
-            _notActive = false;
+            // if (usePeepingMaterial)
+            // {
+            //     mySprite.material.SetInt(PlayerBehind, 1);
+            // }
+            // else
+            // {
+            //     _notActive = false;    
+            // }
+            _notActive = false;    
         }
     }
 
@@ -85,7 +109,15 @@ public class TallBuilding : MonoBehaviour
         {
             // (_ColorA, _ColorB) = (_fadeColor, _normalColor);
             _direction = -1;
-            _notActive = false;
+            // if (usePeepingMaterial)
+            // {
+            //     mySprite.material.SetInt(PlayerBehind, 0);
+            // }
+            // else
+            // {
+            //     _notActive = false;    
+            // }
+            _notActive = false;    
         }
     }
 
