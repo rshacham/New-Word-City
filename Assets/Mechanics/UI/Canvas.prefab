@@ -230,7 +230,6 @@ MonoBehaviour:
   questionMark: {fileID: 3370218916140285199, guid: 8287585aba6df4c4b8d86aeffd1fe084, type: 3}
   questionMarksHolder: {fileID: 1205907575199305354}
   achievementObject: {fileID: 8612206018515334265, guid: 79fcd2e7f2b7f694fb08b7ec1d751bf8, type: 3}
-  word: {fileID: 274357575905800315}
   questionMarksList: []
 --- !u!222 &7670215814765082107
 CanvasRenderer:
@@ -428,8 +427,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8089092585432717650}
   m_HandleRect: {fileID: 401950766570400983}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -716,7 +715,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1702505656053574123}
   m_HandleRect: {fileID: 3696116667609410764}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1041,7 +1040,7 @@ RectTransform:
   m_Father: {fileID: 1205907573538796765}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.01}
+  m_AnchorMin: {x: 0.01, y: 0.01}
   m_AnchorMax: {x: 0.9, y: 0.15}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
