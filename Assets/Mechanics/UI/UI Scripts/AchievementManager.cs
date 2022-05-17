@@ -28,10 +28,10 @@ public class AchievementManager : MonoBehaviour
     private float fadingSpeed;
 
     [SerializeField]
-    private TMP_Text _meaningText;
+    private TMP_Text meaningText;
 
     [SerializeField]
-    private TMP_Text _constantText;
+    private TMP_Text constantText;
 
     [SerializeField]
     private Color textColor = Color.black;
@@ -120,8 +120,8 @@ public class AchievementManager : MonoBehaviour
             t += Time.deltaTime * fadingSpeed;
             transparency = Mathf.Lerp(0f, 255f, t);
             myImage.color = new Color32(255, 255, 255, (byte) transparency);
-            _meaningText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
-            _constantText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
+            meaningText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
+            constantText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
         }
 
         // Animation to the left bottom of the screen
@@ -136,7 +136,7 @@ public class AchievementManager : MonoBehaviour
         {
             // otherImage.enabled = true;
             otherImage.sprite = myImage.sprite;
-            marksManager.questionMarksList[Index].GetComponentInChildren<TMP_Text>().text = _meaningText.text;
+            // marksManager.questionMarksList[Index].GetComponentInChildren<TMP_Text>().text = meaningText.text;
             Destroy(gameObject);
         }
     }
@@ -145,8 +145,8 @@ public class AchievementManager : MonoBehaviour
     {
         yield return new WaitForSeconds(animationStartDelay);
 
-        _meaningText.enabled = false;
-        _constantText.enabled = false;
+        meaningText.enabled = false;
+        constantText.enabled = false;
         startAnimation = true;
         t = 0f;
     }

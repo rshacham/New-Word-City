@@ -17870,7 +17870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_Constraint
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_Padding.m_Left
@@ -17878,7 +17878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_ConstraintCount
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7893930590346072160, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchorMax.x

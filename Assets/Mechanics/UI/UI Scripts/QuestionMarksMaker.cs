@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Avrahamy;
 using Avrahamy.Utils;
@@ -118,8 +119,8 @@ public class QuestionMarksMaker : MonoBehaviour
     {
         GameObject newMark = (GameObject) Instantiate(questionMark, questionMarksHolder.transform, false);
         string meaning = WordsGameManager.Current.Meanings[i].Meaning;
-        meaning = Regex.Replace(meaning, "[^\\s]", "?");
-        newMark.GetComponentInChildren<TMP_Text>().text = meaning;
+        meaning = ExceptWords(meaning, "Drop");
+        // newMark.GetComponentInChildren<TMP_Text>().text = meaning;
         // var tmpText = newMark.GetComponentInChildren<TMP_Text>();
         
         // RectTransform newTransform = newMark.GetComponent<RectTransform>();
@@ -128,6 +129,11 @@ public class QuestionMarksMaker : MonoBehaviour
         //     rectPosition.y, rectPosition.z);
         // newTransform.position = rectPosition;
         questionMarksList.Add(newMark);
+    }
+    
+    private string ExceptWords(string input, string except){
+        string regexp = $"(?!{except})";
+        return new Regex(regexp).Replace(input, "?");
     }
     
     /// <summary>                                         

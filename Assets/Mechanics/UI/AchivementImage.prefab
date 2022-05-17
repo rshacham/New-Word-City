@@ -331,8 +331,8 @@ MonoBehaviour:
   animationStartDelay: 1.8
   animationSpeed: 1.8
   fadingSpeed: 1.3
-  _meaningText: {fileID: 459651642874627757}
-  _constantText: {fileID: 5544698225623767773}
+  meaningText: {fileID: 459651642874627757}
+  constantText: {fileID: 5544698225623767773}
   textColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &8612206018515334266
 MonoBehaviour:
