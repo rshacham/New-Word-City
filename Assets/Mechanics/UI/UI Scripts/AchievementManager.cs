@@ -7,24 +7,34 @@ using UnityEngine.UI;
 
 public class AchievementManager : MonoBehaviour
 {
-
     #region Inspector
 
     /// <summary>
     /// Delay in seconds until the animation starts
     /// </summary>
+    [SerializeField]
+    private float animationStartDelay;
 
-    [SerializeField] private float animationStartDelay;
-    
     /// <summary>
     /// Speed of animation, the higher this is the faster the animation
     /// </summary>
-    [SerializeField] private float animationSpeed;
+    [SerializeField]
+    private float animationSpeed;
 
     /// <summary>
     /// Speed of fading in, the higher this is the faster the animation
     /// </summary>
-    [SerializeField] private float fadingSpeed;
+    [SerializeField]
+    private float fadingSpeed;
+
+    [SerializeField]
+    private TMP_Text _meaningText;
+
+    [SerializeField]
+    private TMP_Text _constantText;
+
+    [SerializeField]
+    private Color textColor = Color.black;
 
     #endregion
 
@@ -69,18 +79,16 @@ public class AchievementManager : MonoBehaviour
     /// Image of the achievement UI object
     /// </summary>
     private Image myImage;
-    
-    /// <summary>
-    /// Text of the achievement UI object
-    /// </summary>
-    private TMP_Text myText;
-    
+
     /// <summary>
     /// Current transparency of the image and text of the achievement
     /// </summary>
     private float transparency = 0;
-    
+    private Image otherImage;
+
     #endregion
+
+    public int Index { get; set; }
 
     #region Private Methods
 
@@ -89,13 +97,14 @@ public class AchievementManager : MonoBehaviour
         GameObject marksHolder = GameObject.Find("QuestionMarksHolder");
         marksManager = marksHolder.GetComponent<QuestionMarksMaker>();
         myTransform = gameObject.GetComponent<RectTransform>();
-        otherTransform = marksManager.questionMarksList[marksManager.NextQuestionMark - 1]
-            .GetComponent<RectTransform>();
+        otherImage = marksManager.questionMarksList[Index].GetComponentInChildren<Image>();
+        otherTransform = otherImage.GetComponent<RectTransform>();
+        // otherTransform = marksManager.questionMarksList[Index].GetComponent<RectTransform>();
         statringScale = myTransform.sizeDelta;
         startingPosition = myTransform.position;
         myImage = gameObject.GetComponent<Image>();
-        myText = GetComponentInChildren<TMP_Text>();
-        otherTransform.GetComponent<Image>().enabled = false;
+        // myText = GetComponentInChildren<TMP_Text>();
+        // otherImage.enabled = false;
     }
 
     private void OnEnable()
@@ -104,24 +113,31 @@ public class AchievementManager : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
         // Fading:
         if (t < 1f && !startAnimation)
         {
             t += Time.deltaTime * fadingSpeed;
             transparency = Mathf.Lerp(0f, 255f, t);
-            myImage.color = new Color32(255, 255, 255, (byte)transparency);
-            myText.color = new Color32(0, 0, 0, (byte)transparency);
-            
+            myImage.color = new Color32(255, 255, 255, (byte) transparency);
+            _meaningText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
+            _constantText.color = new Color(textColor.r, textColor.g, textColor.b, transparency);
         }
-        
+
         // Animation to the left bottom of the screen
         if (t < 1f && startAnimation)
         {
             t += Time.deltaTime * animationSpeed;
-            myTransform.sizeDelta = Vector3.Lerp(statringScale,
-                otherTransform.sizeDelta, t);
+            myTransform.sizeDelta = Vector3.Lerp(statringScale, otherTransform.sizeDelta, t);
             myTransform.position = Vector3.Lerp(startingPosition, otherTransform.position, t);
+        }
+
+        if (t >= 1 && startAnimation)
+        {
+            // otherImage.enabled = true;
+            otherImage.sprite = myImage.sprite;
+            marksManager.questionMarksList[Index].GetComponentInChildren<TMP_Text>().text = _meaningText.text;
+            Destroy(gameObject);
         }
     }
 
@@ -129,10 +145,11 @@ public class AchievementManager : MonoBehaviour
     {
         yield return new WaitForSeconds(animationStartDelay);
 
-        myText.enabled = false;
+        _meaningText.enabled = false;
+        _constantText.enabled = false;
         startAnimation = true;
         t = 0f;
     }
-    
+
     #endregion
 }
