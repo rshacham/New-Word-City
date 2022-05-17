@@ -50,3 +50,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Flying things
+    uniqueID: 1213170525
+    locked: 0
