@@ -124,6 +124,7 @@ namespace Player_Control
             var interactable = col.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable.SetInteraction(this))
             {
+                // TODO: highlight interact objects should be ignored! require moving the property to base class
                 if (_firstInteraction)
                 {
                     ShowInteractionKey(interactable);
@@ -184,8 +185,8 @@ namespace Player_Control
 
         private void ShowInteractionKey(InteractableObject obj)
         {
-            var key = _myMovement.IsController ? "controller" : "kbm";
-            DebugLog.Log(LogTag.Gameplay, $"Show Interaction Tutorial: {key}", obj);
+            // var key = _myMovement.IsController ? "controller" : "kbm";
+            // DebugLog.Log(LogTag.Gameplay, $"Show Interaction Tutorial: {key}", obj);
             var scheme = _myMovement.IsController ? TutorialObjects.Schemes.Controller : TutorialObjects.Schemes.KBM;
             var pos = obj.transform.position + tutorialObjects.Offset;
             tutorialObjects.CreateTutorial(
@@ -197,8 +198,8 @@ namespace Player_Control
 
         private void UnShowInteractionKey(InteractableObject obj)
         {
-            var key = _myMovement.IsController ? "controller" : "kbm";
-            DebugLog.Log(LogTag.Gameplay, $"UnShow Interaction Tutorial: {key}", obj);
+            // var key = _myMovement.IsController ? "controller" : "kbm";
+            // DebugLog.Log(LogTag.Gameplay, $"UnShow Interaction Tutorial: {key}", obj);
             tutorialObjects.RemoveTutorial();
         }
 
