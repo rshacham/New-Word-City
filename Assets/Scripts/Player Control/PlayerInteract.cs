@@ -329,7 +329,7 @@ namespace Player_Control
 
     /// <summary>
     /// 
-    /// </summary>
+    /// </summary> TODO: Refactor to another class - probably static of singleton - to allow access from movements
     [Serializable]
     public class TutorialObjects
     {

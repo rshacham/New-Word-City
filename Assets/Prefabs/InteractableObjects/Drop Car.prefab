@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878638632569996125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.826176, y: -0.17546582, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2014846710662525639}
@@ -120,11 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666040, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_Offset.x
-      value: -0.07953262
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666040, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_Offset.y
-      value: -0.59942615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666041, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: parent
@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666043, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666043, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1713515507770666043, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -180,11 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1713515508419968634, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1713515508419968634, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1713515508419968634, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -767,21 +767,19 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.44801742, y: 0.6880946}
-    oldSize: {x: 3.75, y: 2.9}
-    newSize: {x: 3.75, y: 2.9}
+    pivot: {x: 0.30774525, y: 0.5995546}
+    oldSize: {x: 2.77, y: 2.1416638}
+    newSize: {x: 2.77, y: 2.1416638}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.4299346, y: -0.1854744}
-      - {x: 0.7999347, y: 0.1245256}
-      - {x: 0.6199347, y: -0.0054743956}
-      - {x: -1.0400653, y: -0.72547436}
-      - {x: -1.1200653, y: -1.0154743}
-      - {x: -0.3900653, y: -1.4254744}
-      - {x: -0.060065307, y: -1.4854743}
-      - {x: 1.0499346, y: -0.8854744}
-      - {x: 1.4399346, y: -0.5154744}
+    - - {x: 1.9066225, y: 0.22240478}
+      - {x: -0.023036579, y: 0.03307298}
+      - {x: -0.84920484, y: -0.55146986}
+      - {x: -0.84920484, y: -1.1434865}
+      - {x: -0.47794014, y: -1.283965}
+      - {x: 0.26940393, y: -1.2840443}
+      - {x: 1.9175457, y: -0.3316111}
