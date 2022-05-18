@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using Interactable_Objects;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ public class HonkInteraction : EventInteractable
         {
             return;
         }
-        
+        DebugLog.Log(LogTag.Audio, "HONKS", this);
         switch (++counter % 2)
         {
             case 0:
