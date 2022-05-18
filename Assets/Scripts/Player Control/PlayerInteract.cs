@@ -125,7 +125,7 @@ namespace Player_Control
             if (interactable.SetInteraction(this))
             {
                 // TODO: highlight interact objects should be ignored! require moving the property to base class
-                if (_firstInteraction)
+                if (_firstInteraction && !interactable.HighlightInteract)
                 {
                     ShowInteractionKey(interactable);
                 }
@@ -329,7 +329,7 @@ namespace Player_Control
 
     /// <summary>
     /// 
-    /// </summary>
+    /// </summary> TODO: Refactor to another class - probably static of singleton - to allow access from movements
     [Serializable]
     public class TutorialObjects
     {

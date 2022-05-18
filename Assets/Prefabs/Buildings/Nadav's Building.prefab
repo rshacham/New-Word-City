@@ -47,6 +47,7 @@ MonoBehaviour:
   transparencyTrigger: {fileID: 5999579618528539172}
   mySprite: {fileID: 895739486461380849}
   transparency: 0.5
+  fadeTime: 0.5
 --- !u!60 &5999579618528539172
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -73,8 +74,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -2.9189947, y: 11.239313}
-      - {x: -3.208376, y: 2.2064798}
-      - {x: 2.9231272, y: 2.320476}
+      - {x: -3.094412, y: -0.15827036}
+      - {x: 2.837654, y: 0.7534728}
       - {x: 2.6633515, y: 8.107726}
       - {x: -0.47588366, y: 15.554944}
 --- !u!1 &895739486461380848

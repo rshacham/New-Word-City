@@ -58,7 +58,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23758125, y: -0.16317272}
+  m_Offset: {x: -0.01153487, y: -0.15411395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -69,7 +69,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9781227, y: 2.285376}
+  m_Size: {x: 1.7370716, y: 1.4338521}
   m_EdgeRadius: 0
 --- !u!1 &1352860081842404485
 GameObject:
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 533150656077501108}
   m_Layer: 0
   m_Name: Cow
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352860081842404485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.512894, y: 2.6762052, z: 171.53465}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 533150655765557727}
@@ -194,7 +194,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.31124124, y: 1.0380241}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.57, y: 0.89}
     newSize: {x: 1.57, y: 0.89}
     adaptiveTilingThreshold: 0.5
@@ -203,12 +203,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.23620224, y: -0.7227252}
-      - {x: 0.15379776, y: -0.8127252}
-      - {x: 0.64379776, y: -0.7927252}
-      - {x: 0.65379775, y: -0.5927252}
-      - {x: 0.60379773, y: -0.43272522}
-      - {x: -0.29620224, y: -0.2527252}
+    - - {x: -0.575, y: -0.225}
+      - {x: -0.175, y: -0.415}
+      - {x: 0.315, y: -0.39499998}
+      - {x: 0.325, y: -0.005}
+      - {x: -0.555, y: 0.24499999}
 --- !u!82 &533150656077501114
 AudioSource:
   m_ObjectHideFlags: 0

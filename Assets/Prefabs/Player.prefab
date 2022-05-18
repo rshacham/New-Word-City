@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801055828440444346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.35, y: 0.17, z: 1}
   m_Children:
   - {fileID: 7593152126706699594}
@@ -89,7 +89,7 @@ MonoBehaviour:
   moveIsometric: 0
   isometricAngle: 130
   smoothing: 1
-  peepingMat: {fileID: 0}
+  peepingMat: {fileID: 2100000, guid: 4608f8f5ffe8d41478faae383ec009ae, type: 2}
 --- !u!114 &2952884323134895216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,11 +113,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   tutorialObjects:
-    tutorialSprite: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
+    offset: {x: 1, y: 1, z: 0}
     controller:
       interact: {fileID: 21300000, guid: b13d5292542318a4ebc6be8b83903e02, type: 3}
     kbm:
       interact: {fileID: 21300000, guid: 1f2997aaf8c3266479b33f7612d4a883, type: 3}
+    tutorialSprite: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
 --- !u!114 &6267474628486685449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13559657}
+  m_Offset: {x: 0, y: 0.57}
   m_Size: {x: 0.44, y: 1.0088068}
   m_Direction: 0
 --- !u!1 &8946206841999487674
