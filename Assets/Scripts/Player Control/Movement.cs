@@ -59,6 +59,8 @@ namespace Player_Control
         
         #region Public Properties
 
+        public bool IsController => _playerInput != null && _playerInput.currentControlScheme == Controller;
+
         public bool EnableMovement
         {
             get => enableMovement;
@@ -133,7 +135,7 @@ namespace Player_Control
             }
 
             var movementVector = context.action.ReadValue<Vector2>();
-            if (_playerInput.currentControlScheme != Controller)
+            if (!IsController)
             {
                 if (moveIsometric)
                 {
