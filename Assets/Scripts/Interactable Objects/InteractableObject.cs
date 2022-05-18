@@ -13,6 +13,7 @@ namespace Interactable_Objects
     public class InteractableObject : MonoBehaviour
     {
         #region Inspector
+
         [Header("Word Connection")]
         [Space]
         [SerializeField]
@@ -26,6 +27,22 @@ namespace Interactable_Objects
         [SerializeField]
         [Tooltip("This objects collider")] // TODO: get from code when possible!
         private Collider2D myCollider;
+
+        //TODO: add field for "used by composite", if we need something like that
+
+        [Space(2)]
+        [Header("Basic Behaviour")]
+        [SerializeField]
+        [Tooltip("Start this object in interactable state")]
+        protected bool startInteractable = true;
+
+        [SerializeField]
+        [Tooltip("Allow the object to be interacted with multiple times")]
+        protected bool interactMultipleTimes = true;
+
+        [SerializeField]
+        [Tooltip("One click to highlight and interact")]
+        protected bool highlightInteract = true;
 
         #endregion
 
@@ -86,6 +103,8 @@ namespace Interactable_Objects
 
         public bool UseOnEnd { get; set; } = true;
 
+        public bool HighlightInteract => highlightInteract;
+
         #endregion
 
         #region Public Methods
@@ -98,7 +117,7 @@ namespace Interactable_Objects
         public virtual bool SetInteraction(PlayerInteract other)
         {
             DebugDraw.DrawCross2D(transform.position, 1, CanInteract ? Color.green : Color.red, 1f);
-            
+
             if (!CanInteract)
             {
                 return false;

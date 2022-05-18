@@ -10,22 +10,6 @@ namespace Interactable_Objects
     public class EventInteractable : InteractableObject
     {
         #region Inspector
-        //TODO: add field for "used by composite", if we need something like that
-
-        [Space(2)]
-        [Header("Basic Behaviour")]
-        [SerializeField]
-        [Tooltip("Start this object in interactable state")]
-        private bool startInteractable = true;
-
-        [SerializeField]
-        [Tooltip("Allow the object to be interacted with multiple times")]
-        private bool interactMultipleTimes = true;
-
-        [SerializeField]
-        [Tooltip("One click to highlight and interact")]
-        private bool highlightInteract = true;
-
         [Header("Interaction Events")]
         [SerializeField]
         [Tooltip("Will be called after scripted interaction")]
@@ -78,7 +62,7 @@ namespace Interactable_Objects
         public override bool SetInteraction(PlayerInteract other)
         {
             var ret = base.SetInteraction(other);
-            if (ret && highlightInteract)
+            if (ret && HighlightInteract)
             {
                 ret = Interact();
             }
