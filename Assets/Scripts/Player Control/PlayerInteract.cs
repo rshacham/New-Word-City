@@ -167,7 +167,7 @@ namespace Player_Control
             var interactable = other.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable == _currentActive)
             {
-                if (_firstInteraction)
+                if (_firstInteraction && !interactable.HighlightInteract)
                 {
                     UnShowInteractionKey(_currentActive);
                 }
@@ -224,7 +224,7 @@ namespace Player_Control
                 return;
             }
 
-            if (_firstInteraction)
+            if (_firstInteraction && !_currentActive.HighlightInteract) // TODO:
             {
                 _firstInteraction = false;
                 UnShowInteractionKey(_currentActive);
