@@ -15203,7 +15203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &950449420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17937,30 +17937,6 @@ PrefabInstance:
     - target: {fileID: 6890056755714625662, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_Spacing.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_CellSize.x
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_CellSize.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_Constraint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_Padding.m_Left
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7870455052856608971, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
-      propertyPath: m_ConstraintCount
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7893930590346072160, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchorMax.x
@@ -22717,7 +22693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1385006240 stripped
 Transform:
@@ -24442,7 +24418,7 @@ Transform:
   m_LocalScale: {x: 0.8829286, y: 0.8829286, z: 0.8829286}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1501446802 stripped
 Transform:
