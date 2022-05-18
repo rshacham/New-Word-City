@@ -1,9 +1,13 @@
 ﻿using System;
+using Avrahamy;
 using Interactable_Objects;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Player_Control
 {
@@ -36,6 +40,12 @@ namespace Player_Control
         [InspectorName("Events On Interactions")]
         public PlayerInteractEvents interactionEvents = new PlayerInteractEvents();
 
+        [Space(2)]
+        [Header("Tutorial")]
+        // [InspectorName("Tutorial UI Images")]
+        [SerializeField]
+        private TutorialObjects tutorialObjects;
+
         #endregion
 
         #region Public Properties
@@ -62,6 +72,8 @@ namespace Player_Control
         /// Current object that the user is attached to
         /// </summary>
         private InteractableObject _currentActive;
+        private bool _firstInteraction = true;
+        private Movement _myMovement;
 
         #endregion
 
@@ -69,6 +81,7 @@ namespace Player_Control
 
         private void Awake()
         {
+            _myMovement = GetComponent<Movement>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
         }
@@ -111,6 +124,11 @@ namespace Player_Control
             var interactable = col.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable.SetInteraction(this))
             {
+                if (_firstInteraction)
+                {
+                    ShowInteractionKey(interactable);
+                }
+
                 _currentActive = interactable;
             }
         }
@@ -148,11 +166,40 @@ namespace Player_Control
             var interactable = other.gameObject.GetComponentInParent<InteractableObject>();
             if (interactable == _currentActive)
             {
+                if (_firstInteraction)
+                {
+                    UnShowInteractionKey(_currentActive);
+                }
+
                 //TODO: Duplicated
                 // Debug.Log("<color=cyan>UnHighlight</color>", other);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
             }
+        }
+
+        #endregion
+
+        #region Tutorial
+
+        private void ShowInteractionKey(InteractableObject obj)
+        {
+            var key = _myMovement.IsController ? "controller" : "kbm";
+            DebugLog.Log(LogTag.Gameplay, $"Show Interaction Tutorial: {key}", obj);
+            var scheme = _myMovement.IsController ? TutorialObjects.Schemes.Controller : TutorialObjects.Schemes.KBM;
+            var pos = obj.transform.position + tutorialObjects.Offset;
+            tutorialObjects.CreateTutorial(
+                obj.transform.position + Vector3.right,
+                TutorialScheme.Tutorials.Interact,
+                scheme
+            );
+        }
+
+        private void UnShowInteractionKey(InteractableObject obj)
+        {
+            var key = _myMovement.IsController ? "controller" : "kbm";
+            DebugLog.Log(LogTag.Gameplay, $"UnShow Interaction Tutorial: {key}", obj);
+            tutorialObjects.RemoveTutorial();
         }
 
         #endregion
@@ -174,6 +221,12 @@ namespace Player_Control
             {
                 interactionEvents.onEmptyInteract.Invoke();
                 return;
+            }
+
+            if (_firstInteraction)
+            {
+                _firstInteraction = false;
+                UnShowInteractionKey(_currentActive);
             }
 
             if (!_currentActive.Interact())
@@ -271,5 +324,102 @@ namespace Player_Control
         public UnityEvent<InteractableObject> onInteractableObject = new UnityEvent<InteractableObject>();
 
         public UnityEvent onEmptyInteract = new UnityEvent();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Serializable]
+    public class TutorialObjects
+    {
+        #region Inspector
+
+        [SerializeField]
+        private Vector3 offset = new Vector3(1, 1);
+
+        [Space(2)]
+        [Header("Schemes")]
+        [SerializeField]
+        private TutorialScheme controller;
+
+        [SerializeField]
+        private TutorialScheme kbm;
+
+        [Space(2)]
+        [SerializeField]
+        private GameObject tutorialSprite;
+
+        #endregion
+
+        #region Private Fields
+
+        private GameObject _tutorialInstance;
+
+        #endregion
+
+        #region Public Properties
+
+        public enum Schemes
+        {
+            KBM,
+            Controller
+        }
+
+        public Vector3 Offset
+        {
+            get => offset;
+            set => offset = value;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        // TODO: add animation slight shake, custom images, pop in/popout, multi tutorials support
+        public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type, Schemes scheme)
+        {
+            if (_tutorialInstance == null)
+            {
+                _tutorialInstance = Object.Instantiate(tutorialSprite);
+            }
+
+            _tutorialInstance.transform.position = position;
+
+            var tutorialScheme = scheme switch
+            {
+                Schemes.KBM => kbm,
+                Schemes.Controller => controller,
+                _ => throw new ArgumentOutOfRangeException(nameof(scheme), scheme, null)
+            };
+            _tutorialInstance.GetComponent<SpriteRenderer>().sprite = type switch
+            {
+                TutorialScheme.Tutorials.Interact => tutorialScheme.interact,
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+            _tutorialInstance.SetActive(true);
+            return ref _tutorialInstance;
+        }
+
+        public void RemoveTutorial()
+        {
+            _tutorialInstance.SetActive(false);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Serializable]
+    public struct TutorialScheme
+    {
+        public enum Tutorials
+        {
+            Interact
+        }
+
+        [SerializeField]
+        public Sprite interact;
     }
 }
