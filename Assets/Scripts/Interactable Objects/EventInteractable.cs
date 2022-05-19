@@ -1,6 +1,8 @@
-﻿using Player_Control;
+﻿using System;
+using Player_Control;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Interactable_Objects
 {
@@ -10,19 +12,13 @@ namespace Interactable_Objects
     public class EventInteractable : InteractableObject
     {
         #region Inspector
-        [Header("Interaction Events")]
+        [Header("Event Behaviour")]
         [SerializeField]
-        [Tooltip("Will be called after scripted interaction")]
-        private UnityEvent<InteractableObject> onInteraction = new UnityEvent<InteractableObject>();
-
-        [SerializeField]
-        [Tooltip("Will be called when player first highlights this object")]
-        private UnityEvent<InteractableObject> onHighlight = new UnityEvent<InteractableObject>();
-
-        [SerializeField]
-        [Tooltip("Will be called when player un-selects this object")]
-        private UnityEvent<InteractableObject> onHighlightEnd = new UnityEvent<InteractableObject>();
-
+        [FormerlySerializedAs("onInteraction")]
+        [FormerlySerializedAs("onHighlight")]
+        [FormerlySerializedAs("onHighlightEnd")]
+        protected InteractionEvents interactionEvents;
+        
         [Space]
         [SerializeField]
         [Tooltip("Use the script or just the events. if not inherited - should set to false")]
@@ -44,7 +40,7 @@ namespace Interactable_Objects
             Strategy = () =>
             {
                 ScriptInteract();
-                onInteraction.Invoke(this);
+                interactionEvents.onInteraction.Invoke(this);
                 CanInteract = interactMultipleTimes;
                 return stayHighlightAfterInteract;
             };
@@ -67,7 +63,7 @@ namespace Interactable_Objects
                 ret = Interact();
             }
 
-            onHighlight.Invoke(this);
+            interactionEvents.onHighlight.Invoke(this);
             return ret;
         }
 
@@ -77,7 +73,7 @@ namespace Interactable_Objects
         /// <param name="other"></param> // TODO: set return value?
         public override void RemoveInteraction(PlayerInteract other)
         {
-            onHighlightEnd.Invoke(this);
+            interactionEvents.onHighlightEnd.Invoke(this);
             base.RemoveInteraction(other);
         }
 
@@ -101,5 +97,22 @@ namespace Interactable_Objects
         }
 
         #endregion
+    }
+
+    [Serializable]
+    public struct InteractionEvents
+    {
+        [SerializeField]
+        [Tooltip("Will be called after scripted interaction")]
+        public UnityEvent<InteractableObject> onInteraction;
+
+        [SerializeField]
+        [Tooltip("Will be called when player first highlights this object")]
+        public UnityEvent<InteractableObject> onHighlight;
+
+        [SerializeField]
+        [Tooltip("Will be called when player un-selects this object")]
+        public UnityEvent<InteractableObject> onHighlightEnd;
+        
     }
 }
