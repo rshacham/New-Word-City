@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0f4bc4d1dd84a89b026045de30d43f, type: 3}
-  m_Name: MessageBulkDispatcher
+  m_Script: {fileID: 11500000, guid: 05cf5b3970f714772b0951fe99345d7b, type: 3}
+  m_Name: RandomChangeAudioEvent
   m_EditorClassIdentifier: 
-  messages:
-  - {fileID: 0}
+  nameInSerialization: RandomChangeAudioEvent
+  entries:
+  - value: {fileID: 11400000, guid: 08b77932e585f45459f85a037e400222, type: 2}
+    chance: 4

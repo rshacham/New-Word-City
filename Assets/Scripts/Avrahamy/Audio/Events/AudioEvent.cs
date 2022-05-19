@@ -8,6 +8,24 @@ namespace Avrahamy.Audio {
     /// AudioController.
     /// </summary>
     public abstract class AudioEvent : ScriptableObject {
+        #region Nemesh Added For Funzies
+        
+        [SerializeField]
+        [HideInInspector]
+        private string nameInSerialization;
+        public string Name
+        {
+            get => nameInSerialization;
+            private set => nameInSerialization = value;
+        }
+
+        private void OnValidate()
+        {
+            Name = name;
+        }
+
+        #endregion
+        
         public abstract float Volume { get; }
 
         /// <summary>

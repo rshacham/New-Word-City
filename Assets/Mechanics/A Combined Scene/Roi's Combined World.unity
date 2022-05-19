@@ -15674,6 +15674,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1563982025}
     m_Modifications:
+    - target: {fileID: 816481549467752915, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1003622778}
     - target: {fileID: 2776681063576259546, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -15724,6 +15728,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+--- !u!114 &1003622778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+  m_PrefabInstance: {fileID: 1003622775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b500fb27d6aa4ad79a57207d6a7a0378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1004346137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16781,7 +16796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1205907575199305355, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 60.271416
+      value: 60.480003
       objectReference: {fileID: 0}
     - target: {fileID: 1207256374847916353, guid: ad244061df7ea7941ab0dabbb9c51259, type: 3}
       propertyPath: m_AnchorMax.x
