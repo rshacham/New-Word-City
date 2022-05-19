@@ -11871,6 +11871,9 @@ MonoBehaviour:
     onInteraction:
       m_PersistentCalls:
         m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
     onHighlight:
       m_PersistentCalls:
         m_Calls: []

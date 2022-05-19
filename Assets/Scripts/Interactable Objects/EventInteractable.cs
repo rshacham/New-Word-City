@@ -12,13 +12,15 @@ namespace Interactable_Objects
     public class EventInteractable : InteractableObject
     {
         #region Inspector
+
         [Header("Event Behaviour")]
         [SerializeField]
         [FormerlySerializedAs("onInteraction")]
         [FormerlySerializedAs("onHighlight")]
         [FormerlySerializedAs("onHighlightEnd")]
+        [Tooltip("Events to be called in different parts of the interactions")]
         protected InteractionEvents interactionEvents;
-        
+
         [Space]
         [SerializeField]
         [Tooltip("Use the script or just the events. if not inherited - should set to false")]
@@ -44,6 +46,8 @@ namespace Interactable_Objects
                 CanInteract = interactMultipleTimes;
                 return stayHighlightAfterInteract;
             };
+            OnInteractionEnd += (sender, interactable) =>
+                interactionEvents.onHighlightEnd.Invoke(interactable);
         }
 
         #endregion
@@ -103,8 +107,12 @@ namespace Interactable_Objects
     public struct InteractionEvents
     {
         [SerializeField]
-        [Tooltip("Will be called after scripted interaction")]
+        [Tooltip("Will be called during interaction - after scripted interaction")]
         public UnityEvent<InteractableObject> onInteraction;
+
+        [SerializeField]
+        [Tooltip("Will Be Called after  - if UseOnEnd is set to true (default)")]
+        public UnityEvent<InteractableObject> onInteractionEnd;
 
         [SerializeField]
         [Tooltip("Will be called when player first highlights this object")]
@@ -113,6 +121,5 @@ namespace Interactable_Objects
         [SerializeField]
         [Tooltip("Will be called when player un-selects this object")]
         public UnityEvent<InteractableObject> onHighlightEnd;
-        
     }
 }

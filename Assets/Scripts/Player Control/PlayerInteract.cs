@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using static Player_Control.TutorialObjects;
 using Object = UnityEngine.Object;
 
 namespace Player_Control
@@ -38,7 +39,7 @@ namespace Player_Control
         [Space]
         [Tooltip("Events that are called on interaction")]
         [InspectorName("Events On Interactions")]
-        public PlayerInteractEvents interactionEvents = new PlayerInteractEvents();
+        public PlayerInteractEvents interactionEvents;
 
         [Space(2)]
         [Header("Tutorial")]
@@ -72,6 +73,7 @@ namespace Player_Control
         /// Current object that the user is attached to
         /// </summary>
         private InteractableObject _currentActive;
+
         private bool _firstInteraction = true;
         private Movement _myMovement;
 
@@ -187,10 +189,10 @@ namespace Player_Control
         {
             // var key = _myMovement.IsController ? "controller" : "kbm";
             // DebugLog.Log(LogTag.Gameplay, $"Show Interaction Tutorial: {key}", obj);
-            var scheme = _myMovement.IsController ? TutorialObjects.Schemes.Controller : TutorialObjects.Schemes.KBM;
+            var scheme = _myMovement.IsController ? Schemes.Controller : Schemes.KBM;
             var pos = obj.transform.position + tutorialObjects.Offset;
             tutorialObjects.CreateTutorial(
-                obj.transform.position + Vector3.right,
+                pos,
                 TutorialScheme.Tutorials.Interact,
                 scheme
             );
@@ -320,11 +322,11 @@ namespace Player_Control
     /// 
     /// </summary>
     [Serializable]
-    public class PlayerInteractEvents
+    public struct PlayerInteractEvents
     {
-        public UnityEvent<InteractableObject> onInteractableObject = new UnityEvent<InteractableObject>();
+        public UnityEvent<InteractableObject> onInteractableObject;
 
-        public UnityEvent onEmptyInteract = new UnityEvent();
+        public UnityEvent onEmptyInteract;
     }
 
     /// <summary>
@@ -377,7 +379,8 @@ namespace Player_Control
         #region Public Methods
 
         // TODO: add animation slight shake, custom images, pop in/popout, multi tutorials support
-        public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type, Schemes scheme)
+        public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type,
+            Schemes scheme)
         {
             if (_tutorialInstance == null)
             {
