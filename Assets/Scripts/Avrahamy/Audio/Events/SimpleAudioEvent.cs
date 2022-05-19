@@ -29,5 +29,17 @@ namespace Avrahamy.Audio {
             source.panStereo = stereoPan;
             source.Play();
         }
+
+        #region Nemesh Added For Funzies
+
+                
+        public static implicit operator SimpleAudioEvent(AudioClip t)
+        {
+            var a = CreateInstance<SimpleAudioEvent>();
+            a.clip = t;
+            return a;
+        }
+
+        #endregion
     }
 }

@@ -15726,6 +15726,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShortFlowersHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: clips.Array.data[0].name
+      value: Correct
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: clips.Array.data[1].name
+      value: AudioClip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: clips.Array.data[0].audioEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 08b77932e585f45459f85a037e400222, type: 2}
+    - target: {fileID: 6611775719150011872, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
+      propertyPath: clips.Array.data[1].audioEvent
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b228d0330fd8034ebf0cd605107226e, type: 3}
 --- !u!114 &1003622778 stripped

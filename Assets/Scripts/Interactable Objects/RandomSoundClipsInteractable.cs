@@ -35,8 +35,8 @@ namespace Interactable_Objects
             {
                 return;
             }
-            var idx = Random.Range(0, clips.Count);
-            clips[idx].Clip.Play(_mySource);
+
+            clips.ChooseRandom().Clip.Play(_mySource);
         }
 
         #endregion
