@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5695922551583825521, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: startInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695922551583825521, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: clips.Array.data[0].name
       value: Honk
       objectReference: {fileID: 0}
