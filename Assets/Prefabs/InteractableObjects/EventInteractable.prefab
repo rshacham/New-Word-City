@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6709026761084626203}
   - component: {fileID: 6709026761084626181}
   - component: {fileID: 6709026761084626202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 1601669028355727441}
   - component: {fileID: 6709026761802233564}
   - component: {fileID: 6709026761802233565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventInteractable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 6709026762567279111}
   - component: {fileID: 6709026762567279105}
   - component: {fileID: 6709026762567279110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Proximity
   m_TagString: InteractableHighlighter
   m_Icon: {fileID: 0}
