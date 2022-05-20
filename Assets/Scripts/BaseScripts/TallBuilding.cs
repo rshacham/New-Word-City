@@ -56,8 +56,8 @@ namespace BaseScripts
             if (transparencyTrigger == null)
             {
                 transparencyTrigger = GetComponent<Collider2D>();
-                transparencyTrigger.isTrigger = true;
             }
+            transparencyTrigger.isTrigger = true;
 
             _normalColor = mySprite.color;
             _fadeColor = new Color(_normalColor.r, _normalColor.g, _normalColor.b, transparency);

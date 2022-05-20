@@ -168,21 +168,27 @@ MonoBehaviour:
   requiresWord: 0
   lastLink: {fileID: 0}
   myCollider: {fileID: 6709026761084626181}
-  startInteractable: 1
+  startInteractable: 0
   interactMultipleTimes: 1
   highlightInteract: 0
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlight:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlightEnd:
-    m_PersistentCalls:
-      m_Calls: []
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  clips: []
+  clips:
+  - name: Correct
+    audioEvent: {fileID: 11400000, guid: 08b77932e585f45459f85a037e400222, type: 2}
 --- !u!82 &1601669028355727441
 AudioSource:
   m_ObjectHideFlags: 0

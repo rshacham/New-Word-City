@@ -82,8 +82,8 @@ TextureImporter:
     physicsShape:
     - - {x: -30.5, y: -580}
       - {x: -353.5, y: -756}
-      - {x: -30.5, y: -920}
-      - {x: 274.5, y: -748}
+      - {x: -33.5, y: -932}
+      - {x: 271.5, y: -750}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
