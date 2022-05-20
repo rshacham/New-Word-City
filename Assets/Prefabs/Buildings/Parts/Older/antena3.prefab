@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4235764867258883009}
   - component: {fileID: 4235764867258883008}
   - component: {fileID: 4235764867258883011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: antena3
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5994999312163244583}
   - component: {fileID: 5994999312163244580}
   - component: {fileID: 5994999312163244581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: antena2
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

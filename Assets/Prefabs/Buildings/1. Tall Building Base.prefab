@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6782348372608365887}
   - component: {fileID: 7821498046220766824}
   - component: {fileID: 6031874028227309308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: transparency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
