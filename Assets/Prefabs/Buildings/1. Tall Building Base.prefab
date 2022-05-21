@@ -47,7 +47,7 @@ MonoBehaviour:
   transparencyTrigger: {fileID: 6031874028227309308}
   mySprite: {fileID: 7106789865815028032}
   transparency: 0.5
-  fadeTime: 0.5
+  fadeTime: 0.45
 --- !u!60 &6031874028227309308
 PolygonCollider2D:
   m_ObjectHideFlags: 0
