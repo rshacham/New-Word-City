@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4649215708960407835, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1932376507937942469}
     - target: {fileID: 4649215710397371844, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,122 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649215710397371848, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
       propertyPath: m_Name
-      value: 1. Tree Base
+      value: Palm
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: startInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6683209134736303127}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+      propertyPath: interactionEvents.onInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5950924323322821995, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+--- !u!1 &6247557728908159512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4649215710397371848, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+  m_PrefabInstance: {fileID: 1600640067275571152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &6247557729416083919 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4649215710971610655, guid: 6a748eca6a6386545892c4e9928d1ab0, type: 3}
+  m_PrefabInstance: {fileID: 1600640067275571152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6683209134736303127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247557728908159512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be956ff5cd4e69e449bf51cc1a53ff27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1932376507937942469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247557728908159512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ba92767f1444df8828c61ae146d54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
+  myCollider: {fileID: 6247557729416083919}
+  startInteractable: 1
+  interactMultipleTimes: 1
+  highlightInteract: 0
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
+  clips:
+  - chance: 1
+    clip: {fileID: 7400000, guid: 65ae608990a0ae64fa7d29c096432f69, type: 2}
+    connectedToWord: 1
+  - chance: 1
+    clip: {fileID: 7400000, guid: bd3e5fee10d77b14ebeaba6f21f2bb77, type: 2}
+    connectedToWord: 0
+  - chance: 1
+    clip: {fileID: 7400000, guid: 1ec5210111ac8ed4799c104127175e90, type: 2}
+    connectedToWord: 1
+  - chance: 1
+    clip: {fileID: 7400000, guid: 2dd81ced42f24824ca1e76e38a374264, type: 2}
+    connectedToWord: 0
+  - chance: 1
+    clip: {fileID: 7400000, guid: c59313010de8b7440bd00d306c3eed92, type: 2}
+    connectedToWord: 1

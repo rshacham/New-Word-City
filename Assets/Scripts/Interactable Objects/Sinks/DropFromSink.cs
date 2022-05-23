@@ -15,10 +15,10 @@ public class DropFromSink : EventInteractable
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        print(interactionActive);
-    }
+    // private void Update()
+    // {
+    //     print(interactionActive);
+    // }
 
     protected override void ScriptInteract()
     {

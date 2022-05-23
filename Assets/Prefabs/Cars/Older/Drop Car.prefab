@@ -571,7 +571,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 0.1
-  MaxDistance: 20
+  MaxDistance: 25
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -718,15 +718,19 @@ MonoBehaviour:
   startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 0
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlight:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlightEnd:
-    m_PersistentCalls:
-      m_Calls: []
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
   regularClip: {fileID: 878638632539194070}

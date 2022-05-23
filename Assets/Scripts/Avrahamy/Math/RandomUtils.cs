@@ -113,6 +113,7 @@ namespace Avrahamy.Math {
 
         [System.Serializable]
         public abstract class ClassWithChance {
+            [Min(0)]
             public float chance;
         }
 

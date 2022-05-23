@@ -168,7 +168,7 @@ MonoBehaviour:
   requiresWord: 0
   lastLink: {fileID: 0}
   myCollider: {fileID: 6709026761084626181}
-  startInteractable: 0
+  startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 0
   interactionEvents:
