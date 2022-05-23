@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Avrahamy;
+using Avrahamy.Audio;
 using Avrahamy.Math;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,8 +11,11 @@ namespace Interactable_Objects
     class RandomAnimationInteractable : EventInteractable
     {
         protected static readonly int Interact1 = Animator.StringToHash("Interact");
-        
+
         [Header("Animations")]
+        [SerializeField]
+        private AudioEvent soundClip;
+        
         [SerializeField]
         protected AnimationWithChance[] clips;
 
@@ -19,6 +23,7 @@ namespace Interactable_Objects
         protected Animator _myAnimator;
         protected AnimatorOverrideController _animatorOverrideController;
         private AnimationWithChance _clip;
+        private AudioSource _myAudioSource;
 
 
         protected override void Awake()
@@ -27,6 +32,7 @@ namespace Interactable_Objects
             _myAnimator = GetComponent<Animator>();
             _animatorOverrideController = new AnimatorOverrideController(_myAnimator.runtimeAnimatorController);
             _myAnimator.runtimeAnimatorController = _animatorOverrideController;
+            _myAudioSource = GetComponent<AudioSource>();
         }
 
         protected override void ScriptInteract()
@@ -44,6 +50,7 @@ namespace Interactable_Objects
                     _clip = clips.ChooseRandomWithChancesC();
                     _animatorOverrideController["Interact"] = _clip;
                     _myAnimator.SetTrigger(Interact1);
+                    soundClip.Play(_myAudioSource);
                     break;
                 default:
                     if (_clip.connectedToWord)
