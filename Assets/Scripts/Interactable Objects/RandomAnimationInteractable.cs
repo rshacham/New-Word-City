@@ -11,6 +11,7 @@ namespace Interactable_Objects
     {
         protected static readonly int Interact1 = Animator.StringToHash("Interact");
         
+        [Header("Animations")]
         [SerializeField]
         protected AnimationWithChance[] clips;
 
