@@ -1,4 +1,5 @@
 ﻿using System;
+using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -43,6 +44,7 @@ namespace Interactable_Objects
         private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
 
         private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
+        private static readonly int Highlight = Animator.StringToHash("Highlight");
 
         #endregion
 
@@ -86,10 +88,19 @@ namespace Interactable_Objects
                     UseOnEnd = true;
                     Debug.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
+                    _myAnimator.ResetTrigger(Highlight);
+                    _myAnimator.Play("CloseDoor");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public override void RemoveInteraction(PlayerInteract other)
+        {
+            var player = Player; // TODO: fix this
+            base.RemoveInteraction(other);
+            Player = player;
         }
 
         #endregion

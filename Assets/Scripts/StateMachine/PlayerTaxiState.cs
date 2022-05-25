@@ -1,4 +1,6 @@
-﻿using Player_Control;
+﻿using Interactable_Objects;
+using Managers;
+using Player_Control;
 using UnityEngine;
 
 namespace StateMachine
@@ -6,24 +8,28 @@ namespace StateMachine
     public class PlayerTaxiState : StateMachineBehaviour
     {
         private PlayerInteract _player;
+        private InteractableObject _currentActive;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo,
             int layerIndex)
         {
             _player = animator.GetComponent<PlayerInteract>();
+            _currentActive = _player.CurrentActive;
             _player.IsActive = false;
             var m = _player.GetComponent<Movement>();
             m.EnableMovement = false;
             m.DesiredVelocity = Vector2.zero;
+            BoundsGameManager.OnPlayerShouldCollide(_currentActive, false);
         }
 
-        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo,
-            int layerIndex)
+        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _player.GetComponent<SpriteRenderer>().enabled = false;
-            _player.transform.parent = _player.CurrentActive.transform;
-            _player.CurrentActive.Interact();
+            _player.transform.parent = _currentActive.transform;
+            _currentActive.Interact();
+            BoundsGameManager.OnPlayerShouldCollide(_currentActive, true);
         }
+
         //
         // public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo,
         //     int layerIndex)

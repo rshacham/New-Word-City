@@ -1,4 +1,5 @@
-﻿using Player_Control;
+﻿using Interactable_Objects;
+using Player_Control;
 using UnityEngine;
 
 namespace StateMachine
@@ -6,12 +7,14 @@ namespace StateMachine
     public class PlayerTaxiExitState : StateMachineBehaviour
     {
         private PlayerInteract _player;
+        private InteractableObject _currentActive;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo,
             int layerIndex)
         {
             _player = animator.GetComponent<PlayerInteract>();
             _player.GetComponent<SpriteRenderer>().enabled = true;
+            _currentActive = _player.CurrentActive;
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo,
@@ -19,7 +22,7 @@ namespace StateMachine
         {
             _player.GetComponent<Movement>().EnableMovement = true;
             _player.transform.parent = null;
-            _player.CurrentActive.Interact();
+            _currentActive.Interact();
             _player.IsActive = true;
         }
         //

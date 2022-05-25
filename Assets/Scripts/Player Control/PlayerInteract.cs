@@ -1,6 +1,7 @@
 ﻿using System;
 using Avrahamy;
 using Interactable_Objects;
+using Managers;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -138,7 +139,7 @@ namespace Player_Control
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!highlightOnProximity)
+            if (!highlightOnProximity || !IsActive)
             {
                 return;
             }
@@ -152,7 +153,7 @@ namespace Player_Control
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (!highlightOnCollision)
+            if (!highlightOnCollision || !IsActive)
             {
                 return;
             }
