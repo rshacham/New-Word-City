@@ -11,7 +11,7 @@ namespace Interactable_Objects
         [SerializeField]
         [Tooltip("This objects parent")]
         private InteractableObject parent;
-
+        
         private Collider2D _myCollider2D;
 
         private void OnValidate()

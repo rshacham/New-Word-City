@@ -1,5 +1,7 @@
 using System;
 using Avrahamy;
+using Avrahamy.EditorGadgets;
+using BitStrap;
 using Player_Control;
 using UnityEngine;
 
@@ -19,6 +21,8 @@ namespace Interactable_Objects
         [SerializeField]
         private bool requiresWord;
 
+        [ConditionalHide("requiresWord")]
+        [Nullable]
         [SerializeField]
         [Tooltip("If in required word chain, reference to earlier object in the chain")]
         private InteractableObject lastLink;

@@ -31,8 +31,7 @@ namespace Avrahamy.EditorGadgets {
                 DoOnGUI(position, property, label);
 
                 // Enable PopOut.
-                // TODO: requires bitstrap
-                //PopupPropertyDrawer.PopOut(position, property);
+                PopupPropertyDrawer.PopOut(position, property);
             }
         }
 
