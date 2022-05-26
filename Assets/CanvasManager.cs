@@ -10,6 +10,7 @@ public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager _canvasManager;
     private Pokedex activeCanvas;
+    public bool writingWord = false;
     
     public Pokedex ActiveCanvas
     {
@@ -23,6 +24,9 @@ public class CanvasManager : MonoBehaviour
 
     public void OpenClose(InputAction.CallbackContext context)
     {
-        activeCanvas.OpenClose();
+        if (!writingWord)
+        {
+            activeCanvas.OpenClose();
+        }
     }
 }

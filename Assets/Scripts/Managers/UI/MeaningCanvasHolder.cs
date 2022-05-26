@@ -10,10 +10,11 @@ namespace Managers.UI
 {
     public class MeaningCanvasHolder : MonoBehaviour
     {
-        private TMPro.TextMeshProUGUI  myText;
+        private TMPro.TextMeshProUGUI myText;
         private int letterCount = 0;
         private string meaningString;
         private bool startAnimation = false;
+        
         [SerializeField] private float delay = 0.1f;
 
         public string MeaningString
@@ -24,8 +25,7 @@ namespace Managers.UI
 
         private void Start()
         {
-            myText = GetComponent<TMPro.TextMeshProUGUI >();
-            print(myText);
+            myText = GetComponent<TMPro.TextMeshProUGUI>();
         }
 
         private void Update()
@@ -43,16 +43,26 @@ namespace Managers.UI
         {
             while (true)
             {
-                
-                if (letterCount < meaningString.Length)
+                if (CanvasManager._canvasManager.ActiveCanvas.Angle < 0)
                 {
+                    yield return new WaitForSeconds(delay);
+                }
+
+                if (letterCount < meaningString.Length && CanvasManager._canvasManager.ActiveCanvas.Angle >= 0)
+                {
+                    if (letterCount == 0)
+                    {
+                        CanvasManager._canvasManager.writingWord = true;
+                    }
                     myText.text += meaningString[letterCount++];
                     yield return new WaitForSeconds(delay);
                 }
-                else
+                if (letterCount == meaningString.Length)
                 {
+                    CanvasManager._canvasManager.writingWord = false;
                     break;
                 }
+
             }
         }
     }
