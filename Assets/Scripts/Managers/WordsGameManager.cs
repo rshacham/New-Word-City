@@ -150,7 +150,7 @@ namespace Managers
             Current = Words[newWord]; // TODO: duplicated by the current index field, merge them.
             Instance.CurrentIndex = newWord;
             // TODO: move both below to public function of Current
-            Current.ToolCanvas.SetActive(true);
+            // Current.ToolCanvas.SetActive(true);
             RegisterCurrentMeanings();
             MeaningFoundCount = Current.MeaningFoundCount;
             Debug.Log($"New word: <color=blue>{Current}</color>");
