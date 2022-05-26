@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Interactable_Objects;
+using Managers.UI;
 using Mechanics.WordBase;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,7 +21,11 @@ namespace Managers
         [Tooltip("The word itself. dont change in runtime - readonly, without the proper attribute")]
         private string word;
 
-        [Space]
+        [SerializeField]
+        [Tooltip("The Canvas for this words computer")]
+        private GameObject toolCanvas;
+
+        [Space(2)]
         [SerializeField]
         [Tooltip("List of meanings of this word.")]
         private List<MeaningDescriptor> meanings = new List<MeaningDescriptor>();
@@ -53,8 +58,9 @@ namespace Managers
             get { return Meanings.Sum(descriptor => descriptor.Found ? 1 : 0); }
         }
 
-        #endregion
+        public GameObject ToolCanvas => toolCanvas;
 
+        #endregion
 
         #region Type Conversions
 
@@ -101,7 +107,11 @@ namespace Managers
         [Multiline]
         public string meaning;
         
-        [SerializeField] public Sprite image;
+        [SerializeField] 
+        public Sprite image;
+
+        [SerializeField]
+        public MeaningCanvasHolder meaningGameObject;
 
         [FormerlySerializedAs("linkedObject")]
         [SerializeField]
@@ -119,7 +129,7 @@ namespace Managers
         {
             if (Found)
             {
-                return;
+                return; // TODO: inform canvas that was already found?
             }
 
             foreach (var interactableObject in linkedObjects.Where(interactableObject => interactableObject != null))
@@ -191,6 +201,7 @@ namespace Managers
             }
 
             Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
+            meaningGameObject.FoundMeaning(this, e);
             UnRegisterMeaning();
             Found = true;
             WordsGameManager.OnMeaningFound?.Invoke(e, this);
