@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,7 @@ public class CanvasManager : MonoBehaviour
     }
     private void Awake()
     {
+        DebugLog.Log("hi", this);
         _canvasManager = this;
     }
 
