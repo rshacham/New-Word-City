@@ -30,13 +30,13 @@ public class Pokedex : MonoBehaviour
     {
         if (angle > -180f && !isOpen)
         {
-            transform.RotateAround(pivot.transform.position, zAxis, Time.deltaTime * rotatingSpeed);
+            pokedexTransform.RotateAround(pivot.transform.position, zAxis, Time.deltaTime * rotatingSpeed);
             angle -= rotatingSpeed * Time.deltaTime;
         }
 
         if (angle < 0 && isOpen)
         {
-            transform.RotateAround(pivot.transform.position, zAxis, Time.deltaTime * -rotatingSpeed);
+            pokedexTransform.RotateAround(pivot.transform.position, zAxis, Time.deltaTime * -rotatingSpeed);
             angle += rotatingSpeed * Time.deltaTime;
         }
     }
