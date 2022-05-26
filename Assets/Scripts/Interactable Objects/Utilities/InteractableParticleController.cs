@@ -10,7 +10,7 @@ namespace Interactable_Objects
     {
         [SerializeField]
         private int emitCount = 5;
-        
+
         private ParticleSystem _particleSystem;
         private Vector3 _myPos;
 
@@ -27,10 +27,10 @@ namespace Interactable_Objects
                 var shape = _particleSystem.shape;
                 // var pos = interactable.GetComponent<Rigidbody2D>().position;
                 var pos = interactable.transform.position;
-                pos = pos - transform.position;
+                pos -= transform.position;
                 pos.z = 0;
                 shape.position = pos;
-                DebugLog.Log(shape.position, interactable);
+                // DebugLog.Log(shape.position, interactable);
                 _particleSystem.Emit(emitCount);
             }
         }

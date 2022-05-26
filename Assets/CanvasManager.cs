@@ -18,7 +18,6 @@ public class CanvasManager : MonoBehaviour
     }
     private void Awake()
     {
-        DebugLog.Log("hi", this);
         _canvasManager = this;
     }
 

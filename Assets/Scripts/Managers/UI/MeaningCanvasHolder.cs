@@ -36,8 +36,6 @@ namespace Managers.UI
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
         {
             meaningString = sender.meaning;
-            print(sender.meaning);
-            print(sender.meaning.Length);
             StartCoroutine(WriteLetters());
         }
 
@@ -48,7 +46,6 @@ namespace Managers.UI
                 
                 if (letterCount < meaningString.Length)
                 {
-                    print(letterCount);
                     myText.text += meaningString[letterCount++];
                     yield return new WaitForSeconds(delay);
                 }
