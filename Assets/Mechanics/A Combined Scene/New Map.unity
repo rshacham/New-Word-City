@@ -16636,6 +16636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26605021910661f45ac8acf6f6c8041e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  writingWord: 0
 --- !u!4 &770871281
 Transform:
   m_ObjectHideFlags: 0
@@ -49216,6 +49217,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1131245959412706383, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: de88b28deb3f627459f8d071c54a10f3, type: 2}
+    - target: {fileID: 1131245959412706383, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4116669857876429712, guid: de88b28deb3f627459f8d071c54a10f3, type: 2}
     - target: {fileID: 1131245959747572202, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
       propertyPath: m_Type
       value: 0
