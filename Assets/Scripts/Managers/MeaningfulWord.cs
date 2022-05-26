@@ -201,13 +201,12 @@ namespace Managers
             }
 
             Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
-            meaningGameObject.FoundMeaning(this, e);
+            // meaningGameObject.FoundMeaning(this, e);
             UnRegisterMeaning();
             Found = true;
             WordsGameManager.OnMeaningFound?.Invoke(e, this);
             WordsGameManager.MeaningFoundCount++;
         }
-
         #endregion
     }
 }
