@@ -22,7 +22,7 @@ public class Pokedex : MonoBehaviour
 
     private void OnEnable()
     {
-        CanvasManager._canvasManager.ActiveCanvas = gameObject.GetComponent<Pokedex>();
+        CanvasManager._canvasManager.ActiveCanvas = this;
     }
 
     // Update is called once per frame
