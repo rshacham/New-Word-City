@@ -7,26 +7,24 @@ using UnityEngine.InputSystem;
 
 public class Pokedex : MonoBehaviour
 {
-
     [SerializeField]
     private MeaningCanvasHolder[] holders;
-    
-    [SerializeField] private float rotatingSpeed;
+
+    [SerializeField]
+    private float rotatingSpeed;
     private bool isOpen = false;
     private float angle = 0;
     private Vector3 zAxis = new Vector3(0, 0, 1);
     private RectTransform pokedexTransform;
 
-    [SerializeField] private RectTransform pivot;
+    [SerializeField]
+    private RectTransform pivot;
+
     // Start is called before the first frame update
     void Start()
     {
         pokedexTransform = GetComponent<RectTransform>();
         WordsGameManager.OnMeaningFound += MeaningFound;
-    }
-
-    private void OnEnable()
-    {
         CanvasManager._canvasManager.ActiveCanvas = this;
     }
 
