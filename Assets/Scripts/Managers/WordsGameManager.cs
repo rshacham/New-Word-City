@@ -57,8 +57,7 @@ namespace Managers
                     Current.WordComplete = true;
                     Completed.Add(Current);
                     Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
-                    // TODO: switch Word Method based on game design
-                    SwitchToNextAvailableWord();
+                    // SwitchToNextAvailableWord(); // TODO: switch after pokedex!
                     // Instance.CurrentIndex++;
                     // Instance.CurrentIndex %= Words.Count;
                     // SwitchToWord(Instance.CurrentIndex);

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ namespace UI
     {
         // TODO: Change this entire class to static class -no need for instance at all.
         public static CanvasManager CanvasManagerInstance { get; private set; }
+
+        public static event EventHandler<bool> OnCanvasChange; 
 
         [SerializeField]
         private bool writingWord = false;
@@ -20,8 +23,9 @@ namespace UI
         
         public void OpenClose(InputAction.CallbackContext context)
         {
-            if (!WritingWord)
+            if (!WritingWord && context.started)
             {
+                OnCanvasChange?.Invoke(this, ActiveCanvas.IsOpen);
                 ActiveCanvas.OpenClose();
             }
         }
