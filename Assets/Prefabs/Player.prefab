@@ -85,11 +85,24 @@ MonoBehaviour:
   enableMovement: 1
   maxSpeed: 1.5
   maxAcceleration: 500
-  smoothedTime: 0.1
   moveIsometric: 0
   isometricAngle: 130
   smoothing: 1
+  smoothedTime: 0.1
   peepingMat: {fileID: 2100000, guid: 4608f8f5ffe8d41478faae383ec009ae, type: 2}
+  parameters:
+    velocity:
+      name: Velocity
+      index: -1
+    angle:
+      name: Angle
+      index: -1
+    posX:
+      name: PosX
+      index: -1
+    posY:
+      name: PosY
+      index: -1
 --- !u!114 &2952884323134895216
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,15 +1,9 @@
 ﻿using System;
-using Avrahamy;
 using Interactable_Objects;
-using Managers;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using static Player_Control.TutorialObjects;
-using Object = UnityEngine.Object;
 
 namespace Player_Control
 {
@@ -32,8 +26,7 @@ namespace Player_Control
         private bool highlightOnCollision = false;
 
         [SerializeField]
-        [Tooltip(
-            "Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
+        [Tooltip("Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
         private bool highlightOnProximity = true;
 
         [SerializeField]
@@ -320,7 +313,7 @@ namespace Player_Control
     }
 
     /// <summary>
-    /// 
+    /// Hold events for the player
     /// </summary>
     [Serializable]
     public struct PlayerInteractEvents
@@ -328,103 +321,5 @@ namespace Player_Control
         public UnityEvent<InteractableObject> onInteractableObject;
 
         public UnityEvent onEmptyInteract;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary> TODO: Refactor to another class - probably static of singleton - to allow access from movements
-    [Serializable]
-    public class TutorialObjects
-    {
-        #region Inspector
-
-        [SerializeField]
-        private Vector3 offset = new Vector3(1, 1);
-
-        [Space(2)]
-        [Header("Schemes")]
-        [SerializeField]
-        private TutorialScheme controller;
-
-        [SerializeField]
-        private TutorialScheme kbm;
-
-        [Space(2)]
-        [SerializeField]
-        private GameObject tutorialSprite;
-
-        #endregion
-
-        #region Private Fields
-
-        private GameObject _tutorialInstance;
-
-        #endregion
-
-        #region Public Properties
-
-        public enum Schemes
-        {
-            KBM,
-            Controller
-        }
-
-        public Vector3 Offset
-        {
-            get => offset;
-            set => offset = value;
-        }
-
-        #endregion
-
-        #region Public Methods
-
-        // TODO: add animation slight shake, custom images, pop in/popout, multi tutorials support
-        public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type,
-            Schemes scheme)
-        {
-            if (_tutorialInstance == null)
-            {
-                _tutorialInstance = Object.Instantiate(tutorialSprite);
-            }
-
-            _tutorialInstance.transform.position = position;
-
-            var tutorialScheme = scheme switch
-            {
-                Schemes.KBM => kbm,
-                Schemes.Controller => controller,
-                _ => throw new ArgumentOutOfRangeException(nameof(scheme), scheme, null)
-            };
-            _tutorialInstance.GetComponent<SpriteRenderer>().sprite = type switch
-            {
-                TutorialScheme.Tutorials.Interact => tutorialScheme.interact,
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
-            _tutorialInstance.SetActive(true);
-            return ref _tutorialInstance;
-        }
-
-        public void RemoveTutorial()
-        {
-            _tutorialInstance.SetActive(false);
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    [Serializable]
-    public struct TutorialScheme
-    {
-        public enum Tutorials
-        {
-            Interact
-        }
-
-        [SerializeField]
-        public Sprite interact;
     }
 }

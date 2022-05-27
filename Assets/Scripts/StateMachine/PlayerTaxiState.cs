@@ -19,7 +19,7 @@ namespace StateMachine
             var m = _player.GetComponent<Movement>();
             m.EnableMovement = false;
             m.DesiredVelocity = Vector2.zero;
-            BoundsGameManager.OnPlayerShouldCollide(_currentActive, false);
+            StaticEventsGameManager.OnPlayerShouldCollide(_currentActive, false);
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,7 +27,7 @@ namespace StateMachine
             _player.GetComponent<SpriteRenderer>().enabled = false;
             _player.transform.parent = _currentActive.transform;
             _currentActive.Interact();
-            BoundsGameManager.OnPlayerShouldCollide(_currentActive, true);
+            StaticEventsGameManager.OnPlayerShouldCollide(_currentActive, true);
         }
 
         //

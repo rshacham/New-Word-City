@@ -1,3 +1,6 @@
+using System;
+using Avrahamy.EditorGadgets;
+using BitStrap;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,42 +8,52 @@ namespace Player_Control
 {
     public class Movement : MonoBehaviour
     {
-        // TODO: serialize? even as hidden?
-        private const string Controller = "Controller";
-
         #region Inspector
 
         [SerializeField]
+        [Tooltip("Enable Movement using this script")]
         private bool enableMovement = true;
 
         [SerializeField]
+        [Tooltip("Maximum movement speed")]
         private float maxSpeed;
 
         [SerializeField]
+        [Tooltip("Maximum acceleration")]
         private float maxAcceleration;
 
         [SerializeField]
-        private float smoothedTime = 1f;
-
-        [SerializeField]
+        [Tooltip("Move in isometric fashion")]
         private bool moveIsometric;
 
         [SerializeField]
+        [Tooltip("The world angle")]
         [Range(0, 180)]
         private int isometricAngle = 120;
 
         [SerializeField]
+        [Tooltip("Should smoothing be done?")]
         private bool smoothing;
 
+        [SerializeField]
+        [ConditionalHide("smoothing")]
+        [Tooltip("Smoothing of player acceleration/deceleration")]
+        private float smoothedTime = 1f;
+
+        [HideInInspector]
         [Header("Material Transparency Tests")]
         [SerializeField]
         private Material peepingMat;
+
+        [Header("Movement Animation")]
+        [SerializeField]
+        private MovementAnimationParameters parameters;
 
         #endregion
 
         #region Private Fields
 
-        private Rigidbody2D playerRigidBody;
+        private Rigidbody2D _playerRigidBody;
 
         private Vector2 _isoVector;
 
@@ -52,11 +65,12 @@ namespace Player_Control
 
         private Animator _playerAnimator;
 
+        // TODO: serialize? even as hidden?
         private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
-        // private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
+        private const string Controller = "Controller";
 
         #endregion
-        
+
         #region Public Properties
 
         public bool IsController => _playerInput != null && _playerInput.currentControlScheme == Controller;
@@ -87,19 +101,19 @@ namespace Player_Control
         {
             _playerInput = GetComponent<PlayerInput>();
             _playerAnimator = GetComponent<Animator>();
-            playerRigidBody = GetComponent<Rigidbody2D>();
+            _playerRigidBody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            var speed = playerRigidBody.velocity.magnitude;
-            var angle = Vector2.SignedAngle(new Vector2(1f, 0f), playerRigidBody.velocity.normalized);
-            _playerAnimator.SetFloat("Velocity", speed);
+            // TODO: Move to fixed update!
+            var speed = _playerRigidBody.velocity.magnitude;
+            parameters.velocity.Set(_playerAnimator, speed);
             if (speed > 0.02f)
             {
-                _playerAnimator.SetFloat("Angle", angle);
-                _playerAnimator.SetFloat("PosX", playerRigidBody.velocity.normalized.x);
-                _playerAnimator.SetFloat("PosY", playerRigidBody.velocity.normalized.y);
+                var velocityNormalized = _playerRigidBody.velocity.normalized;
+                parameters.posX.Set(_playerAnimator, velocityNormalized.x);
+                parameters.posY.Set(_playerAnimator, velocityNormalized.y);
             }
         }
 
@@ -107,8 +121,8 @@ namespace Player_Control
         {
             if (smoothing)
             {
-                playerRigidBody.velocity = Vector2.SmoothDamp(
-                    playerRigidBody.velocity,
+                _playerRigidBody.velocity = Vector2.SmoothDamp(
+                    _playerRigidBody.velocity,
                     _desiredVelocity,
                     ref _currentDamp,
                     smoothedTime,
@@ -118,7 +132,7 @@ namespace Player_Control
             }
             else
             {
-                playerRigidBody.velocity = _desiredVelocity;
+                _playerRigidBody.velocity = _desiredVelocity;
             }
             // peepingMat.SetVector(PlayerPos, playerRigidBody.position);
         }
@@ -149,5 +163,13 @@ namespace Player_Control
         }
 
         #endregion
+    }
+
+    [Serializable]
+    public struct MovementAnimationParameters
+    {
+        public FloatAnimationParameter velocity;
+        public FloatAnimationParameter posX;
+        public FloatAnimationParameter posY;
     }
 }
