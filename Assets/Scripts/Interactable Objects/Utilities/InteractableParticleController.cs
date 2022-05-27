@@ -6,13 +6,26 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
+    /// <summary>
+    /// Create Particle Effects From interacted objects
+    /// </summary>
     public class InteractableParticleController : MonoBehaviour
     {
+        #region Inspector
+
         [SerializeField]
+        [Tooltip("Number of particles to emit")]
         private int emitCount = 5;
 
+        #endregion
+
+        #region Private Fields
+
         private ParticleSystem _particleSystem;
-        private Vector3 _myPos;
+
+        #endregion
+
+        #region MonoBehaviour
 
         private void Awake()
         {
@@ -20,9 +33,18 @@ namespace Interactable_Objects
             WordsGameManager.OnMeaningFound += SetParticles;
         }
 
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Create particle effect from sender's position.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="meaningDescriptor"></param>
         private void SetParticles(object sender, MeaningDescriptor meaningDescriptor)
         {
-            if (sender is InteractableObject interactable)
+            if (sender is InteractableObject interactable) // TODO: is GameObject?
             {
                 var shape = _particleSystem.shape;
                 // var pos = interactable.GetComponent<Rigidbody2D>().position;
@@ -34,5 +56,7 @@ namespace Interactable_Objects
                 _particleSystem.Emit(emitCount);
             }
         }
+
+        #endregion
     }
 }

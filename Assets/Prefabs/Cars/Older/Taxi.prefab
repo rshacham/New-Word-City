@@ -375,5 +375,15 @@ MonoBehaviour:
           m_CallState: 2
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  enterAnimationTrigger: EnterTaxi
-  exitAnimationTrigger: ExitTaxi
+  taxiEnter:
+    name: EnterTaxi
+    index: -1
+  taxiExit:
+    name: ExitTaxi
+    index: -1
+  taxiMove:
+    name: TaxiMove
+    index: -1
+  taxiHighlight:
+    name: Highlight
+    index: -1

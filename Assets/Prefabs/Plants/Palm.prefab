@@ -161,6 +161,9 @@ MonoBehaviour:
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
   soundClip: {fileID: 11400000, guid: 82d5597a955b2ed4085ca8ecead0f284, type: 2}
+  interactTrigger:
+    name: Interact
+    index: -1
   clips:
   - chance: 1
     clip: {fileID: 7400000, guid: 65ae608990a0ae64fa7d29c096432f69, type: 2}

@@ -1,12 +1,16 @@
 ﻿using System;
 using Avrahamy;
 using Avrahamy.Audio;
+using Avrahamy.Math;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
+    /// <summary>
+    /// Class to satisfy my need to have names for everything in the inspector.
+    /// </summary>
     [Serializable]
-    public class NamedAudio : ISerializationCallbackReceiver
+    public class NamedAudio : ISerializationCallbackReceiver // todo: inherit class with chance
     {
         #region Inspector
 
@@ -15,6 +19,7 @@ namespace Interactable_Objects
         private string name;
         
         [SerializeField]
+        [Tooltip("The audio event to use")]
         private AudioEvent audioEvent;
 
         #endregion

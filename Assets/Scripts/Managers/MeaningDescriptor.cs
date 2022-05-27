@@ -26,6 +26,7 @@ namespace Managers
         public Sprite image; // TODO: remove
 
         [SerializeField]
+        [HideInInspector]
         public MeaningCanvasHolder meaningGameObject; // TODO: remove
 
         [FormerlySerializedAs("linkedObject")]

@@ -1,4 +1,6 @@
 ﻿using System;
+using Avrahamy;
+using BitStrap;
 using Player_Control;
 using UnityEngine;
 
@@ -12,12 +14,28 @@ namespace Interactable_Objects
         #region Inspector
 
         [Space]
+        // [Header("Taxi Player Triggers")]
         [Header("Taxi Interaction")]
-        // TODO: not serialize - or hash at validate?
+        [Space]
         [SerializeField]
-        private string enterAnimationTrigger = "TaxiEnter";
+        [Tooltip("The player enter taxi trigger")]
+        [AnimatorField("_playerAnimator")]
+        private TriggerAnimationParameter taxiEnter;
+
         [SerializeField]
-        private string exitAnimationTrigger = "TaxiExit";
+        [AnimatorField("_playerAnimator")]
+        [Tooltip("The player exit taxi trigger")]
+        private TriggerAnimationParameter taxiExit;
+
+        [Space]
+        [Header("Taxi Triggers")]
+        [SerializeField]
+        [Tooltip("Trigger for the taxi to move")]
+        private TriggerAnimationParameter taxiMove;
+
+        [SerializeField]
+        [Tooltip("Trigger to reset taxi highlight")]
+        private TriggerAnimationParameter taxiHighlight;
 
         #endregion
 
@@ -36,15 +54,14 @@ namespace Interactable_Objects
         #endregion
 
         private TaxiState _waitForPlayer = TaxiState.Hold;
-
+        private Animator _playerAnimator;
         private Animator _myAnimator;
 
         #region Constants
 
-        private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
-
-        private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
-        private static readonly int Highlight = Animator.StringToHash("Highlight");
+        // private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
+        // private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
+        // private static readonly int Highlight = Animator.StringToHash("Highlight");
 
         #endregion
 
@@ -63,32 +80,31 @@ namespace Interactable_Objects
         // TODO: do all of this from state behaviour machine?
         protected override void ScriptInteract()
         {
-            Animator playerAnimator;
             switch (_waitForPlayer)
             {
                 case TaxiState.Hold:
                     UseOnEnd = false;
-                    Debug.Log("<color=yellow>Taxi Enter</color>", this);
+                    DebugLog.Log("<color=yellow>Taxi Enter</color>", this);
                     _waitForPlayer = TaxiState.Wait;
-                    playerAnimator = Player.GetComponent<Animator>();
-                    playerAnimator.SetTrigger(enterAnimationTrigger);
+                    _playerAnimator = Player.GetComponent<Animator>();
+                    // _playerAnimator.SetTrigger(enterAnimationTrigger);
+                    taxiEnter.Set(_playerAnimator);
                     break;
                 case TaxiState.Wait:
-                    Debug.Log("<color=yellow>Taxi Move</color>", this);
+                    DebugLog.Log("<color=yellow>Taxi Move</color>", this);
                     _waitForPlayer = TaxiState.Move;
-                    _myAnimator.SetTrigger(TaxiMove);
+                    taxiMove.Set(_myAnimator);
                     break;
                 case TaxiState.Move:
-                    Debug.Log("<color=yellow>Taxi Exit</color>", this);
+                    DebugLog.Log("<color=yellow>Taxi Exit</color>", this);
                     _waitForPlayer = TaxiState.Stop;
-                    playerAnimator = Player.GetComponent<Animator>();
-                    playerAnimator.SetTrigger(exitAnimationTrigger);
+                    taxiExit.Set(_playerAnimator);
                     break;
                 case TaxiState.Stop:
                     UseOnEnd = true;
-                    Debug.Log("<color=yellow>Taxi Hold</color>", this);
+                    DebugLog.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
-                    _myAnimator.ResetTrigger(Highlight);
+                    _myAnimator.ResetTrigger(taxiHighlight.Index);
                     _myAnimator.Play("CloseDoor");
                     break;
                 default:

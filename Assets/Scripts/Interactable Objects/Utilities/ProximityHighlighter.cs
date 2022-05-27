@@ -5,14 +5,27 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
+    /// <summary>
+    /// This class acts as the highlighting element of interactable objects by proximity to player
+    /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class ProximityHighlighter : MonoBehaviour
     {
+        #region Inspector
+
         [SerializeField]
         [Tooltip("This objects parent")]
         private InteractableObject parent;
-        
+
+        #endregion
+
+        #region Private Fields
+
         private Collider2D _myCollider2D;
+
+        #endregion
+
+        #region MonoBehaviour
 
         private void OnValidate()
         {
@@ -31,8 +44,10 @@ namespace Interactable_Objects
                 {
                     DebugLog.LogError("Must have InteractableObject as parent!", this);
                 }
-
-                ParentCollider = parent.Collider;
+                else
+                {
+                    ParentCollider = parent.Collider;
+                }
             }
             else
             {
@@ -59,6 +74,10 @@ namespace Interactable_Objects
         //     }
         // }
 
+        #endregion
+
+        #region Public Methods and Getters
+
         public Collider2D ParentCollider { get; private set; }
 
         public virtual void HighlightEvent(InteractableObject o)
@@ -70,5 +89,7 @@ namespace Interactable_Objects
         {
             DebugLog.Log("UnHighlight", Color.green, o);
         }
+
+        #endregion
     }
 }

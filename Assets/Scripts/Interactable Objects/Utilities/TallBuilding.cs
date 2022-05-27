@@ -1,27 +1,39 @@
+using BitStrap;
 using UnityEngine;
 
-namespace BaseScripts
+namespace Interactable_Objects
 {
+    /// <summary>
+    /// Set fade effect to tall objects that hide the player
+    /// </summary>
     public class TallBuilding : MonoBehaviour
     {
         #region Inspector
 
         [Header("Hide Tall Objects")]
         [SerializeField]
+        [Tooltip("Trigger to start the transparency")]
         private Collider2D transparencyTrigger;
 
         // [SerializeField]
         // private bool usePeepingMaterial;
 
         [SerializeField]
+        [Tooltip("The tall sprite")]
         private SpriteRenderer mySprite;
 
         [SerializeField]
         [Range(0, 1)]
+        [Tooltip("The alpha value to go to")]
         private float transparency = 0.5f;
 
         [SerializeField]
+        [Tooltip("Time to reach the transparency target")]
         private float fadeTime = 0.5f;
+
+        [SerializeField]
+        [TagSelector]
+        private string playerTag = "Player";
 
         #endregion
 
@@ -57,6 +69,7 @@ namespace BaseScripts
             {
                 transparencyTrigger = GetComponent<Collider2D>();
             }
+
             transparencyTrigger.isTrigger = true;
 
             _normalColor = mySprite.color;
@@ -96,13 +109,13 @@ namespace BaseScripts
                 // {
                 //     _notActive = false;    
                 // }
-                _notActive = false;    
+                _notActive = false;
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag(playerTag))
             {
                 // (_ColorA, _ColorB) = (_fadeColor, _normalColor);
                 _direction = -1;
@@ -114,8 +127,19 @@ namespace BaseScripts
                 // {
                 //     _notActive = false;    
                 // }
-                _notActive = false;    
+                _notActive = false;
             }
+        }
+
+        #endregion
+
+        #region BitStrap
+
+        [Button(true)]
+        private void ManualTrigger()
+        {
+            _direction = -_direction;
+            _notActive = false;
         }
 
         #endregion

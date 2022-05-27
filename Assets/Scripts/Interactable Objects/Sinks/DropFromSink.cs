@@ -4,40 +4,53 @@ using System.Collections.Generic;
 using Interactable_Objects;
 using UnityEngine;
 
-public class DropFromSink : EventInteractable
+namespace Interactable_Objects
 {
-    private Animator myAnimator;
-    private AudioSource audioSource;
-    private bool interactionActive = false;
-    private void Start()
+    public class DropFromSink : EventInteractable
     {
-        myAnimator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-    }
+        #region Private Fields
 
-    // private void Update()
-    // {
-    //     print(interactionActive);
-    // }
+        private AudioSource _audioSource;
+        private bool _interactionActive;
+        private Animator _myAnimator;
 
-    protected override void ScriptInteract()
-    {
-        if (!interactionActive)
+        #endregion
+
+        #region MonoBehaviour
+
+        private void Start()
         {
-            interactionActive = true;
-            myAnimator.SetTrigger("Drop");
+            _myAnimator = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
         }
-        
-    }
-    
-    public void interactionOff()
-    {
-        interactionActive = false;
-    }
 
-    public void PlayDropSound()
-    {
-        audioSource.PlayOneShot(audioSource.clip);
-    }
+        #endregion
 
+        #region EventInteractable
+
+        protected override void ScriptInteract()
+        {
+            if (!_interactionActive)
+            {
+                _interactionActive = true;
+                _myAnimator.SetTrigger("Drop");
+            }
+        }
+
+        #endregion
+
+        #region Event Callbacks
+
+        public void interactionOff()
+        {
+            _interactionActive = false;
+        }
+
+        public void PlayDropSound()
+        {
+            _audioSource.PlayOneShot(_audioSource.clip);
+        }
+
+        #endregion
+    }
 }

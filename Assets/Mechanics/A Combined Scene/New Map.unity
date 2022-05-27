@@ -23995,6 +23995,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8807873012843207307, guid: e402e58f36e588c4c977997b7844c7f0, type: 3}
+      propertyPath: clips.Array.data[0].name
+      value: Honk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807873012843207307, guid: e402e58f36e588c4c977997b7844c7f0, type: 3}
       propertyPath: clips.Array.data[1].name
       value: Honk
       objectReference: {fileID: 0}
@@ -36796,6 +36800,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1897151161}
     m_Modifications:
+    - target: {fileID: 1932376507937942469, guid: 737d02f01ea177e42a1c78ea29239a0c, type: 3}
+      propertyPath: interactTrigger.name
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 6247557728908159508, guid: 737d02f01ea177e42a1c78ea29239a0c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -49241,6 +49249,10 @@ PrefabInstance:
     - target: {fileID: 1131245959379149447, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131245959412706382, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 82.99988
       objectReference: {fileID: 0}
     - target: {fileID: 1131245959412706383, guid: cfb3a8bf41d495546b0b2ef272e5459d, type: 3}
       propertyPath: m_fontAsset

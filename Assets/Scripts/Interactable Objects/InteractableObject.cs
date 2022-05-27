@@ -59,6 +59,9 @@ namespace Interactable_Objects
 
         #region Public Properties
 
+        /// <summary>
+        /// This event informs all objects in chained interaction that the chain can begin.
+        /// </summary>
         public event EventHandler InformChain;
 
         /// <summary>
@@ -72,8 +75,6 @@ namespace Interactable_Objects
         /// return value is ignored.
         /// </summary>
         public event EventHandler<InteractableObject> OnInteractionEnd;
-        //TODO: The event shouldn't be InteractStrategy, or if it is, the return value should be checked somehow?
-        // TODO: change this to EventHandler?
 
         /// <summary>
         /// The strategy that the object uses when interacted with
@@ -158,6 +159,9 @@ namespace Interactable_Objects
             return result;
         }
 
+        /// <summary>
+        /// Inform the interact chain
+        /// </summary>
         public virtual void OnInformChain()
         {
             if (!requiresWord)

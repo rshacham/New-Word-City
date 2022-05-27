@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
+    /// <summary>
+    /// Drop the beat car interaction 
+    /// </summary>
     public class DropCar : EventInteractable
     {
         #region Inspector
@@ -21,8 +24,8 @@ namespace Interactable_Objects
 
         #region Private Fields
 
-        private bool firstPlay;
-        private Animator carAnimator;
+        // private bool _firstPlay;
+        private Animator _carAnimator;
 
         #endregion
 
@@ -30,19 +33,11 @@ namespace Interactable_Objects
 
         void Start()
         {
-            carAnimator = GetComponentInParent<Animator>();
+            _carAnimator = GetComponentInParent<Animator>();
         }
 
-        // private void Update()
-        // {
-        //     if (Input.GetKeyDown(KeyCode.Space))
-        //     {
-        //         DropSound();
-        //     }
-        // }
-
         #endregion
-        
+
         #region Coroutines
 
         /// <summary>
@@ -52,7 +47,7 @@ namespace Interactable_Objects
         {
             yield return new WaitForSeconds(dropClip.clip.length + 2f);
             regularClip.loop = true;
-            carAnimator.enabled = false;
+            _carAnimator.enabled = false;
             regularClip.Play();
         }
 
@@ -62,7 +57,7 @@ namespace Interactable_Objects
         private IEnumerator StartAnimation()
         {
             yield return new WaitForSeconds(animationDelay);
-            carAnimator.enabled = true;
+            _carAnimator.enabled = true;
         }
 
         #endregion
