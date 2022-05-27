@@ -52,7 +52,7 @@ namespace UI
                     _myText.text += _meaningString[_letterCount++];
                     yield return new WaitForSeconds(delay);
                 }
-                if (_letterCount == _meaningString.Length)
+                if (_letterCount >= _meaningString.Length)
                 {
                     CanvasManager.CanvasManagerInstance.WritingWord = false;
                     break;
