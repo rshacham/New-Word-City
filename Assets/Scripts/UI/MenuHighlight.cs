@@ -53,7 +53,7 @@ namespace UI
 
         public void HighlightMenu()
         {
-            if (CanvasManager.CanvasManagerInstance.ActiveCanvas.IsOpen)
+            if (CanvasManager.ActiveCanvas.IsOpen)
             {
                 return;
             }

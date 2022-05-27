@@ -6,22 +6,43 @@ namespace UI
 {
     public class CanvasManager : MonoBehaviour
     {
-        // TODO: Change this entire class to static class -no need for instance at all.
+        #region Public Static
+
         public static CanvasManager CanvasManagerInstance { get; private set; }
 
-        public static event EventHandler<bool> OnCanvasChange; 
+        public static event EventHandler<bool> OnCanvasChange;
+
+        public static Pokedex ActiveCanvas
+        {
+            get => CanvasManagerInstance._activeCanvas;
+            set => CanvasManagerInstance._activeCanvas = value;
+        }
+
+        public static bool WritingWord
+        {
+            get => CanvasManagerInstance.writingWord;
+            set => CanvasManagerInstance.writingWord = value;
+        }
+
+        #endregion
+
+        #region Inspector
 
         [SerializeField]
-        private bool writingWord = false;
+        private bool writingWord;
 
-        public Pokedex ActiveCanvas { get; set; }
-        public bool WritingWord
-        {
-            get => writingWord;
-            set => writingWord = value;
-        }
-        
-        public void OpenClose(InputAction.CallbackContext context)
+        #endregion
+
+        #region Private Fields
+
+        private Pokedex _activeCanvas;
+
+        #endregion
+
+
+        #region Input Callbacks
+
+        private void OpenClose(InputAction.CallbackContext context)
         {
             if (!WritingWord && context.started)
             {
@@ -29,6 +50,10 @@ namespace UI
                 ActiveCanvas.OpenClose();
             }
         }
+
+        #endregion
+
+        #region MonoBehaviour
 
         private void Awake()
         {
@@ -40,5 +65,7 @@ namespace UI
 
             CanvasManagerInstance = this;
         }
+
+        #endregion
     }
 }

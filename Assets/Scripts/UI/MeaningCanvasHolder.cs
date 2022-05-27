@@ -8,9 +8,9 @@ namespace UI
 {
     public class MeaningCanvasHolder : MonoBehaviour
     {
-        [SerializeField] 
+        [SerializeField]
         private float delay = 0.1f;
-        
+
         private TextMeshProUGUI _myText;
         private int _letterCount = 0;
         private string _meaningString;
@@ -25,7 +25,7 @@ namespace UI
 
         private void Start()
         {
-            _myText = GetComponent<TMPro.TextMeshProUGUI>();
+            _myText = GetComponent<TextMeshProUGUI>();
         }
 
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
@@ -38,26 +38,27 @@ namespace UI
         {
             while (true)
             {
-                if (CanvasManager.CanvasManagerInstance.ActiveCanvas.Angle < 0)
+                if (CanvasManager.ActiveCanvas.Angle < 0)
                 {
                     yield return new WaitForSeconds(delay);
                 }
 
-                if (_letterCount < _meaningString.Length && CanvasManager.CanvasManagerInstance.ActiveCanvas.Angle >= 0)
+                if (_letterCount < _meaningString.Length && CanvasManager.ActiveCanvas.Angle >= 0)
                 {
                     if (_letterCount == 0)
                     {
-                        CanvasManager.CanvasManagerInstance.WritingWord = true;
+                        CanvasManager.WritingWord = true;
                     }
+
                     _myText.text += _meaningString[_letterCount++];
                     yield return new WaitForSeconds(delay);
                 }
+
                 if (_letterCount >= _meaningString.Length)
                 {
-                    CanvasManager.CanvasManagerInstance.WritingWord = false;
+                    CanvasManager.WritingWord = false;
                     break;
                 }
-
             }
         }
     }

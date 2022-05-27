@@ -1,4 +1,5 @@
 using Avrahamy;
+using Interactable_Objects;
 using Managers;
 using UnityEngine;
 
@@ -42,7 +43,12 @@ namespace UI
         {
             _pokedexTransform = GetComponent<RectTransform>();
             WordsGameManager.OnMeaningFound += MeaningFound;
-            CanvasManager.CanvasManagerInstance.ActiveCanvas = this;
+            CanvasManager.ActiveCanvas = this;
+            if (holders == null)
+            {
+                // TODO: get holders by code
+                DebugLog.LogError("Must have all holders!", this);
+            }
         }
 
         // Update is called once per frame
@@ -71,6 +77,7 @@ namespace UI
             // TODO: getting meaning index:
             var index = WordsGameManager.Current.Meanings.IndexOf(e);
             DebugLog.Log($"{e} at index {index}");
+            holders[index].FoundMeaning(e, sender as InteractableObject);
         }
     }
 }

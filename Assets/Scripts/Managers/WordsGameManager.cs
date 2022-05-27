@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Mechanics.WordBase;
 using UnityEngine;
 
 namespace Managers
@@ -58,9 +57,6 @@ namespace Managers
                     Completed.Add(Current);
                     Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
                     // SwitchToNextAvailableWord(); // TODO: switch after pokedex!
-                    // Instance.CurrentIndex++;
-                    // Instance.CurrentIndex %= Words.Count;
-                    // SwitchToWord(Instance.CurrentIndex);
                 }
             }
         }
@@ -107,6 +103,7 @@ namespace Managers
             {
                 return;
             }
+
             // TODO: loop back to original using for loop with index modulo, not just to the end.
             while (Instance.CurrentIndex < Words.Count)
             {
@@ -115,13 +112,15 @@ namespace Managers
                     Instance.CurrentIndex++;
                     continue;
                 }
+
                 SwitchToWord(Instance.CurrentIndex);
                 return;
             }
+
             Instance.CurrentIndex %= Words.Count;
             Active = false;
         }
-        
+
         /// <summary>
         /// switch to the word indicated by newWord index number
         /// </summary>
@@ -132,12 +131,14 @@ namespace Managers
             {
                 return;
             }
+
             //TODO: check if in completed first?
             if (Current != null)
             {
-                UnRegisterCurrentMeanings(); // TODO: move both of this to public function of Current
-                Current.ToolCanvas.SetActive(false);
+                UnRegisterCurrentMeanings(); // TODO: Move to method of Current? check Active?
+                Current.SetActiveCanvas(false);
             }
+
             if (Words[newWord].WordComplete || Completed.Contains(Words[newWord]))
             {
                 MeaningFoundCount = 0; // TODO: not required?
@@ -145,12 +146,12 @@ namespace Managers
                 Current = null;
                 return;
             }
+
             OnWordSwitch?.Invoke(Current, Words[newWord]);
             Current = Words[newWord]; // TODO: duplicated by the current index field, merge them.
             Instance.CurrentIndex = newWord;
-            // TODO: move both below to public function of Current
-            Current.ToolCanvas.SetActive(true);
-            RegisterCurrentMeanings();
+            Current.SetActiveCanvas(true);
+            RegisterCurrentMeanings(); // TODO: Move to method of Current? check case of Active?
             MeaningFoundCount = Current.MeaningFoundCount;
             Debug.Log($"New word: <color=blue>{Current}</color>");
         }
@@ -186,7 +187,6 @@ namespace Managers
             {
                 descriptor.RegisterMeaning();
             }
-            
         }
 
         /// <summary>
