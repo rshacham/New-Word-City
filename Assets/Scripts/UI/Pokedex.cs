@@ -7,7 +7,7 @@ namespace UI
 {
     public class Pokedex : MonoBehaviour
     {
-        private static readonly Vector3 ZAxis = Vector3.forward;
+        #region Inspector
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
@@ -20,11 +20,19 @@ namespace UI
         [SerializeField]
         private RectTransform pivot;
 
+        #endregion
+
+        #region Private Fields
+
+        private static readonly Vector3 ZAxis = Vector3.forward;
         private bool _isOpening = false;
         private bool _isOpen = false;
         private float _angle = 0;
         private RectTransform _pokedexTransform;
 
+        #endregion
+
+        #region Public Properties
 
         public bool IsOpen
         {
@@ -37,6 +45,10 @@ namespace UI
             get => _angle;
             set => _angle = value;
         }
+
+        #endregion
+
+        #region MonoBehaviour
 
         // Start is called before the first frame update
         void Start()
@@ -67,6 +79,10 @@ namespace UI
             }
         }
 
+        #endregion
+
+        #region Public Methods And Callbacks
+
         public void OpenClose()
         {
             _isOpening = !_isOpening;
@@ -79,5 +95,7 @@ namespace UI
             DebugLog.Log($"{e} at index {index}");
             holders[index].FoundMeaning(e, sender as InteractableObject);
         }
+
+        #endregion
     }
 }

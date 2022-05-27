@@ -8,12 +8,12 @@ public class SetAnimateOnEnd : StateMachineBehaviour
     [SerializeField]
     private bool setAnimateTo;
     
-    private RandomAnimationInteractable randomAnimationInteractable;
+    private RandomAnimationInteractable _randomAnimationInteractable;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        randomAnimationInteractable = animator.GetComponent<RandomAnimationInteractable>();
+        _randomAnimationInteractable = animator.GetComponent<RandomAnimationInteractable>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -25,8 +25,8 @@ public class SetAnimateOnEnd : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        randomAnimationInteractable.Animated = setAnimateTo;
-        randomAnimationInteractable.Interact();
+        _randomAnimationInteractable.Animated = setAnimateTo;
+        _randomAnimationInteractable.Interact();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
