@@ -1,32 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Avrahamy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class CanvasManager : MonoBehaviour
+namespace UI
 {
-    public static CanvasManager _canvasManager;
-    private Pokedex activeCanvas;
-    public bool writingWord = false;
-    
-    public Pokedex ActiveCanvas
+    public class CanvasManager : MonoBehaviour
     {
-        get => activeCanvas;
-        set => activeCanvas = value;
-    }
-    private void Awake()
-    {
-        _canvasManager = this;
-    }
+        // TODO: Change this entire class to static class -no need for instance at all.
+        public static CanvasManager CanvasManagerInstance { get; private set; }
 
-    public void OpenClose(InputAction.CallbackContext context)
-    {
-        if (!writingWord)
+        [SerializeField]
+        private bool writingWord = false;
+
+        public Pokedex ActiveCanvas { get; set; }
+        public bool WritingWord
         {
-            activeCanvas.OpenClose();
+            get => writingWord;
+            set => writingWord = value;
+        }
+        
+        public void OpenClose(InputAction.CallbackContext context)
+        {
+            if (!WritingWord)
+            {
+                ActiveCanvas.OpenClose();
+            }
+        }
+
+        private void Awake()
+        {
+            if (CanvasManagerInstance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            CanvasManagerInstance = this;
         }
     }
 }

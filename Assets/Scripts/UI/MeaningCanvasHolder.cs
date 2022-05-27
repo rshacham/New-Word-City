@@ -1,41 +1,36 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using Avrahamy;
+﻿using System.Collections;
 using Interactable_Objects;
+using Managers;
 using TMPro;
 using UnityEngine;
 
-namespace Managers.UI
+namespace UI
 {
     public class MeaningCanvasHolder : MonoBehaviour
     {
-        private TMPro.TextMeshProUGUI myText;
-        private int letterCount = 0;
-        private string meaningString;
-        private bool startAnimation = false;
+        [SerializeField] 
+        private float delay = 0.1f;
         
-        [SerializeField] private float delay = 0.1f;
+        private TextMeshProUGUI _myText;
+        private int _letterCount = 0;
+        private string _meaningString;
+        private bool _startAnimation = false;
+
 
         public string MeaningString
         {
-            get => meaningString;
-            set => meaningString = value;
+            get => _meaningString;
+            set => _meaningString = value;
         }
 
         private void Start()
         {
-            myText = GetComponent<TMPro.TextMeshProUGUI>();
-        }
-
-        private void Update()
-        {
-
+            _myText = GetComponent<TMPro.TextMeshProUGUI>();
         }
 
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
         {
-            meaningString = sender.meaning;
+            _meaningString = sender.meaning;
             StartCoroutine(WriteLetters());
         }
 
@@ -43,23 +38,23 @@ namespace Managers.UI
         {
             while (true)
             {
-                if (CanvasManager._canvasManager.ActiveCanvas.Angle < 0)
+                if (CanvasManager.CanvasManagerInstance.ActiveCanvas.Angle < 0)
                 {
                     yield return new WaitForSeconds(delay);
                 }
 
-                if (letterCount < meaningString.Length && CanvasManager._canvasManager.ActiveCanvas.Angle >= 0)
+                if (_letterCount < _meaningString.Length && CanvasManager.CanvasManagerInstance.ActiveCanvas.Angle >= 0)
                 {
-                    if (letterCount == 0)
+                    if (_letterCount == 0)
                     {
-                        CanvasManager._canvasManager.writingWord = true;
+                        CanvasManager.CanvasManagerInstance.WritingWord = true;
                     }
-                    myText.text += meaningString[letterCount++];
+                    _myText.text += _meaningString[_letterCount++];
                     yield return new WaitForSeconds(delay);
                 }
-                if (letterCount == meaningString.Length)
+                if (_letterCount == _meaningString.Length)
                 {
-                    CanvasManager._canvasManager.writingWord = false;
+                    CanvasManager.CanvasManagerInstance.WritingWord = false;
                     break;
                 }
 

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Interactable_Objects;
-using Managers.UI;
-using Mechanics.WordBase;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -106,12 +105,13 @@ namespace Managers
         [Tooltip("A string to represent this meaning. should be readonly?")]
         [Multiline]
         public string meaning;
-        
-        [SerializeField] 
-        public Sprite image;
 
         [SerializeField]
-        public MeaningCanvasHolder meaningGameObject;
+        [HideInInspector]
+        public Sprite image; // TODO: remove
+
+        [SerializeField]
+        public MeaningCanvasHolder meaningGameObject; // TODO: remove
 
         [FormerlySerializedAs("linkedObject")]
         [SerializeField]
@@ -207,8 +207,21 @@ namespace Managers
             WordsGameManager.OnMeaningFound?.Invoke(e, this);
             WordsGameManager.MeaningFoundCount++;
         }
+
         #endregion
-        
-        // TODO: conversion to string
+
+        #region Type Conversions
+
+        public static implicit operator string(MeaningDescriptor t)
+        {
+            return t.ToString();
+        }
+
+        public override string ToString()
+        {
+            return Meaning;
+        }
+
+        #endregion
     }
 }
