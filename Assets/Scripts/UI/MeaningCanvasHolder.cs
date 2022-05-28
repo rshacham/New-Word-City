@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Avrahamy;
 using Interactable_Objects;
 using Managers;
 using TMPro;
@@ -14,7 +15,7 @@ namespace UI
         private TextMeshProUGUI _myText;
         private int _letterCount = 0;
         private string _meaningString;
-        private bool _startAnimation = false;
+        // private bool _startAnimation = false;
 
 
         public string MeaningString
@@ -59,6 +60,12 @@ namespace UI
                     CanvasManager.WritingWord = false;
                     break;
                 }
+            }
+
+            if (WordsGameManager.Current.WordComplete)
+            {
+                DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
+                WordsGameManager.SwitchToNextAvailableWord();
             }
         }
     }

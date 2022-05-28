@@ -66,13 +66,13 @@ namespace UI
 
         private void OnWordSwitch(object sender, MeaningfulWord e)
         {
-            DebugLog.Log(LogTag.UI, "Highlight Button - word switch");
+            // DebugLog.Log(LogTag.UI, "Highlight Button - word switch");
             HighlightMenu();
         }
 
         private void OnMeaningFound(object sender, MeaningDescriptor e)
         {
-            DebugLog.Log(LogTag.UI, "Highlight Button - meaning found");
+            // DebugLog.Log(LogTag.UI, "Highlight Button - meaning found");
             HighlightMenu();
         }
 
@@ -86,6 +86,7 @@ namespace UI
             {
                 return;
             }
+
             if (CanvasManager.ActiveCanvas.IsOpen)
             {
                 return;

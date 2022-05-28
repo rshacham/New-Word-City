@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5034493008147302364}
   - component: {fileID: 5034493008147302366}
   - component: {fileID: 5034493008147302367}
+  - component: {fileID: 3439146548899432093}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Interactable
@@ -123,27 +124,6 @@ MonoBehaviour:
   startInteractable: 1
   interactMultipleTimes: 0
   highlightInteract: 0
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlight:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5034493008147302365}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Highlight
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHighlightEnd:
-    m_PersistentCalls:
-      m_Calls: []
   interactionEvents:
     onInteraction:
       m_PersistentCalls:
@@ -160,6 +140,9 @@ MonoBehaviour:
             m_StringArgument: Highlight
             m_BoolArgument: 0
           m_CallState: 2
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
     onHighlight:
       m_PersistentCalls:
         m_Calls: []
@@ -200,6 +183,21 @@ PolygonCollider2D:
       - {x: 0.39933014, y: -0.8139274}
       - {x: 0.9993301, y: -0.53392744}
       - {x: 0.9893301, y: -0.27392745}
+--- !u!114 &3439146548899432093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5034493008147302360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71c305d4947541c4a5ba290ccea506c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEvents:
+  - {fileID: 11400000, guid: 47e34c2417babae4f91541a7836336b3, type: 2}
+  playIn3DSpace: 0
 --- !u!1 &5034493008254841127
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,9 +90,8 @@ namespace UI
 
         public void MeaningFound(object sender, MeaningDescriptor e)
         {
-            // TODO: getting meaning index:
             var index = WordsGameManager.Current.Meanings.IndexOf(e);
-            DebugLog.Log($"{e} at index {index}");
+            // DebugLog.Log($"{e} at index {index}");
             holders[index].FoundMeaning(e, sender as InteractableObject);
         }
 
