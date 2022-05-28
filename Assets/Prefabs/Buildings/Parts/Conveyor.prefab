@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5695922551583825521, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: clips.Array.data[0].name
+      value: Vacum
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695922551583825521, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: clips.Array.data[0].audioEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 182b13c7a6da8cc4587c2f80f4c49316, type: 2}
     - target: {fileID: 6709026761084626181, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
@@ -130,6 +138,22 @@ PrefabInstance:
     - target: {fileID: 6709026761802233566, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.x
+      value: 5.334196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.y
+      value: 4.2052007
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04305494
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.6026001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}

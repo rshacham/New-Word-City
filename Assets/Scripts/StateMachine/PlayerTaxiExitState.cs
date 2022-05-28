@@ -1,4 +1,5 @@
 ﻿using Interactable_Objects;
+using Managers;
 using Player_Control;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace StateMachine
             _player.transform.parent = null;
             _currentActive.Interact();
             _player.IsActive = true;
+            StaticEventsGameManager.OnPlayerShouldCollide(_currentActive, true);
         }
         //
         // public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo,

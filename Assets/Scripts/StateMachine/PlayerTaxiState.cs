@@ -27,7 +27,6 @@ namespace StateMachine
             _player.GetComponent<SpriteRenderer>().enabled = false;
             _player.transform.parent = _currentActive.transform;
             _currentActive.Interact();
-            StaticEventsGameManager.OnPlayerShouldCollide(_currentActive, true);
         }
 
         //

@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0bf99a16b1240f0459d62726ae295e80, type: 3}
     - target: {fileID: 6709026761802233554, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_Name
-      value: Big Box
+      value: Big Box Building
       objectReference: {fileID: 0}
     - target: {fileID: 6709026761802233565, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_Sprite
@@ -110,6 +110,22 @@ PrefabInstance:
     - target: {fileID: 6709026761802233566, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.x
+      value: 6.2208166
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.y
+      value: 3.7000356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.022407055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.061619043
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}

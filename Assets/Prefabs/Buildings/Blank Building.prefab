@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2a365b467f373b441a5fd4dac696c4af, type: 3}
     - target: {fileID: 6709026761802233554, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_Name
-      value: Boxy Building
+      value: Blank Building
       objectReference: {fileID: 0}
     - target: {fileID: 6709026761802233565, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_Sprite
@@ -118,6 +118,22 @@ PrefabInstance:
     - target: {fileID: 6709026761802233566, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2151058
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8610988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6075529
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.18178749
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
