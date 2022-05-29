@@ -27,6 +27,8 @@ namespace Interactable_Objects
         // private bool _firstPlay;
         private Animator _carAnimator;
 
+        private int counter;
+
         #endregion
 
         #region MonoBehaviour
@@ -38,6 +40,7 @@ namespace Interactable_Objects
 
         public void ChangeAnimatorClose(bool boolean)
         {
+            print("yo" + counter++.ToString());
             _carAnimator.SetBool("Close", boolean);
         }
         
