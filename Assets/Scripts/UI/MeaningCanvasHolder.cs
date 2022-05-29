@@ -48,7 +48,7 @@ namespace UI
                 {
                     if (_letterCount == 0)
                     {
-                        CanvasManager.WritingWord = true;
+                        CanvasManager.wordsToWrite++;
                     }
 
                     _myText.text += _meaningString[_letterCount++];
@@ -57,7 +57,7 @@ namespace UI
 
                 if (_letterCount >= _meaningString.Length)
                 {
-                    CanvasManager.WritingWord = false;
+                    CanvasManager.wordsToWrite--;
                     break;
                 }
             }

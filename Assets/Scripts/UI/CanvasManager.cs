@@ -24,6 +24,14 @@ namespace UI
             set => CanvasManagerInstance.writingWord = value;
         }
 
+        public static int wordsToWrite = 0;
+
+        public static int WordsToWrite
+        {
+            get => wordsToWrite;
+            set => wordsToWrite = value;
+        }
+
         #endregion
 
         #region Inspector
@@ -44,7 +52,7 @@ namespace UI
 
         private void OpenClose(InputAction.CallbackContext context)
         {
-            if (!WritingWord && context.started)
+            if (wordsToWrite == 0 && context.started)
             {
                 OnCanvasChange?.Invoke(this, ActiveCanvas.IsOpen);
                 ActiveCanvas.OpenClose();
