@@ -15,6 +15,13 @@ namespace UI
 
         [SerializeField] 
         private Animator[] coinAnimators;
+        
+        [SerializeField]
+        private Animator boardAnimator;
+        
+        //TODO - boardInt is equal to the current word index, we should take this from there
+        [SerializeField] 
+        private int boardInt;
 
         [SerializeField]
         private float rotatingSpeed;
@@ -71,6 +78,8 @@ namespace UI
             {
                 coin.SetBool("Found", false);
             }
+            
+            boardAnimator.SetInteger("Word" ,boardInt);
         }
 
         // Update is called once per frame

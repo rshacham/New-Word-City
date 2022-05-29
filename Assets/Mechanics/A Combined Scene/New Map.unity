@@ -10582,6 +10582,11 @@ Transform:
   m_Father: {fileID: 338465255}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &474883108 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1375066423745034841, guid: 314c073211202454898e257b096b49bc, type: 3}
+  m_PrefabInstance: {fileID: 5667816950451051403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &477606919 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1932376507937942469, guid: 737d02f01ea177e42a1c78ea29239a0c, type: 3}
@@ -50288,6 +50293,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 5667816951402639591, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: boardInt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667816951402639591, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: boardAnimator
+      value: 
+      objectReference: {fileID: 474883108}
     - target: {fileID: 5667816951402639591, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: holders.Array.size
       value: 2
