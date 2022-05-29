@@ -47,7 +47,6 @@ namespace UI
 
         #endregion
 
-
         #region Input Callbacks
 
         private void OpenClose(InputAction.CallbackContext context)
@@ -73,6 +72,7 @@ namespace UI
 
             CanvasManagerInstance = this;
         }
+        
 
         #endregion
     }
