@@ -1,3 +1,4 @@
+using System;
 using Avrahamy;
 using Interactable_Objects;
 using Managers;
@@ -86,6 +87,11 @@ namespace UI
                 _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
             }
+        }
+
+        private void OnDisable()
+        {
+            WordsGameManager.OnMeaningFound -= MeaningFound;
         }
 
         #endregion
