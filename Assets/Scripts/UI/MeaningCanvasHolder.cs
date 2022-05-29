@@ -15,6 +15,8 @@ namespace UI
         private TextMeshProUGUI _myText;
         private int _letterCount = 0;
         private string _meaningString;
+
+        private AudioSource _myAudio;
         // private bool _startAnimation = false;
 
 
@@ -27,6 +29,7 @@ namespace UI
         private void Start()
         {
             _myText = GetComponent<TextMeshProUGUI>();
+            _myAudio = GetComponent<AudioSource>();
         }
 
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
@@ -48,7 +51,8 @@ namespace UI
                 {
                     if (_letterCount == 0)
                     {
-                        CanvasManager.WritingWord = true;
+                        _myAudio.Play();
+                        CanvasManager.wordsToWrite++;
                     }
 
                     _myText.text += _meaningString[_letterCount++];
@@ -57,12 +61,13 @@ namespace UI
 
                 if (_letterCount >= _meaningString.Length)
                 {
-                    CanvasManager.WritingWord = false;
+                    _myAudio.Stop();
+                    CanvasManager.wordsToWrite--;
                     break;
                 }
             }
 
-            if (WordsGameManager.Current.WordComplete)
+            if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0)
             {
                 DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
                 WordsGameManager.SwitchToNextAvailableWord();

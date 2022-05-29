@@ -46,7 +46,7 @@ namespace Interactable_Objects
                 CanInteract = interactMultipleTimes;
                 return stayHighlightAfterInteract;
             };
-            OnInteractionEnd += (sender, interactable) => interactionEvents.onHighlightEnd.Invoke(interactable);
+            OnInteractionEnd += (sender, interactable) => interactionEvents.onInteractionEnd.Invoke(interactable);
         }
 
         #endregion

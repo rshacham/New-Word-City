@@ -27,6 +27,8 @@ namespace Interactable_Objects
         // private bool _firstPlay;
         private Animator _carAnimator;
 
+        private int counter;
+
         #endregion
 
         #region MonoBehaviour
@@ -35,6 +37,14 @@ namespace Interactable_Objects
         {
             _carAnimator = GetComponentInParent<Animator>();
         }
+
+        public void ChangeAnimatorClose(bool boolean)
+        {
+            print("yo" + counter++.ToString());
+            _carAnimator.SetBool("Close", boolean);
+        }
+        
+        
 
         #endregion
 
@@ -45,10 +55,14 @@ namespace Interactable_Objects
         /// </summary>
         private IEnumerator RegularSound()
         {
-            yield return new WaitForSeconds(dropClip.clip.length + 2f);
+            yield return new WaitForSeconds(dropClip.clip.length);
+            _carAnimator.SetBool("Drop", false);
+            yield return new WaitForSeconds(2f);
+            // _carAnimator.enabled = false;
             regularClip.loop = true;
-            _carAnimator.enabled = false;
             regularClip.Play();
+
+
         }
 
         /// <summary>
@@ -70,8 +84,9 @@ namespace Interactable_Objects
             {
                 regularClip.loop = false;
                 dropClip.PlayDelayed(+regularClip.clip.length - regularClip.time - 0.1f);
+                _carAnimator.SetBool("Drop", true);
                 StartCoroutine(RegularSound());
-                StartCoroutine(StartAnimation());
+                // StartCoroutine(StartAnimation());
             }
         }
 

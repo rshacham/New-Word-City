@@ -1,3 +1,4 @@
+using System;
 using Avrahamy;
 using Interactable_Objects;
 using Managers;
@@ -12,8 +13,12 @@ namespace UI
         [SerializeField]
         private MeaningCanvasHolder[] holders;
 
+        [SerializeField] 
+        private Animator[] coinAnimators;
+
         [SerializeField]
         private float rotatingSpeed;
+        
         [SerializeField]
         private float targetAngle;
 
@@ -61,6 +66,11 @@ namespace UI
                 // TODO: get holders by code
                 DebugLog.LogError("Must have all holders!", this);
             }
+
+            foreach (var coin in coinAnimators)
+            {
+                coin.SetBool("Found", false);
+            }
         }
 
         // Update is called once per frame
@@ -79,6 +89,11 @@ namespace UI
             }
         }
 
+        private void OnDisable()
+        {
+            WordsGameManager.OnMeaningFound -= MeaningFound;
+        }
+
         #endregion
 
         #region Public Methods And Callbacks
@@ -93,6 +108,7 @@ namespace UI
             var index = WordsGameManager.Current.Meanings.IndexOf(e);
             // DebugLog.Log($"{e} at index {index}");
             holders[index].FoundMeaning(e, sender as InteractableObject);
+            coinAnimators[index].SetBool("Found", true);
         }
 
         #endregion
