@@ -55,11 +55,13 @@ namespace Interactable_Objects
         /// </summary>
         private IEnumerator RegularSound()
         {
-            yield return new WaitForSeconds(dropClip.clip.length + 2f);
+            yield return new WaitForSeconds(dropClip.clip.length);
+            _carAnimator.SetBool("Drop", false);
+            yield return new WaitForSeconds(2f);
             // _carAnimator.enabled = false;
             regularClip.loop = true;
             regularClip.Play();
-            _carAnimator.SetBool("Drop", false);
+
 
         }
 
