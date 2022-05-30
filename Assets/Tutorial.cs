@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+        private bool isWriting = false;
+    
+    
         [SerializeField] 
         private float letterDelay = 0.1f;
 
@@ -16,6 +19,8 @@ public class Tutorial : MonoBehaviour
         private float tutorialStartDelay;
 
         private TextMeshProUGUI _myText;
+
+        private bool _changeWord = false;
         
         public int letterCount = 0;
 
@@ -46,6 +51,11 @@ public class Tutorial : MonoBehaviour
             StartCoroutine(StartTutorial(tutorialStartDelay));
         }
 
+    private void Update()
+    {
+        
+    }
+
     IEnumerator WriteLetters( )
         {
             while (true)
@@ -60,6 +70,7 @@ public class Tutorial : MonoBehaviour
                     if (letterCount == 0)
                     {
                         _myAudio.Play();
+                        isWriting = true;
                         CanvasManager.wordsToWrite++;
                     }
 
@@ -72,32 +83,57 @@ public class Tutorial : MonoBehaviour
                     _myAudio.Stop();
                     _space.SetActive(true);
                     CanvasManager.wordsToWrite--;
+                    isWriting = false;
                     break;
                 }
-
-
-
-
+                
             }
 
-            if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0)
+            if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0 && _changeWord)
             {
                 DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
-                WordsGameManager.SwitchToNextAvailableWord();
+                
+                // WordsGameManager.SwitchToNextAvailableWord();
             }
         }
 
     public void TutorialContinue()
     {
-        if (_myText.text.Length < tutorialString.Length)
+        // Debug.Log(currentTutorial);
+        // Debug.Log(tutorialsTexts.Length);
+        // Debug.Log(WordsGameManager.Current.WordComplete);
+        // Debug.Log(letterCount);
+        // Debug.Log(tutorialString.Length);
+
+        if (currentTutorial > tutorialsTexts.Length)
+        {
+            WordsGameManager.SwitchToNextAvailableWord();
+        }
+        
+        if (currentTutorial == tutorialsTexts.Length && !isWriting
+                                                     && WordsGameManager.Current.WordComplete)
+        {
+            currentTutorial++;
+            return;
+        }
+        
+        if (isWriting)
         {
             return;
         }
         
-        _space.SetActive(false);
-        _myText.text = "";
+        if (currentTutorial != tutorialsTexts.Length)
+        {
+            _space.SetActive(false);
+            _myText.text = "";
+        }
 
-        
+        if (currentTutorial == tutorialsTexts.Length - 1 && !WordsGameManager.Current.WordComplete)
+        {
+            return;
+        }
+
+
         if (currentTutorial >= tutorialsTexts.Length)
         {
             return;

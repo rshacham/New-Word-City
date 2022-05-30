@@ -6707,6 +6707,7 @@ MonoBehaviour:
   tutorialsTexts:
   - 'Welcome to *OUR GAME*! '
   - Your goal is to find all the meaning of the word that appears at the board
+  - FINISHED WORD!
   _space: {fileID: 106897937}
 --- !u!1001 &310926666
 PrefabInstance:

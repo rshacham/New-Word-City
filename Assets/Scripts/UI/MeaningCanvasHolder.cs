@@ -71,15 +71,15 @@ namespace UI
                     yield return new WaitForSeconds(2f);
                     _myText.gameObject.SetActive(false);
                 }
-
-
             }
-
-            if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0)
+            
+            if (WordsGameManager.Current.WordComplete)
             {
-                DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
-                WordsGameManager.SwitchToNextAvailableWord();
+                CanvasManager.ActiveCanvas.TutorialHolder.TutorialContinue();
+                // DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
+                // WordsGameManager.SwitchToNextAvailableWord();
             }
+
         }
     }
     
