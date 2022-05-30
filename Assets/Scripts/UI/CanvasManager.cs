@@ -72,6 +72,18 @@ namespace UI
             }
         }
 
+        private void ContinueTutorial(InputAction.CallbackContext context)
+        {
+            if (true)
+            {
+                return;
+            }
+            if (context.started && TutorialCurrentIndex <= TutorialTextAmount)
+            {
+                
+            }
+        }
+
         #endregion
 
         #region MonoBehaviour
@@ -86,6 +98,7 @@ namespace UI
 
             CanvasManagerInstance = this;
         }
+        
         
 
         #endregion

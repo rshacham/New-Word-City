@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 3031453924660677723}
   - {fileID: 7949151380006338222}
   - {fileID: 8892547504923945713}
+  tutorials: []
   coinAnimators:
   - {fileID: 624964519696289558}
   - {fileID: 167777426391901870}
@@ -556,12 +557,12 @@ GameObject:
   - component: {fileID: 5157427027517124453}
   - component: {fileID: 4085944908600916863}
   m_Layer: 5
-  m_Name: Word4 (4)
+  m_Name: Tutorial1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5031438957370929135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1635,6 +1636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holders: []
+  tutorials: []
   coinAnimators: []
   boardAnimator: {fileID: 0}
   boardInt: 0
@@ -4530,7 +4532,6 @@ GameObject:
   - component: {fileID: 5667816951360172488}
   - component: {fileID: 5667816951360172493}
   - component: {fileID: 5667816951360172494}
-  - component: {fileID: 5667816951360172495}
   m_Layer: 5
   m_Name: FlyPokedex
   m_TagString: Untagged
@@ -4597,25 +4598,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5667816951360172495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5667816951360172489}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f66a38866d842a54c968985c6339a278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holders: []
-  coinAnimators: []
-  boardAnimator: {fileID: 0}
-  boardInt: 0
-  rotatingSpeed: 130
-  targetAngle: 0
-  pivot: {fileID: 5667816949828915518}
 --- !u!1 &5667816951367673020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4779,6 +4761,9 @@ MonoBehaviour:
   - {fileID: 5667816951619224583}
   - {fileID: 5667816951673500369}
   - {fileID: 5667816950984092687}
+  tutorials:
+  - {fileID: 5157427027517124453}
+  - {fileID: 75189286259711317}
   coinAnimators:
   - {fileID: 5667816950120121719}
   - {fileID: 5667816951245763549}
@@ -6693,7 +6678,7 @@ GameObject:
   - component: {fileID: 75189286259711317}
   - component: {fileID: 1208174195321801936}
   m_Layer: 5
-  m_Name: Word4 (5)
+  m_Name: Tutorial2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

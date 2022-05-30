@@ -12,9 +12,14 @@ namespace UI
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
+        
+        [SerializeField]
+        private MeaningCanvasHolder[] tutorials;
+
 
         [SerializeField] 
         private Animator[] coinAnimators;
+
         
         [SerializeField]
         private Animator boardAnimator;
