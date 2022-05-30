@@ -2902,7 +2902,8 @@ PolygonCollider2D:
       - {x: -63.284912, y: 28.63144}
       - {x: -64.03527, y: 11.5118}
       - {x: -64.267525, y: 11.071841}
-      - {x: -63.32608, y: -24.82261}
+      - {x: -111.9433, y: 10.570719}
+      - {x: -112.68123, y: -13.23716}
 --- !u!4 &167917669
 Transform:
   m_ObjectHideFlags: 0
@@ -6713,7 +6714,7 @@ SpriteRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a6031da59cdb0474786e551ea3ea8466, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.42745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -52040,7 +52041,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767774788053063924, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 58.999817
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974699860752540522, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90.78418
       objectReference: {fileID: 0}
     - target: {fileID: 5667816950767600520, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_Name
@@ -52134,9 +52139,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5667816950767600526, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5667816950984092682, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667816951207663147, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 5667816951402639587, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -52190,6 +52203,10 @@ PrefabInstance:
       propertyPath: coinAnimators.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5667816951673500371, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 5667816951673500380, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -52222,13 +52239,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 277.71912
       objectReference: {fileID: 0}
+    - target: {fileID: 6180750701236028675, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -484.99933
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180750701236028675, guid: 314c073211202454898e257b096b49bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -86.00256
+      objectReference: {fileID: 0}
     - target: {fileID: 7231676137177628278, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14.999756
+      value: 14.998779
       objectReference: {fileID: 0}
     - target: {fileID: 8175377185639327822, guid: 314c073211202454898e257b096b49bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 58.999817
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c073211202454898e257b096b49bc, type: 3}
