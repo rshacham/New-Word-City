@@ -32,6 +32,20 @@ namespace UI
             set => wordsToWrite = value;
         }
 
+        public static int TutorialTextAmount
+
+        {
+            get => TutorialTextAmount;
+            set => TutorialTextAmount = value;
+        }
+        
+        
+        public static int TutorialCurrentIndex
+        {
+            get => TutorialCurrentIndex;
+            set => TutorialCurrentIndex = value;
+        }
+
         #endregion
 
         #region Inspector

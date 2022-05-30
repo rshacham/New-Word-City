@@ -35,10 +35,10 @@ namespace UI
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
         {
             _meaningString = sender.meaning;
-            StartCoroutine(WriteLetters());
+            StartCoroutine(WriteLetters(false));
         }
 
-        IEnumerator WriteLetters()
+        IEnumerator WriteLetters(bool reset)
         {
             while (true)
             {
@@ -59,12 +59,20 @@ namespace UI
                     yield return new WaitForSeconds(delay);
                 }
 
-                if (_letterCount >= _meaningString.Length)
+                if (_letterCount >= _meaningString.Length && !reset)
                 {
                     _myAudio.Stop();
                     CanvasManager.wordsToWrite--;
                     break;
                 }
+
+                if (reset)
+                {
+                    yield return new WaitForSeconds(2f);
+                    _myText.gameObject.SetActive(false);
+                }
+
+
             }
 
             if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0)
@@ -74,4 +82,6 @@ namespace UI
             }
         }
     }
+    
+    
 }
