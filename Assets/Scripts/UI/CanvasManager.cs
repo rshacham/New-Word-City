@@ -74,6 +74,10 @@ namespace UI
 
         public void ContinueTutorial(InputAction.CallbackContext context)
         {
+            if (ActiveCanvas.TutorialHolder == null)
+            {
+                return;
+            }
             if (context.started)
             {
                 ActiveCanvas.TutorialHolder.TutorialContinue();
