@@ -125,6 +125,11 @@ namespace UI
             coinAnimators[index].SetBool("Found", true);
         }
 
+        public void SetAnimator()
+        {
+            boardAnimator.SetInteger("Word", boardInt);
+        }
+
         #endregion
     }
 }
