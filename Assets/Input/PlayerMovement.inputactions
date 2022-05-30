@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TutorialContinue",
+                    "type": "Button",
+                    "id": "4a77d43a-e054-48ca-8f56-a60b5ffa9f35",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -357,6 +366,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e39a672-5f0b-478a-8131-84152aa42770",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialContinue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

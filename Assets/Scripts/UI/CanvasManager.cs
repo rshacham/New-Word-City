@@ -72,15 +72,11 @@ namespace UI
             }
         }
 
-        private void ContinueTutorial(InputAction.CallbackContext context)
+        public void ContinueTutorial(InputAction.CallbackContext context)
         {
-            if (true)
+            if (context.started)
             {
-                return;
-            }
-            if (context.started && TutorialCurrentIndex <= TutorialTextAmount)
-            {
-                
+                ActiveCanvas.TutorialHolder.TutorialContinue();
             }
         }
 

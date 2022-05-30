@@ -2,6 +2,7 @@ using System;
 using Avrahamy;
 using Interactable_Objects;
 using Managers;
+using TMPro;
 using UnityEngine;
 
 namespace UI
@@ -12,15 +13,20 @@ namespace UI
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
-        
-        [SerializeField]
-        private MeaningCanvasHolder[] tutorials;
+
+        [SerializeField] 
+        private Tutorial tutorialHolder;
+
+        public Tutorial TutorialHolder
+        {
+            get => tutorialHolder;
+            set => tutorialHolder = value;
+        }
 
 
         [SerializeField] 
         private Animator[] coinAnimators;
 
-        
         [SerializeField]
         private Animator boardAnimator;
         
@@ -129,6 +135,7 @@ namespace UI
         {
             boardAnimator.SetInteger("Word", boardInt);
         }
+        
 
         #endregion
     }
