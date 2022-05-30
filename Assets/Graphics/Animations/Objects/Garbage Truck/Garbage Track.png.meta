@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: cade2d1f580ac1644a97e8aee888fa77
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8316269056580177897
+    second: Garbage Track_0
+  - first:
+      213: -492853771491141262
+    second: Garbage Track_1
+  - first:
+      213: -6647116375298803615
+    second: Garbage Track_2
+  - first:
+      213: -3844171568290609553
+    second: Garbage Track_3
+  - first:
+      213: 4713566765039815018
+    second: Garbage Track_4
+  - first:
+      213: 4577551564464038009
+    second: Garbage Track_5
+  - first:
+      213: -2210224618448048492
+    second: Garbage Track_6
+  - first:
+      213: 166209141607199334
+    second: Garbage Track_7
+  - first:
+      213: 169902873184220398
+    second: Garbage Track_8
+  - first:
+      213: -221940620761785081
+    second: Garbage Track_9
+  - first:
+      213: -6939447048830177666
+    second: Garbage Track_10
+  - first:
+      213: 2494173731392808702
+    second: Garbage Track_11
+  - first:
+      213: -8756842815558551316
+    second: Garbage Track_12
+  - first:
+      213: 3636488081912110098
+    second: Garbage Track_13
+  - first:
+      213: -8283645610770335023
+    second: Garbage Track_14
+  - first:
+      213: 3403024543341319565
+    second: Garbage Track_15
+  - first:
+      213: 2640356280942141513
+    second: Garbage Track_16
+  - first:
+      213: 1973851996626520422
+    second: Garbage Track_17
+  - first:
+      213: 8989335654299799718
+    second: Garbage Track_18
+  - first:
+      213: -1418952608075062346
+    second: Garbage Track_19
+  - first:
+      213: 1872277696229019221
+    second: Garbage Track_20
+  - first:
+      213: -417480948788695436
+    second: Garbage Track_21
+  - first:
+      213: -2509947036405077375
+    second: Garbage Track_22
+  - first:
+      213: -4623918680126644472
+    second: Garbage Track_23
+  - first:
+      213: -5377526171823487398
+    second: Garbage Track_24
+  - first:
+      213: -5768610759619905825
+    second: Garbage Track_25
+  - first:
+      213: 2026840939599782242
+    second: Garbage Track_26
+  - first:
+      213: 5578678517004272110
+    second: Garbage Track_27
+  - first:
+      213: -7631226530018264656
+    second: Garbage Track_28
+  - first:
+      213: -6371453705095098594
+    second: Garbage Track_29
+  - first:
+      213: 1664687429387411951
+    second: Garbage Track_30
+  - first:
+      213: 7765818080568098785
+    second: Garbage Track_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Garbage Track_6
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1325
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ea4977b64b351e0800000000000000
+      internalID: -2210224618448048492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garbage Track_7
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 1325
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6627beb655e7e4200800000000000000
+      internalID: 166209141607199334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garbage Track_8
+      rect:
+        serializedVersion: 2
+        x: 2333
+        y: 1325
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4b67253cd9b5200800000000000000
+      internalID: 169902873184220398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garbage Track_9
+      rect:
+        serializedVersion: 2
+        x: 3334
+        y: 1325
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d934a6e228becf0800000000000000
+      internalID: -221940620761785081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garbage Track_12
+      rect:
+        serializedVersion: 2
+        x: 4327
+        y: 1325
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce873b0ead1797680800000000000000
+      internalID: -8756842815558551316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garbage Track_27
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 320
+        width: 520
+        height: 360
+      alignment: 9
+      pivot: {x: 0.4462756, y: 0.2873423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1842add827b6d40800000000000000
+      internalID: 5578678517004272110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
