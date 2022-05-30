@@ -15,6 +15,13 @@ namespace UI
 
         [SerializeField] 
         private Animator[] coinAnimators;
+        
+        [SerializeField]
+        private Animator boardAnimator;
+        
+        //TODO - boardInt is equal to the current word index, we should take this from there
+        [SerializeField] 
+        private int boardInt;
 
         [SerializeField]
         private float rotatingSpeed;
@@ -71,18 +78,20 @@ namespace UI
             {
                 coin.SetBool("Found", false);
             }
+            
+            boardAnimator.SetInteger("Word" ,boardInt);
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (_angle > targetAngle && !_isOpening)
+            if (_angle > targetAngle && _isOpening)
             {
                 _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * rotatingSpeed);
                 _angle -= rotatingSpeed * Time.deltaTime;
             }
 
-            if (_angle < 0 && _isOpening)
+            if (_angle < 0 && !_isOpening)
             {
                 _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
