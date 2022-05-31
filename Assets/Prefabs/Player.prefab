@@ -86,6 +86,7 @@ MonoBehaviour:
   maxSpeed: 4
   maxAcceleration: 500
   moveIsometric: 0
+  normalizeDirection: 1
   isometricAngle: 120
   smoothing: 1
   smoothedTime: 0.1

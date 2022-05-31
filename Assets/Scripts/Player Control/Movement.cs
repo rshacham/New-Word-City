@@ -1,4 +1,5 @@
 using System;
+using Avrahamy;
 using Avrahamy.EditorGadgets;
 using BitStrap;
 using UnityEngine;
@@ -25,6 +26,10 @@ namespace Player_Control
         [SerializeField]
         [Tooltip("Move in isometric fashion")]
         private bool moveIsometric;
+
+        [SerializeField]
+        [Tooltip("Should velocity in all directions be the same?")]
+        private bool normalizeDirection;
 
         [SerializeField]
         [Tooltip("The world angle")]
@@ -157,6 +162,11 @@ namespace Player_Control
                 }
 
                 movementVector *= _isoVector;
+            }
+
+            if (normalizeDirection) // TODO: if we want this, test simply using normalized input!
+            {
+                movementVector = movementVector.normalized;
             }
 
             _desiredVelocity = movementVector * maxSpeed;
