@@ -199,15 +199,15 @@ public class Tutorial : MonoBehaviour
 
     #region Public Static Methods
 
-    public static ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type)
+    // TODO: Return by reference?????
+    public static GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type)
     {
         if (Instance == null)
         {
-            var instance = new GameObject("TutorialManager");
-            instance.AddComponent<Tutorial>(); // todo: does this call awake by itself?
+            return null;
         }
 
-        return ref Instance.tutorialObjects.CreateTutorial(position, type, Scheme);
+        return Instance.tutorialObjects.CreateTutorial(position, type, Scheme);
     }
 
     public static Vector3 Offset
@@ -216,8 +216,7 @@ public class Tutorial : MonoBehaviour
         {
             if (Instance == null)
             {
-                var instance = new GameObject("TutorialManager");
-                instance.AddComponent<Tutorial>(); // todo: does this call awake by itself?
+                return Vector3.zero;
             }
 
             return Instance.tutorialObjects.Offset;
@@ -226,8 +225,7 @@ public class Tutorial : MonoBehaviour
         {
             if (Instance == null)
             {
-                var instance = new GameObject("TutorialManager");
-                instance.AddComponent<Tutorial>(); // todo: does this call awake by itself?
+                return;
             }
 
             Instance.tutorialObjects.Offset = value;
@@ -238,8 +236,7 @@ public class Tutorial : MonoBehaviour
     {
         if (Instance == null)
         {
-            var instance = new GameObject("TutorialManager");
-            instance.AddComponent<Tutorial>(); // todo: does this call awake by itself?
+            return;
         }
 
         Instance.tutorialObjects.RemoveTutorial();

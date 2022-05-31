@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Jump
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Jump
+    m_Hash: 125937960
+    m_CategoryList:
+    - m_Name: J1
+      m_Hash: 445756746
+      m_Sprite: {fileID: 21300000, guid: 2184fb49fdb3c4767882384fb73c6052, type: 3}
+    - m_Name: J2
+      m_Hash: -2087131920
+      m_Sprite: {fileID: 21300000, guid: ab70ad2fb4465478da19ad62900fe90c, type: 3}
+    - m_Name: J3
+      m_Hash: -190851994
+      m_Sprite: {fileID: 21300000, guid: 9a5aa85fc10a842fe975293eecd034b6, type: 3}
+    - m_Name: J4
+      m_Hash: 1794851269
+      m_Sprite: {fileID: 21300000, guid: 08a0b37290ea842e9b8c3affb976c2c4, type: 3}

@@ -1,13 +1,6 @@
 ﻿using System.Collections.Generic;
-using Avrahamy;
-using Avrahamy.Audio;
 using Avrahamy.Math;
 using UnityEngine;
-using UnityEngine.Internal;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using Random = UnityEngine.Random;
 
 namespace Interactable_Objects
 {

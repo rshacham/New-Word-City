@@ -4,7 +4,6 @@ using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static Player_Control.TutorialObjects;
 
 namespace Player_Control
 {
@@ -31,6 +30,10 @@ namespace Player_Control
         private bool highlightOnProximity = true;
 
         [SerializeField]
+        [Tooltip("Start with the ability to interact?")]
+        private bool startActive = false;
+        
+        [SerializeField]
         [Space]
         [Tooltip("Events that are called on interaction")]
         [InspectorName("Events On Interactions")]
@@ -43,7 +46,12 @@ namespace Player_Control
         // TODO: to ve used with cursor if required
         // public float ClickDistance => clickDistance;
 
-        public bool IsActive { get; set; } = false;
+
+        public bool IsActive
+        {
+            get => startActive;
+            set => startActive = value;
+        }
 
         /// <summary>
         /// Current object that the user is attached to
