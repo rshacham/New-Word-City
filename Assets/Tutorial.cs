@@ -112,7 +112,7 @@ public class Tutorial : MonoBehaviour
                 {
                     _myAudio.Play();
                     _isWriting = true;
-                    CanvasManager.wordsToWrite++;
+                    CanvasManager.WordsToWrite++;
                 }
 
                 myText.text += _tutorialString[letterCount++];
@@ -125,13 +125,13 @@ public class Tutorial : MonoBehaviour
                 // space.SetActive(true);
                 ContinueImage.sprite = tutorialObjects.GetForScheme(TutorialScheme.Tutorials.Interact, Scheme);
                 ContinueImage.gameObject.SetActive(true);
-                CanvasManager.wordsToWrite--;
+                CanvasManager.WordsToWrite--;
                 _isWriting = false;
                 break;
             }
         }
 
-        // if (WordsGameManager.Current.WordComplete && CanvasManager.wordsToWrite == 0 && _changeWord)
+        // if (WordsGameManager.Current.WordComplete && CanvasManager._wordsToWrite == 0 && _changeWord)
         // {
         //     DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
         //
@@ -177,6 +177,7 @@ public class Tutorial : MonoBehaviour
 
         if (_currentTutorial == TutorialsTexts.Length - 1 && !WordsGameManager.Current.WordComplete)
         {
+            StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
             return;
         }
 

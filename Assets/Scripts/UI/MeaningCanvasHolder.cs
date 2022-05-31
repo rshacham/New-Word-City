@@ -52,7 +52,7 @@ namespace UI
                     if (_letterCount == 0)
                     {
                         _myAudio.Play();
-                        CanvasManager.wordsToWrite++;
+                        CanvasManager.WordsToWrite++;
                     }
 
                     _myText.text += _meaningString[_letterCount++];
@@ -62,7 +62,7 @@ namespace UI
                 if (_letterCount >= _meaningString.Length && !reset)
                 {
                     _myAudio.Stop();
-                    CanvasManager.wordsToWrite--;
+                    CanvasManager.WordsToWrite--;
                     break;
                 }
 
@@ -72,16 +72,13 @@ namespace UI
                     _myText.gameObject.SetActive(false);
                 }
             }
-            
+
             if (WordsGameManager.Current.WordComplete)
             {
                 Tutorial.Instance.TutorialContinue();
                 // DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
                 // WordsGameManager.SwitchToNextAvailableWord();
             }
-
         }
     }
-    
-    
 }

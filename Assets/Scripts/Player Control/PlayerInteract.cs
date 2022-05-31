@@ -1,5 +1,6 @@
 ﻿using System;
 using Interactable_Objects;
+using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -42,7 +43,7 @@ namespace Player_Control
         // TODO: to ve used with cursor if required
         // public float ClickDistance => clickDistance;
 
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = false;
 
         /// <summary>
         /// Current object that the user is attached to
@@ -72,6 +73,7 @@ namespace Player_Control
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
+            StaticEventsGameManager.PlayerShouldInteract += (sender, b) => IsActive = b;
         }
 
         private void OnTriggerEnter2D(Collider2D col)

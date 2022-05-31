@@ -24,27 +24,12 @@ namespace UI
             set => CanvasManagerInstance.writingWord = value;
         }
 
-        public static int wordsToWrite = 0;
+        public static int WordsToWrite { get; set; } = 0;
 
-        public static int WordsToWrite
-        {
-            get => wordsToWrite;
-            set => wordsToWrite = value;
-        }
+        public static int TutorialTextAmount { get; set; }
 
-        public static int TutorialTextAmount
 
-        {
-            get => TutorialTextAmount;
-            set => TutorialTextAmount = value;
-        }
-        
-        
-        public static int TutorialCurrentIndex
-        {
-            get => TutorialCurrentIndex;
-            set => TutorialCurrentIndex = value;
-        }
+        public static int TutorialCurrentIndex { get; set; }
 
         #endregion
 
@@ -65,7 +50,7 @@ namespace UI
 
         private void OpenClose(InputAction.CallbackContext context)
         {
-            if (wordsToWrite == 0 && context.started)
+            if (WordsToWrite == 0 && context.started)
             {
                 OnCanvasChange?.Invoke(this, ActiveCanvas.IsOpen);
                 ActiveCanvas.OpenClose();
@@ -78,6 +63,7 @@ namespace UI
             {
                 return;
             }
+
             if (context.started)
             {
                 ActiveCanvas.TutorialHolder.TutorialContinue();
@@ -98,8 +84,6 @@ namespace UI
 
             CanvasManagerInstance = this;
         }
-        
-        
 
         #endregion
     }

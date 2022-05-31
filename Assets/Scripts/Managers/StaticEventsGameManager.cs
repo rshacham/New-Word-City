@@ -20,5 +20,16 @@ namespace Managers
         }
 
         #endregion
+
+        #region PlayerInteraction
+
+        public static event EventHandler<bool> PlayerShouldInteract;
+
+        public static void OnPlayerShouldInteract(object sender, bool e)
+        {
+            PlayerShouldInteract?.Invoke(sender, e);
+        }
+
+        #endregion
     }
 }
