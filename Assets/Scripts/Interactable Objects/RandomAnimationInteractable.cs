@@ -23,6 +23,10 @@ namespace Interactable_Objects
         [SerializeField]
         protected AnimationWithChance[] clips;
 
+        [SerializeField]
+        [AnimatorField("_myAnimator")]
+        private TriggerAnimationParameter interactTrigger;
+
         #endregion
 
         #region Private Fields
@@ -70,6 +74,7 @@ namespace Interactable_Objects
                     _clip = clips.ChooseRandomWithChancesC();
                     _animatorOverrideController["Interact"] = _clip;
                     _myAnimator.SetTrigger(InteractTrigger);
+                    interactTrigger.Set(_myAnimator);
                     soundClip.Play(_myAudioSource);
                     break;
                 default:
