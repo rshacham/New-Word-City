@@ -120,6 +120,7 @@ namespace Player_Control
                 var velocityNormalized = _playerRigidBody.velocity.normalized;
                 parameters.posX.Set(_playerAnimator, velocityNormalized.x);
                 parameters.posY.Set(_playerAnimator, velocityNormalized.y);
+                DebugLog.Log(velocityNormalized);
             }
         }
 
