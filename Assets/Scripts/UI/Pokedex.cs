@@ -4,6 +4,7 @@ using Interactable_Objects;
 using Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -14,8 +15,15 @@ namespace UI
         [SerializeField]
         private MeaningCanvasHolder[] holders;
 
-        [SerializeField] 
+        [SerializeField]
+        [HideInInspector]
         private Tutorial tutorialHolder;
+
+        [SerializeField]
+        private string[] tutorialStrings;
+
+        [SerializeField]
+        private Image space;
 
         public Tutorial TutorialHolder
         {
@@ -24,19 +32,19 @@ namespace UI
         }
 
 
-        [SerializeField] 
+        [SerializeField]
         private Animator[] coinAnimators;
 
         [SerializeField]
         private Animator boardAnimator;
-        
+
         //TODO - boardInt is equal to the current word index, we should take this from there
-        [SerializeField] 
+        [SerializeField]
         private int boardInt;
 
         [SerializeField]
         private float rotatingSpeed;
-        
+
         [SerializeField]
         private float targetAngle;
 
@@ -79,6 +87,8 @@ namespace UI
             _pokedexTransform = GetComponent<RectTransform>();
             WordsGameManager.OnMeaningFound += MeaningFound;
             CanvasManager.ActiveCanvas = this;
+            Tutorial.Instance.TutorialsTexts = tutorialStrings;
+            Tutorial.Instance.ContinueImage = space;
             if (holders == null)
             {
                 // TODO: get holders by code
@@ -89,8 +99,8 @@ namespace UI
             {
                 coin.SetBool("Found", false);
             }
-            
-            boardAnimator.SetInteger("Word" ,boardInt);
+
+            boardAnimator.SetInteger("Word", boardInt);
         }
 
         // Update is called once per frame
@@ -135,7 +145,6 @@ namespace UI
         {
             boardAnimator.SetInteger("Word", boardInt);
         }
-        
 
         #endregion
     }

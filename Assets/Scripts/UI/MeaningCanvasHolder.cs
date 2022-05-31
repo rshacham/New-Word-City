@@ -75,7 +75,7 @@ namespace UI
             
             if (WordsGameManager.Current.WordComplete)
             {
-                CanvasManager.ActiveCanvas.TutorialHolder.TutorialContinue();
+                Tutorial.Instance.TutorialContinue();
                 // DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
                 // WordsGameManager.SwitchToNextAvailableWord();
             }

@@ -107,6 +107,7 @@ namespace Player_Control
             _playerInput = GetComponent<PlayerInput>();
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();
+            Tutorial.PlayerMovement = this;
         }
 
         private void Update()

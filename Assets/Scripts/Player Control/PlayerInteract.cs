@@ -39,6 +39,7 @@ namespace Player_Control
         [Header("Tutorial")]
         // [InspectorName("Tutorial UI Images")]
         [SerializeField]
+        [HideInInspector]
         private TutorialObjects tutorialObjects;
 
         #endregion
@@ -69,7 +70,6 @@ namespace Player_Control
         private InteractableObject _currentActive;
 
         private bool _firstInteraction = true;
-        private Movement _myMovement;
 
         #endregion
 
@@ -77,7 +77,6 @@ namespace Player_Control
 
         private void Awake()
         {
-            _myMovement = GetComponent<Movement>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
         }
@@ -183,20 +182,23 @@ namespace Player_Control
         {
             // var key = _myMovement.IsController ? "controller" : "kbm";
             // DebugLog.Log(LogTag.Gameplay, $"Show Interaction Tutorial: {key}", obj);
-            var scheme = _myMovement.IsController ? Schemes.Controller : Schemes.KBM;
-            var pos = obj.transform.position + tutorialObjects.Offset;
-            tutorialObjects.CreateTutorial(
-                pos,
-                TutorialScheme.Tutorials.Interact,
-                scheme
-            );
+            // var scheme = _myMovement.IsController ? Schemes.Controller : Schemes.KBM;
+            // var pos = obj.transform.position + tutorialObjects.Offset; TODO:
+            var pos = obj.transform.position + Tutorial.Offset;
+            // tutorialObjects.CreateTutorial( TODO:
+            //     pos,
+            //     TutorialScheme.Tutorials.Interact,
+            //     scheme`
+            // );
+            Tutorial.CreateTutorial(pos, TutorialScheme.Tutorials.Interact);
         }
 
         private void UnShowInteractionKey(InteractableObject obj)
         {
             // var key = _myMovement.IsController ? "controller" : "kbm";
             // DebugLog.Log(LogTag.Gameplay, $"UnShow Interaction Tutorial: {key}", obj);
-            tutorialObjects.RemoveTutorial();
+            // tutorialObjects.RemoveTutorial(); TODO:
+            Tutorial.RemoveTutorial();
         }
 
         #endregion

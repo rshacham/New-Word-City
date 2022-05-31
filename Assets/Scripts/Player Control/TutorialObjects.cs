@@ -54,6 +54,22 @@ namespace Player_Control
 
         #region Public Methods
 
+        public Sprite GetForScheme(TutorialScheme.Tutorials type, Schemes scheme)
+        {
+            var tutorialScheme = scheme switch
+            {
+                Schemes.KBM => kbm,
+                Schemes.Controller => controller,
+                _ => throw new ArgumentOutOfRangeException(nameof(scheme), scheme, null)
+            };
+            return type switch
+            {
+                TutorialScheme.Tutorials.Interact => tutorialScheme.interact,
+                TutorialScheme.Tutorials.SecondaryInteract => tutorialScheme.secondaryInteract,
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+        }
+
         // TODO: add animation slight shake, custom images, pop in/popout, multi tutorials support
         public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type,
             Schemes scheme)
@@ -74,8 +90,10 @@ namespace Player_Control
             _tutorialInstance.GetComponent<SpriteRenderer>().sprite = type switch
             {
                 TutorialScheme.Tutorials.Interact => tutorialScheme.interact,
+                TutorialScheme.Tutorials.SecondaryInteract => tutorialScheme.secondaryInteract,
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
+
             _tutorialInstance.SetActive(true);
             return ref _tutorialInstance;
         }
@@ -87,7 +105,7 @@ namespace Player_Control
 
         #endregion
     }
-    
+
     /// <summary>
     /// 
     /// </summary>
@@ -96,10 +114,13 @@ namespace Player_Control
     {
         public enum Tutorials
         {
-            Interact
+            Interact,
+            SecondaryInteract
         }
 
         [SerializeField]
         public Sprite interact;
+        [SerializeField]
+        public Sprite secondaryInteract;
     }
 }
