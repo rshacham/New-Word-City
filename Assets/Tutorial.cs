@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Avrahamy;
 using Managers;
 using Player_Control;
 using TMPro;
@@ -11,6 +8,8 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
+    #region Inspector
+
     [SerializeField]
     private float letterDelay = 0.1f;
 
@@ -27,23 +26,25 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI myText;
 
+    #endregion
+
+    #region Public Properties
+
+    #region Static
+
     public static Tutorial Instance { get; private set; }
 
     public static Movement PlayerMovement { get; set; }
+
+    #endregion
+
+    public Image ContinueImage { get; set; }
 
     public string[] TutorialsTexts
     {
         get => tutorialsTexts;
         set => tutorialsTexts = value;
     }
-
-    public Image ContinueImage { get; set; }
-
-    private string _tutorialString = "";
-
-    private bool _isWriting = false;
-
-    private bool _changeWord = false;
 
     public int letterCount = 0;
 
@@ -53,12 +54,26 @@ public class Tutorial : MonoBehaviour
         set => letterCount = value;
     }
 
+    #endregion
+
+    #region Private Fields
+
     private int _currentTutorial;
+
+    private string _tutorialString = "";
+
+    private bool _isWriting = false;
+
+    private bool _changeWord = false;
 
     private AudioSource _myAudio;
 
     private static TutorialObjects.Schemes Scheme =>
         PlayerMovement.IsController ? TutorialObjects.Schemes.Controller : TutorialObjects.Schemes.KBM;
+
+    #endregion
+
+    #region MonoBehaviour
 
     private void Awake()
     {
@@ -77,6 +92,10 @@ public class Tutorial : MonoBehaviour
         _myAudio = GetComponent<AudioSource>();
         StartCoroutine(StartTutorial(tutorialStartDelay));
     }
+
+    #endregion
+
+    #region Coroutines
 
     IEnumerator WriteLetters()
     {
@@ -119,6 +138,16 @@ public class Tutorial : MonoBehaviour
         //     // WordsGameManager.SwitchToNextAvailableWord();
         // }
     }
+
+    IEnumerator StartTutorial(float startDelay)
+    {
+        yield return new WaitForSeconds(startDelay);
+        TutorialContinue();
+    }
+
+    #endregion
+
+    #region Public Methods
 
     public void TutorialContinue()
     {
@@ -165,11 +194,9 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    IEnumerator StartTutorial(float startDelay)
-    {
-        yield return new WaitForSeconds(startDelay);
-        TutorialContinue();
-    }
+    #endregion
+
+    #region Public Static Methods
 
     public static ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type)
     {
@@ -216,4 +243,6 @@ public class Tutorial : MonoBehaviour
 
         Instance.tutorialObjects.RemoveTutorial();
     }
+
+    #endregion
 }
