@@ -159,9 +159,7 @@ public class Tutorial : MonoBehaviour
     {
         if (_currentTutorial > TutorialsTexts.Length)
         {
-            _currentTutorial = 0; 
             WordsGameManager.SwitchToNextAvailableWord();
-            return; // TODO: fix fast switch and last word switch - this return is wrong!
         }
 
         if (_currentTutorial == TutorialsTexts.Length && !_isWriting
@@ -192,6 +190,7 @@ public class Tutorial : MonoBehaviour
 
         if (_currentTutorial >= TutorialsTexts.Length)
         {
+            _currentTutorial = _currentTutorial > TutorialsTexts.Length ? 0 : _currentTutorial;
             return;
         }
 
