@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8162399817070384727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1320,6 +1320,7 @@ MonoBehaviour:
   - Your goal is to find all the meaning of the word that appears at the board
   - FINISHED WORD!
   space: {fileID: 6450655807207559405}
+  tutorialTextObject: {fileID: 6932488653212119446}
   coinAnimators:
   - {fileID: 8808417505015987407}
   - {fileID: 8808417503994088037}

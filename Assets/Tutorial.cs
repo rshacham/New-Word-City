@@ -54,6 +54,12 @@ public class Tutorial : MonoBehaviour
         set => letterCount = value;
     }
 
+    public TextMeshProUGUI MyText
+    {
+        get => myText;
+        set => myText = value;
+    }
+
     #endregion
 
     #region Private Fields
@@ -153,7 +159,9 @@ public class Tutorial : MonoBehaviour
     {
         if (_currentTutorial > TutorialsTexts.Length)
         {
+            _currentTutorial = 0; 
             WordsGameManager.SwitchToNextAvailableWord();
+            return; // TODO: fix fast switch and last word switch - this return is wrong!
         }
 
         if (_currentTutorial == TutorialsTexts.Length && !_isWriting
@@ -200,6 +208,7 @@ public class Tutorial : MonoBehaviour
     #region Public Static Methods
 
     // TODO: Return by reference?????
+
     public static GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type)
     {
         if (Instance == null)

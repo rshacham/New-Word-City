@@ -25,6 +25,9 @@ namespace UI
         [SerializeField]
         private Image space;
 
+        [SerializeField]
+        private TextMeshProUGUI tutorialTextObject;
+
         public Tutorial TutorialHolder
         {
             get => tutorialHolder;
@@ -89,6 +92,7 @@ namespace UI
             CanvasManager.ActiveCanvas = this;
             Tutorial.Instance.TutorialsTexts = tutorialStrings;
             Tutorial.Instance.ContinueImage = space;
+            Tutorial.Instance.MyText = tutorialTextObject;
             if (holders == null)
             {
                 // TODO: get holders by code
