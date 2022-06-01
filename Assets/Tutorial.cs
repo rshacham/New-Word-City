@@ -181,7 +181,7 @@ public class Tutorial : MonoBehaviour
             myText.text = "";
         }
 
-        if (_currentTutorial == TutorialsTexts.Length - 1 && !WordsGameManager.Current.WordComplete)
+        if (_currentTutorial == TutorialsTexts.Length - 1 && WordsGameManager.Current is {WordComplete: false})
         {
             StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
             return;

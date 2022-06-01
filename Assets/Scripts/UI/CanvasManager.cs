@@ -59,12 +59,13 @@ namespace UI
 
         public void ContinueTutorial(InputAction.CallbackContext context)
         {
-            if (ActiveCanvas.TutorialHolder == null)
+            if (ActiveCanvas.TutorialHolder == null || !ActiveCanvas.IsOpen)
             {
+                print("hi");
                 return;
             }
 
-            if (context.started)
+            if (context.started && WordsToWrite == 0)
             {
                 ActiveCanvas.TutorialHolder.TutorialContinue();
             }

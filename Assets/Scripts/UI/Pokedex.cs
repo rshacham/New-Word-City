@@ -30,8 +30,8 @@ namespace UI
 
         public Tutorial TutorialHolder
         {
-            get => tutorialHolder;
-            set => tutorialHolder = value;
+            get => Tutorial.Instance;
+            // set => tutorialHolder = value;
         }
 
 
@@ -116,10 +116,20 @@ namespace UI
                 _angle -= rotatingSpeed * Time.deltaTime;
             }
 
+            if (_angle <= targetAngle && _isOpening)
+            {
+                IsOpen = false;
+            }
+
             if (_angle < 0 && !_isOpening)
             {
                 _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
+            }
+            
+            if (_angle >= targetAngle && !_isOpening)
+            {
+                IsOpen = true;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Avrahamy;
 using UI;
 using UnityEngine;
 
@@ -120,6 +121,7 @@ namespace Managers
 
             Instance.CurrentIndex %= Words.Count;
             Active = false;
+            DebugLog.Log("No More Words", Color.red); // TODO:!
         }
 
         /// <summary>
@@ -145,6 +147,7 @@ namespace Managers
                 MeaningFoundCount = 0; // TODO: not required?
                 OnWordSwitch?.Invoke(Current, null);
                 Current = null;
+                DebugLog.Log("No More Words", Color.red); // TODO:?
                 return;
             }
 
