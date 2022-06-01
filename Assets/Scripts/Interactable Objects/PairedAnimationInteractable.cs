@@ -6,6 +6,8 @@ namespace Interactable_Objects
 {
     class PairedAnimationInteractable : EventInteractable
     {
+        #region Inspector
+
         [Header("Paired Animation Interactable")]
         [SerializeField]
         [Nullable]
@@ -16,7 +18,15 @@ namespace Interactable_Objects
         [SerializeField]
         private TriggerAnimationParameter interactTrigger;
 
+        #endregion
+
+        #region Private Fields
+
         private Animator _myAnimator;
+
+        #endregion
+
+        #region EventInteractable
 
         protected override void Awake()
         {
@@ -30,16 +40,20 @@ namespace Interactable_Objects
             _myAnimator = GetComponent<Animator>();
         }
 
+        protected override void ScriptInteract()
+        {
+            interactTrigger.Set(_myAnimator);
+        }
+
+        #endregion
+
+        #region Callbacks
+
         private void OnOtherInteractionEnd(object sender, InteractableObject e)
         {
             CanInteract = true;
-            DebugLog.Log("Got valid");
         }
 
-        protected override void ScriptInteract()
-        {
-            DebugLog.Log("Interacted");
-            interactTrigger.Set(_myAnimator);
-        }
+        #endregion
     }
 }

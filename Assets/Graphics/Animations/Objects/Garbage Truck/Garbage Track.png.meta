@@ -22,16 +22,16 @@ TextureImporter:
     second: Garbage Track_5
   - first:
       213: -2210224618448048492
-    second: Garbage Track_6
+    second: Garbage Track_0
   - first:
       213: 166209141607199334
-    second: Garbage Track_7
+    second: Garbage Track_1
   - first:
       213: 169902873184220398
-    second: Garbage Track_8
+    second: Garbage Track_2
   - first:
       213: -221940620761785081
-    second: Garbage Track_9
+    second: Garbage Track_3
   - first:
       213: -6939447048830177666
     second: Garbage Track_10
@@ -40,7 +40,7 @@ TextureImporter:
     second: Garbage Track_11
   - first:
       213: -8756842815558551316
-    second: Garbage Track_12
+    second: Garbage Track_4
   - first:
       213: 3636488081912110098
     second: Garbage Track_13
@@ -85,7 +85,7 @@ TextureImporter:
     second: Garbage Track_26
   - first:
       213: 5578678517004272110
-    second: Garbage Track_27
+    second: Garbage Track_5
   - first:
       213: -7631226530018264656
     second: Garbage Track_28
@@ -187,18 +187,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Garbage Track_6
+      name: Garbage Track_0
       rect:
         serializedVersion: 2
         x: 333
         y: 1325
-        width: 520
-        height: 360
+        width: 381
+        height: 323
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.5, y: 0.42414862}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -90.5, y: -161.5}
+        - {x: -190.5, y: -94.5}
+        - {x: -190.5, y: -41.5}
+        - {x: 66.5, y: 38.5}
+        - {x: 169.5, y: -22.5}
       tessellationDetail: 0
       bones: []
       spriteID: 49ea4977b64b351e0800000000000000
@@ -208,15 +213,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Garbage Track_7
+      name: Garbage Track_1
       rect:
         serializedVersion: 2
         x: 1334
         y: 1325
-        width: 520
+        width: 385
         height: 360
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.4948052, y: 0.38055557}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,15 +234,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Garbage Track_8
+      name: Garbage Track_2
       rect:
         serializedVersion: 2
         x: 2333
         y: 1325
-        width: 520
+        width: 447
         height: 360
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.4261745, y: 0.38055557}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,7 +255,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Garbage Track_9
+      name: Garbage Track_3
       rect:
         serializedVersion: 2
         x: 3334
@@ -258,7 +263,7 @@ TextureImporter:
         width: 520
         height: 360
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.36634615, y: 0.38055557}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,7 +276,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Garbage Track_12
+      name: Garbage Track_4
       rect:
         serializedVersion: 2
         x: 4327
@@ -279,7 +284,7 @@ TextureImporter:
         width: 520
         height: 360
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.36634615, y: 0.38055557}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,7 +297,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Garbage Track_27
+      name: Garbage Track_5
       rect:
         serializedVersion: 2
         x: 333
@@ -300,7 +305,7 @@ TextureImporter:
         width: 520
         height: 360
       alignment: 9
-      pivot: {x: 0.4462756, y: 0.2873423}
+      pivot: {x: 0.36634615, y: 0.38055557}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

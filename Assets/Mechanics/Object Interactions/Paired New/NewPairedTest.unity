@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: other
       value: 
       objectReference: {fileID: 686309650}
+    - target: {fileID: 3415322923748025477, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
+      propertyPath: m_labelHash
+      value: 6.026348e-23
+      objectReference: {fileID: 0}
     - target: {fileID: 7286166968851663488, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -275,6 +279,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7286166968851663491, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2184fb49fdb3c4767882384fb73c6052, type: 3}
     - target: {fileID: 7286166968851663500, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: m_Name
       value: SpriteLibraryInteractable

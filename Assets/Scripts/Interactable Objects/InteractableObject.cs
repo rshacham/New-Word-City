@@ -46,7 +46,7 @@ namespace Interactable_Objects
 
         [SerializeField]
         [Tooltip("One click to highlight and interact")]
-        protected bool highlightInteract = true;
+        protected bool highlightInteract;
 
         #endregion
 
