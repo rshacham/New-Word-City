@@ -10,7 +10,7 @@ namespace Mechanics.Object_Moves_Player
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.SetTrigger(Highlight);            
+            animator.SetBool(Highlight, false);
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,7 +23,7 @@ namespace Mechanics.Object_Moves_Player
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.GetComponent<InteractableObject>().Interact();
-            animator.SetTrigger(Highlight);
+            animator.SetBool(Highlight, true);
         }
 
         // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -35,7 +35,7 @@ namespace Interactable_Objects
 
         [SerializeField]
         [Tooltip("Trigger to reset taxi highlight")]
-        private TriggerAnimationParameter taxiHighlight;
+        private BoolAnimationParameter taxiHighlight;
 
         #endregion
 
@@ -104,7 +104,7 @@ namespace Interactable_Objects
                     UseOnEnd = true;
                     DebugLog.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
-                    _myAnimator.ResetTrigger(taxiHighlight.Index);
+                    // _myAnimator.ResetTrigger(taxiHighlight.Index);
                     _myAnimator.Play("CloseDoor");
                     break;
                 default:
@@ -117,6 +117,13 @@ namespace Interactable_Objects
             var player = Player; // TODO: fix this
             base.RemoveInteraction(other);
             Player = player;
+            taxiHighlight.Set(_myAnimator, false);
+        }
+
+        public override bool SetInteraction(PlayerInteract other)
+        {
+            taxiHighlight.Set(_myAnimator, true);
+            return base.SetInteraction(other);
         }
 
         #endregion
