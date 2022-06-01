@@ -90,6 +90,7 @@ namespace UI
             _pokedexTransform = GetComponent<RectTransform>();
             WordsGameManager.OnMeaningFound += MeaningFound;
             CanvasManager.ActiveCanvas = this;
+            CanvasManager.WordsToWrite = 0; // TODO::::::
             Tutorial.Instance.TutorialsTexts = tutorialStrings;
             Tutorial.Instance.ContinueImage = space;
             Tutorial.Instance.MyText = tutorialTextObject;

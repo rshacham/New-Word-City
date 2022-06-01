@@ -117,8 +117,8 @@ public class Tutorial : MonoBehaviour
                 if (letterCount == 0)
                 {
                     _myAudio.Play();
-                    _isWriting = true;
                     CanvasManager.WordsToWrite++;
+                    _isWriting = true;
                 }
 
                 myText.text += _tutorialString[letterCount++];
@@ -128,7 +128,7 @@ public class Tutorial : MonoBehaviour
             if (letterCount >= _tutorialString.Length)
             {
                 _myAudio.Stop();
-                // space.SetActive(true);
+                myText.text = _tutorialString;
                 ContinueImage.sprite = tutorialObjects.GetForScheme(TutorialScheme.Tutorials.Interact, Scheme);
                 ContinueImage.gameObject.SetActive(true);
                 CanvasManager.WordsToWrite--;
@@ -157,20 +157,21 @@ public class Tutorial : MonoBehaviour
 
     public void TutorialContinue()
     {
+        if (_isWriting)
+        {
+            letterCount = _tutorialString.Length;
+            return;
+        }
+        
         if (_currentTutorial > TutorialsTexts.Length)
         {
             WordsGameManager.SwitchToNextAvailableWord();
         }
 
-        if (_currentTutorial == TutorialsTexts.Length && !_isWriting
+        if (_currentTutorial == TutorialsTexts.Length && !_isWriting // TODO: null check Current
                                                       && WordsGameManager.Current.WordComplete)
         {
             _currentTutorial++;
-            return;
-        }
-
-        if (_isWriting)
-        {
             return;
         }
 

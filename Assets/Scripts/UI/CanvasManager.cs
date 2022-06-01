@@ -1,4 +1,5 @@
 using System;
+using Avrahamy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -61,11 +62,10 @@ namespace UI
         {
             if (ActiveCanvas.TutorialHolder == null || !ActiveCanvas.IsOpen)
             {
-                print("hi");
                 return;
             }
 
-            if (context.started && WordsToWrite == 0)
+            if (context.started) //  TODO: && WordsToWrite == 0 ??
             {
                 ActiveCanvas.TutorialHolder.TutorialContinue();
             }
