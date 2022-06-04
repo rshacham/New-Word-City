@@ -1316,8 +1316,13 @@ MonoBehaviour:
   - {fileID: 8808417504635780543}
   tutorialHolder: {fileID: 0}
   tutorialStrings:
-  - 'Welcome to *OUR GAME*! '
-  - Your goal is to find all the meaning of the word that appears at the board
+  - Welcome to New Word City!
+  - I'm your Wordex, and i will be your guide for your visit in our beautiful city
+  - In this city, EVERYTHING does something
+  - FINISHED WORD!
+  - FINISHED WORD!
+  - FINISHED WORD!
+  - FINISHED WORD!
   - FINISHED WORD!
   space: {fileID: 6450655807207559405}
   tutorialTextObject: {fileID: 6932488653212119446}

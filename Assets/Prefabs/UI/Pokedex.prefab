@@ -470,6 +470,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 8808417504689703263, guid: 249a2be86d8dba44296afe2e3c9194df, type: 3}
+      propertyPath: tutorialStrings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808417504689703263, guid: 249a2be86d8dba44296afe2e3c9194df, type: 3}
+      propertyPath: tutorialStrings.Array.data[2]
+      value: In this city, EVERYTHING does something, and EVERYTHING has a meaning
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808417504689703263, guid: 249a2be86d8dba44296afe2e3c9194df, type: 3}
+      propertyPath: tutorialStrings.Array.data[3]
+      value: In every level you are going to receive a new word
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808417504689703263, guid: 249a2be86d8dba44296afe2e3c9194df, type: 3}
+      propertyPath: tutorialStrings.Array.data[4]
+      value: Your first word is Fly. Can you find the 2 meanings of this word?
+      objectReference: {fileID: 0}
     - target: {fileID: 8808417504883147794, guid: 249a2be86d8dba44296afe2e3c9194df, type: 3}
       propertyPath: m_text
       value: 
