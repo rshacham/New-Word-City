@@ -50,6 +50,8 @@ namespace Interactable_Objects
         {
             _villageAnimator.SetBool("Semi", boolean);
         }
+        
+        #endregion
 
 
         protected override void ScriptInteract()
@@ -76,7 +78,6 @@ namespace Interactable_Objects
             }
         }
 
-        #endregion
 
     }
 }
