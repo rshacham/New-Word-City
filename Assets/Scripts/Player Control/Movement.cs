@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Avrahamy;
 using Avrahamy.EditorGadgets;
 using BitStrap;
@@ -75,6 +76,18 @@ namespace Player_Control
         private const string Controller = "Controller";
 
         #endregion
+        
+        #region Change Position Animation
+        
+        private float _t = 1.01f;
+        
+        private Vector3 _oldPosition;
+
+        private Vector3 _newPosition;
+
+        private float _animationSpeed;
+        
+        #endregion
 
         #region Public Properties
 
@@ -120,6 +133,12 @@ namespace Player_Control
                 var velocityNormalized = _playerRigidBody.velocity.normalized;
                 parameters.posX.Set(_playerAnimator, velocityNormalized.x);
                 parameters.posY.Set(_playerAnimator, velocityNormalized.y);
+            }
+
+            if (_t < 1f)
+            {
+                transform.position = Vector3.Lerp(_oldPosition, _newPosition, _t);
+                _t += Time.deltaTime * _animationSpeed;
             }
         }
 
@@ -181,6 +200,23 @@ namespace Player_Control
             }
 
             _desiredVelocity = movementVector * maxSpeed;
+        }
+
+        public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed)
+        {
+            if (enableMovement)
+            enableMovement = false;
+            _t = 0;
+            _oldPosition = transform.position;
+            _newPosition = newPosition;
+            _animationSpeed = animationSpeed;
+            
+            while (_t < 1f)
+            {
+                yield return new WaitForSeconds(0.03f);
+            }
+
+            enableMovement = true;
         }
 
         #endregion

@@ -16,9 +16,28 @@ namespace Interactable_Objects
 
         private Movement _playerScript;
 
+        private bool _onTree = false;
+
+        #endregion
+        
+        #region Inspector
+        
+        [SerializeField] 
+        [Tooltip("Speed of move position animation")]
+        private float animationSpeed;
+        
+        
+        [SerializeField] 
+        [Tooltip("New position after climbing up the tree")]
+        private Vector3 onTreePosition;
+        
+        [SerializeField] 
+        [Tooltip("New position after climbing down tree")]
+        private Vector3 _offTreePosition;
+        
         #endregion
 
-        
+
         #region MonoBehaviour
 
         void Start()
@@ -29,7 +48,6 @@ namespace Interactable_Objects
 
         public void CloseToVillage(bool boolean)
         {
-            Debug.Log("hey");
             _villageAnimator.SetBool("Semi", boolean);
         }
 
@@ -42,8 +60,20 @@ namespace Interactable_Objects
                 _ladderOpen = true;
                 return;
             }
+
+            if (!_onTree && _playerScript.EnableMovement)
+            {
+                StartCoroutine(_playerScript.ChangePosition(onTreePosition, animationSpeed));
+                _onTree = true;
+                return;
+            }
             
-            _playerScript.SetAnimatorStateTrue("Climb");
+
+            if (_onTree && _playerScript.EnableMovement)
+            {
+                StartCoroutine(_playerScript.ChangePosition(_offTreePosition, animationSpeed));
+                _onTree = false;
+            }
         }
 
         #endregion
