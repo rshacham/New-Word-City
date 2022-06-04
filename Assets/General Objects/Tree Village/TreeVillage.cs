@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -10,15 +12,19 @@ namespace Interactable_Objects
 
         private Animator _villageAnimator;
 
-        [SerializeField] Animator _playerAnimator;
+        private bool _ladderOpen;
+
+        private Movement _playerScript;
 
         #endregion
 
+        
         #region MonoBehaviour
 
         void Start()
         {
             _villageAnimator = GetComponentInParent<Animator>();
+            _playerScript = FindObjectOfType<Movement>();
         }
 
         public void CloseToVillage(bool boolean)
@@ -30,7 +36,14 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            _villageAnimator.SetBool("Open", true);
+            if (!_ladderOpen)
+            {
+                _villageAnimator.SetBool("Open", true);
+                _ladderOpen = true;
+                return;
+            }
+            
+            _playerScript.SetAnimatorStateTrue("Climb");
         }
 
         #endregion

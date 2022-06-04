@@ -142,6 +142,16 @@ namespace Player_Control
             }
             // peepingMat.SetVector(PlayerPos, playerRigidBody.position);
         }
+        
+        public void SetAnimatorStateTrue(string state)
+        {
+            _playerAnimator.SetBool(state, true);
+        }
+        
+        public void SetAnimatorStateFalse(string state)
+        {
+            _playerAnimator.SetBool(state, false);
+        }
 
         #endregion
 
@@ -183,4 +193,6 @@ namespace Player_Control
         public FloatAnimationParameter posX;
         public FloatAnimationParameter posY;
     }
+    
+
 }

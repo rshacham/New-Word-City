@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b647ec181a40b4d9a11e14c1da9314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterDelay: 0.05
-  tutorialStartDelay: 1
+  letterDelay: 0.025
+  tutorialStartDelay: 0.2
   tutorialObjects:
     offset: {x: 1, y: 1, z: 0}
     controller:
