@@ -14,6 +14,8 @@ namespace Interactable_Objects
 
         #endregion
 
+        #region MonoBehaviour
+
         void Start()
         {
             _truckAnimator = GetComponentInParent<Animator>();
@@ -29,6 +31,9 @@ namespace Interactable_Objects
         {
             _truckAnimator.SetTrigger("Throw");
         }
+
+        #endregion
+
     }
 }
 
