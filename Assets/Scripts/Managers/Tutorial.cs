@@ -92,6 +92,11 @@ public class Tutorial : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void Start()
     {
         // myText = GetComponent<TextMeshProUGUI>();
@@ -112,7 +117,7 @@ public class Tutorial : MonoBehaviour
                 yield return new WaitForSeconds(letterDelay);
             }
 
-            if (letterCount < _tutorialString.Length && CanvasManager.ActiveCanvas.Angle >= 0)
+            if (letterCount < _tutorialString.Length && CanvasManager.ActiveCanvas.IsOpen)
             {
                 if (letterCount == 0)
                 {
@@ -147,6 +152,10 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator StartTutorial(float startDelay)
     {
+        while (!CanvasManager.ActiveCanvas.IsOpen)
+        { ;
+            yield return new WaitForSeconds(0.1f);
+        }
         yield return new WaitForSeconds(startDelay);
         TutorialContinue();
     }

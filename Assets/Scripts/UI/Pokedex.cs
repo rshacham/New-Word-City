@@ -111,26 +111,27 @@ namespace UI
         // Update is called once per frame
         void Update()
         {
+            // Debug.Log(_isOpen);
             if (_angle > targetAngle && _isOpening)
             {
-                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * rotatingSpeed);
+                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
                 _angle -= rotatingSpeed * Time.deltaTime;
             }
 
             if (_angle <= targetAngle && _isOpening)
             {
-                IsOpen = false;
+                IsOpen = true;
             }
 
             if (_angle < 0 && !_isOpening)
             {
-                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
+                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
             }
             
             if (_angle >= targetAngle && !_isOpening)
             {
-                IsOpen = true;
+                IsOpen = false;
             }
         }
 
