@@ -37,6 +37,7 @@ namespace UI
         private Animator _myAnimator;
 #if UNITY_EDITOR
         private bool _curState;
+        private bool _firstTime = true;
 #endif
 
         #endregion
@@ -50,6 +51,7 @@ namespace UI
             WordsGameManager.OnMeaningFound += OnMeaningFound;
             WordsGameManager.OnWordSwitch += OnWordSwitch;
             CanvasManager.OnCanvasChange += OnCanvasChange;
+            HighlightMenu();
         }
 
         #endregion
@@ -92,6 +94,15 @@ namespace UI
                 return;
             }
 
+            if (_firstTime)
+            {
+                var transform1 = transform;
+                Tutorial.CreateTutorial(
+                    transform1.position + Tutorial.Offset,
+                    TutorialScheme.Tutorials.SecondaryInteract
+                ).transform.parent = transform1;
+            }
+
             highlightParameter.Set(_myAnimator, true);
 #if UNITY_EDITOR
             _curState = true;
@@ -100,6 +111,12 @@ namespace UI
 
         private void UnHighlight()
         {
+            if (_firstTime)
+            {
+                Tutorial.RemoveTutorial();
+                _firstTime = false;
+            }
+
             highlightParameter.Set(_myAnimator, false);
 #if UNITY_EDITOR
             _curState = true;
