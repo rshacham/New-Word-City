@@ -9,7 +9,6 @@ namespace Interactable_Objects
     public class Trampolina : PairedAnimationInteractable
     {
         /// @see PairedAnimationInteractable.cs
-
         [Space]
         [Header("Trampoline Interactable")]
         [SerializeField]
@@ -32,9 +31,9 @@ namespace Interactable_Objects
             _playerMovement = FindObjectOfType<Movement>();
         }
 
-        IEnumerator GetMeaning()
+        IEnumerator GetMeaning() // TODO: busy wait is not the correct method here.
         {
-            while (!_playerMovement.FalledToWorld)
+            while (!_playerMovement.FellToWorld)
             {
                 yield return new WaitForSeconds(0.2f);
             }
@@ -45,17 +44,16 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            if (!_playerMovement.FalledToWorld)
+            if (_playerMovement.FellToWorld)
             {
-                UseOnEnd = false;
-                StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
-                StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
-                _holeManager.CloseCircle(duration);
-                StartCoroutine(GetMeaning());
                 return;
             }
-            
+
+            UseOnEnd = false;
+            StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
+            StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
+            _holeManager.CloseCircle(duration);
+            StartCoroutine(GetMeaning());
         }
     }
 }
-

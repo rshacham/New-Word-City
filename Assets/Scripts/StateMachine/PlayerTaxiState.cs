@@ -25,6 +25,7 @@ namespace StateMachine
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _player.transform.parent = _currentActive.transform;
+            _player.GetComponent<SpriteRenderer>().enabled = false; // TODO:?
             _currentActive.Interact();
         }
 

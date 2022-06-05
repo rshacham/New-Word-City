@@ -73,17 +73,16 @@ namespace Player_Control
         private Animator _playerAnimator;
 
 
-
         // TODO: serialize? even as hidden?
         private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
         private const string Controller = "Controller";
 
         #endregion
-        
+
         #region Change Position Animation
-        
+
         private float _t = 1.01f;
-        
+
         private Vector3 _oldPosition;
 
         private Vector3 _newPosition;
@@ -108,13 +107,13 @@ namespace Player_Control
             get => _desiredVelocity;
             set => _desiredVelocity = value;
         }
-        
-        private bool _falledToWorld = false;
 
-        public bool FalledToWorld
+        private bool _fellToWorld = false;
+
+        public bool FellToWorld
         {
-            get => _falledToWorld;
-            set => _falledToWorld = value;
+            get => _fellToWorld;
+            set => _fellToWorld = value;
         }
 
         #endregion
@@ -133,7 +132,11 @@ namespace Player_Control
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();
             Tutorial.PlayerMovement = this;
-            
+            StaticEventsGameManager.PlayerShouldInteract += (sender, b) =>
+            {
+                enableMovement = sender is Tutorial ? b : enableMovement;
+            };
+
             // Word Switch:
             // WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
             // CartoonHoleManager.TransitionEnd += (sender, manager) => enableMovement = true;
@@ -175,9 +178,9 @@ namespace Player_Control
             {
                 _playerRigidBody.velocity = _desiredVelocity;
             }
+
             peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
         }
-
 
         #endregion
 
@@ -216,11 +219,12 @@ namespace Player_Control
                 enableMovement = false;
                 _desiredVelocity = new Vector2(0, 0);
             }
+
             _t = 0;
             _oldPosition = transform.position;
             _newPosition = newPosition;
             _animationSpeed = animationSpeed;
-            
+
             while (_t < 1f)
             {
                 yield return new WaitForSeconds(0.03f);
@@ -228,12 +232,12 @@ namespace Player_Control
 
             enableMovement = true;
 
-            // if (!_falledToWorld)
+            // if (!_fellToWorld)
             // {
-            //     StartCoroutine(GameManager._shared.ChangeBoolWithDelay(_falledToWorld, true, animationSpeed));
+            //     StartCoroutine(GameManager._shared.ChangeBoolWithDelay(_fellToWorld, true, animationSpeed));
             // }
         }
-        
+
 
         public void TeleportPlayer(Vector3 newPosition)
         {
@@ -242,7 +246,7 @@ namespace Player_Control
 
         #endregion
     }
-    
+
 
     [Serializable]
     public struct MovementAnimationParameters
@@ -251,6 +255,4 @@ namespace Player_Control
         public FloatAnimationParameter posX;
         public FloatAnimationParameter posY;
     }
-    
-
 }
