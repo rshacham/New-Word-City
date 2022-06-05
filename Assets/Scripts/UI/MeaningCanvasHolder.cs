@@ -42,12 +42,12 @@ namespace UI
         {
             while (true)
             {
-                if (CanvasManager.ActiveCanvas.Angle < 0)
+                if (!CanvasManager.ActiveCanvas.IsOpen)
                 {
                     yield return new WaitForSeconds(delay);
                 }
 
-                if (_letterCount < _meaningString.Length && CanvasManager.ActiveCanvas.Angle >= 0)
+                if (_letterCount < _meaningString.Length && CanvasManager.ActiveCanvas.IsOpen)
                 {
                     if (_letterCount == 0)
                     {
