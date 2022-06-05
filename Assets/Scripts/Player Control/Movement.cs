@@ -125,8 +125,8 @@ namespace Player_Control
             Tutorial.PlayerMovement = this;
             
             // Word Switch:
-            WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
-            CartoonHoleManager.TransitionEnd += (sender, manager) => enableMovement = true;
+            // WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
+            // CartoonHoleManager.TransitionEnd += (sender, manager) => enableMovement = true;
         }
 
         private void Update()

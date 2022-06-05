@@ -39,7 +39,7 @@ public class CartoonHoleManager : MonoBehaviour
     {
         _myImage = GetComponent<Image>();
         _sharedMaterial = _myImage.material;
-        _sharedMaterial.SetFloat(Radius, minMaxRadius.x);
+        _sharedMaterial.SetFloat(Radius, minMaxRadius.y);
         WordsGameManager.OnWordSwitch += OnWordSwitch;
     }
 
