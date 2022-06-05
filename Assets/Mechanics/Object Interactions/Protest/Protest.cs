@@ -12,10 +12,14 @@ namespace Interactable_Objects
         private Animator[] _protestorsAnimators;
 
         private AudioSource _protestAudio;
+        
+        private int _soundCounter;
 
         #endregion
         
         #region Inspector
+        
+        [SerializeField] private AudioClip[] _protestorsSounds;
         
         #endregion
 
@@ -47,10 +51,16 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
+            if (_protestAudio.isPlaying)
+            {
+                return;
+            }
             foreach (var protestor in _protestorsAnimators)
             {
                 protestor.SetBool("Protest", true);
             }
+
+            _protestAudio.clip = _protestorsSounds[_soundCounter++ % _protestorsSounds.Length];
             _protestAudio.Play();
             StartCoroutine(CancelProtest());
         }
