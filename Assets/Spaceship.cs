@@ -66,7 +66,7 @@ namespace Interactable_Objects
             gameObject.SetActive(true);
             transform.position = _originalPosition;
             _spaceshipAnimator.SetBool("Fly", false);
-            _spaceshipCollider.enabled = true;
+            // _spaceshipCollider.enabled = true;
         }
         
         #endregion
@@ -74,7 +74,7 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            _spaceshipCollider.enabled = false;
+            // _spaceshipCollider.enabled = false;
             _spaceshipAnimator.SetTrigger("Fly");
         }
 
