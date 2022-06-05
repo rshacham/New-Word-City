@@ -32,10 +32,29 @@ namespace Interactable_Objects
             _playerMovement = FindObjectOfType<Movement>();
         }
 
+        IEnumerator GetMeaning()
+        {
+            while (!_playerMovement.FalledToWorld)
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            UseOnEnd = true;
+            Interact();
+        }
+
         protected override void ScriptInteract()
         {
-            StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
-            _holeManager.CloseCircle(duration);
+            if (!_playerMovement.FalledToWorld)
+            {
+                UseOnEnd = false;
+                StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
+                StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
+                _holeManager.CloseCircle(duration);
+                StartCoroutine(GetMeaning());
+                return;
+            }
+            
         }
     }
 }

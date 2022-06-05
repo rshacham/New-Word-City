@@ -6,6 +6,7 @@ using Avrahamy;
 using BitStrap;
 using Managers;
 using Player_Control;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Vector2 = UnityEngine.Vector2;
@@ -72,8 +73,8 @@ public class CartoonHoleManager : MonoBehaviour
         {
             if (WordsGameManager.Tutorial)
             {
-                GameManager._shared.ThrowPlayerOnWorld();
-                WordsGameManager.Tutorial = false;
+                // GameManager._shared.ThrowPlayerOnWorld();
+                // WordsGameManager.Tutorial = false;
             }
             OnTransitionEnd(this);
             // transitionDurationTimer.EndTime = _originalTransitionDuration;
@@ -84,6 +85,11 @@ public class CartoonHoleManager : MonoBehaviour
 
     private void OnWordSwitch(object sender, MeaningfulWord e)
     {
+        if (WordsGameManager.Tutorial)
+        {
+            WordsGameManager.Tutorial = false;
+            return;
+        }
         transitionDurationTimer.Clear();
         Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
         // _sharedMaterial.SetFloat("_StartTime", Time.time);

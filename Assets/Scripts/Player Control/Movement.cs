@@ -72,7 +72,7 @@ namespace Player_Control
 
         private Animator _playerAnimator;
 
-        private bool _falledToWorld = false;
+
 
         // TODO: serialize? even as hidden?
         private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
@@ -107,6 +107,14 @@ namespace Player_Control
         {
             get => _desiredVelocity;
             set => _desiredVelocity = value;
+        }
+        
+        private bool _falledToWorld = false;
+
+        public bool FalledToWorld
+        {
+            get => _falledToWorld;
+            set => _falledToWorld = value;
         }
 
         #endregion
@@ -169,16 +177,7 @@ namespace Player_Control
             }
             peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
         }
-        
-        public void SetAnimatorStateTrue(string state)
-        {
-            _playerAnimator.SetBool(state, true);
-        }
-        
-        public void SetAnimatorStateFalse(string state)
-        {
-            _playerAnimator.SetBool(state, false);
-        }
+
 
         #endregion
 
@@ -215,6 +214,7 @@ namespace Player_Control
             if (enableMovement)
             {
                 enableMovement = false;
+                _desiredVelocity = new Vector2(0, 0);
             }
             _t = 0;
             _oldPosition = transform.position;
@@ -228,11 +228,10 @@ namespace Player_Control
 
             enableMovement = true;
 
-            if (!_falledToWorld)
-            {
-                _falledToWorld = true;
-                GameManager._shared.ChangeFollowPlayer();
-            }
+            // if (!_falledToWorld)
+            // {
+            //     StartCoroutine(GameManager._shared.ChangeBoolWithDelay(_falledToWorld, true, animationSpeed));
+            // }
         }
         
 

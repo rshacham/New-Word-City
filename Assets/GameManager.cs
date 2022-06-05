@@ -68,16 +68,28 @@ public class GameManager : MonoBehaviour
         }
         
         virtualCamera.m_Follow = _playerMovement.transform;
-        
     }
 
-    public void ThrowPlayerOnWorld()
+    public IEnumerator ThrowPlayerOnWorld()
     {
+        yield return new WaitForSeconds(3f);
         GameManager._shared.ChangeCamera();
+        yield return new WaitForSeconds(1.5f);
         _playerMovement.TeleportPlayer(new Vector3(worldStartingPosition.x, worldStartingPosition.y + 20f, worldStartingPosition.z));
         ChangeFollowPlayer();
         _gameCamera.transform.position = worldStartingPosition;
         StartCoroutine(_playerMovement.ChangePosition(worldStartingPosition, 2f));
-
+        // yield return new WaitForSeconds(3f);
+        GameManager._shared.ChangeFollowPlayer();
+        yield return new WaitForSeconds(5f);
+        _playerMovement.FalledToWorld = true;
     }
+
+
+    public IEnumerator ChangeBoolWithDelay(bool state, bool newBoolean, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        state = newBoolean;
+    }
+    
 }
