@@ -146,7 +146,7 @@ MonoBehaviour:
     offset: {x: 1, y: 1, z: 0}
     controller:
       interact: {fileID: 21300000, guid: b13d5292542318a4ebc6be8b83903e02, type: 3}
-      secondaryInteract: {fileID: 21300000, guid: 8d8f7d5f5bd554fa889dfedbd6d7e5ab, type: 3}
+      secondaryInteract: {fileID: 21300000, guid: d8fd5b59d704bd942b3f63a94b330e13, type: 3}
     kbm:
       interact: {fileID: 21300000, guid: bc6263226f7d4b54a98803711628ec4a, type: 3}
       secondaryInteract: {fileID: 21300000, guid: 8d8f7d5f5bd554fa889dfedbd6d7e5ab, type: 3}
