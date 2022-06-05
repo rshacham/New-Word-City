@@ -26,15 +26,26 @@ namespace Interactable_Objects
 
         private Movement _playerMovement;
 
+        private AudioSource _myAudio;
+
+        private Animator _myAnimator;
+
         private void Start()
         {
             _holeManager = FindObjectOfType<CartoonHoleManager>();
             _playerMovement = FindObjectOfType<Movement>();
+            _myAudio = GetComponent<AudioSource>();
+            _myAnimator = GetComponent<Animator>();
+        }
+
+        public void OnTrampoline(bool boolean)
+        {
+            _myAnimator.SetBool("On", boolean);
         }
 
         IEnumerator GetMeaning()
         {
-            while (!_playerMovement.FalledToWorld)
+            while (!_playerMovement.FellToWorld)
             {
                 yield return new WaitForSeconds(0.2f);
             }
@@ -45,8 +56,9 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            if (!_playerMovement.FalledToWorld)
+            if (!_playerMovement.FellToWorld)
             {
+                _myAudio.Play();
                 UseOnEnd = false;
                 StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
