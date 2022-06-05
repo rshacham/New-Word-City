@@ -20,6 +20,10 @@ namespace UI
         [HideInInspector]
         private Sprite menuSprite;
 
+        [SerializeField]
+        [Tooltip("Should the first highlighting event emit particles")]
+        private bool particlesOnFirst = true;
+
 #if UNITY_EDITOR
         [Button]
         private void ManualTrigger()
@@ -101,6 +105,10 @@ namespace UI
                     transform1.position + Tutorial.Offset,
                     TutorialScheme.Tutorials.SecondaryInteract
                 ).transform.parent = transform1;
+                if (particlesOnFirst)
+                {
+                    StaticEventsGameManager.OnEmitParticles(this, Vector2.zero);
+                }
             }
 
             highlightParameter.Set(_myAnimator, true);
