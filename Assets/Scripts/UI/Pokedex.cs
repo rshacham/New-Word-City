@@ -14,6 +14,9 @@ namespace UI
         #region Inspector
 
         [SerializeField]
+        private bool openOnStart;
+
+        [SerializeField]
         private MeaningCanvasHolder[] holders;
 
         [SerializeField]
@@ -91,10 +94,16 @@ namespace UI
             _pokedexTransform = GetComponent<RectTransform>();
             WordsGameManager.OnMeaningFound += MeaningFound;
             CanvasManager.ActiveCanvas = this;
-            CanvasManager.WordsToWrite = 0; // TODO::::::
+            CanvasManager.WordsToWrite = 0; // TODO:
             Tutorial.Instance.TutorialsTexts = tutorialStrings;
             Tutorial.Instance.ContinueImage = space;
             Tutorial.Instance.MyText = tutorialTextObject;
+            // TODO: Start open for all except fly::
+            if (openOnStart && !CanvasManager.ActiveCanvas.IsOpen)
+            {
+                CanvasManager.ActiveCanvas.OpenClose();
+            }
+
             if (holders == null)
             {
                 // TODO: get holders by code
@@ -129,7 +138,7 @@ namespace UI
                 _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
             }
-            
+
             if (_angle >= targetAngle && !_isOpening)
             {
                 IsOpen = false;

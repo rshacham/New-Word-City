@@ -74,9 +74,9 @@ namespace UI
             }
 
             // TODO: Auto call last tutorial - need to make that property public
-            if (WordsGameManager.Current.WordComplete)
+            if (WordsGameManager.Current.WordComplete && CanvasManager.WordsToWrite == 0)
             {
-                // Tutorial.Instance.TutorialContinue();
+                Tutorial.Instance.TutorialContinue();
                 // DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
                 // WordsGameManager.SwitchToNextAvailableWord();
             }

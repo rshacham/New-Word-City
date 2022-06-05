@@ -32,6 +32,7 @@ namespace Interactable_Objects
         {
             _particleSystem = GetComponent<ParticleSystem>();
             WordsGameManager.OnMeaningFound += SetParticles;
+            // TODO: roi should use this for trampoline particles >>>
             StaticEventsGameManager.EmitParticles += (sender, vector2) => EmitAtPosition(vector2);
         }
 
