@@ -31,7 +31,7 @@ public class CartoonHoleManager : MonoBehaviour
 
     private Image _myImage;
     private Material _sharedMaterial;
-    private float _t;
+    private float _t = 1;
 
     private static readonly int Radius = Shader.PropertyToID("_Radius");
 
@@ -74,6 +74,7 @@ public class CartoonHoleManager : MonoBehaviour
 
     private void OnWordSwitch(object sender, MeaningfulWord e)
     {
+        transitionDurationTimer.Clear();
         Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
         // _sharedMaterial.SetFloat("_StartTime", Time.time);
         // _sharedMaterial.SetInt("_Open", (_moving + 1) / 2);
