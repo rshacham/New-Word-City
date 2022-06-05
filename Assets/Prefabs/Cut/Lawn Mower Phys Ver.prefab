@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4262249484298442993}
   m_Layer: 0
   m_Name: Back Stopper
-  m_TagString: Untagged
+  m_TagString: Interactable Trigger
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3383437450442570962}
   m_Layer: 0
   m_Name: Front Stopper
-  m_TagString: Untagged
+  m_TagString: Interactable Trigger
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
         m_Calls: []
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
+  stopperTag: Interactable Trigger
 --- !u!50 &5844538880974835150
 Rigidbody2D:
   serializedVersion: 4
