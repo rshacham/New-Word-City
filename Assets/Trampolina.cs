@@ -6,9 +6,12 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class Trampolina : EventInteractable
+    public class Trampolina : PairedAnimationInteractable
     {
+        /// @see PairedAnimationInteractable.cs
 
+        [Space]
+        [Header("Trampoline Interactable")]
         [SerializeField]
         [Tooltip("How much the circle will be close between tutorial-world transition")]
         private float duration;
@@ -28,8 +31,6 @@ namespace Interactable_Objects
             _holeManager = FindObjectOfType<CartoonHoleManager>();
             _playerMovement = FindObjectOfType<Movement>();
         }
-
-
 
         protected override void ScriptInteract()
         {

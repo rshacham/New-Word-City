@@ -1,10 +1,11 @@
 ﻿using Avrahamy;
+using Avrahamy.EditorGadgets;
 using BitStrap;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    class PairedAnimationInteractable : EventInteractable
+    public class PairedAnimationInteractable : EventInteractable
     {
         #region Inspector
 
@@ -14,8 +15,12 @@ namespace Interactable_Objects
         [Tooltip("Required Interactable")]
         private InteractableObject other;
 
+        [SerializeField]
+        private bool animated;
+        
         [Space]
         [SerializeField]
+        [ConditionalHide("animated")]
         private TriggerAnimationParameter interactTrigger;
 
         #endregion

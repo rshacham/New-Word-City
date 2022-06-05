@@ -11586,10 +11586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2952884323134895216, guid: 8f9741085aea73f47bc750b872142b4b, type: 3}
-      propertyPath: startActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4830513036587249131, guid: 8f9741085aea73f47bc750b872142b4b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -23577,6 +23573,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8563649898988957741, guid: 21e177755bb55194faac8e57279ef127, type: 3}
+      propertyPath: requiresWord
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21e177755bb55194faac8e57279ef127, type: 3}
 --- !u!4 &1280633342 stripped
@@ -29527,6 +29527,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 133629195}
     - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
+      propertyPath: other
+      value: 
+      objectReference: {fileID: 2093192553}
+    - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: duration
       value: 1
       objectReference: {fileID: 0}
@@ -29540,7 +29544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: requiresWord
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: jumpNewPosition.x
@@ -29549,6 +29553,14 @@ PrefabInstance:
     - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: jumpNewPosition.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069546969352553173, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
+      propertyPath: interactTrigger.name
+      value: Interact
       objectReference: {fileID: 0}
     - target: {fileID: 3415322923748025477, guid: 30d95005647652e42ab00df6fab7a67e, type: 3}
       propertyPath: m_labelHash
