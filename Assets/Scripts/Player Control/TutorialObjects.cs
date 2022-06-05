@@ -80,6 +80,7 @@ namespace Player_Control
             }
 
             _tutorialInstance.transform.position = position;
+            _tutorialInstance.transform.parent = null;
 
             var tutorialScheme = scheme switch
             {
@@ -87,7 +88,7 @@ namespace Player_Control
                 Schemes.Controller => controller,
                 _ => throw new ArgumentOutOfRangeException(nameof(scheme), scheme, null)
             };
-            _tutorialInstance.GetComponent<SpriteRenderer>().sprite = type switch
+            _tutorialInstance.GetComponentInChildren<SpriteRenderer>().sprite = type switch
             {
                 TutorialScheme.Tutorials.Interact => tutorialScheme.interact,
                 TutorialScheme.Tutorials.SecondaryInteract => tutorialScheme.secondaryInteract,
