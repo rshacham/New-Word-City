@@ -3,6 +3,7 @@ using System.Collections;
 using Avrahamy;
 using Avrahamy.EditorGadgets;
 using BitStrap;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,7 +47,7 @@ namespace Player_Control
         [Tooltip("Smoothing of player acceleration/deceleration")]
         private float smoothedTime = 1f;
 
-        [HideInInspector]
+        // [HideInInspector]
         [Header("Material Transparency Tests")]
         [SerializeField]
         private Material peepingMat;
@@ -86,7 +87,8 @@ namespace Player_Control
         private Vector3 _newPosition;
 
         private float _animationSpeed;
-        
+        private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
+
         #endregion
 
         #region Public Properties
@@ -121,6 +123,10 @@ namespace Player_Control
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();
             Tutorial.PlayerMovement = this;
+            
+            // Word Switch:
+            WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
+            CartoonHoleManager.TransitionEnd += (sender, manager) => enableMovement = true;
         }
 
         private void Update()
@@ -159,7 +165,7 @@ namespace Player_Control
             {
                 _playerRigidBody.velocity = _desiredVelocity;
             }
-            // peepingMat.SetVector(PlayerPos, playerRigidBody.position);
+            peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
         }
         
         public void SetAnimatorStateTrue(string state)
@@ -205,7 +211,9 @@ namespace Player_Control
         public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed)
         {
             if (enableMovement)
-            enableMovement = false;
+            {
+                enableMovement = false;
+            }
             _t = 0;
             _oldPosition = transform.position;
             _newPosition = newPosition;
