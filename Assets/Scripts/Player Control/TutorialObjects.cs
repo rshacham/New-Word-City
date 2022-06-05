@@ -100,6 +100,7 @@ namespace Player_Control
 
         public void RemoveTutorial()
         {
+            _tutorialInstance.transform.parent = null;
             _tutorialInstance.SetActive(false);
         }
 
