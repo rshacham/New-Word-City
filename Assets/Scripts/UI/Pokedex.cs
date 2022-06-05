@@ -1,5 +1,6 @@
 using System;
 using Avrahamy;
+using Cinemachine;
 using Interactable_Objects;
 using Managers;
 using TMPro;

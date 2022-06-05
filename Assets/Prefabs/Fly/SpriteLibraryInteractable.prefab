@@ -62,7 +62,7 @@ PrefabInstance:
     - target: {fileID: 6709026762567279105, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
       propertyPath: parent
       value: 
-      objectReference: {fileID: 653355276681881634}
+      objectReference: {fileID: 1069546969352553173}
     m_RemovedComponents:
     - {fileID: 5695922551583825521, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
@@ -71,38 +71,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6709026761802233554, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
   m_PrefabInstance: {fileID: 4037171445147188318}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &7286166968545106267 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6709026761084626181, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
+--- !u!61 &7286166970287808088 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6709026762567279110, guid: 693ecb1de44985f4c9d703ba857cc2e4, type: 3}
   m_PrefabInstance: {fileID: 4037171445147188318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416063231315326578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7286166968851663500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpriteLibraryAsset: {fileID: 11400000, guid: 9c477e666d4e2354b8ecd1db1538c66f, type: 2}
---- !u!114 &3415322923748025477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7286166968851663500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CategoryHash: 1.9509184e-34
-  m_labelHash: 6.026348e-23
 --- !u!95 &1624399202162089817
 Animator:
   serializedVersion: 3
@@ -122,7 +95,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &653355276681881634
+--- !u!114 &1069546969352553173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,13 +104,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7286166968851663500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd685ab492e41b9860fa66ca57186e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 66d30502052df3144b99388ef29a3ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   requiresWord: 0
   lastLink: {fileID: 0}
-  myCollider: {fileID: 7286166968545106267}
-  startInteractable: 0
+  myCollider: {fileID: 7286166970287808088}
+  startInteractable: 1
   interactMultipleTimes: 1
   highlightInteract: 0
   interactionEvents:
@@ -155,7 +128,3 @@ MonoBehaviour:
         m_Calls: []
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  other: {fileID: 0}
-  interactTrigger:
-    name: Interact
-    index: -1

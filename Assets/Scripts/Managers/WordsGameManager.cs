@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Avrahamy;
+using Cinemachine;
 using UI;
 using UnityEngine;
 
@@ -68,6 +69,8 @@ namespace Managers
         /// </summary>
         public static bool Active { get; private set; }
 
+        public static bool Tutorial { get; set; } = true;
+
         /// <summary>
         /// Current Scene's local word manager
         /// </summary>
@@ -92,6 +95,7 @@ namespace Managers
 
         private static WordsSceneManager _instance;
 
+
         #endregion
 
         #region Public Methods
@@ -105,7 +109,7 @@ namespace Managers
             {
                 return;
             }
-
+            
             // TODO: loop back to original using for loop with index modulo, not just to the end.
             while (Instance.CurrentIndex < Words.Count)
             {
@@ -210,5 +214,7 @@ namespace Managers
         }
 
         #endregion
+
+
     }
 }

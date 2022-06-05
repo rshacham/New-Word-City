@@ -43,6 +43,7 @@ namespace Interactable_Objects
         protected override void ScriptInteract()
         {
             interactTrigger.Set(_myAnimator);
+            print("hey");
         }
 
         #endregion

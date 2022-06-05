@@ -72,6 +72,8 @@ namespace Player_Control
 
         private Animator _playerAnimator;
 
+        private bool _falledToWorld = false;
+
         // TODO: serialize? even as hidden?
         private readonly Quaternion _moveAngle = Quaternion.Euler(0, 0, -45);
         private const string Controller = "Controller";
@@ -225,10 +227,23 @@ namespace Player_Control
             }
 
             enableMovement = true;
+
+            if (!_falledToWorld)
+            {
+                _falledToWorld = true;
+                GameManager._shared.ChangeFollowPlayer();
+            }
+        }
+        
+
+        public void TeleportPlayer(Vector3 newPosition)
+        {
+            transform.position = newPosition;
         }
 
         #endregion
     }
+    
 
     [Serializable]
     public struct MovementAnimationParameters
