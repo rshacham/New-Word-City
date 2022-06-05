@@ -12,6 +12,8 @@ namespace Interactable_Objects
 
         private Animator _truckAnimator;
 
+        private AudioSource _myAudio;
+
         #endregion
 
         #region MonoBehaviour
@@ -19,6 +21,7 @@ namespace Interactable_Objects
         void Start()
         {
             _truckAnimator = GetComponentInParent<Animator>();
+            _myAudio = GetComponent<AudioSource>();
         }
 
         public void CloseToTruck(bool boolean)
@@ -29,7 +32,11 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            _truckAnimator.SetTrigger("Throw");
+            if (!_truckAnimator.GetBool("Throw"))
+            {
+                _myAudio.Play();
+                _truckAnimator.SetBool("Throw", true);
+            }
         }
 
         #endregion

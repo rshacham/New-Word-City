@@ -258,7 +258,7 @@ TextureImporter:
       name: Garbage Track_3
       rect:
         serializedVersion: 2
-        x: 3334
+        x: 3337
         y: 1325
         width: 520
         height: 360
@@ -279,8 +279,8 @@ TextureImporter:
       name: Garbage Track_4
       rect:
         serializedVersion: 2
-        x: 4327
-        y: 1325
+        x: 4337
+        y: 1327
         width: 520
         height: 360
       alignment: 9
@@ -300,8 +300,8 @@ TextureImporter:
       name: Garbage Track_5
       rect:
         serializedVersion: 2
-        x: 333
-        y: 320
+        x: 337
+        y: 326
         width: 520
         height: 360
       alignment: 9
