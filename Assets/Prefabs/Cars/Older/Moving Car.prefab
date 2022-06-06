@@ -57,11 +57,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.19091034, y: 0.49090958}
+    - - {x: 0.3306694, y: 0.595726}
       - {x: -1.3965101, y: 0.16901758}
-      - {x: -1.4659667, y: -1.3690184}
-      - {x: 0.51141894, y: -2.4253824}
-      - {x: 2.40269, y: -0.9404107}
+      - {x: -1.0379615, y: -0.87987125}
+      - {x: 0.97436297, y: -2.0410516}
+      - {x: 2.9966536, y: -0.42505652}
 --- !u!114 &4213307850997120689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1996431ffed1a844b9421561e237d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 7508907125674834870}
+  parent: {fileID: 0}
 --- !u!1 &7796479074328272886
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7796479074328272887}
   - component: {fileID: 7796479074328272882}
-  - component: {fileID: 7508907125674834870}
+  - component: {fileID: 4586712737600364092}
   - component: {fileID: 7796479074328272885}
   - component: {fileID: 392333812859073573}
   - component: {fileID: 7796479074328272884}
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &7508907125674834870
+--- !u!114 &4586712737600364092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7796479074328272886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966535706979bed458f1b64d598688c8, type: 3}
+  m_Script: {fileID: 11500000, guid: b500fb27d6aa4ad79a57207d6a7a0378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   requiresWord: 0
@@ -179,20 +179,25 @@ MonoBehaviour:
   myCollider: {fileID: 7796479074328272885}
   startInteractable: 1
   interactMultipleTimes: 1
-  highlightInteract: 1
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlight:
-    m_PersistentCalls:
-      m_Calls: []
-  onHighlightEnd:
-    m_PersistentCalls:
-      m_Calls: []
+  highlightInteract: 0
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  firstSound: {fileID: 392333812859073573}
-  secondSound: {fileID: 392333812859073573}
+  clips:
+  - name: Honk
+    audioEvent: {fileID: 11400000, guid: 60d53a90a2ce8444d84d7d18a950293a, type: 2}
 --- !u!60 &7796479074328272885
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -209,7 +214,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6222648, y: 0.57247704}
+    pivot: {x: 0.5, y: 0.45641568}
     oldSize: {x: 3.75, y: 2.9}
     newSize: {x: 3.75, y: 2.9}
     adaptiveTilingThreshold: 0.5
@@ -218,16 +223,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.79650694, y: -0.8401834}
-      - {x: 0.6965069, y: -0.5301834}
-      - {x: -1.1234931, y: 0.29981658}
-      - {x: -1.773493, y: -0.02018341}
-      - {x: -1.773493, y: -0.3401834}
-      - {x: -1.393493, y: -0.7201834}
-      - {x: -1.173493, y: -0.6901834}
-      - {x: -0.45349303, y: -1.0301834}
-      - {x: -0.28349304, y: -1.2601833}
-      - {x: 0.11650696, y: -1.2001834}
+    - - {x: 1.9974545, y: -0.34637892}
+      - {x: 0.11050248, y: 0.5603619}
+      - {x: -1.295, y: 0.0463945}
+      - {x: -1.255, y: -0.1136055}
+      - {x: 0.2139804, y: -1.3404648}
 --- !u!82 &392333812859073573
 AudioSource:
   m_ObjectHideFlags: 0
