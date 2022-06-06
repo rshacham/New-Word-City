@@ -1,4 +1,5 @@
 ﻿using System;
+using Avrahamy.Collections;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -27,6 +28,9 @@ namespace Player_Control
         [Space(2)]
         [SerializeField]
         private GameObject tutorialSprite;
+
+        [SerializeField]
+        private GameObjectPool pool;
 
         #endregion
 
@@ -74,11 +78,15 @@ namespace Player_Control
         public ref GameObject CreateTutorial(Vector3 position, TutorialScheme.Tutorials type,
             Schemes scheme)
         {
-            if (_tutorialInstance == null)
-            {
-                _tutorialInstance = Object.Instantiate(tutorialSprite);
-            }
+            // if (_tutorialInstance == null)
+            // {
+            //     _tutorialInstance = Object.Instantiate(tutorialSprite);
+            // }
 
+            _tutorialInstance = pool.BorrowGameObject();
+
+            _tutorialInstance.transform.rotation = Quaternion.identity;
+            _tutorialInstance.transform.localScale = Vector3.one;
             _tutorialInstance.transform.position = position;
             _tutorialInstance.transform.parent = null;
 
@@ -99,10 +107,10 @@ namespace Player_Control
             return ref _tutorialInstance;
         }
 
-        public void RemoveTutorial()
+        public void RemoveTutorial(GameObject toRemove)
         {
-            _tutorialInstance.transform.parent = null;
-            _tutorialInstance.SetActive(false);
+            toRemove.transform.parent = null;
+            toRemove.SetActive(false);
         }
 
         #endregion

@@ -72,6 +72,7 @@ namespace Player_Control
         private InteractableObject _currentActive;
 
         private bool _firstInteraction = true;
+        private GameObject _tutorialSprite;
 
         #endregion
 
@@ -184,12 +185,12 @@ namespace Player_Control
         private void ShowInteractionKey(InteractableObject obj)
         {
             var pos = obj.transform.position + Tutorial.Offset;
-            Tutorial.CreateTutorial(pos, TutorialScheme.Tutorials.Interact);
+            _tutorialSprite = Tutorial.CreateTutorial(pos, TutorialScheme.Tutorials.Interact);
         }
 
         private void UnShowInteractionKey(InteractableObject obj)
         {
-            Tutorial.RemoveTutorial();
+            Tutorial.RemoveTutorial(_tutorialSprite);
         }
 
         #endregion

@@ -242,14 +242,14 @@ namespace Managers
             }
         }
 
-        public static void RemoveTutorial()
+        public static void RemoveTutorial(GameObject toRemove)
         {
             if (Instance == null)
             {
                 return;
             }
 
-            Instance.tutorialObjects.RemoveTutorial();
+            Instance.tutorialObjects.RemoveTutorial(toRemove);
         }
 
         #endregion

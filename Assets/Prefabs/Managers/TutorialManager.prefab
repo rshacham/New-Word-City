@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4680388609111667172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2251898196716898265}
+  - component: {fileID: 2978130102911533053}
+  m_Layer: 5
+  m_Name: Sprite Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2251898196716898265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680388609111667172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5973284535904468853}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2978130102911533053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680388609111667172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6e981481381486eaa76c873342165d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjectPrefab: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
+  poolSize: 2
+  increaseBy: 0
+  returnAllWhenDisabled: 0
 --- !u!1 &5973284535904468840
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +75,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: 0.16504757, w: 0.9862857}
   m_LocalPosition: {x: 127.37552, y: 147.80582, z: 0}
   m_LocalScale: {x: 0.42962998, y: 0.42962998, z: 0.42962998}
-  m_Children: []
+  m_Children:
+  - {fileID: 2251898196716898265}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +199,7 @@ MonoBehaviour:
       interact: {fileID: 21300000, guid: bc6263226f7d4b54a98803711628ec4a, type: 3}
       secondaryInteract: {fileID: 21300000, guid: 8d8f7d5f5bd554fa889dfedbd6d7e5ab, type: 3}
     tutorialSprite: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
+    pool: {fileID: 2978130102911533053}
   tutorialsTexts:
   - 'Welcome to *OUR GAME*! '
   - Your goal is to find all the meaning of the word that appears at the board

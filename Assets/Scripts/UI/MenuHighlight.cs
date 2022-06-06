@@ -39,9 +39,10 @@ namespace UI
 
         private Image _myImage;
         private Animator _myAnimator;
+        private bool _firstTime = true;
+        private GameObject _tutorialSprite;
 #if UNITY_EDITOR
         private bool _curState;
-        private bool _firstTime = true;
 #endif
 
         #endregion
@@ -98,18 +99,19 @@ namespace UI
                 return;
             }
 
-            if (_firstTime)
+            if (_firstTime && particlesOnFirst)
             {
-                var transform1 = transform;
-                Tutorial.CreateTutorial(
-                    transform1.position + Tutorial.Offset,
-                    TutorialScheme.Tutorials.SecondaryInteract
-                ).transform.parent = transform1;
                 if (particlesOnFirst)
                 {
                     StaticEventsGameManager.OnEmitParticles(this, Vector2.zero);
                 }
             }
+
+            var transform1 = transform;
+            _tutorialSprite = Tutorial.CreateTutorial(
+                transform1.position + Tutorial.Offset,
+                TutorialScheme.Tutorials.SecondaryInteract);
+            _tutorialSprite.transform.parent = transform1;
 
             highlightParameter.Set(_myAnimator, true);
 #if UNITY_EDITOR
@@ -121,9 +123,9 @@ namespace UI
         {
             if (_firstTime)
             {
-                Tutorial.RemoveTutorial();
                 _firstTime = false;
             }
+            Tutorial.RemoveTutorial(_tutorialSprite);
 
             highlightParameter.Set(_myAnimator, false);
 #if UNITY_EDITOR
