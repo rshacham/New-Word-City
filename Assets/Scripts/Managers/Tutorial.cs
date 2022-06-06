@@ -169,6 +169,8 @@ namespace Managers
             if (_currentTutorial > TutorialsTexts.Length)
             {
                 WordsGameManager.SwitchToNextAvailableWord();
+                _currentTutorial = _currentTutorial > TutorialsTexts.Length ? 0 : _currentTutorial;
+                return;
             }
 
             if (_currentTutorial == TutorialsTexts.Length && !_isWriting // TODO: null check Current
