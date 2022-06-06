@@ -177,6 +177,9 @@ namespace Managers
                                                           && WordsGameManager.Current.WordComplete)
             {
                 _currentTutorial++;
+                // TODO: uncomment both bellow to allow one press continue at end - Bug fix incoming
+                // WordsGameManager.SwitchToNextAvailableWord();
+                // _currentTutorial = _currentTutorial > TutorialsTexts.Length ? 0 : _currentTutorial;
                 return;
             }
 
