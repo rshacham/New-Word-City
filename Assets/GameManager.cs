@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
+using Interactable_Objects;
 using Player_Control;
 
 public class GameManager : MonoBehaviour
@@ -28,8 +29,11 @@ public class GameManager : MonoBehaviour
     [Tooltip("The world position where the player will fall after the tutorial")]
     private Vector3 worldStartingPosition;
 
-
-    [SerializeField] private Transform startingTransform;
+    
+    [SerializeField] 
+    [Tooltip("First is the tutorial ending position." +
+             "Second is the new world starting position. Third is added on awake, and is the player transform. ")]
+    Transform[] transformsForCamera;
     
     
     #endregion
@@ -39,6 +43,9 @@ public class GameManager : MonoBehaviour
     private Movement _playerMovement;
 
     private Camera _gameCamera;
+    
+    private CartoonHoleManager _holeManager;
+
 
     
     #endregion
@@ -46,39 +53,51 @@ public class GameManager : MonoBehaviour
     {
         _shared = this;
         _playerMovement = FindObjectOfType<Movement>();
-        _gameCamera = FindObjectOfType<Camera>(); 
+        _gameCamera = FindObjectOfType<Camera>();
+        _holeManager = FindObjectOfType<CartoonHoleManager>();
     }
     
-    public void ChangeCamera()
+    public void ChangeCamera(int cameraNum)
     {
-        cameraConfiner.m_BoundingShape2D = cameraColliders[1];
+        cameraConfiner.m_BoundingShape2D = cameraColliders[cameraNum];
         cameraConfiner.InvalidatePathCache();
     }
 
-    public void ChangeFollowPlayer()
+    public void ChangeFollowPlayer(int newTransform)
     {
-        if (virtualCamera.Follow != startingTransform)
-        {
-            virtualCamera.m_Follow = startingTransform;
-            return;
-        }
-        
-        virtualCamera.m_Follow = _playerMovement.transform;
+        virtualCamera.m_Follow = transformsForCamera[newTransform];
     }
 
     public IEnumerator ThrowPlayerOnWorld()
     {
-        yield return new WaitForSeconds(3f);
-        GameManager._shared.ChangeCamera();
+        Vector3 worldPosition = transformsForCamera[1].position;
+        Vector3 fallPosition = new Vector3(transformsForCamera[1].position.x,
+            transformsForCamera[1].position.y + 20, transformsForCamera[1].position.z);
         yield return new WaitForSeconds(1.5f);
-        _playerMovement.TeleportPlayer(new Vector3(worldStartingPosition.x, worldStartingPosition.y + 20f, worldStartingPosition.z));
-        ChangeFollowPlayer();
-        _gameCamera.transform.position = worldStartingPosition;
-        StartCoroutine(_playerMovement.ChangePosition(worldStartingPosition, 2f));
-        // yield return new WaitForSeconds(3f);
-        GameManager._shared.ChangeFollowPlayer();
+        _playerMovement.GetComponent<SpriteRenderer>().enabled = false;
+        _playerMovement.EnableMovement = false;
+        _playerMovement.TeleportPlayer(transformsForCamera[0].position);
+        Debug.Log("player on trampoline");
+        _holeManager.CloseCircle();
         yield return new WaitForSeconds(2.5f);
+        _playerMovement.TeleportPlayer(worldPosition);
+        ChangeCamera(1);
+        ChangeFollowPlayer(1);
+        yield return new WaitForSeconds(4f);
+        _playerMovement.TeleportPlayer(fallPosition);
+        _playerMovement.GetComponent<SpriteRenderer>().enabled = true;
+        StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f));
+        yield return new WaitForSeconds(1.5f);
+        ChangeFollowPlayer(2);
+        // _gameCamera.transform.position = worldStartingPosition;
+        // StartCoroutine(_playerMovement.ChangePosition(worldStartingPosition, 2f));
+        // // yield return new WaitForSeconds(3f);
+        // GameManager._shared.ChangeFollowPlayer();
+        // yield return new WaitForSeconds(2.5f);
         _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
+        var trampolina = FindObjectOfType<Trampolina>();
+        trampolina.UseOnEnd = true;
+        trampolina.Interact();
     }
 
 
