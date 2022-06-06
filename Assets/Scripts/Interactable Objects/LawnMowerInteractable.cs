@@ -37,7 +37,7 @@ namespace Interactable_Objects
             if (col.collider.CompareTag(stopperTag))
             {
                 DebugLog.Log("Reached Stopper: ", Color.green, col.collider);
-                ScriptInteract();
+                Interact();
             }
         }
 
