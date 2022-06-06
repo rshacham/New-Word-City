@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         _playerMovement.TeleportPlayer(fallPosition);
         _playerMovement.GetComponent<SpriteRenderer>().enabled = true;
-        StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f));
+        StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f, false));
         yield return new WaitForSeconds(1.5f);
         ChangeFollowPlayer(2);
         // _gameCamera.transform.position = worldStartingPosition;

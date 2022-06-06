@@ -189,6 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  minMaxRadius: {x: 0.01, y: 50}
+  minMaxRadius: {x: 0, y: 50}
   transitionDurationTimer:
     duration: 3

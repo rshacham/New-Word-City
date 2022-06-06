@@ -63,6 +63,9 @@ namespace Managers
 
         public void SetActiveCanvas(bool active)
         {
+            // TODO: switch to nex with some delay:
+            // basically if false: close then set active false.
+            // if true: wait for false of previous then active true 
             if (toolCanvas != null)
             {
                 toolCanvas.SetActive(active);

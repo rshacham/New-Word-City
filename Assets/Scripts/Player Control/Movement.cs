@@ -213,7 +213,7 @@ namespace Player_Control
             _desiredVelocity = movementVector * maxSpeed;
         }
 
-        public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed)
+        public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed, bool enableMove = true)
         {
             Debug.Log(newPosition);
             if (enableMovement)
@@ -232,8 +232,8 @@ namespace Player_Control
                 yield return new WaitForSeconds(0.03f);
             }
 
-            enableMovement = true;
-
+            enableMovement = enableMove;
+            // DebugLog.Log(enableMovement, this);
             // if (!_fellToWorld)
             // {
             //     StartCoroutine(GameManager._shared.ChangeBoolWithDelay(_fellToWorld, true, animationSpeed));

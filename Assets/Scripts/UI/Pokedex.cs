@@ -173,7 +173,7 @@ namespace UI
 
         public void OpenClose()
         {
-            DebugLog.Log("Open log", this);
+            // DebugLog.Log("Open log", this);
             _isOpening = !_isOpening;
         }
 

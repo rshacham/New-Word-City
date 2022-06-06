@@ -10,7 +10,6 @@ namespace Interactable_Objects
     public class Trampolina : PairedAnimationInteractable
     {
         /// @see PairedAnimationInteractable.cs
-
         [Space]
         [Header("Trampoline Interactable")]
         [SerializeField]
@@ -62,14 +61,23 @@ namespace Interactable_Objects
                 _myAudio.Play();
                 // GameManager._shared.ChangeCamera(1);
                 GameManager._shared.ChangeFollowPlayer(0);
-                StartCoroutine(_playerMovement.ChangePosition(new Vector3(transform.position.x,
-                    transform.position.y + 20f, transform.position.z), jumpSpeed));
+                var transformPosition = transform.position;
+                StartCoroutine(
+                    _playerMovement.ChangePosition(
+                        new Vector3(
+                            transformPosition.x,
+                            transformPosition.y + 20f,
+                            transformPosition.z
+                        ),
+                        jumpSpeed,
+                        false
+                    )
+                );
                 UseOnEnd = false;
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
-                // StaticEventsGameManager.OnPlayerShouldInteract(this, false); // TODO: this should stop the player when landing?
+                StaticEventsGameManager.OnPlayerShouldInteract(this, false);
+                // TODO: this should stop the player when landing?
             }
-            
         }
     }
 }
-
