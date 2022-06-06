@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offTime:
-    duration: 3
+    duration: 10
 --- !u!1 &6907362684597109846
 GameObject:
   m_ObjectHideFlags: 0
