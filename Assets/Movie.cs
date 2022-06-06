@@ -8,6 +8,10 @@ namespace Interactable_Objects
     public class Movie : EventInteractable
     {
 
+        [SerializeField]
+        [Tooltip("First is the action sound, second is the cut sound")]
+        private AudioClip[] ourSounds;
+
         private Animator _myAnimator;
         private AudioSource _myAudio;
         void Start()
@@ -20,12 +24,20 @@ namespace Interactable_Objects
         {
             if (!_myAudio.isPlaying)
             {
-                _myAudio.Play();
+                _myAudio.PlayOneShot(ourSounds[0]);
             }
         }
         
         protected override void ScriptInteract()
         {
+            if (_myAudio.isPlaying)
+            {
+                UseOnEnd = false;
+                return;
+            }
+            
+            UseOnEnd = true;
+            _myAudio.PlayOneShot(ourSounds[1]);
             _myAnimator.SetTrigger("Cut");
         }
         
