@@ -12,11 +12,24 @@ namespace Interactable_Objects
         [TagSelector]
         private string stopperTag;
 
+        [SerializeField]
+        [TagSelector]
+        private string grassTag = "Grass";
+
         public override bool SetInteraction(PlayerInteract other)
         {
             base.SetInteraction(other);
             Player = other;
             return false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.CompareTag(grassTag))
+            {
+                DebugLog.Log("Grass Cut", col);
+                col.GetComponent<CutGrassInteractable>().TurnOff();
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D col)
