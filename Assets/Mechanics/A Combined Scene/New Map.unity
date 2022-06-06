@@ -36297,6 +36297,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1808455150}
     m_Modifications:
+    - target: {fileID: 2854974894321970101, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854974894321970103, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: openOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521207714372, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3234032521319502979, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
       propertyPath: tutorialHolder
       value: 
