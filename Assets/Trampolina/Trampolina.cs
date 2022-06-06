@@ -65,8 +65,6 @@ namespace Interactable_Objects
                     transform.position.y + 20f, transform.position.z), jumpSpeed));
                 UseOnEnd = false;
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
-                StartCoroutine(GetMeaning());
-                return;
             }
             
         }

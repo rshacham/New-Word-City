@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
+using Interactable_Objects;
 using Player_Control;
 
 public class GameManager : MonoBehaviour
@@ -94,6 +95,9 @@ public class GameManager : MonoBehaviour
         // GameManager._shared.ChangeFollowPlayer();
         // yield return new WaitForSeconds(2.5f);
         _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
+        var trampolina = FindObjectOfType<Trampolina>();
+        trampolina.UseOnEnd = true;
+        trampolina.Interact();
     }
 
 

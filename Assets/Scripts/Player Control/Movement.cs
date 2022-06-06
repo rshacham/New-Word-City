@@ -153,8 +153,6 @@ namespace Player_Control
                 parameters.posX.Set(_playerAnimator, velocityNormalized.x);
                 parameters.posY.Set(_playerAnimator, velocityNormalized.y);
             }
-
-
         }
 
         private void FixedUpdate()
