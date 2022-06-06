@@ -32,6 +32,12 @@ public class CartoonHoleManager : MonoBehaviour
 
     public int Moving { get; set; }
 
+    public float Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+
     private Image _myImage;
     private Material _sharedMaterial;
     private float _t = 1;
@@ -96,7 +102,7 @@ public class CartoonHoleManager : MonoBehaviour
         // _sharedMaterial.SetInt("_Open", (_moving + 1) / 2);
     }
 
-    public void CloseCircle(float duration)
+    public void CloseCircle()
     {
         transitionDurationTimer.Clear();
         // transitionDurationTimer.EndTime = duration;

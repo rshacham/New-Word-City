@@ -59,10 +59,12 @@ namespace Interactable_Objects
             if (!_playerMovement.FellToWorld)
             {
                 _myAudio.Play();
+                // GameManager._shared.ChangeCamera(1);
+                GameManager._shared.ChangeFollowPlayer(0);
+                StartCoroutine(_playerMovement.ChangePosition(new Vector3(transform.position.x,
+                    transform.position.y + 20f, transform.position.z), jumpSpeed));
                 UseOnEnd = false;
-                StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
-                _holeManager.CloseCircle(duration);
                 StartCoroutine(GetMeaning());
                 return;
             }

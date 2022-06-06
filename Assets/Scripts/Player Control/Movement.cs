@@ -154,11 +154,7 @@ namespace Player_Control
                 parameters.posY.Set(_playerAnimator, velocityNormalized.y);
             }
 
-            if (_t < 1f)
-            {
-                transform.position = Vector3.Lerp(_oldPosition, _newPosition, _t);
-                _t += Time.deltaTime * _animationSpeed;
-            }
+
         }
 
         private void FixedUpdate()
@@ -177,6 +173,12 @@ namespace Player_Control
             else
             {
                 _playerRigidBody.velocity = _desiredVelocity;
+            }
+            
+            if (_t < 1f)
+            {
+                transform.position = Vector3.Lerp(_oldPosition, _newPosition, _t);
+                _t += Time.deltaTime * _animationSpeed;
             }
 
             peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
@@ -214,6 +216,7 @@ namespace Player_Control
 
         public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed)
         {
+            Debug.Log(newPosition);
             if (enableMovement)
             {
                 enableMovement = false;

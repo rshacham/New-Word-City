@@ -10922,7 +10922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169.95958, y: -1.5098372, z: -10}
+  m_LocalPosition: {x: -174.06, y: -1.6399999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35527,6 +35527,22 @@ PrefabInstance:
       propertyPath: cameraColliders.Array.data[1]
       value: 
       objectReference: {fileID: 167917668}
+    - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
+      propertyPath: transformsForCamera.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
+      propertyPath: transformsForCamera.Array.data[0]
+      value: 
+      objectReference: {fileID: 1702007938}
+    - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
+      propertyPath: transformsForCamera.Array.data[1]
+      value: 
+      objectReference: {fileID: 705419150}
+    - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
+      propertyPath: transformsForCamera.Array.data[2]
+      value: 
+      objectReference: {fileID: 764429006}
     - target: {fileID: 1077706124324609786, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
       propertyPath: m_RootOrder
       value: 3
