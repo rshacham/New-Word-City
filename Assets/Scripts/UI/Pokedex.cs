@@ -17,9 +17,9 @@ namespace UI
         [SerializeField]
         private bool openOnStart;
         [SerializeField]
-        private bool stopPlayerInteractionOnStart = false;
+        private bool stopPlayerInteractionOnStart = true;
         [SerializeField]
-        private bool stopPlayerMovementOnStart = false;
+        private bool stopPlayerMovementOnStart = true;
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
@@ -108,6 +108,17 @@ namespace UI
             if (openOnStart && !CanvasManager.ActiveCanvas.IsOpen)
             {
                 CanvasManager.ActiveCanvas.OpenClose();
+            }
+
+            if (stopPlayerInteractionOnStart)
+            {
+                StaticEventsGameManager.OnPlayerShouldInteract(this, false);
+            }
+
+            if (stopPlayerMovementOnStart)
+            {
+                Tutorial.PlayerMovement.EnableMovement = false;
+                Tutorial.PlayerMovement.DesiredVelocity = Vector2.zero;
             }
 
             if (holders == null)
