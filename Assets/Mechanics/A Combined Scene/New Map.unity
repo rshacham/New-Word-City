@@ -2616,6 +2616,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 315526957461664838, guid: b0e893d29905b6348961d3d5ed44bc69, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 315526957461664839, guid: b0e893d29905b6348961d3d5ed44bc69, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 315526957871574240, guid: b0e893d29905b6348961d3d5ed44bc69, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -20264,9 +20272,9 @@ Transform:
   - {fileID: 2058229794}
   - {fileID: 858465837}
   - {fileID: 1381809262}
+  - {fileID: 1711115748}
   - {fileID: 1576905192}
   - {fileID: 1957917897}
-  - {fileID: 1711115748}
   m_Father: {fileID: 1461967839}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29361,7 +29369,7 @@ Transform:
   - {fileID: 676598210}
   - {fileID: 605039951}
   m_Father: {fileID: 1046318596}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1713261864
 PrefabInstance:
