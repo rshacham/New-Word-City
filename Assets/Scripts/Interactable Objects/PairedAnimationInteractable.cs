@@ -27,7 +27,7 @@ namespace Interactable_Objects
 
         #region Private Fields
 
-        private Animator _myAnimator;
+        private Animator _myAnimatorPaired;
 
         #endregion
 
@@ -42,12 +42,12 @@ namespace Interactable_Objects
                 other.OnInteractionEnd += OnOtherInteractionEnd;
             }
 
-            _myAnimator = GetComponent<Animator>();
+            _myAnimatorPaired = GetComponent<Animator>();
         }
 
         protected override void ScriptInteract()
         {
-            interactTrigger.Set(_myAnimator);
+            interactTrigger.Set(_myAnimatorPaired);
             print("hey");
         }
 

@@ -18,6 +18,7 @@ namespace Interactable_Objects
 
         [Header("Word Connection")]
         [Space]
+        [Tooltip("Use for disabling the interaction until specific word")]
         [SerializeField]
         private bool requiresWord;
 
@@ -33,7 +34,6 @@ namespace Interactable_Objects
         private Collider2D myCollider;
 
         //TODO: add field for "used by composite", if we need something like that
-
         [Space(2)]
         [Header("Basic Behaviour")]
         [SerializeField]
