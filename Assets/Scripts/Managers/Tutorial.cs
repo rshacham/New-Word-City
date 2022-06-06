@@ -186,6 +186,7 @@ namespace Managers
             if (_currentTutorial == TutorialsTexts.Length - 1 && WordsGameManager.Current is {WordComplete: false})
             {
                 StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
+                CanvasManager.ActiveCanvas.OpenClose();
                 return;
             }
 
