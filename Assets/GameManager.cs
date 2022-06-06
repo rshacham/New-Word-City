@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using Interactable_Objects;
 using Player_Control;
-using UnityEditor.IMGUI.Controls;
 
 public class GameManager : MonoBehaviour
 {
