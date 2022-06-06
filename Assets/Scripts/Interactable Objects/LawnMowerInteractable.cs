@@ -27,7 +27,7 @@ namespace Interactable_Objects
         {
             if (col.CompareTag(grassTag))
             {
-                DebugLog.Log("Grass Cut", col);
+                // DebugLog.Log("Grass Cut", col);
                 col.GetComponent<CutGrassInteractable>().TurnOff();
             }
         }

@@ -16,6 +16,10 @@ namespace UI
 
         [SerializeField]
         private bool openOnStart;
+        [SerializeField]
+        private bool stopPlayerInteractionOnStart = false;
+        [SerializeField]
+        private bool stopPlayerMovementOnStart = false;
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
@@ -177,14 +181,14 @@ namespace UI
         IEnumerator StartTutorial(float startDelay)
         {
             while (!CanvasManager.ActiveCanvas.IsOpen)
-            { ;
+            {
+                ;
                 yield return new WaitForSeconds(0.1f);
             }
+
             yield return new WaitForSeconds(startDelay);
             Tutorial.Instance.TutorialContinue();
         }
-        
-        
 
         #endregion
     }

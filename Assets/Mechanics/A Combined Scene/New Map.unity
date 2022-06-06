@@ -10922,7 +10922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -174.06, y: -1.6399999, z: -10}
+  m_LocalPosition: {x: -169.95958, y: -1.5098372, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36297,6 +36297,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1808455150}
     m_Modifications:
+    - target: {fileID: 3234032521207714371, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521261523541, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521312486865, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3234032521319502979, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
       propertyPath: tutorialHolder
       value: 
@@ -36385,9 +36397,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3234032521349357772, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521406103549, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521446198628, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521586970098, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521756666725, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032521886795501, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522352953884, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522430567440, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3234032522435680305, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522456613037, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522568013220, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522722991747, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_text
+      value: \u00A0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522830096082, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032522923558499, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032523186666144, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_text
+      value: \u00A0
       objectReference: {fileID: 0}
     - target: {fileID: 3234032523245198864, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
       propertyPath: m_Name
