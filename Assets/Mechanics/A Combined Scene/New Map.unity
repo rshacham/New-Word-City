@@ -35125,6 +35125,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 691070850}
+    - target: {fileID: 219727153789328560, guid: 95bcc120961eb4b41add64abf5423014, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 219727153789328564, guid: 95bcc120961eb4b41add64abf5423014, type: 3}
       propertyPath: m_Name
       value: CartoonHole
@@ -36412,6 +36416,10 @@ PrefabInstance:
     - target: {fileID: 3234032523245198864, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
       propertyPath: m_Name
       value: Pokedex
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234032523245198867, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8015e1ff1693f5840a6317a61b66046e, type: 3}

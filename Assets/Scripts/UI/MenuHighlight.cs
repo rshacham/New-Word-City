@@ -108,10 +108,13 @@ namespace UI
             }
 
             var transform1 = transform;
-            _tutorialSprite = Tutorial.CreateTutorial(
-                transform1.position + Tutorial.Offset,
-                TutorialScheme.Tutorials.SecondaryInteract);
-            _tutorialSprite.transform.parent = transform1;
+            if (_tutorialSprite == null)
+            {
+                _tutorialSprite = Tutorial.CreateTutorial(
+                    transform1.position + Tutorial.Offset,
+                    TutorialScheme.Tutorials.SecondaryInteract);
+                _tutorialSprite.transform.parent = transform1;
+            }
 
             highlightParameter.Set(_myAnimator, true);
 #if UNITY_EDITOR
@@ -125,7 +128,9 @@ namespace UI
             {
                 _firstTime = false;
             }
+
             Tutorial.RemoveTutorial(_tutorialSprite);
+            _tutorialSprite = null;
 
             highlightParameter.Set(_myAnimator, false);
 #if UNITY_EDITOR
