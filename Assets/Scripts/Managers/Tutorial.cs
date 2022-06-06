@@ -102,7 +102,6 @@ public class Tutorial : MonoBehaviour
     {
         // myText = GetComponent<TextMeshProUGUI>();
         _myAudio = GetComponent<AudioSource>();
-        StartCoroutine(StartTutorial(tutorialStartDelay));
     }
 
     #endregion
@@ -151,15 +150,7 @@ public class Tutorial : MonoBehaviour
         // }
     }
 
-    IEnumerator StartTutorial(float startDelay)
-    {
-        while (!CanvasManager.ActiveCanvas.IsOpen)
-        { ;
-            yield return new WaitForSeconds(0.1f);
-        }
-        yield return new WaitForSeconds(startDelay);
-        TutorialContinue();
-    }
+
 
     #endregion
 
