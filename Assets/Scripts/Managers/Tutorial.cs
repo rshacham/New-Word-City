@@ -190,7 +190,6 @@ namespace Managers
             {
                 _lastTutorial = false;
                 StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
-                DebugLog.Log("here!!");
                 CanvasManager.ActiveCanvas.OpenClose();
                 return;
             }

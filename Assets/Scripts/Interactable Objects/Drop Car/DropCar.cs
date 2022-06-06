@@ -40,7 +40,7 @@ namespace Interactable_Objects
 
         public void ChangeAnimatorClose(bool boolean)
         {
-            print("yo" + counter++.ToString());
+            // print("yo" + counter++.ToString());
             _carAnimator.SetBool("Close", boolean);
         }
         

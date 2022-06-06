@@ -131,17 +131,13 @@ namespace Managers
         private IEnumerator WaitClose()
         {
             toolCanvas.OpenClose();
-            DebugLog.Log(toolCanvas.IsOpen, toolCanvas);
-            yield return new WaitWhile(() => toolCanvas.IsOpen);
-            DebugLog.Log(toolCanvas.IsOpen, toolCanvas);
+            yield return new WaitWhile(() => toolCanvas.Angle < 0);
             toolCanvas.gameObject.SetActive(false);
         }
 
         private IEnumerator WaitOpen()
         {
-            DebugLog.Log(CanvasManager.ActiveCanvas.IsOpen, toolCanvas);
             yield return new WaitWhile(() => CanvasManager.ActiveCanvas.isActiveAndEnabled);
-            DebugLog.Log(CanvasManager.ActiveCanvas.isActiveAndEnabled, toolCanvas);
             toolCanvas.gameObject.SetActive(true);
         }
 

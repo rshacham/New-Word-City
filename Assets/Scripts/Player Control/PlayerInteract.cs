@@ -83,10 +83,7 @@ namespace Player_Control
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
-            StaticEventsGameManager.PlayerShouldInteract += (sender, b) =>
-            {
-                DebugLog.Log($"IsActive {b}", this);
-                IsActive = b; };
+            StaticEventsGameManager.PlayerShouldInteract += (sender, b) => IsActive = b;
         }
 
         private void OnTriggerEnter2D(Collider2D col)

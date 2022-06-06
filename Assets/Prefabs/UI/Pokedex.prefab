@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openOnStart: 1
-  stopPlayerInteractionOnStart: 1
-  stopPlayerMovementOnStart: 1
+  stopPlayerInteractionOnStart: 0
+  stopPlayerMovementOnStart: 0
   holders:
   - {fileID: 3234032523230997776}
   - {fileID: 3234032521442393271}

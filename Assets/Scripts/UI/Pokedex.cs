@@ -147,7 +147,7 @@ namespace UI
                 _angle -= rotatingSpeed * Time.deltaTime;
             }
 
-            if (_angle <= targetAngle && _isOpening)
+            if (_angle <= targetAngle && _isOpening && !IsOpen)
             {
                 IsOpen = true;
             }
@@ -158,9 +158,9 @@ namespace UI
                 _angle += rotatingSpeed * Time.deltaTime;
             }
 
-            if (_angle >= targetAngle && !_isOpening)
+            if (_angle >= targetAngle && !_isOpening && IsOpen)
             {
-                IsOpen = false;
+                IsOpen = false; // TODO: this marks as not open immediately - not when fully closed!!!!!!!
             }
         }
 
