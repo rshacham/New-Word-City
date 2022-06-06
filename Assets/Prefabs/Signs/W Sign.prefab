@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2326924775099664558}
-  - component: {fileID: 3628316816437862401}
   - component: {fileID: 7740527727068044833}
   - component: {fileID: 2326924775099664556}
   - component: {fileID: 2326924775099664557}
@@ -36,42 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3628316816437862401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2326924775099664546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b500fb27d6aa4ad79a57207d6a7a0378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiresWord: 0
-  lastLink: {fileID: 0}
-  myCollider: {fileID: 2326924775388699509}
-  startInteractable: 1
-  interactMultipleTimes: 1
-  highlightInteract: 0
-  interactionEvents:
-    onInteraction:
-      m_PersistentCalls:
-        m_Calls: []
-    onInteractionEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onHighlight:
-      m_PersistentCalls:
-        m_Calls: []
-    onHighlightEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  useScriptedInteraction: 1
-  stayHighlightAfterInteract: 1
-  clips:
-  - name: Correct
-    audioEvent: {fileID: 11400000, guid: 08b77932e585f45459f85a037e400222, type: 2}
 --- !u!82 &7740527727068044833
 AudioSource:
   m_ObjectHideFlags: 0
@@ -423,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1996431ffed1a844b9421561e237d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 3628316816437862401}
+  parent: {fileID: 0}
 --- !u!61 &2326924775797677174
 BoxCollider2D:
   m_ObjectHideFlags: 0

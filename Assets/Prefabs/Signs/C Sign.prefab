@@ -246,7 +246,7 @@ MonoBehaviour:
   requiresWord: 0
   lastLink: {fileID: 0}
   myCollider: {fileID: 7545950246028826742}
-  startInteractable: 1
+  startInteractable: 0
   interactMultipleTimes: 1
   highlightInteract: 0
   interactionEvents:

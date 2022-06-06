@@ -4133,6 +4133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Park tree 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4542873581608726557, guid: d4822a891d1bb274c8accc8b61bd2376, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4822a891d1bb274c8accc8b61bd2376, type: 3}
 --- !u!1001 &304003806
@@ -8064,6 +8068,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1496020121}
     m_Modifications:
+    - target: {fileID: 1035344981267426203, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039835879319028532, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -11789,6 +11797,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1496020121}
     m_Modifications:
+    - target: {fileID: 1035344981267426203, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039835879319028532, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -20436,6 +20448,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1496020121}
     m_Modifications:
+    - target: {fileID: 1035344981267426203, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039835879319028532, guid: 7434b6ac3e5b56946aa397059626736c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -33526,6 +33542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1496020121}
     m_Modifications:
+    - target: {fileID: 7988368452992837778, guid: d31fd2f8624eb0a40b305fc9546bd477, type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8992802122669408305, guid: d31fd2f8624eb0a40b305fc9546bd477, type: 3}
       propertyPath: m_Name
       value: Tree 2 (2)
