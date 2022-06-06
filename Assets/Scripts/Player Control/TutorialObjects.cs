@@ -27,6 +27,7 @@ namespace Player_Control
 
         [Space(2)]
         [SerializeField]
+        [HideInInspector]
         private GameObject tutorialSprite;
 
         [SerializeField]
@@ -85,11 +86,6 @@ namespace Player_Control
 
             _tutorialInstance = pool.BorrowGameObject();
 
-            _tutorialInstance.transform.rotation = Quaternion.identity;
-            _tutorialInstance.transform.localScale = Vector3.one;
-            _tutorialInstance.transform.position = position;
-            _tutorialInstance.transform.parent = null;
-
             var tutorialScheme = scheme switch
             {
                 Schemes.KBM => kbm,
@@ -104,6 +100,11 @@ namespace Player_Control
             };
 
             _tutorialInstance.SetActive(true);
+
+            _tutorialInstance.transform.parent = null;
+            _tutorialInstance.transform.rotation = Quaternion.identity;
+            _tutorialInstance.transform.localScale = Vector3.one;
+            _tutorialInstance.transform.position = position;
             return ref _tutorialInstance;
         }
 
