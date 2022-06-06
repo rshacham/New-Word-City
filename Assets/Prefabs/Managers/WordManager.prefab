@@ -47,7 +47,7 @@ MonoBehaviour:
   - word: Fly
     toolCanvas: {fileID: 0}
     meanings:
-    - meaning: Fly(the animal)
+    - meaning: Fly - The Insect
       image: {fileID: 0}
       meaningGameObject: {fileID: 0}
       linkedObjects:
