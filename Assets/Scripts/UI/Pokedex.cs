@@ -173,6 +173,7 @@ namespace UI
 
         public void OpenClose()
         {
+            DebugLog.Log("Open log", this);
             _isOpening = !_isOpening;
         }
 
@@ -193,7 +194,6 @@ namespace UI
         {
             while (!CanvasManager.ActiveCanvas.IsOpen)
             {
-                ;
                 yield return new WaitForSeconds(0.1f);
             }
 

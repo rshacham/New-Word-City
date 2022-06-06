@@ -48,6 +48,8 @@ namespace Managers
         }
 
         public int letterCount = 0;
+        
+        public static int CurrentTutorial => Instance._currentTutorial;
 
         public int LetterCount
         {
@@ -70,8 +72,8 @@ namespace Managers
         private string _tutorialString = "";
 
         private bool _isWriting = false;
-
-        // private bool _changeWord = false;
+        
+        private bool _lastTutorial = false;
 
         private AudioSource _myAudio;
 
@@ -95,7 +97,6 @@ namespace Managers
 
         private void Update()
         {
-        
         }
 
         private void Start()
@@ -134,23 +135,23 @@ namespace Managers
                 {
                     _myAudio.Stop();
                     myText.text = _tutorialString;
-                    ContinueImage.sprite = tutorialObjects.GetForScheme(TutorialScheme.Tutorials.Interact, Scheme);
+                    ContinueImage.sprite =
+                        tutorialObjects.GetForScheme(TutorialScheme.Tutorials.Interact, Scheme);
                     ContinueImage.gameObject.SetActive(true);
                     CanvasManager.WordsToWrite--;
                     _isWriting = false;
                     break;
                 }
             }
-
-            // if (WordsGameManager.Current.WordComplete && CanvasManager._wordsToWrite == 0 && _changeWord)
-            // {
-            //     DebugLog.Log(LogTag.HighPriority, "Word Completed - Should switch in cool way!!!!", this);
-            //
-            //     // WordsGameManager.SwitchToNextAvailableWord();
-            // }
+            
+            if (_currentTutorial == TutorialsTexts.Length - 1 
+                // && WordsGameManager.Current is {WordComplete: false} &&
+                // CanvasManager.WordsToWrite == 0
+                )
+            {
+                _lastTutorial = true;
+            }
         }
-
-
 
         #endregion
 
@@ -163,7 +164,7 @@ namespace Managers
                 letterCount = _tutorialString.Length;
                 return;
             }
-        
+
             if (_currentTutorial > TutorialsTexts.Length)
             {
                 WordsGameManager.SwitchToNextAvailableWord();
@@ -178,18 +179,25 @@ namespace Managers
 
             if (_currentTutorial != TutorialsTexts.Length)
             {
-                // space.SetActive(false);
                 ContinueImage.gameObject.SetActive(false);
                 myText.text = "";
             }
 
-            if (_currentTutorial == TutorialsTexts.Length - 1 && WordsGameManager.Current is {WordComplete: false})
+            if (_currentTutorial == TutorialsTexts.Length - 1 &&
+                WordsGameManager.Current is {WordComplete: false} &&
+                CanvasManager.WordsToWrite == 0 && _lastTutorial)
             {
+                _lastTutorial = false;
                 StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
                 CanvasManager.ActiveCanvas.OpenClose();
                 return;
             }
 
+            if (_currentTutorial == TutorialsTexts.Length - 1 &&
+                WordsGameManager.Current is {WordComplete: false})
+            {
+                return;
+            }
 
             if (_currentTutorial >= TutorialsTexts.Length)
             {
@@ -242,7 +250,7 @@ namespace Managers
                 Instance.tutorialObjects.Offset = value;
             }
         }
-
+        
         public static void RemoveTutorial(GameObject toRemove)
         {
             if (Instance == null)

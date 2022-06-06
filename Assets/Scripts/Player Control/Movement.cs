@@ -134,7 +134,8 @@ namespace Player_Control
             Tutorial.PlayerMovement = this;
             StaticEventsGameManager.PlayerShouldInteract += (sender, b) =>
             {
-                enableMovement = sender is Tutorial ? b : enableMovement;
+                // enableMovement = sender is Tutorial ? b : enableMovement; // todo: allow all?
+                enableMovement = b; 
             };
 
             // Word Switch:

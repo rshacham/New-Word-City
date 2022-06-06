@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Player_Control;
 using UnityEngine;
 
@@ -62,9 +63,9 @@ namespace Interactable_Objects
                 UseOnEnd = false;
                 StartCoroutine(_playerMovement.ChangePosition(jumpNewPosition, jumpSpeed));
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
+                // StaticEventsGameManager.OnPlayerShouldInteract(this, false); // TODO: this should stop the player when landing?
                 _holeManager.CloseCircle(duration);
                 StartCoroutine(GetMeaning());
-                return;
             }
             
         }
