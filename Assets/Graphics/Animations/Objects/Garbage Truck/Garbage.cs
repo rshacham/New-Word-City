@@ -7,6 +7,14 @@ namespace Interactable_Objects
 
     public class Garbage : EventInteractable
     {
+        
+        #region Inspector
+
+        [SerializeField]
+        [Tooltip("First clip is the fall sound, second is the fly buzz sound")]
+        private AudioClip[] _mySounds;
+        
+        #endregion
 
         #region Private Properties
 
@@ -27,6 +35,14 @@ namespace Interactable_Objects
         public void CloseToTruck(bool boolean)
         {
             _truckAnimator.SetBool("Close", boolean);
+        }
+
+        public void StartBuzzSound()
+        {
+            _myAudio.Stop();
+            _myAudio.clip = _mySounds[1];
+            _myAudio.loop = true;
+            _myAudio.Play();
         }
 
 
