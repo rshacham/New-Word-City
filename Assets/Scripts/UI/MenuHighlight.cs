@@ -129,8 +129,11 @@ namespace UI
                 _firstTime = false;
             }
 
-            Tutorial.RemoveTutorial(_tutorialSprite);
-            _tutorialSprite = null;
+            if (_tutorialSprite != null)
+            {
+                Tutorial.RemoveTutorial(_tutorialSprite);
+                _tutorialSprite = null;
+            }
 
             highlightParameter.Set(_myAnimator, false);
 #if UNITY_EDITOR
