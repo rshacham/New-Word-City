@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Avrahamy;
 using Cinemachine;
 using Interactable_Objects;
@@ -98,6 +99,7 @@ namespace UI
             Tutorial.Instance.TutorialsTexts = tutorialStrings;
             Tutorial.Instance.ContinueImage = space;
             Tutorial.Instance.MyText = tutorialTextObject;
+            StartCoroutine(StartTutorial(0.2f));
             // TODO: Start open for all except fly::
             if (openOnStart && !CanvasManager.ActiveCanvas.IsOpen)
             {
@@ -171,6 +173,18 @@ namespace UI
         {
             boardAnimator.SetInteger("Word", boardInt);
         }
+
+        IEnumerator StartTutorial(float startDelay)
+        {
+            while (!CanvasManager.ActiveCanvas.IsOpen)
+            { ;
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(startDelay);
+            Tutorial.Instance.TutorialContinue();
+        }
+        
+        
 
         #endregion
     }
