@@ -7402,7 +7402,7 @@ GameObject:
   - component: {fileID: 481801747}
   - component: {fileID: 481801746}
   - component: {fileID: 481801745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9341,7 +9341,7 @@ GameObject:
   - component: {fileID: 611885452}
   - component: {fileID: 611885451}
   - component: {fileID: 611885450}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12908,7 +12908,7 @@ GameObject:
   - component: {fileID: 878503660}
   - component: {fileID: 878503659}
   - component: {fileID: 878503658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21129,7 +21129,7 @@ GameObject:
   - component: {fileID: 1121996730}
   - component: {fileID: 1121996729}
   - component: {fileID: 1121996728}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28839,7 +28839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1684529344}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: === Blocking Colliders ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37797,6 +37797,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8080587652598674451, guid: 998fa493463fa2e4294e03ee26a68ad3, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 8702645360011512595, guid: 998fa493463fa2e4294e03ee26a68ad3, type: 3}
       propertyPath: m_Name
       value: Movie
