@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Avrahamy;
 using UnityEngine;
 using Managers;
+using UI;
 
 namespace Managers
 {
@@ -20,7 +23,7 @@ namespace Managers
 
         [SerializeField]
         [Tooltip("The Canvas for this words computer")]
-        private GameObject toolCanvas;
+        private Pokedex toolCanvas;
 
         [Space(2)]
         [SerializeField]
@@ -55,7 +58,7 @@ namespace Managers
             get { return Meanings.Sum(descriptor => descriptor.Found ? 1 : 0); }
         }
 
-        public GameObject ToolCanvas => toolCanvas;
+        public Pokedex ToolCanvas => toolCanvas;
 
         #endregion
 
@@ -68,7 +71,25 @@ namespace Managers
             // if true: wait for false of previous then active true 
             if (toolCanvas != null)
             {
-                toolCanvas.SetActive(active);
+                if (!active && toolCanvas.IsOpen)
+                {
+                    toolCanvas.EndingCanvas = true;
+                    PureCoroutines.StartRoutine(WaitClose());
+                }
+                else if (!active)
+                {
+                    toolCanvas.gameObject.SetActive(false);
+                }
+                else if (CanvasManager.CanvasManagerInstance != null &&
+                         CanvasManager.ActiveCanvas is {isActiveAndEnabled: true, IsOpen: true})
+                {
+                    PureCoroutines.StartRoutine(WaitOpen());
+                }
+                else
+                {
+                    toolCanvas.gameObject.SetActive(true);
+                }
+                // toolCanvas.gameObject.SetActive(active);
             }
         }
 
@@ -101,6 +122,27 @@ namespace Managers
         public override int GetHashCode()
         {
             return Word.GetHashCode();
+        }
+
+        #endregion
+
+        #region Coroutines
+
+        private IEnumerator WaitClose()
+        {
+            toolCanvas.OpenClose();
+            DebugLog.Log(toolCanvas.IsOpen, toolCanvas);
+            yield return new WaitWhile(() => toolCanvas.IsOpen);
+            DebugLog.Log(toolCanvas.IsOpen, toolCanvas);
+            toolCanvas.gameObject.SetActive(false);
+        }
+
+        private IEnumerator WaitOpen()
+        {
+            DebugLog.Log(CanvasManager.ActiveCanvas.IsOpen, toolCanvas);
+            yield return new WaitWhile(() => CanvasManager.ActiveCanvas.isActiveAndEnabled);
+            DebugLog.Log(CanvasManager.ActiveCanvas.isActiveAndEnabled, toolCanvas);
+            toolCanvas.gameObject.SetActive(true);
         }
 
         #endregion

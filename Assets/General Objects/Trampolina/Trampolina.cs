@@ -75,7 +75,6 @@ namespace Interactable_Objects
                 );
                 UseOnEnd = false;
                 StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
-                StaticEventsGameManager.OnPlayerShouldInteract(this, false);
                 // TODO: this should stop the player when landing?
             }
         }

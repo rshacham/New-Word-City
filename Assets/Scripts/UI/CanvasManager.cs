@@ -51,7 +51,7 @@ namespace UI
 
         private void OpenClose(InputAction.CallbackContext context)
         {
-            if (WordsToWrite == 0 && context.started)
+            if (WordsToWrite == 0 && context.started && ActiveCanvas != null && !ActiveCanvas.EndingCanvas)
             {
                 OnCanvasChange?.Invoke(this, ActiveCanvas.IsOpen);
                 ActiveCanvas.OpenClose();
@@ -60,7 +60,7 @@ namespace UI
 
         public void ContinueTutorial(InputAction.CallbackContext context)
         {
-            if (ActiveCanvas.TutorialHolder == null || !ActiveCanvas.IsOpen)
+            if (ActiveCanvas.TutorialHolder == null || !ActiveCanvas.IsOpen || ActiveCanvas.EndingCanvas)
             {
                 return;
             }

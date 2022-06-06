@@ -88,6 +88,8 @@ namespace UI
             get => _angle;
             set => _angle = value;
         }
+        
+        public bool EndingCanvas { get; set; }
 
         #endregion
 
@@ -173,8 +175,8 @@ namespace UI
 
         public void OpenClose()
         {
-            // DebugLog.Log("Open log", this);
             _isOpening = !_isOpening;
+            // DebugLog.Log($"Open log {_isOpening}", this);
         }
 
         public void MeaningFound(object sender, MeaningDescriptor e)

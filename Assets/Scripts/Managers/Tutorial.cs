@@ -1,4 +1,5 @@
 using System.Collections;
+using Avrahamy;
 using Player_Control;
 using TMPro;
 using UI;
@@ -189,6 +190,7 @@ namespace Managers
             {
                 _lastTutorial = false;
                 StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
+                DebugLog.Log("here!!");
                 CanvasManager.ActiveCanvas.OpenClose();
                 return;
             }

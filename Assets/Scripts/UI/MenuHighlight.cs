@@ -94,7 +94,7 @@ namespace UI
                 return;
             }
 
-            if (CanvasManager.ActiveCanvas.IsOpen)
+            if (CanvasManager.ActiveCanvas is {IsOpen: true})
             {
                 return;
             }

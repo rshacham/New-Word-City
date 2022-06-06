@@ -109,7 +109,7 @@ namespace Managers
             {
                 return;
             }
-            
+
             // TODO: loop back to original using for loop with index modulo, not just to the end.
             while (Instance.CurrentIndex < Words.Count)
             {
