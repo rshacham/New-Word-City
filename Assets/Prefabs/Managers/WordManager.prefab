@@ -47,12 +47,12 @@ MonoBehaviour:
   - word: Fly
     toolCanvas: {fileID: 0}
     meanings:
-    - meaning: verb  -   An Insect
+    - meaning: Fly(the animal)
       image: {fileID: 0}
       meaningGameObject: {fileID: 0}
       linkedObjects:
       - {fileID: 0}
-    - meaning: Fly All the way to france
+    - meaning: Fly to New Word City!
       image: {fileID: 0}
       meaningGameObject: {fileID: 0}
       linkedObjects:
@@ -60,7 +60,7 @@ MonoBehaviour:
   - word: Drop
     toolCanvas: {fileID: 0}
     meanings:
-    - meaning: Dropped Off
+    - meaning: Dropped Off Taxi
       image: {fileID: -620194816691577197, guid: 7a6657ec8eed0bb44abdd8b7a98ef086, type: 3}
       meaningGameObject: {fileID: 0}
       linkedObjects:
