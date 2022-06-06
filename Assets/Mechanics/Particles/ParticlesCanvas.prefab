@@ -867,8 +867,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.15
-      minScalar: 0.05
+      scalar: 0.25
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1944,7 +1944,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
     timeMode: 2
     fps: 2
@@ -2055,8 +2055,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 3
-    tilesY: 1
+    tilesX: 1
+    tilesY: 9
     animationType: 1
     rowIndex: 0
     cycles: 1
@@ -5524,6 +5524,7 @@ MonoBehaviour:
     name: 
     index: -1
   menuSprite: {fileID: 0}
+  particlesOnFirst: 1
 --- !u!1 &2709644024678469761
 GameObject:
   m_ObjectHideFlags: 0
@@ -5617,6 +5618,7 @@ MonoBehaviour:
     name: Highlight
     index: -1
   menuSprite: {fileID: 0}
+  particlesOnFirst: 1
 --- !u!95 &3740573778932699484
 Animator:
   serializedVersion: 3
