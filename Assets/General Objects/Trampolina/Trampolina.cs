@@ -53,7 +53,7 @@ namespace Interactable_Objects
             {
                 _myAudio.Play();
                 // GameManager._shared.ChangeCamera(1);
-                GameManager._shared.ChangeFollowPlayer(0);
+                GameManager.Shared.ChangeFollowPlayer(0);
                 var transformPosition = transform.position;
                 StartCoroutine(
                     _playerMovement.ChangePosition(
@@ -67,7 +67,7 @@ namespace Interactable_Objects
                     )
                 );
                 UseOnEnd = false;
-                StartCoroutine(GameManager._shared.ThrowPlayerOnWorld());
+                StartCoroutine(GameManager.Shared.ThrowPlayerOnWorld());
                 // TODO: this should stop the player when landing?
             }
         }

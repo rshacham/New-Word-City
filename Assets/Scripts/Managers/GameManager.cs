@@ -7,7 +7,7 @@ using Player_Control;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _shared;
+    public static GameManager Shared;
     
     #region Inspector
     
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     #endregion
     private void Awake()
     {
-        _shared = this;
+        Shared = this;
         _playerMovement = FindObjectOfType<Movement>();
         _gameCamera = FindObjectOfType<Camera>();
         _holeManager = FindObjectOfType<CartoonHoleManager>();

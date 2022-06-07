@@ -42,18 +42,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Reset",
+                    "name": "Exit",
                     "type": "Button",
-                    "id": "0bdd0580-8a10-4701-b4a8-716cebb2670b",
+                    "id": "da3cf9ed-b7fd-458f-b471-f4c06240c679",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Exit",
+                    "name": "Reset",
                     "type": "Button",
-                    "id": "da3cf9ed-b7fd-458f-b471-f4c06240c679",
+                    "id": "0bdd0580-8a10-4701-b4a8-716cebb2670b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -279,20 +279,9 @@
                 },
                 {
                     "name": "",
-                    "id": "9773c6db-214f-417d-a1b3-25bebc82bd4e",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM;Controller",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3a9fdf85-4e83-4c10-8dde-818a0cae552c",
-                    "path": "<Keyboard>/f9",
-                    "interactions": "Hold",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "Hold(duration=6)",
                     "processors": "",
                     "groups": "KBM;Controller",
                     "action": "Teleport",
@@ -307,6 +296,17 @@
                     "processors": "",
                     "groups": "KBM;Controller",
                     "action": "SwitchToNextWord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9773c6db-214f-417d-a1b3-25bebc82bd4e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM;Controller",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

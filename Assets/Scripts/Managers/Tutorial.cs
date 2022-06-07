@@ -50,7 +50,11 @@ namespace Managers
 
         public int letterCount = 0;
         
-        public static int CurrentTutorial => Instance._currentTutorial;
+        public static int CurrentTutorial
+        {
+            get => Instance._currentTutorial;
+            set => Instance._currentTutorial = value;
+        }
 
         public int LetterCount
         {

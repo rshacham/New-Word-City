@@ -4,6 +4,7 @@ using Avrahamy;
 using Cinemachine;
 using Interactable_Objects;
 using Managers;
+using Player_Control;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -88,7 +89,7 @@ namespace UI
             get => _angle;
             set => _angle = value;
         }
-        
+
         public bool EndingCanvas { get; set; }
 
         #endregion
@@ -105,6 +106,7 @@ namespace UI
             Tutorial.Instance.TutorialsTexts = tutorialStrings;
             Tutorial.Instance.ContinueImage = space;
             Tutorial.Instance.MyText = tutorialTextObject;
+            Tutorial.CurrentTutorial = 0;
             StartCoroutine(StartTutorial(0.2f));
             // TODO: Start open for all except fly::
             if (openOnStart && !CanvasManager.ActiveCanvas.IsOpen)
@@ -176,6 +178,7 @@ namespace UI
         public void OpenClose()
         {
             _isOpening = !_isOpening;
+            CanvasManager.OnCanvasChangeHandler();
             // DebugLog.Log($"Open log {_isOpening}", this);
         }
 

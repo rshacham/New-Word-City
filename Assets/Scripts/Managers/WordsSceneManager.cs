@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Avrahamy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
@@ -98,12 +99,14 @@ namespace Managers
         {
             if (context.started)
             {
+                DebugLog.Log(LogTag.HighPriority,"Reset Game");
                 SceneManager.LoadScene(0);
             }
         }
 
         public void OnExit(InputAction.CallbackContext context)
         {
+            DebugLog.Log(LogTag.HighPriority,"Application Quit");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -114,6 +117,11 @@ namespace Managers
         {
             if (context.started)
             {
+                DebugLog.Log(LogTag.HighPriority,"Switching to next word");
+                if (WordsGameManager.Current != null)
+                {
+                    WordsGameManager.Current.WordComplete = true;
+                }
                 WordsGameManager.SwitchToNextAvailableWord();
             }
         }
@@ -122,7 +130,10 @@ namespace Managers
         {
             if (context.started)
             {
+                DebugLog.Log(LogTag.HighPriority,"Resetting Position");
                 FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
+                GameManager.Shared.ChangeCamera(1);
+                GameManager.Shared.ChangeFollowPlayer(2);
             }
         }
 

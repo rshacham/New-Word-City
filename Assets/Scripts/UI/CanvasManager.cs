@@ -53,9 +53,13 @@ namespace UI
         {
             if (WordsToWrite == 0 && context.started && ActiveCanvas != null && !ActiveCanvas.EndingCanvas)
             {
-                OnCanvasChange?.Invoke(this, ActiveCanvas.IsOpen);
                 ActiveCanvas.OpenClose();
             }
+        }
+
+        public static void OnCanvasChangeHandler()
+        {
+            OnCanvasChange?.Invoke(CanvasManagerInstance, ActiveCanvas.IsOpen);
         }
 
         public void ContinueTutorial(InputAction.CallbackContext context)
