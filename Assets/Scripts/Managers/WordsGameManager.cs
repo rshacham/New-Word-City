@@ -161,7 +161,7 @@ namespace Managers
             Current.SetActiveCanvas(true);
             RegisterCurrentMeanings(); // TODO: Move to method of Current? check case of Active?
             MeaningFoundCount = Current.MeaningFoundCount;
-            Debug.Log($"New word: <color=blue>{Current}</color>");
+            DebugLog.Log($"New word: <color=blue>{Current}</color>");
         }
 
         /// <summary>

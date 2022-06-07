@@ -83,6 +83,11 @@ namespace Managers
             // WordsGameManager.Current = words[0];
             // TODO if empty, changing based on level, so on and so forth.
             // WordsGameManager.RegisterCurrentMeanings();
+
+            DebugLog.Log(
+                "Debug Keys: \nExit\t\t[Esc]\nReset\t\t[F4]\nReset Position\t[F7]\nSwitch Word\t[F8]\nShow Logs\t[F10]\n",
+                this
+            );
         }
 
         private void OnDisable()
@@ -99,14 +104,14 @@ namespace Managers
         {
             if (context.performed)
             {
-                DebugLog.Log(LogTag.HighPriority,"Reset Game");
+                DebugLog.Log(LogTag.HighPriority, "Reset Game");
                 SceneManager.LoadScene(0);
             }
         }
 
         public void OnExit(InputAction.CallbackContext context)
         {
-            DebugLog.Log(LogTag.HighPriority,"Application Quit");
+            DebugLog.Log(LogTag.HighPriority, "Application Quit");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -117,11 +122,12 @@ namespace Managers
         {
             if (context.performed)
             {
-                DebugLog.Log(LogTag.HighPriority,"Switching to next word");
+                DebugLog.Log(LogTag.HighPriority, "Switching to next word");
                 if (WordsGameManager.Current != null)
                 {
                     WordsGameManager.Current.WordComplete = true;
                 }
+
                 WordsGameManager.SwitchToNextAvailableWord();
             }
         }
@@ -130,7 +136,7 @@ namespace Managers
         {
             if (context.performed)
             {
-                DebugLog.Log(LogTag.HighPriority,"Resetting Position");
+                DebugLog.Log(LogTag.HighPriority, "Resetting Position");
                 FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
                 GameManager.Shared.ChangeCamera(1);
                 GameManager.Shared.ChangeFollowPlayer(2);
