@@ -678,4 +678,4 @@ MonoBehaviour:
   stayHighlightAfterInteract: 1
   animationSpeed: 1
   onTreePosition: {x: 18.74, y: 10.34, z: 0}
-  _offTreePosition: {x: 18.6, y: 7.4, z: 0}
+  offTreePosition: {x: 18.73, y: 7.48, z: 0}
