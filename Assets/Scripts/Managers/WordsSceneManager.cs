@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using Player_Control;
 using UnityEngine.InputSystem;
 
 namespace Managers
@@ -107,6 +108,22 @@ namespace Managers
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
             Application.Quit();
+        }
+
+        public void OnSwitchToNextWord(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                WordsGameManager.SwitchToNextAvailableWord();
+            }
+        }
+
+        public void OnResetPosition(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
+            }
         }
 
         #endregion

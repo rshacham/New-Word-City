@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Teleport",
+                    "type": "Button",
+                    "id": "fd15b932-6804-40e1-a169-8fd2d453e332",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToNextWord",
+                    "type": "Button",
+                    "id": "fe219db4-2408-4dd7-b0a9-b54685d3bfc1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -267,6 +285,28 @@
                     "processors": "",
                     "groups": "KBM;Controller",
                     "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a9fdf85-4e83-4c10-8dde-818a0cae552c",
+                    "path": "<Keyboard>/f9",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "KBM;Controller",
+                    "action": "Teleport",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "991aa949-4960-4360-8eaa-e76010f87241",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "KBM;Controller",
+                    "action": "SwitchToNextWord",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
