@@ -9,16 +9,24 @@ namespace UI
 {
     public class MeaningCanvasHolder : MonoBehaviour
     {
+        #region Inspector
+
         [SerializeField]
         private float delay = 0.1f;
+
+        #endregion
+
+        #region Private Fields
 
         private TextMeshProUGUI _myText;
         private int _letterCount = 0;
         private string _meaningString;
-
         private AudioSource _myAudio;
         // private bool _startAnimation = false;
 
+        #endregion
+
+        #region Public Properties
 
         public string MeaningString
         {
@@ -26,17 +34,29 @@ namespace UI
             set => _meaningString = value;
         }
 
+        #endregion
+
+        #region MonoBehaviour
+
         private void Start()
         {
             _myText = GetComponent<TextMeshProUGUI>();
             _myAudio = GetComponent<AudioSource>();
         }
 
+        #endregion
+
+        #region Callback
+
         public void FoundMeaning(MeaningDescriptor sender, InteractableObject e)
         {
             _meaningString = sender.meaning;
             StartCoroutine(WriteLetters(false));
         }
+
+        #endregion
+
+        #region Coroutines
 
         IEnumerator WriteLetters(bool reset)
         {
@@ -81,5 +101,7 @@ namespace UI
                 // WordsGameManager.SwitchToNextAvailableWord();
             }
         }
+
+        #endregion
     }
 }

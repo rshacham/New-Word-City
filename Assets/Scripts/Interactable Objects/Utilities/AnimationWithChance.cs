@@ -10,15 +10,23 @@ namespace Interactable_Objects
     [Serializable]
     public class AnimationWithChance : RandomUtils.ClassWithChance
     {
+        #region Inspector
+
         [SerializeField]
         public AnimationClip clip;
 
         [SerializeField]
         public bool connectedToWord = true;
 
+        #endregion
+
+        #region Implicit Convertions
+
         public static implicit operator AnimationClip(AnimationWithChance t)
         {
             return t.clip;
         }
+
+        #endregion
     }
 }

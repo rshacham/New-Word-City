@@ -10,8 +10,6 @@ namespace Managers
     /// </summary>
     public class WordsSceneManager : MonoBehaviour
     {
-        // FindObjectOfType<CinemachineConfiner>().InvalidatePathCache();
-
         //TODO: index? scene object itself?
         // TODO: move to the static Manager?
         private static readonly Dictionary<string, List<MeaningfulWord>> SavedScenesData =
@@ -22,7 +20,6 @@ namespace Managers
         [SerializeField]
         [Tooltip("List of words in this scene")]
         internal List<MeaningfulWord> words = new List<MeaningfulWord>();
-
 
         #endregion
 
@@ -49,7 +46,7 @@ namespace Managers
         #endregion
 
         #region Public Methods
-        
+
         public void LoadScene(string scene)
         {
             SceneManager.LoadScene(scene);
@@ -90,8 +87,6 @@ namespace Managers
             SavedScenesData[SceneManager.GetActiveScene().name] = words;
             WordsGameManager.Instance = null;
         }
-        
-
 
         #endregion
     }

@@ -214,7 +214,6 @@ namespace Managers
         }
 
         #endregion
-
-
+        
     }
 }

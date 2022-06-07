@@ -19,24 +19,23 @@ namespace Interactable_Objects
         private bool _onTree = false;
 
         #endregion
-        
+
         #region Inspector
-        
-        [SerializeField] 
+
+        [SerializeField]
         [Tooltip("Speed of move position animation")]
         private float animationSpeed;
-        
-        
-        [SerializeField] 
+
+
+        [SerializeField]
         [Tooltip("New position after climbing up the tree")]
         private Vector3 onTreePosition;
-        
-        [SerializeField] 
-        [Tooltip("New position after climbing down tree")]
-        private Vector3 _offTreePosition;
-        
-        #endregion
 
+        [SerializeField]
+        [Tooltip("New position after climbing down tree")]
+        private Vector3 offTreePosition;
+
+        #endregion
 
         #region MonoBehaviour
 
@@ -50,9 +49,10 @@ namespace Interactable_Objects
         {
             _villageAnimator.SetBool("Semi", boolean);
         }
-        
+
         #endregion
 
+        #region EventInteractable
 
         protected override void ScriptInteract()
         {
@@ -69,18 +69,15 @@ namespace Interactable_Objects
                 _onTree = true;
                 return;
             }
-            
+
 
             if (_onTree && _playerScript.EnableMovement)
             {
-                StartCoroutine(_playerScript.ChangePosition(_offTreePosition, animationSpeed));
+                StartCoroutine(_playerScript.ChangePosition(offTreePosition, animationSpeed));
                 _onTree = false;
             }
         }
 
-
+        #endregion
     }
 }
-
-
-

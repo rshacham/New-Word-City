@@ -57,14 +57,6 @@ namespace Interactable_Objects
         private Animator _playerAnimator;
         private Animator _myAnimator;
 
-        #region Constants
-
-        // private static readonly int TaxiMove = Animator.StringToHash("TaxiMove");
-        // private static readonly int TaxiArrive = Animator.StringToHash("TaxiArrive");
-        // private static readonly int Highlight = Animator.StringToHash("Highlight");
-
-        #endregion
-
         #endregion
 
         #region EventInteractable

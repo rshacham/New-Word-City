@@ -27,7 +27,7 @@ namespace Interactable_Objects
         // private bool _firstPlay;
         private Animator _carAnimator;
 
-        private int counter;
+        // private int _counter;
 
         #endregion
 

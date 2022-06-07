@@ -16,6 +16,7 @@ namespace Interactable_Objects
         private InteractableObject other;
 
         [SerializeField]
+        [Tooltip("Does this interactable use animation set in this script?")]
         private bool animated;
         
         [Space]

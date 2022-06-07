@@ -33,7 +33,7 @@ namespace Player_Control
         [SerializeField]
         [Tooltip("Start with the ability to interact?")]
         private bool startActive = false;
-        
+
         [SerializeField]
         [Space]
         [Tooltip("Events that are called on interaction")]

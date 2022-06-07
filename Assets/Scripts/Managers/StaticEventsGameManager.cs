@@ -36,11 +36,11 @@ namespace Managers
 
         public static event EventHandler<Vector2> EmitParticles;
 
-        #endregion
-
         public static void OnEmitParticles(object sender, Vector2 pos)
         {
             EmitParticles?.Invoke(sender, pos);
         }
+
+        #endregion
     }
 }

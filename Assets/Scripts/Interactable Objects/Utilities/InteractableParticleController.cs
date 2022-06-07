@@ -57,6 +57,10 @@ namespace Interactable_Objects
             }
         }
 
+        /// <summary>
+        /// Emit the particles at specific position
+        /// </summary>
+        /// <param name="pos"></param>
         private void EmitAtPosition(Vector3 pos)
         {
             var shape = _particleSystem.shape;

@@ -25,12 +25,9 @@ namespace Player_Control
         [SerializeField]
         private TutorialScheme kbm;
 
-        [Space(2)]
+        [Space]
         [SerializeField]
-        [HideInInspector]
-        private GameObject tutorialSprite;
-
-        [SerializeField]
+        [Tooltip("Pool to use for TutorialSprite game object")]
         private GameObjectPool pool;
 
         #endregion
@@ -118,7 +115,7 @@ namespace Player_Control
     }
 
     /// <summary>
-    /// 
+    ///  Hold sprite for single scheme
     /// </summary>
     [Serializable]
     public struct TutorialScheme

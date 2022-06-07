@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Interactable_Objects;
-using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -24,10 +23,6 @@ namespace Managers
         [SerializeField]
         [HideInInspector]
         public Sprite image; // TODO: remove
-
-        [SerializeField]
-        [HideInInspector]
-        public MeaningCanvasHolder meaningGameObject; // TODO: remove
 
         [FormerlySerializedAs("linkedObject")]
         [SerializeField]

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 533150656077501109}
   - component: {fileID: 533150656077501108}
   m_Layer: 0
-  m_Name: Cow
+  m_Name: Cow - OLD
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

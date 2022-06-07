@@ -8,6 +8,8 @@ namespace Interactable_Objects
 {
     class LawnMowerInteractable : EventInteractable
     {
+        #region Inspector
+
         [SerializeField]
         [TagSelector]
         private string stopperTag;
@@ -24,7 +26,15 @@ namespace Interactable_Objects
         [Min(1)]
         private int triggerCount = 1;
 
+        #endregion
+
+        #region Private Fields
+
         private int _counter = 0;
+
+        #endregion
+
+        #region EventInteractable
 
         public override bool SetInteraction(PlayerInteract other)
         {
@@ -68,5 +78,7 @@ namespace Interactable_Objects
                 DebugLog.Log("Left Stopper: ", Color.green, other.collider);
             }
         }
+
+        #endregion
     }
 }

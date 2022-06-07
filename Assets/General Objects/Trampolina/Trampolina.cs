@@ -9,7 +9,8 @@ namespace Interactable_Objects
 {
     public class Trampolina : PairedAnimationInteractable
     {
-        /// @see PairedAnimationInteractable.cs
+        #region Inspector
+
         [Space]
         [Header("Trampoline Interactable")]
         [SerializeField]
@@ -22,6 +23,10 @@ namespace Interactable_Objects
         [SerializeField]
         private float jumpSpeed;
 
+        #endregion
+
+        #region Private Fields
+
         private CartoonHoleManager _holeManager;
 
         private Movement _playerMovement;
@@ -30,28 +35,16 @@ namespace Interactable_Objects
 
         private Animator _myAnimator;
 
+        #endregion
+
+        #region EventInteractable
+
         private void Start()
         {
             _holeManager = FindObjectOfType<CartoonHoleManager>();
             _playerMovement = FindObjectOfType<Movement>();
             _myAudio = GetComponent<AudioSource>();
             _myAnimator = GetComponent<Animator>();
-        }
-
-        public void OnTrampoline(bool boolean)
-        {
-            _myAnimator.SetBool("On", boolean);
-        }
-
-        IEnumerator GetMeaning()
-        {
-            while (!_playerMovement.FellToWorld)
-            {
-                yield return new WaitForSeconds(0.2f);
-            }
-
-            UseOnEnd = true;
-            Interact();
         }
 
         protected override void ScriptInteract()
@@ -78,5 +71,31 @@ namespace Interactable_Objects
                 // TODO: this should stop the player when landing?
             }
         }
+
+        #endregion
+
+        #region Trampoline
+
+        public void OnTrampoline(bool boolean)
+        {
+            _myAnimator.SetBool("On", boolean);
+        }
+
+        #region Coroutines
+
+        public IEnumerator GetMeaning()
+        {
+            while (!_playerMovement.FellToWorld)
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            UseOnEnd = true;
+            Interact();
+        }
+
+        #endregion
+
+        #endregion
     }
 }

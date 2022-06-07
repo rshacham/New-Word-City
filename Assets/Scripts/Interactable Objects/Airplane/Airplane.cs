@@ -2,20 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Airplane : MonoBehaviour
+namespace Interactable_Objects
 {
-    private Animator airplaneAnimator;
-    [SerializeField] private int airplaneAnimation;
-    // Start is called before the first frame update
-    void Start()
+    public class Airplane : MonoBehaviour
     {
-        airplaneAnimator = GetComponent<Animator>();
-        airplaneAnimator.SetInteger("Animation", airplaneAnimation);
-    }
+        #region Inspector
 
-    // Update is called once per frame
-    void Update()
-    {
+        [SerializeField]
+        private int airplaneAnimation;
         
+        #endregion
+
+        #region Private Fields
+
+        private Animator _airplaneAnimator;
+
+        #endregion
+
+        #region MonoBehaviour
+
+        void Start()
+        {
+            _airplaneAnimator = GetComponent<Animator>();
+            _airplaneAnimator.SetInteger("Animation", airplaneAnimation);
+        }
+
+        #endregion
+
     }
 }

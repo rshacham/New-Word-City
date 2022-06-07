@@ -41,7 +41,7 @@ namespace Interactable_Objects
 
         #region Event Callbacks
 
-        public void interactionOff()
+        public void InteractionOff()
         {
             _interactionActive = false;
         }

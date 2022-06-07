@@ -6,10 +6,20 @@ namespace Interactable_Objects
 {
     class CutGrassInteractable : MonoBehaviour
     {
+        #region Inspector
+
         [SerializeField]
         private PassiveTimer offTime;
-        
+
+        #endregion
+
+        #region Private Fields
+
         private SpriteRenderer _mySpriteRenderer;
+
+        #endregion
+
+        #region MonoBehaviour
 
         private void Awake()
         {
@@ -25,10 +35,16 @@ namespace Interactable_Objects
             }
         }
 
+        #endregion
+
+        #region Public Methods
+
         public void TurnOff()
         {
             offTime.Start();
             _mySpriteRenderer.enabled = false;
         }
+
+        #endregion
     }
 }

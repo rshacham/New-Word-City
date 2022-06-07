@@ -135,7 +135,7 @@ namespace Player_Control
             StaticEventsGameManager.PlayerShouldInteract += (sender, b) =>
             {
                 // enableMovement = sender is Tutorial ? b : enableMovement; // todo: allow all?
-                enableMovement = b; 
+                enableMovement = b;
             };
 
             // Word Switch:
@@ -154,20 +154,16 @@ namespace Player_Control
                 parameters.posX.Set(_playerAnimator, velocityNormalized.x);
                 parameters.posY.Set(_playerAnimator, velocityNormalized.y);
             }
-            
+
             if (_t < 1f)
             {
                 transform.position = Vector3.Lerp(_oldPosition, _newPosition, _t);
                 _t += Time.fixedDeltaTime * _animationSpeed;
             }
-            
-
         }
 
         private void FixedUpdate()
         {
-
-            
             if (smoothing)
             {
                 _playerRigidBody.velocity = Vector2.SmoothDamp(
@@ -183,10 +179,6 @@ namespace Player_Control
             {
                 _playerRigidBody.velocity = _desiredVelocity;
             }
-            
-
-            
-
 
             peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
         }
@@ -258,6 +250,9 @@ namespace Player_Control
     }
 
 
+    /// <summary>
+    /// Parameters used by the player animator
+    /// </summary>
     [Serializable]
     public struct MovementAnimationParameters
     {
