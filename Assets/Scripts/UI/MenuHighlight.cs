@@ -59,6 +59,13 @@ namespace UI
             HighlightMenu();
         }
 
+        private void OnDisable()
+        {
+            WordsGameManager.OnMeaningFound -= OnMeaningFound;
+            WordsGameManager.OnWordSwitch -= OnWordSwitch;
+            CanvasManager.OnCanvasChange -= OnCanvasChange;
+        }
+
         #endregion
 
         #region CallBacks

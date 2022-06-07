@@ -42,13 +42,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Movement UnNormalized",
-                    "type": "Value",
-                    "id": "a6ce064a-0e95-415d-8315-37afea2946de",
-                    "expectedControlType": "Vector2",
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "0bdd0580-8a10-4701-b4a8-716cebb2670b",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "da3cf9ed-b7fd-458f-b471-f4c06240c679",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -93,127 +102,6 @@
                     "processors": "",
                     "groups": "KBM",
                     "action": "MouseInteract",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
-                    "id": "221bc3e0-c91b-4aaf-b851-d192ff356e5b",
-                    "path": "2DVector(mode=1)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement UnNormalized",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "c0467e5b-b7d4-4248-9dca-3e68cd10032f",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "b03e78a4-e4ac-4d22-b861-0d6bd71cc46d",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "a047c8c7-7edb-49d3-8e2e-24bcaa98f8f9",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "2036884d-37ad-415f-9348-d873a8878a58",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Arrows",
-                    "id": "86410218-d114-485e-bc78-28cccffa36ba",
-                    "path": "2DVector(mode=1)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement UnNormalized",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "fac3f9be-4c16-4d06-9021-257f3cc88c8a",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "42b0675f-79dd-454e-b5ce-53f12cd9637b",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "06ab4375-84be-41c5-9231-aba73cdf2f4f",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "3456a82f-9cdf-4e6c-825a-bf7fd54198a4",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Movement UnNormalized",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "686e80bd-3b99-42e8-b248-d0d913b5d3e3",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Movement UnNormalized",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -357,6 +245,28 @@
                     "processors": "",
                     "groups": "KBM",
                     "action": "SecondaryInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17d39199-9c9b-4e70-a3b4-4fe180301b7c",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "KBM;Controller",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9773c6db-214f-417d-a1b3-25bebc82bd4e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM;Controller",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

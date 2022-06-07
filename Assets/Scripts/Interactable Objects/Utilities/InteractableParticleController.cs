@@ -33,7 +33,12 @@ namespace Interactable_Objects
             _particleSystem = GetComponent<ParticleSystem>();
             WordsGameManager.OnMeaningFound += SetParticles;
             // TODO: roi should use this for trampoline particles >>>
-            StaticEventsGameManager.EmitParticles += (sender, vector2) => EmitAtPosition(vector2);
+            StaticEventsGameManager.EmitParticles += OnEmitCallback;
+        }
+
+        private void OnDisable()
+        {
+            StaticEventsGameManager.EmitParticles -= OnEmitCallback;
         }
 
         #endregion
@@ -78,6 +83,12 @@ namespace Interactable_Objects
             }
 
             EmitAtPosition(Vector3.zero);
+        }
+
+
+        private void OnEmitCallback(object sender, Vector2 vector2)
+        {
+            EmitAtPosition(vector2);
         }
 
         #endregion

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 namespace Managers
 {
@@ -86,6 +87,26 @@ namespace Managers
         {
             SavedScenesData[SceneManager.GetActiveScene().name] = words;
             WordsGameManager.Instance = null;
+        }
+
+        #endregion
+
+        #region Input Callbacks
+
+        public void OnReset(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+
+        public void OnExit(InputAction.CallbackContext context)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
         }
 
         #endregion
