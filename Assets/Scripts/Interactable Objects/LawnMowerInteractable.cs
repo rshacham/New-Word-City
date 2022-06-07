@@ -1,4 +1,5 @@
-﻿using Avrahamy;
+﻿using System;
+using Avrahamy;
 using Avrahamy.EditorGadgets;
 using BitStrap;
 using Player_Control;
@@ -41,6 +42,14 @@ namespace Interactable_Objects
             base.SetInteraction(other);
             Player = other;
             return false;
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.CompareTag(grassTag))
+            {
+                other.GetComponent<CutGrassInteractable>().TurnOff();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D col)
