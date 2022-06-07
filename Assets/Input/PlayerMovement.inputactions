@@ -281,7 +281,7 @@
                     "name": "",
                     "id": "3a9fdf85-4e83-4c10-8dde-818a0cae552c",
                     "path": "<Keyboard>/f7",
-                    "interactions": "Hold(duration=6)",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "KBM;Controller",
                     "action": "Teleport",

@@ -97,7 +97,7 @@ namespace Managers
 
         public void OnReset(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (context.performed)
             {
                 DebugLog.Log(LogTag.HighPriority,"Reset Game");
                 SceneManager.LoadScene(0);
@@ -115,7 +115,7 @@ namespace Managers
 
         public void OnSwitchToNextWord(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (context.performed)
             {
                 DebugLog.Log(LogTag.HighPriority,"Switching to next word");
                 if (WordsGameManager.Current != null)
@@ -128,7 +128,7 @@ namespace Managers
 
         public void OnResetPosition(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (context.performed)
             {
                 DebugLog.Log(LogTag.HighPriority,"Resetting Position");
                 FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
