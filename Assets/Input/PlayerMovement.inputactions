@@ -369,7 +369,7 @@
             "bindingGroup": "KBM",
             "devices": [
                 {
-                    "devicePath": "<TrackedDevice>",
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 },

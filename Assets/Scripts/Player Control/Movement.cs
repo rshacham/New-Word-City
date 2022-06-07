@@ -122,12 +122,18 @@ namespace Player_Control
 
         private void OnValidate()
         {
+            ValidateAngle();
+        }
+
+        private void ValidateAngle()
+        {
             var angle = Mathf.Deg2Rad * ((180 - isometricAngle) / 2f);
             _isoVector = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         }
 
         private void Awake()
         {
+            ValidateAngle();
             _playerInput = GetComponent<PlayerInput>();
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();

@@ -56,6 +56,7 @@ namespace Interactable_Objects
 
             _myCollider2D = GetComponent<Collider2D>();
             _myCollider2D.isTrigger = true;
+            ParentCollider = parent.Collider;
         }
 
         // private void OnTriggerEnter2D(Collider2D col)
