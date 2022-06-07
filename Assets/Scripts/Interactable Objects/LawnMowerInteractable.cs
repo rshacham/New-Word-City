@@ -1,5 +1,5 @@
-﻿using System;
-using Avrahamy;
+﻿using Avrahamy;
+using Avrahamy.EditorGadgets;
 using BitStrap;
 using Player_Control;
 using UnityEngine;
@@ -16,6 +16,16 @@ namespace Interactable_Objects
         [TagSelector]
         private string grassTag = "Grass";
 
+        [SerializeField]
+        private bool interactOnTrigger;
+
+        [SerializeField]
+        [ConditionalHide("interactOnTrigger")]
+        [Min(1)]
+        private int triggerCount = 1;
+
+        private int _counter = 0;
+
         public override bool SetInteraction(PlayerInteract other)
         {
             base.SetInteraction(other);
@@ -29,6 +39,15 @@ namespace Interactable_Objects
             {
                 // DebugLog.Log("Grass Cut", col);
                 col.GetComponent<CutGrassInteractable>().TurnOff();
+                if (interactOnTrigger)
+                {
+                    _counter++;
+                    if (_counter == triggerCount)
+                    {
+                        Interact();
+                        _counter = 0;
+                    }
+                }
             }
         }
 
@@ -38,6 +57,7 @@ namespace Interactable_Objects
             {
                 DebugLog.Log("Reached Stopper: ", Color.green, col.collider);
                 Interact();
+                _counter = 0;
             }
         }
 
