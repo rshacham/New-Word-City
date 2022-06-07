@@ -219,6 +219,13 @@ namespace Player_Control
             _desiredVelocity = movementVector * maxSpeed;
         }
 
+
+        private void TeleportToWorld(InputAction.CallbackContext context)
+        {
+            TeleportPlayer(new Vector3(-11.8f, -3.1f, 0));
+            GameManager.Shared.ChangeCamera(1);
+        }
+
         public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed, bool enableMove = true)
         {
             Debug.Log(newPosition);

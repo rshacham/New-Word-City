@@ -55,18 +55,9 @@ namespace Interactable_Objects
             _spaceshipAnimator.SetBool("Close", boolean);
         }
 
-        public void StartResetCoroutine()
+        public void ResetSpaceship()
         {
-            StartCoroutine(ResetSpaceship());
-        }
-
-        public IEnumerator ResetSpaceship()
-        {
-            yield return new WaitForSeconds(resetDelay);
-            gameObject.SetActive(true);
-            transform.position = _originalPosition;
             _spaceshipAnimator.SetBool("Fly", false);
-            // _spaceshipCollider.enabled = true;
         }
         
         #endregion
@@ -74,10 +65,12 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            // _spaceshipCollider.enabled = false;
-            _spaceshipAnimator.SetTrigger("Fly");
+            if (!_spaceshipAnimator.GetBool("Fly"))
+            {
+                _spaceshipAnimator.SetBool("Fly", true);
+                _spaceshipSound.Play();
+            }
         }
-
     }
 }
 

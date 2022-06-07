@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4278235651709509054, guid: 6313cf31adb4e3946b50a4ba18220a4b, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 2b4e85b4299f3104bbb10c3d138809c9, type: 3}
+      objectReference: {fileID: 8300000, guid: ac42982c3b05fdb4eb1d8001341653b3, type: 3}
     - target: {fileID: 8106019310530612017, guid: 6313cf31adb4e3946b50a4ba18220a4b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -237,5 +237,5 @@ MonoBehaviour:
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
   _mySounds:
-  - {fileID: 8300000, guid: 2b4e85b4299f3104bbb10c3d138809c9, type: 3}
+  - {fileID: 8300000, guid: ac42982c3b05fdb4eb1d8001341653b3, type: 3}
   - {fileID: 8300000, guid: 88f475a220350e94db148e19942b352f, type: 3}
