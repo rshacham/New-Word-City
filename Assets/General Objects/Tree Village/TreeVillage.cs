@@ -34,7 +34,6 @@ namespace Interactable_Objects
         [Tooltip("Speed of falling animation")]
         private float fallingSpeed;
 
-
         [SerializeField]
         [Tooltip("New position after climbing up the tree")]
         private Vector3 onTreePosition;
@@ -44,7 +43,7 @@ namespace Interactable_Objects
         private Vector3 offTreePosition;
 
         [SerializeField] 
-        [Tooltip("First clip is for climbing up, second is for going down")]
+        [Tooltip("First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down")]
         private AudioClip[] villageClips;
 
         #endregion
@@ -73,6 +72,7 @@ namespace Interactable_Objects
             {
                 _villageAnimator.SetBool("Open", true);
                 _ladderOpen = true;
+                _villageSound.PlayOneShot(villageClips[0]);
                 return;
             }
 
@@ -80,7 +80,7 @@ namespace Interactable_Objects
             {
                 StartCoroutine(_playerScript.ChangePosition(onTreePosition, climbingSpeed));
                 _onTree = true;
-                _villageSound.PlayOneShot(villageClips[0]);
+                _villageSound.PlayOneShot(villageClips[1]);
                 return;
             }
 
@@ -88,7 +88,7 @@ namespace Interactable_Objects
             if (_onTree && _playerScript.EnableMovement)
             {
                 StartCoroutine(_playerScript.ChangePosition(offTreePosition, fallingSpeed));
-                _villageSound.PlayOneShot(villageClips[1]);
+                _villageSound.PlayOneShot(villageClips[2]);
                 _onTree = false;
             }
         }
