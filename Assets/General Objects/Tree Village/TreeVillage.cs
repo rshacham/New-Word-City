@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Player_Control;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interactable_Objects
 {
@@ -11,6 +12,8 @@ namespace Interactable_Objects
         #region Private Properties
 
         private Animator _villageAnimator;
+
+        private AudioSource _villageSound;
 
         private bool _ladderOpen;
 
@@ -22,9 +25,14 @@ namespace Interactable_Objects
 
         #region Inspector
 
+        [FormerlySerializedAs("animationSpeed")]
         [SerializeField]
-        [Tooltip("Speed of move position animation")]
-        private float animationSpeed;
+        [Tooltip("Speed of climbing animation")]
+        private float climbingSpeed;
+
+        [SerializeField]
+        [Tooltip("Speed of falling animation")]
+        private float fallingSpeed;
 
 
         [SerializeField]
@@ -35,6 +43,10 @@ namespace Interactable_Objects
         [Tooltip("New position after climbing down tree")]
         private Vector3 offTreePosition;
 
+        [SerializeField] 
+        [Tooltip("First clip is for climbing up, second is for going down")]
+        private AudioClip[] villageClips;
+
         #endregion
 
         #region MonoBehaviour
@@ -42,6 +54,7 @@ namespace Interactable_Objects
         void Start()
         {
             _villageAnimator = GetComponentInParent<Animator>();
+            _villageSound = GetComponent<AudioSource>();
             _playerScript = FindObjectOfType<Movement>();
         }
 
@@ -65,15 +78,17 @@ namespace Interactable_Objects
 
             if (!_onTree && _playerScript.EnableMovement)
             {
-                StartCoroutine(_playerScript.ChangePosition(onTreePosition, animationSpeed));
+                StartCoroutine(_playerScript.ChangePosition(onTreePosition, climbingSpeed));
                 _onTree = true;
+                _villageSound.PlayOneShot(villageClips[0]);
                 return;
             }
 
 
             if (_onTree && _playerScript.EnableMovement)
             {
-                StartCoroutine(_playerScript.ChangePosition(offTreePosition, animationSpeed));
+                StartCoroutine(_playerScript.ChangePosition(offTreePosition, fallingSpeed));
+                _villageSound.PlayOneShot(villageClips[1]);
                 _onTree = false;
             }
         }
