@@ -145,9 +145,9 @@ namespace Managers
             Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
         }
 
-        public void EndingCircleMinMax()
+        public void ChangeMinMax(int x, int y)
         {
-            minMaxRadius = new Vector2(2, minMaxRadius.y);
+            minMaxRadius = new Vector2(x, y);
         }
 
         [Button]

@@ -124,16 +124,31 @@ public class GameManager : MonoBehaviour
 
     public void EndScene()
     {
+        _holeManager.ChangeMinMax(2, 30);
+        _holeManager.CloseCircle();
         EndSceneIsOn = true;
         EndScenePlayed = true;
-        _holeManager.EndingCircleMinMax();
-        _holeManager.CloseCircle();
         _playerMovement.EnableMovement = false;
         // CanvasManager.ActiveCanvas.gameObject.SetActive(false);
         // CanvasManager.ActiveCanvas = endingCanvas;
         // CanvasManager.ActiveCanvas.gameObject.SetActive(true);
         //
         endingCanvas.TutorialHolder.TutorialContinue();
+        StartCoroutine(ContinueAfterEndingScene());
+    }
+    
+    public IEnumerator ContinueAfterEndingScene()
+    {
+        while (Tutorial.CurrentTutorial != Tutorial.Instance.TutorialsTexts.Length - 1)
+        {
+            Debug.Log(Tutorial.CurrentTutorial);
+            Debug.Log(Tutorial.Instance.TutorialsTexts.Length);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        EndSceneIsOn = false;
+        _holeManager.ChangeHole = true;
+
     }
 
 
