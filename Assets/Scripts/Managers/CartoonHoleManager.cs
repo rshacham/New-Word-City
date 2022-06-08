@@ -36,6 +36,8 @@ namespace Managers
 
         public int Moving { get; set; }
 
+        public bool ChangeHole { get; set; } = true;
+
         public float Speed
         {
             get => speed;
@@ -50,6 +52,7 @@ namespace Managers
         private Material _sharedMaterial;
         private float _t = 1;
         private float _originalTransitionDuration;
+        private Vector2 _originalMinMaxRadius;
 
         private static readonly int Radius = Shader.PropertyToID("_Radius");
 
@@ -63,6 +66,7 @@ namespace Managers
             _sharedMaterial = _myImage.material;
             _sharedMaterial.SetFloat(Radius, minMaxRadius.y);
             _originalTransitionDuration = transitionDurationTimer.Duration;
+            _originalMinMaxRadius = minMaxRadius;
             WordsGameManager.OnWordSwitch += OnWordSwitch;
         }
 
@@ -79,25 +83,33 @@ namespace Managers
                 return;
             }
 
-            _t += speed * Moving * Time.deltaTime;
-            _t = Mathf.Clamp01(_t);
-            _sharedMaterial.SetFloat(Radius, Mathf.Lerp(minMaxRadius.x, minMaxRadius.y, _t));
+            if (ChangeHole)
+            {
+                _t += speed * Moving * Time.deltaTime;
+                _t = Mathf.Clamp01(_t);
+                _sharedMaterial.SetFloat(Radius, Mathf.Lerp(minMaxRadius.x, minMaxRadius.y, _t));
+            }
+
+
             // DebugLog.Log(_t, this);
             if (_t >= 1)
             {
                 Moving = 0;
+                Debug.Log("Open");
             }
             else if (_t <= 0)
             {
-                if (WordsGameManager.Tutorial)
-                {
-                    // GameManager._shared.ThrowPlayerOnWorld();
-                    // WordsGameManager.Tutorial = false;
-                }
                 OnTransitionEnd(this);
-                // transitionDurationTimer.EndTime = _originalTransitionDuration;
-                transitionDurationTimer.Start();
-                Moving = 0;
+                if (!GameManager.Shared.EndSceneIsOn)
+                {
+                    transitionDurationTimer.Start();
+                    Moving = 0; 
+                }
+
+                else
+                {
+                    ChangeHole = false;
+                }
             }
         }
 
@@ -112,8 +124,12 @@ namespace Managers
                 WordsGameManager.Tutorial = false;
                 return;
             }
-            transitionDurationTimer.Clear();
-            Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
+
+            if (WordsGameManager.Instance.CurrentIndex != WordsGameManager.Instance.words.Count - 1)
+            {
+                transitionDurationTimer.Clear();
+                Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
+            }
             // _sharedMaterial.SetFloat("_StartTime", Time.time);
             // _sharedMaterial.SetInt("_Open", (_moving + 1) / 2);
         }
@@ -127,7 +143,11 @@ namespace Managers
             transitionDurationTimer.Clear();
             // transitionDurationTimer.EndTime = duration;
             Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
-        
+        }
+
+        public void EndingCircleMinMax()
+        {
+            minMaxRadius = new Vector2(2, minMaxRadius.y);
         }
 
         [Button]

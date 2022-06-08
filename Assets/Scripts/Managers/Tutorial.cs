@@ -169,6 +169,13 @@ namespace Managers
                 letterCount = _tutorialString.Length;
                 return;
             }
+            
+            if (WordsGameManager.Instance.CurrentIndex == WordsGameManager.Instance.words.Count - 1 &&
+                !GameManager.Shared.EndScenePlayed)
+            {
+                GameManager.Shared.EndScene();
+                return;
+            }
 
             if (_currentTutorial > TutorialsTexts.Length)
             {
@@ -222,6 +229,20 @@ namespace Managers
                 StartCoroutine(WriteLetters());
             }
         }
+
+        public void LastTutorialContinue()
+        {
+            if (_isWriting)
+            {
+                letterCount = _tutorialString.Length;
+                return;
+            }
+            
+            
+            
+            
+        }
+
 
         #endregion
 

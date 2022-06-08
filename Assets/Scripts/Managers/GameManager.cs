@@ -4,6 +4,8 @@ using Cinemachine;
 using Interactable_Objects;
 using Managers;
 using Player_Control;
+using UI;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,8 +37,12 @@ public class GameManager : MonoBehaviour
     [Tooltip("First is the tutorial ending position." +
              "Second is the new world starting position. Third is added on awake, and is the player transform. ")]
     Transform[] transformsForCamera;
-    
-    
+
+
+    [FormerlySerializedAs("endingScene")] [SerializeField] [Tooltip("Ending Canvas")]
+    private Pokedex endingCanvas;
+
+
     #endregion
     
     #region Private Fields
@@ -48,7 +54,21 @@ public class GameManager : MonoBehaviour
     private CartoonHoleManager _holeManager;
 
 
+
+    #endregion
     
+    #region Public Fields
+
+    public bool EndScenePlayed { get; set; } = false;
+
+    public bool EndSceneIsOn { get; set; } = false;
+
+    public Pokedex EndingCanvas
+    {
+        get => endingCanvas;
+        set => endingCanvas = value;
+    }
+
     #endregion
     private void Awake()
     {
@@ -99,6 +119,21 @@ public class GameManager : MonoBehaviour
         var trampolina = FindObjectOfType<Trampolina>();
         trampolina.UseOnEnd = true;
         trampolina.Interact();
+    }
+
+
+    public void EndScene()
+    {
+        EndSceneIsOn = true;
+        EndScenePlayed = true;
+        _holeManager.EndingCircleMinMax();
+        _holeManager.CloseCircle();
+        _playerMovement.EnableMovement = false;
+        // CanvasManager.ActiveCanvas.gameObject.SetActive(false);
+        // CanvasManager.ActiveCanvas = endingCanvas;
+        // CanvasManager.ActiveCanvas.gameObject.SetActive(true);
+        //
+        endingCanvas.TutorialHolder.TutorialContinue();
     }
 
 
