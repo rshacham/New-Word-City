@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lamp
+  m_Controller: {fileID: 9100000, guid: be956ff5cd4e69e449bf51cc1a53ff27, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4266c734bd22f64498ded55016490bde, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b669e76f44f4f1e42a4d66f17093aaaf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7af8213bb36f32842a6062c3cfe505f0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 617244a94956627409cbc53a44bedaa6, type: 2}

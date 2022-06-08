@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 6602966838755796383, guid: c42c78e9265ba514da00f7bc436d7115, type: 3}
     - target: {fileID: 8437556011931967289, guid: f60f6b055ea5e8f4bbb720e9b7a16f4c, type: 3}
       propertyPath: m_Name
-      value: Cow
+      value: Cow 1
       objectReference: {fileID: 0}
     - target: {fileID: 8437556012229905646, guid: f60f6b055ea5e8f4bbb720e9b7a16f4c, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y

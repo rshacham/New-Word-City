@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cf5b3970f714772b0951fe99345d7b, type: 3}
+  m_Name: Slaps
+  m_EditorClassIdentifier: 
+  nameInSerialization: Slaps
+  entries:
+  - value: {fileID: 11400000, guid: ec09dafd9dd38634088170b38831d309, type: 2}
+    chance: 1
+  - value: {fileID: 11400000, guid: 9d07267831eec7943977ba1b76c1adff, type: 2}
+    chance: 1
