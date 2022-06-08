@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -17,26 +18,26 @@ namespace Interactable_Objects
         private PolygonCollider2D _spaceshipCollider;
 
         #endregion
-        
+
         #region Inspector
-        
-        [SerializeField] 
+
+        [SerializeField]
         [Tooltip("Speed of spaceship ")]
         private float spaceshipSpeed;
-        
-        [SerializeField] 
+
+        [SerializeField]
         [Tooltip("Acceleration of spaceship ")]
         private Vector3 spaceshipAcceleration;
-        
-        [SerializeField] 
+
+        [SerializeField]
         [Tooltip("How much offset should the spaceship have")]
         private float yOffset;
-        
+
         [SerializeField]
         [Tooltip("How much delay till spaceship appears again")]
         private float resetDelay;
+        private SpriteRenderer _mySpriteRenderer;
 
-        
         #endregion
 
 
@@ -48,6 +49,7 @@ namespace Interactable_Objects
             _spaceshipSound = GetComponent<AudioSource>();
             _spaceshipCollider = GetComponentInChildren<PolygonCollider2D>();
             _originalPosition = transform.position;
+            _mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void CloseToSpaceship(bool boolean)
@@ -59,7 +61,13 @@ namespace Interactable_Objects
         {
             _spaceshipAnimator.SetBool("Fly", false);
         }
-        
+
+        public void Land()
+        {
+            _mySpriteRenderer.sortingLayerID = 0;
+
+        }
+
         #endregion
 
 
@@ -67,11 +75,10 @@ namespace Interactable_Objects
         {
             if (!_spaceshipAnimator.GetBool("Fly"))
             {
+                _mySpriteRenderer.sortingLayerID = SortingLayer.NameToID("Flying things");
                 _spaceshipAnimator.SetBool("Fly", true);
                 _spaceshipSound.Play();
             }
         }
     }
 }
-
-
