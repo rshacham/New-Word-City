@@ -140,6 +140,7 @@ namespace Managers
                 FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
                 GameManager.Shared.ChangeCamera(1);
                 GameManager.Shared.ChangeFollowPlayer(2);
+                StaticEventsGameManager.OnPlayerShouldInteract(this, true);
             }
         }
 
