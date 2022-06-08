@@ -1,6 +1,7 @@
 ﻿using System;
 using Avrahamy;
 using BitStrap;
+using Managers;
 using Player_Control;
 using UnityEngine;
 
@@ -56,6 +57,7 @@ namespace Interactable_Objects
         private TaxiState _waitForPlayer = TaxiState.Hold;
         private Animator _playerAnimator;
         private Animator _myAnimator;
+        private CartoonHoleManager _holeManager;
 
         #endregion
 
@@ -64,6 +66,7 @@ namespace Interactable_Objects
         protected override void Awake()
         {
             _myAnimator = GetComponent<Animator>();
+            _holeManager = FindObjectOfType<CartoonHoleManager>();
             base.Awake();
         }
 
@@ -76,6 +79,8 @@ namespace Interactable_Objects
             {
                 case TaxiState.Hold:
                     UseOnEnd = false;
+                    _holeManager.ChangeMinMax(0, 70);
+                    _holeManager.Moving = 1;
                     DebugLog.Log("<color=yellow>Taxi Enter</color>", this);
                     _waitForPlayer = TaxiState.Wait;
                     _playerAnimator = Player.GetComponent<Animator>();
@@ -93,6 +98,7 @@ namespace Interactable_Objects
                     taxiExit.Set(_playerAnimator);
                     break;
                 case TaxiState.Stop:
+                    _holeManager.ChangeMinMax(0, 30);
                     UseOnEnd = true;
                     DebugLog.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
