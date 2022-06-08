@@ -149,7 +149,10 @@ namespace Managers
             if (Words[newWord].WordComplete || Completed.Contains(Words[newWord]))
             {
                 MeaningFoundCount = 0; // TODO: not required?
-                OnWordSwitch?.Invoke(Current, null);
+                if (Current != null)
+                {
+                    OnWordSwitch?.Invoke(Current, null);
+                }
                 Current = null;
                 DebugLog.Log("No More Words", Color.red); // TODO:?
                 return;
