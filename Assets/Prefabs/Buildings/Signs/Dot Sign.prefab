@@ -10,58 +10,58 @@ PrefabInstance:
     - target: {fileID: 7387359391921320874, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3422473521582967924, guid: 6a143c3490b00491987637942819a5f2, type: 3}
+      objectReference: {fileID: 6162462793446101290, guid: 88f1e362baf69490794ba40c831a45d6, type: 3}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.32
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.71
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 4.33
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -1.355
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: -0.0055999756
+      value: -0.06839996
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -0.745
+      value: -0.96999997
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 0.2944
+      value: 0.18160003
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 1.3339474
+      value: 1.29
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.03454703
+      value: 0.13160004
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 1.355
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -1.1256
+      value: -1.1883999
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: 1.015
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 7387359391921320885, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -1.3856
+      value: -1.4383999
       objectReference: {fileID: 0}
     - target: {fileID: 7387359392218996834, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Name
@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 7387359392218996845, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3422473521582967924, guid: 6a143c3490b00491987637942819a5f2, type: 3}
+      objectReference: {fileID: 6162462793446101290, guid: 88f1e362baf69490794ba40c831a45d6, type: 3}
     - target: {fileID: 7387359392218996846, guid: 23985e17b9f22d84e9715feb6d132146, type: 3}
       propertyPath: m_RootOrder
       value: 0

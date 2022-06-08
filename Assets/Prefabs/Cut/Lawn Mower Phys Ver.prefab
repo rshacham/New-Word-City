@@ -288,6 +288,8 @@ MonoBehaviour:
   stayHighlightAfterInteract: 1
   stopperTag: Interactable Trigger
   grassTag: Grass
+  interactOnTrigger: 0
+  triggerCount: 1
 --- !u!50 &5844538880974835150
 Rigidbody2D:
   serializedVersion: 4
@@ -370,7 +372,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0cbb7e767e32f1e41aa0f9700ee36a8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2401470f342724e63bc9dac53c5f6fa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -397,7 +399,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.54}
+    pivot: {x: 0.5, y: 0.53}
     oldSize: {x: 4.05, y: 3.59}
     newSize: {x: 4.05, y: 3.59}
     adaptiveTilingThreshold: 0.5
@@ -406,11 +408,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.2300638, y: -0.14669946}
-      - {x: -0.445, y: 0.4714}
-      - {x: 1.035, y: 0.021399993}
-      - {x: 1.5849999, y: -0.5486}
-      - {x: 0.024999999, y: -1.3486}
+    - - {x: -0.53499997, y: -1.0826999}
+      - {x: -1.285, y: 0.0073001096}
+      - {x: -0.49499997, y: 0.4573001}
+      - {x: 1.035, y: 0.0073001096}
+      - {x: 1.5849999, y: -0.5326999}
+      - {x: 0.005, y: -1.2826998}
 --- !u!1 &8535967555280970807
 GameObject:
   m_ObjectHideFlags: 0
