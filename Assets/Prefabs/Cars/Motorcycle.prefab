@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7092860138220397470, guid: 6313cf31adb4e3946b50a4ba18220a4b, type: 3}
+      propertyPath: highlightInteract
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8106019310530612017, guid: 6313cf31adb4e3946b50a4ba18220a4b, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -35,7 +35,7 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            if (_mySource.isPlaying)
+            if (_mySource.isPlaying || clips.Count == 0)
             {
                 return;
             }
