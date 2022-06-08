@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
         EndSceneIsOn = true;
         EndScenePlayed = true;
         _playerMovement.EnableMovement = false;
+        _playerMovement.DesiredVelocity = Vector2.zero;
+        _playerMovement.GetComponent<Animator>().SetBool("Dance", true);
         // CanvasManager.ActiveCanvas.gameObject.SetActive(false);
         // CanvasManager.ActiveCanvas = endingCanvas;
         // CanvasManager.ActiveCanvas.gameObject.SetActive(true);
@@ -145,7 +147,8 @@ public class GameManager : MonoBehaviour
             Debug.Log(Tutorial.Instance.TutorialsTexts.Length);
             yield return new WaitForSeconds(0.2f);
         }
-
+        
+        _playerMovement.GetComponent<Animator>().SetBool("Dance", false);
         EndSceneIsOn = false;
         _holeManager.ChangeHole = true;
 
