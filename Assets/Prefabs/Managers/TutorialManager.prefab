@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObjectPrefab: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
   poolSize: 3
-  increaseBy: 0
+  increaseBy: 1
   returnAllWhenDisabled: 0
 --- !u!1 &5973284535904468840
 GameObject:
@@ -198,7 +198,6 @@ MonoBehaviour:
     kbm:
       interact: {fileID: 21300000, guid: bc6263226f7d4b54a98803711628ec4a, type: 3}
       secondaryInteract: {fileID: 21300000, guid: 8d8f7d5f5bd554fa889dfedbd6d7e5ab, type: 3}
-    tutorialSprite: {fileID: 4564665217876391057, guid: e2763e030279d60488304f5e8795608d, type: 3}
     pool: {fileID: 2978130102911533053}
   tutorialsTexts:
   - 'Welcome to *OUR GAME*! '

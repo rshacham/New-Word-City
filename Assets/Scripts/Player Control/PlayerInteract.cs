@@ -116,14 +116,23 @@ namespace Player_Control
         // TODO: move to private methods region
         private void CollisionHighlighter(Collider2D col)
         {
-            if (_currentActive != null || !IsActive)
+            if (!IsActive) // _currentActive != null || 
             {
                 return;
             }
 
             var interactable = col.gameObject.GetComponentInParent<InteractableObject>();
+            if (interactable == _currentActive)
+            {
+                return;
+            }
             if (interactable.SetInteraction(this))
             {
+                if (_currentActive != null)
+                {
+                    UnHighlighterFromObject(_currentActive);
+                }
+
                 // TODO: highlight interact objects should be ignored! require moving the property to base class
                 if (_firstInteraction && !interactable.HighlightInteract)
                 {
@@ -165,6 +174,11 @@ namespace Player_Control
         private void CollisionUnHighlighter(Collider2D other)
         {
             var interactable = other.gameObject.GetComponentInParent<InteractableObject>();
+            UnHighlighterFromObject(interactable);
+        }
+
+        private void UnHighlighterFromObject(InteractableObject interactable)
+        {
             if (interactable == _currentActive)
             {
                 if (_firstInteraction && !interactable.HighlightInteract)
@@ -172,8 +186,7 @@ namespace Player_Control
                     UnShowInteractionKey(_currentActive);
                 }
 
-                //TODO: Duplicated
-                // Debug.Log("<color=cyan>UnHighlight</color>", other);
+                Debug.Log("<color=cyan>UnHighlight</color>", interactable);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
             }
