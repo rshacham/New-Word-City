@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: m_Size.x
+      value: 8.251164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: m_Size.y
+      value: 3.5661216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.14275551
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.2830608
+      objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028035, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028047, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Name
-      value: Tall Building Base
+      value: Tall With Sign Infront
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa5a18e0249325348a29049b067d76a0, type: 3}

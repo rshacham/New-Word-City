@@ -186,7 +186,7 @@ namespace Player_Control
                     UnShowInteractionKey(_currentActive);
                 }
 
-                Debug.Log("<color=cyan>UnHighlight</color>", interactable);
+                // Debug.Log("<color=cyan>UnHighlight</color>", interactable);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
             }
