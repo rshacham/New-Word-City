@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bus Move
+  m_Controller: {fileID: 9100000, guid: 4b1ce85acbe7c3442a3eae9ec3657775, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f1bdae7348afaa6468d0bcec54b370b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bd1a2c4d39090ec4b95255ac3311d9be, type: 2}
