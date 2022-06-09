@@ -10,7 +10,7 @@ public class JumpingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _dropTree = GetComponent<DropFromTree>();
+        _dropTree = GetComponentInParent<DropFromTree>();
     }
 
     // Update is called once per frame
