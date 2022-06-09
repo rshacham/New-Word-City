@@ -14,6 +14,10 @@ namespace Interactable_Objects
         [SerializeField] 
         private Transform movingObject;
         
+        [SerializeField]
+        private BoxCollider2D _playerCollider;
+
+        
         #endregion
         
         
@@ -22,9 +26,12 @@ namespace Interactable_Objects
 
         private TreeVillage _myTree;
 
+        private AudioSource _audioSource;
+
         private Movement _playerMovement;
 
         private Vector2 _originalMovingPosition;
+
 
         #endregion
         
@@ -34,6 +41,7 @@ namespace Interactable_Objects
             _myTree = GetComponentInParent<TreeVillage>();
             _playerMovement = FindObjectOfType<Movement>();
             _originalMovingPosition = movingObject.position;
+            _audioSource = GetComponent<AudioSource>();
         }
 
         protected override void ScriptInteract()
@@ -41,7 +49,10 @@ namespace Interactable_Objects
             _myTree.ONTree = false;
             _playerMovement.EnableMovement = false;
             _playerMovement.transform.parent = movingObject;
+            _playerCollider.isTrigger = true;
             movingObject.GetComponent<Animator>().SetTrigger("Jump");
+            _playerMovement.gameObject.GetComponent<Animator>().SetTrigger("Jump");
+            _audioSource.Play();
         }
 
 
@@ -50,6 +61,9 @@ namespace Interactable_Objects
             _playerMovement.transform.parent = null;
             movingObject.position = _originalMovingPosition;
             _playerMovement.EnableMovement = true;
+            _playerCollider.isTrigger = false;
+            
+
         }
 
         

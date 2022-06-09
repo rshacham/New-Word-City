@@ -236,6 +236,15 @@ MonoBehaviour:
           m_CallState: 2
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  _mySounds:
+  mySounds:
   - {fileID: 8300000, guid: ac42982c3b05fdb4eb1d8001341653b3, type: 3}
   - {fileID: 8300000, guid: 88f475a220350e94db148e19942b352f, type: 3}
+  highlightParam:
+    name: 
+    index: -1
+  throwParam:
+    name: 
+    index: -1
+  mySoundsAgain:
+    fallSound: {fileID: 0}
+    buzzSound: {fileID: 0}
