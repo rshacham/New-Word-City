@@ -27,6 +27,9 @@ namespace Interactable_Objects
         [AnimatorField("_myAnimator")]
         private TriggerAnimationParameter interactTrigger;
 
+        [SerializeField]
+        private string interactionAnimationName = "Interact";
+
         #endregion
 
         #region Private Fields
@@ -72,7 +75,7 @@ namespace Interactable_Objects
                     UseOnEnd = false;
                     _count = 1;
                     _clip = clips.ChooseRandomWithChancesC();
-                    _animatorOverrideController["Interact"] = _clip;
+                    _animatorOverrideController[interactionAnimationName] = _clip;
                     _myAnimator.SetTrigger(InteractTrigger);
                     interactTrigger.Set(_myAnimator);
                     soundClip.Play(_myAudioSource);
