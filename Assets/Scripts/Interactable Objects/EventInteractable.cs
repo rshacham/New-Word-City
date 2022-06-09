@@ -41,12 +41,17 @@ namespace Interactable_Objects
             CanInteract = startInteractable;
             Strategy = () =>
             {
-                ScriptInteract();
+                if (useScriptedInteraction)
+                {
+                    ScriptInteract();
+                }
+
                 interactionEvents.onInteraction.Invoke(this);
                 CanInteract = interactMultipleTimes;
                 return stayHighlightAfterInteract;
             };
-            OnInteractionEnd += (sender, interactable) => interactionEvents.onInteractionEnd.Invoke(interactable);
+            OnInteractionEnd += (sender, interactable) =>
+                interactionEvents.onInteractionEnd.Invoke(interactable);
         }
 
         #endregion
