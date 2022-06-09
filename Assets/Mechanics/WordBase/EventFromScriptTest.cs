@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Avrahamy;
 using Interactable_Objects;
 using Managers;
 using UnityEngine;
@@ -57,7 +58,7 @@ namespace Mechanics.WordBase
         public static void DisplayAllCompleted()
         {
             var words = WordsGameManager.Completed.Aggregate("", (current, word) => current + $"{word}, ");
-            Debug.Log(words);
+            DebugLog.Log(words);
         }
 
         #endregion

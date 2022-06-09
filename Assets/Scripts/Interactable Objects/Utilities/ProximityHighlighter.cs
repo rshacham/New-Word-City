@@ -63,7 +63,7 @@ namespace Interactable_Objects
         // {
         //     if (col.CompareTag("Player"))
         //     {
-        //         Debug.Log("Should Highlight", parent);
+        //         DebugLog.Log("Should Highlight", parent);
         //     }
         // }
         //
@@ -71,7 +71,7 @@ namespace Interactable_Objects
         // {
         //     if (other.CompareTag("Player"))
         //     {
-        //         Debug.Log("Should UnHighlight", parent);
+        //         DebugLog.Log("Should UnHighlight", parent);
         //     }
         // }
 

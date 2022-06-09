@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avrahamy;
 using Interactable_Objects;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -111,7 +112,7 @@ namespace Managers
                 return;
             }
 
-            Debug.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
+            DebugLog.Log($"<color=magenta>Meaning Found: </color> {meaning}", e);
             // meaningGameObject.FoundMeaning(this, e); // TODO: remove this call
             UnRegisterMeaning();
             Found = true;

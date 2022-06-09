@@ -58,7 +58,7 @@ namespace Managers
                 {
                     Current.WordComplete = true;
                     Completed.Add(Current);
-                    Debug.Log($"<color=blue>{Current}</color>: All Meanings Found!");
+                    DebugLog.Log($"<color=blue>{Current}</color>: All Meanings Found!");
                     // SwitchToNextAvailableWord(); // TODO: switch after pokedex!
                 }
             }

@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: interactableType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3894987031374954614, guid: 2c3e50ef88b725b4bbc9d3b25fe8cdcb, type: 3}
+      propertyPath: soundDelay.duration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5946737757358128150, guid: 2c3e50ef88b725b4bbc9d3b25fe8cdcb, type: 3}
       propertyPath: m_audioClip
       value: 

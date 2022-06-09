@@ -202,7 +202,7 @@ namespace Player_Control
                     UnShowInteractionKey(_currentActive);
                 }
 
-                // Debug.Log("<color=cyan>UnHighlight</color>", interactable);
+                // DebugLog.Log("<color=cyan>UnHighlight</color>", interactable);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
                 _getInteraction = true;
@@ -287,7 +287,7 @@ namespace Player_Control
                     _currentActive = null;
                 }
 
-                Debug.Log(
+                DebugLog.Log(
                     $"<color=green>Player Interaction:</color> Click too far.\nposition={mousePos}{(hit ? $"\tHit {hit.collider.name}" : "")}",
                     hit ? hit.collider.gameObject : gameObject
                 );

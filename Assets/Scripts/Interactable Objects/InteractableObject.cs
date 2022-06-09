@@ -170,7 +170,7 @@ namespace Interactable_Objects
             }
 
             _wordActive = !_wordActive;
-            // Debug.Log($"<color=white>{_wordActive ? "Interactable Active" : "Interactable disabled"}</color>", gameObject);
+            // DebugLog.Log($"<color=white>{_wordActive ? "Interactable Active" : "Interactable disabled"}</color>", gameObject);
             InformChain?.Invoke(this, EventArgs.Empty);
         }
 

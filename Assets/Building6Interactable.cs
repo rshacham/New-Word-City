@@ -6,28 +6,25 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class Building6 : EventInteractable
+    public class Building6Interactable : EventInteractable
     {
         #region Private Fields
 
         private Animator _myAnimator;
 
         #endregion
-        
-        
+
+
         #region MonoBehaviour
 
         void Start()
         {
             _myAnimator = GetComponent<Animator>();
         }
-        
-        
-        
+
         #endregion
-        
-        
-        
+
+
         #region Event Interactable
 
         protected override void ScriptInteract()
@@ -41,10 +38,9 @@ namespace Interactable_Objects
             int a = Random.Range(1, 5);
             Debug.Log(a);
             _myAnimator.SetBool("On", true);
-            _myAnimator.SetInteger("Animation", Random.Range(1,5));
+            _myAnimator.SetInteger("Animation", Random.Range(1, 5));
         }
 
-        
         #endregion
     }
 }

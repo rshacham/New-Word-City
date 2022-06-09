@@ -1,4 +1,5 @@
 using System.Collections;
+using Avrahamy;
 using Cinemachine;
 using Interactable_Objects;
 using Player_Control;
@@ -99,7 +100,7 @@ namespace Managers
             _playerMovement.GetComponent<SpriteRenderer>().enabled = false;
             _playerMovement.EnableMovement = false;
             _playerMovement.TeleportPlayer(transformsForCamera[0].position);
-            Debug.Log("player on trampoline");
+            DebugLog.Log("player on trampoline");
             _holeManager.CloseCircle();
             yield return new WaitForSeconds(2.5f);
             _playerMovement.TeleportPlayer(worldPosition);
@@ -144,8 +145,8 @@ namespace Managers
         {
             while (Tutorial.CurrentTutorial != Tutorial.Instance.TutorialsTexts.Length - 1)
             {
-                Debug.Log(Tutorial.CurrentTutorial);
-                Debug.Log(Tutorial.Instance.TutorialsTexts.Length);
+                DebugLog.Log(Tutorial.CurrentTutorial);
+                DebugLog.Log(Tutorial.Instance.TutorialsTexts.Length);
                 yield return new WaitForSeconds(0.2f);
             }
         
