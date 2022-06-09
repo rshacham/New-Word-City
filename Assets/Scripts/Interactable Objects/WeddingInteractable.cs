@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Avrahamy;
 using Avrahamy.Audio;
 using Avrahamy.EditorGadgets;
@@ -19,10 +20,14 @@ namespace Interactable_Objects
         private AudioEvent weddingSound;
 
         [SerializeField]
+        private BoolAnimationParameter boolParameter;
+        
+        [SerializeField]       
         private PassiveTimer weddingTimer;
 
         [SerializeField]
-        private BoolAnimationParameter boolParameter;
+        [Tooltip("Delay till the wedding sound clip begins")]
+        private float soundDelay;
 
         #endregion
 
@@ -48,6 +53,7 @@ namespace Interactable_Objects
 
         protected override void Awake()
         {
+            weddingTimer.Duration = 5f;
             CelebrateWedding += GuestCelebrateWedding;
             if (interactableType == WeddingType.Guest)
             {
@@ -59,6 +65,13 @@ namespace Interactable_Objects
             base.Awake();
         }
 
+
+        IEnumerator _delayClip()
+        {
+            yield return new WaitForSeconds(soundDelay);
+            _audioSource.Play();
+        }
+
         private void GuestCelebrateWedding(object sender, bool e)
         {
             boolParameter.Set(_animator, e);
@@ -66,14 +79,15 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            if (interactableType != WeddingType.Couple)
+            if (interactableType != WeddingType.Couple || _audioSource.isPlaying)
             {
                 return;
             }
 
+            weddingTimer.Duration = _audioSource.clip.length;
             weddingTimer.Start();
             OnCelebrateWedding(this, true);
-            weddingSound.Play(_audioSource);
+            StartCoroutine(_delayClip());
         }
 
         protected void Update()
@@ -87,6 +101,8 @@ namespace Interactable_Objects
 
         #endregion
     }
+    
+    
 
     public enum WeddingType
     {
