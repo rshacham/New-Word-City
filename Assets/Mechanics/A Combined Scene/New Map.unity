@@ -10369,7 +10369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -167.71414, y: 6.1139965, z: -10}
+  m_LocalPosition: {x: -174.20209, y: 6.153288, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31694,6 +31694,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296403898701975000, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34e82be4f92c645ba89d130fce5b4486, type: 3}
     - target: {fileID: 1296403898701975001, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -31752,7 +31756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1296403898701975006, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
       propertyPath: m_Name
-      value: Airplane (1)
+      value: Jam Airplane
       objectReference: {fileID: 0}
     - target: {fileID: 4280344740365057177, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
       propertyPath: airplaneAnimation
@@ -34817,6 +34821,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296403898701975000, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b71cd098370257b419a9ebb73e13f848, type: 3}
     - target: {fileID: 1296403898701975001, guid: b0dad8d9f3e87f241b8d213061c01a3f, type: 3}
       propertyPath: m_RootOrder
       value: 2

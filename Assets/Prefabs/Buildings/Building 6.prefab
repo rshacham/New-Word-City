@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 7106789864987092380, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106789865815028032, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028032, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -187,5 +195,68 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: -0.022122497
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8120228241601845740, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+--- !u!1 &6268994773216723593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7106789865815028047, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+  m_PrefabInstance: {fileID: 3773895759848354758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6268994773998884445 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+  m_PrefabInstance: {fileID: 3773895759848354758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &870259074486284492
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268994773216723593}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9517491882ca1884787e5da9707e7aa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1752044964752207555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268994773216723593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6231621960ed77a4480596d2098a53da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
+  myCollider: {fileID: 6268994773998884445}
+  startInteractable: 1
+  interactMultipleTimes: 1
+  highlightInteract: 0
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1
