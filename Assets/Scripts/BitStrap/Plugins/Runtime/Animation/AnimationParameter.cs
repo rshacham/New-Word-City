@@ -23,5 +23,14 @@ namespace BitStrap
 				return index;
 			}
 		}
+
+		#region Nemesh Added For Funzzies
+
+		public static implicit operator int(AnimationParameter t)
+		{
+			return t.Index;
+		}
+
+		#endregion
 	}
 }

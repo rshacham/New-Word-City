@@ -18,7 +18,7 @@ namespace Interactable_Objects
         [SerializeField]
         [Tooltip("Does this interactable use animation set in this script?")]
         private bool animated;
-        
+
         [Space]
         [SerializeField]
         [ConditionalHide("animated")]
@@ -48,8 +48,11 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            interactTrigger.Set(_myAnimatorPaired);
-            DebugLog.Log("hey");
+            if (animated)
+            {
+                interactTrigger.Set(_myAnimatorPaired);
+            }
+            // DebugLog.Log("hey");
         }
 
         #endregion

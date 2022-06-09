@@ -9,20 +9,6 @@ namespace Interactable_Objects
 {
     public class TreeVillage : EventInteractable
     {
-        #region Private Properties
-
-        private Animator _villageAnimator;
-
-        private AudioSource _villageSound;
-
-        private bool _ladderOpen;
-
-        private Movement _playerScript;
-
-        private bool _onTree = false;
-
-        #endregion
-
         #region Inspector
 
         [FormerlySerializedAs("animationSpeed")]
@@ -48,6 +34,20 @@ namespace Interactable_Objects
 
         #endregion
 
+        #region Private Properties
+
+        private Animator _villageAnimator;
+
+        private AudioSource _villageSound;
+
+        private bool _ladderOpen;
+
+        private Movement _playerScript;
+
+        private bool _onTree = false;
+
+        #endregion
+
         #region MonoBehaviour
 
         void Start()
@@ -57,13 +57,17 @@ namespace Interactable_Objects
             _playerScript = FindObjectOfType<Movement>();
         }
 
+        #endregion
+
+        #region Public Methods
+
         public void CloseToVillage(bool boolean)
         {
             _villageAnimator.SetBool("Semi", boolean);
         }
 
         #endregion
-
+        
         #region EventInteractable
 
         protected override void ScriptInteract()

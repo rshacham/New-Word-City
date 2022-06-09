@@ -11,18 +11,24 @@ namespace Managers
         #region Inspector
 
         [SerializeField]
+        [Tooltip("Speed the hole closes")]
         private float speed = 1f;
 
         [SerializeField]
+        [Tooltip("Min/Max hole radius")]
         private Vector2 minMaxRadius = new Vector2(2, 50);
 
         [SerializeField]
+        [Tooltip("The time the hole stays close")]
         private PassiveTimer transitionDurationTimer;
         
         #endregion
 
         #region Static Events
 
+        /// <summary>
+        /// Event called when the hole opens
+        /// </summary>
         public static event EventHandler<CartoonHoleManager> TransitionEnd;
 
         private static void OnTransitionEnd(CartoonHoleManager e)
@@ -34,9 +40,12 @@ namespace Managers
 
         #region Public Properties
 
+        /// <summary>
+        /// Indicate the current state of the hole
+        /// </summary>
         public int Moving { get; set; }
-
-        public bool ChangeHole { get; set; } = true;
+        
+        public bool ChangeHole { get; set; } = true; // TODO: if i understand this, this can be swapped to clearing the timer?
 
         public float Speed
         {
@@ -147,7 +156,7 @@ namespace Managers
 
         public void ChangeMinMax(int x, int y)
         {
-            minMaxRadius = new Vector2(x, y);
+            minMaxRadius.Set(x, y);
         }
 
         [Button]

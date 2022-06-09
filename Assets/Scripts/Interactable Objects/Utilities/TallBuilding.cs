@@ -33,6 +33,7 @@ namespace Interactable_Objects
 
         [SerializeField]
         [TagSelector]
+        [Tooltip("The tag used by the player")]
         private string playerTag = "Player";
 
         #endregion

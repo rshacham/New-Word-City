@@ -14,6 +14,7 @@ namespace Interactable_Objects
         #region Inspector
 
         [SerializeField]
+        [Tooltip("The type this object is: Couple controls all the rest")]
         private WeddingType interactableType;
 
         [SerializeField]
@@ -21,6 +22,7 @@ namespace Interactable_Objects
         private SimpleAudioEvent weddingSound;
 
         [SerializeField]
+        [Tooltip("The boolean parameter that controls the animation")]
         private BoolAnimationParameter boolParameter;
         
         [SerializeField]
@@ -28,7 +30,7 @@ namespace Interactable_Objects
         private PassiveTimer weddingTimer = new PassiveTimer();
 
         [SerializeField]
-        [Tooltip("Delay till the wedding sound clip begins")]
+        [Tooltip("Delay till the wedding sound clip begins. Only the Couple has any control over this")]
         private PassiveTimer soundDelay;
 
         #endregion
