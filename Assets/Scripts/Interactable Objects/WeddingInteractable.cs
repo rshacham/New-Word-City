@@ -17,7 +17,8 @@ namespace Interactable_Objects
         private WeddingType interactableType;
 
         [SerializeField]
-        private AudioEvent weddingSound;
+        [HideInInspector]
+        private SimpleAudioEvent weddingSound;
 
         [SerializeField]
         private BoolAnimationParameter boolParameter;
@@ -89,11 +90,9 @@ namespace Interactable_Objects
                 return;
             }
 
-            // weddingTimer.Duration = _audioSource.clip.length;
-            weddingTimer.Start(_audioSource.clip.length);
+            weddingTimer.Start();
             soundDelay.Start();
             OnCelebrateWedding(this, true);
-            // StartCoroutine(_delayClip());
         }
 
         protected void Update()
