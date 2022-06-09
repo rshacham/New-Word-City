@@ -186,7 +186,8 @@ namespace Player_Control
                 _playerRigidBody.velocity = _desiredVelocity;
             }
 
-            peepingMat.SetVector(PlayerPos, _playerRigidBody.position);
+            Vector4 _myPosition = _playerRigidBody.position;
+            peepingMat.SetVector(PlayerPos, new Vector3(_myPosition.x, _myPosition.y + 0.6f, _myPosition.z));
         }
 
         #endregion

@@ -90,13 +90,13 @@ namespace Managers
                 _sharedMaterial.SetFloat(Radius, Mathf.Lerp(minMaxRadius.x, minMaxRadius.y, _t));
             }
 
-
             // DebugLog.Log(_t, this);
             if (_t >= 1)
             {
                 Moving = 0;
                 Debug.Log("Open");
             }
+            
             else if (_t <= 0)
             {
                 OnTransitionEnd(this);
