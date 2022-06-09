@@ -145,7 +145,7 @@ public class QuestionMarksMaker : MonoBehaviour
     {
         if (NextQuestionMark == questionMarksList.Count)
         {
-            Debug.Log("You achieved all trophies!");
+            DebugLog.Log("You achieved all trophies!");
             return;
         }
         GameObject newObject = Instantiate(achievementObject, _achievementsHolder.transform, false);

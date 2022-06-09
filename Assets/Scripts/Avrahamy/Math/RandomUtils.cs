@@ -109,6 +109,15 @@ namespace Avrahamy.Math {
         public class ValueWithChance<T> {
             public T value;
             public float chance;
+            
+            public static implicit operator T(ValueWithChance<T> t)
+            {
+                return t.value;
+            }
+            public static implicit operator ValueWithChance<T>(T t)
+            {
+                return new ValueWithChance<T>{chance = 1, value = t};
+            }
         }
 
         [System.Serializable]

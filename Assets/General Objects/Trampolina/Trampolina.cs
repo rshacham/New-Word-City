@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using BitStrap;
 using Managers;
 using Player_Control;
 using UnityEngine;
@@ -22,6 +21,9 @@ namespace Interactable_Objects
 
         [SerializeField]
         private float jumpSpeed;
+
+        [SerializeField]
+        private BoolAnimationParameter onParam;
 
         #endregion
 
@@ -79,6 +81,7 @@ namespace Interactable_Objects
         public void OnTrampoline(bool boolean)
         {
             _myAnimator.SetBool("On", boolean);
+            // onParam.Set(_myAnimator, boolean);
         }
 
         #region Coroutines
@@ -89,6 +92,8 @@ namespace Interactable_Objects
             {
                 yield return new WaitForSeconds(0.2f);
             }
+
+            // yield return new WaitUntil(() => _playerMovement.FellToWorld); // TODO: use this
 
             UseOnEnd = true;
             Interact();

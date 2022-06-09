@@ -13,12 +13,14 @@ namespace Managers
         #region Inspector
 
         [SerializeField]
+        [Tooltip("Delay between the letters")]
         private float letterDelay = 0.1f;
 
         [SerializeField]
         private float tutorialStartDelay;
 
         [SerializeField]
+        [Tooltip("The Tutorial objects used")]
         private TutorialObjects tutorialObjects;
 
         [SerializeField]
@@ -26,6 +28,7 @@ namespace Managers
         private string[] tutorialsTexts;
 
         [SerializeField]
+        [Tooltip("The tutorial text")]
         private TextMeshProUGUI myText;
 
         #endregion

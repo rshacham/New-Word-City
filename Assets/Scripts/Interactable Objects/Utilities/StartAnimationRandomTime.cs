@@ -4,29 +4,37 @@ using BitStrap;
 using UnityEngine;
 using FloatRange = Avrahamy.Math.FloatRange;
 
-public class StartAnimationRandomTime : MonoBehaviour
+namespace Interactable_Objects
 {
-    #region Inspector
-
-    [SerializeField]
-    private TriggerAnimationParameter startTrigger;
-
-    [SerializeField]
-    private FloatRange range;
-
-    #endregion
-
-    private Animator _animator;
-
-    #region MonoBehaviour
-
-    private void Awake()
+    /// <summary>
+    /// Start the animation in random time
+    /// </summary> TODO: use stateMachine instead
+    public class StartAnimationRandomTime : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        var delay = RandomUtils.Range(range);
-        PureCoroutines.DelaySeconds(() => startTrigger.Set(_animator), delay);
-        // DebugLog.Log(LogTag.LowPriority, $"delay: {delay}", this);
-    }
+        #region Inspector
 
-    #endregion
+        [SerializeField]
+        [Tooltip("The trigger to move into the initial animation state")]
+        private TriggerAnimationParameter startTrigger;
+
+        [SerializeField]
+        [Tooltip("Time range to start in")]
+        private FloatRange range;
+
+        #endregion
+
+        private Animator _animator;
+
+        #region MonoBehaviour
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            var delay = RandomUtils.Range(range);
+            PureCoroutines.DelaySeconds(() => startTrigger.Set(_animator), delay);
+            // DebugLog.Log(LogTag.LowPriority, $"delay: {delay}", this);
+        }
+
+        #endregion
+    }
 }

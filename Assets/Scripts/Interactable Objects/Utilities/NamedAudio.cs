@@ -10,7 +10,7 @@ namespace Interactable_Objects
     /// Class to satisfy my need to have names for everything in the inspector.
     /// </summary>
     [Serializable]
-    public class NamedAudio : ISerializationCallbackReceiver // todo: inherit class with chance
+    public class NamedAudio : ISerializationCallbackReceiver 
     {
         #region Inspector
 
@@ -20,7 +20,7 @@ namespace Interactable_Objects
         
         [SerializeField]
         [Tooltip("The audio event to use")]
-        private AudioEvent audioEvent;
+        private AudioEvent audioEvent; // todo: inherit class with chance - require manual change for all existing
 
         #endregion
 

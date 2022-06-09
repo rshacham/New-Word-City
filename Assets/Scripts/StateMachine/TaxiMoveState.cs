@@ -1,7 +1,7 @@
 using Interactable_Objects;
 using UnityEngine;
 
-namespace Mechanics.Object_Moves_Player
+namespace StateMachine
 {
     public class TaxiMoveState : StateMachineBehaviour
     {

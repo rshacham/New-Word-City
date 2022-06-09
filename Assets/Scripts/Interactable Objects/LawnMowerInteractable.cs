@@ -12,18 +12,22 @@ namespace Interactable_Objects
         #region Inspector
 
         [SerializeField]
+        [Tooltip("The tag the stoppers are marked with")]
         [TagSelector]
         private string stopperTag;
 
         [SerializeField]
+        [Tooltip("The tag the grass is tagged with")]
         [TagSelector]
         private string grassTag = "Grass";
 
         [SerializeField]
+        [Tooltip("Should cutting an amount of grass count as interactions, or stoppers only.")]
         private bool interactOnTrigger;
 
         [SerializeField]
         [ConditionalHide("interactOnTrigger")]
+        [Tooltip("The number of triggers to cut before interaction (note cut that the mower starts above should count!)")]
         [Min(1)]
         private int triggerCount = 1;
 
@@ -31,7 +35,7 @@ namespace Interactable_Objects
 
         #region Private Fields
 
-        private int _counter = 0;
+        private int _counter;
 
         #endregion
 
@@ -48,7 +52,7 @@ namespace Interactable_Objects
         {
             if (other.CompareTag(grassTag))
             {
-                other.GetComponent<CutGrassInteractable>().TurnOff();
+                other.GetComponent<CutGrassUtility>().TurnOff();
             }
         }
 
@@ -57,7 +61,7 @@ namespace Interactable_Objects
             if (col.CompareTag(grassTag))
             {
                 // DebugLog.Log("Grass Cut", col);
-                col.GetComponent<CutGrassInteractable>().TurnOff();
+                col.GetComponent<CutGrassUtility>().TurnOff();
                 if (interactOnTrigger)
                 {
                     _counter++;
@@ -74,7 +78,7 @@ namespace Interactable_Objects
         {
             if (col.collider.CompareTag(stopperTag))
             {
-                DebugLog.Log("Reached Stopper: ", Color.green, col.collider);
+                DebugLog.Log(LogTag.Gameplay, "Reached Stopper: ", col.collider);
                 Interact();
                 _counter = 0;
             }
@@ -84,7 +88,7 @@ namespace Interactable_Objects
         {
             if (other.collider.CompareTag(stopperTag))
             {
-                DebugLog.Log("Left Stopper: ", Color.green, other.collider);
+                DebugLog.Log(LogTag.Gameplay,"Left Stopper: ",other.collider);
             }
         }
 

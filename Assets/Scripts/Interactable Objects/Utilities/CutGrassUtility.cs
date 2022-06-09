@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-    class CutGrassInteractable : MonoBehaviour
+    class CutGrassUtility : MonoBehaviour
     {
         #region Inspector
 
         [SerializeField]
+        [Tooltip("The grass respawn time")]
         private PassiveTimer offTime;
 
         #endregion
