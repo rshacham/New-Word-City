@@ -22,12 +22,13 @@ namespace Interactable_Objects
         [SerializeField]
         private BoolAnimationParameter boolParameter;
         
-        [SerializeField]       
-        private PassiveTimer weddingTimer;
+        [SerializeField]
+        [HideInInspector]
+        private PassiveTimer weddingTimer = new PassiveTimer();
 
         [SerializeField]
         [Tooltip("Delay till the wedding sound clip begins")]
-        private float soundDelay;
+        private PassiveTimer soundDelay;
 
         #endregion
 
@@ -53,24 +54,28 @@ namespace Interactable_Objects
 
         protected override void Awake()
         {
-            weddingTimer.Duration = 5f;
+            _animator = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
+            
             CelebrateWedding += GuestCelebrateWedding;
             if (interactableType == WeddingType.Guest)
             {
                 CanInteract = false;
             }
-
-            _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            else
+            {
+                weddingTimer.Duration = _audioSource.clip.length;
+            }
+            
             base.Awake();
         }
 
 
-        IEnumerator _delayClip()
-        {
-            yield return new WaitForSeconds(soundDelay);
-            _audioSource.Play();
-        }
+        // IEnumerator _delayClip()
+        // {
+        //     yield return new WaitForSeconds(soundDelay);
+        //     _audioSource.Play();
+        // }
 
         private void GuestCelebrateWedding(object sender, bool e)
         {
@@ -84,10 +89,11 @@ namespace Interactable_Objects
                 return;
             }
 
-            weddingTimer.Duration = _audioSource.clip.length;
-            weddingTimer.Start();
+            // weddingTimer.Duration = _audioSource.clip.length;
+            weddingTimer.Start(_audioSource.clip.length);
+            soundDelay.Start();
             OnCelebrateWedding(this, true);
-            StartCoroutine(_delayClip());
+            // StartCoroutine(_delayClip());
         }
 
         protected void Update()
@@ -96,6 +102,12 @@ namespace Interactable_Objects
             {
                 weddingTimer.Clear();
                 OnCelebrateWedding(this, false);
+            }
+            if (soundDelay.IsSet && !soundDelay.IsActive)
+            {
+                soundDelay.Clear();
+                // weddingSound.Play(_audioSource);
+                _audioSource.Play();
             }
         }
 
