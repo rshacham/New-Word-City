@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Avrahamy;
+using UnityEngine;
 
 namespace Interactable_Objects
 {
@@ -29,7 +30,7 @@ namespace Interactable_Objects
         {
             if (col.gameObject == required.gameObject)
             {
-                Debug.Log($"<color=yellow>Required Pair</color> Trigger Enter");
+                DebugLog.Log($"<color=yellow>Required Pair</color> Trigger Enter");
                 // _inContactWithRequired = true;
                 Interact();
             }
@@ -39,7 +40,7 @@ namespace Interactable_Objects
         {
             if (other.gameObject == required.gameObject)
             {
-                Debug.Log("<color=yellow>Required Pair</color> Trigger Exit");
+                DebugLog.Log("<color=yellow>Required Pair</color> Trigger Exit");
                 // _inContactWithRequired = false;
                 Interact();
             }

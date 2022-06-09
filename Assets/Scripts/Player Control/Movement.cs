@@ -229,7 +229,7 @@ namespace Player_Control
 
         public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed, bool enableMove = true)
         {
-            Debug.Log(newPosition);
+            DebugLog.Log(newPosition);
             if (enableMovement)
             {
                 enableMovement = false;

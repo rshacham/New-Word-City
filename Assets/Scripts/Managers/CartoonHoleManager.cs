@@ -94,7 +94,7 @@ namespace Managers
             if (_t >= 1)
             {
                 Moving = 0;
-                Debug.Log("Open");
+                DebugLog.Log("Open");
             }
             
             else if (_t <= 0)
