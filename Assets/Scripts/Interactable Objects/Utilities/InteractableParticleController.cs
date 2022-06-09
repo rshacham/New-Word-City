@@ -18,11 +18,13 @@ namespace Interactable_Objects
         [Tooltip("Number of particles to emit")]
         private int emitCount = 5;
 
+
         #endregion
 
         #region Private Fields
 
-        private ParticleSystem _particleSystem;
+        private ParticleController _particleSystem = new ParticleController();
+        // private ParticleSystem _particleSystem;
 
         #endregion
 
@@ -30,7 +32,8 @@ namespace Interactable_Objects
 
         private void Awake()
         {
-            _particleSystem = GetComponent<ParticleSystem>();
+            // _particleSystem = GetComponent<ParticleSystem>();
+            _particleSystem.RootParticleSystem = GetComponent<ParticleSystem>();
             WordsGameManager.OnMeaningFound += SetParticles;
             // TODO: roi should use this for trampoline particles >>>
             StaticEventsGameManager.EmitParticles += OnEmitCallback;
@@ -68,7 +71,8 @@ namespace Interactable_Objects
         /// <param name="pos"></param>
         private void EmitAtPosition(Vector3 pos)
         {
-            var shape = _particleSystem.shape;
+            var shape = _particleSystem.RootParticleSystem.shape;
+            // var shape = _particleSystem.shape;
             shape.position = pos;
             // DebugLog.Log(shape.position, interactable);
             _particleSystem.Emit(emitCount);
@@ -77,9 +81,10 @@ namespace Interactable_Objects
         [Button]
         private void EmitButton()
         {
-            if (_particleSystem == null)
+            if (_particleSystem.RootParticleSystem == null)
             {
-                _particleSystem = GetComponent<ParticleSystem>();
+                _particleSystem.RootParticleSystem = GetComponent<ParticleSystem>();
+                // _particleSystem = GetComponent<ParticleSystem>();
             }
 
             EmitAtPosition(Vector3.zero);

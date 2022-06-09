@@ -12,6 +12,9 @@ namespace Managers
     {
         #region Player Collision
 
+        /// <summary>
+        /// Called when player collision status should change
+        /// </summary>
         public static event EventHandler<bool> PlayerShouldCollide;
 
         public static void OnPlayerShouldCollide(object sender, bool e)
@@ -23,6 +26,9 @@ namespace Managers
 
         #region PlayerInteraction
 
+        /// <summary>
+        /// Called when player interaction status should change
+        /// </summary>
         public static event EventHandler<bool> PlayerShouldInteract;
 
         public static void OnPlayerShouldInteract(object sender, bool e)
@@ -34,6 +40,9 @@ namespace Managers
 
         #region Particle Emit
 
+        /// <summary>
+        /// Called when particles should be emitted at location
+        /// </summary>
         public static event EventHandler<Vector2> EmitParticles;
 
         public static void OnEmitParticles(object sender, Vector2 pos)

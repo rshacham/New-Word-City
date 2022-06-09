@@ -21,7 +21,7 @@ namespace Interactable_Objects
 
         private bool _onTree = false;
 
-        private PolygonCollider2D _myCollider;
+        private Collider2D _myCollider;
 
         #endregion
 
@@ -69,13 +69,17 @@ namespace Interactable_Objects
             _playerScript = FindObjectOfType<Movement>();
         }
 
+        #endregion
+
+        #region Public Methods
+
         public void CloseToVillage(bool boolean)
         {
             _villageAnimator.SetBool("Semi", boolean);
         }
 
         #endregion
-
+        
         #region EventInteractable
 
         protected override void ScriptInteract()

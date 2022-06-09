@@ -18,16 +18,20 @@ namespace Interactable_Objects
 
         [Header("Animations Interactable")]
         [SerializeField]
+        [Tooltip("The sound clip used by this object")]
         private AudioEvent soundClip;
 
         [SerializeField]
+        [Tooltip("List of animations to choose from")]
         protected AnimationWithChance[] clips;
 
         [SerializeField]
         [AnimatorField("_myAnimator")]
+        [Tooltip("The trigger that starts the animation in the animation controller")]
         private TriggerAnimationParameter interactTrigger;
 
         [SerializeField]
+        [Tooltip("The name of the animation clip to replace")]
         private string interactionAnimationName = "Interact";
 
         #endregion
@@ -76,7 +80,7 @@ namespace Interactable_Objects
                     _count = 1;
                     _clip = clips.ChooseRandomWithChancesC();
                     _animatorOverrideController[interactionAnimationName] = _clip;
-                    _myAnimator.SetTrigger(InteractTrigger);
+                    // _myAnimator.SetTrigger(InteractTrigger);
                     interactTrigger.Set(_myAnimator);
                     soundClip.Play(_myAudioSource);
                     break;
