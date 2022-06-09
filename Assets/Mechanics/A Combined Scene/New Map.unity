@@ -1342,6 +1342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86bd4998ece9e114996f3f3a5029a5d5, type: 3}
+--- !u!4 &65110904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7184192799283701846, guid: ccb26da1610d7aa4ca0c49a060287987, type: 3}
+  m_PrefabInstance: {fileID: 1053791684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &72147070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12805,7 +12810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -174.20206, y: 6.1638145, z: -10}
+  m_LocalPosition: {x: -174.20207, y: 6.160493, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -23709,6 +23714,10 @@ PrefabInstance:
     - target: {fileID: 7184192799283701846, guid: ccb26da1610d7aa4ca0c49a060287987, type: 3}
       propertyPath: m_LocalPosition.y
       value: -11.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184192799283701847, guid: ccb26da1610d7aa4ca0c49a060287987, type: 3}
+      propertyPath: m_Name
+      value: Do Not Delete Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb26da1610d7aa4ca0c49a060287987, type: 3}
@@ -41761,7 +41770,7 @@ PrefabInstance:
     - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
       propertyPath: transformsForCamera.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 65110904}
     - target: {fileID: 1077706124324609669, guid: 6216e99aa2b543b4ca4a715528d86a42, type: 3}
       propertyPath: transformsForCamera.Array.data[2]
       value: 
