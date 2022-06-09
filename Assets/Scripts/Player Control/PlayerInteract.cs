@@ -74,6 +74,7 @@ namespace Player_Control
 
         private bool _firstInteraction = true;
         private GameObject _tutorialSprite;
+        private bool _getInteraction;
 
         #endregion
 
@@ -113,6 +114,20 @@ namespace Player_Control
             }
         }
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (!_getInteraction || !highlightOnProximity || !IsActive)
+            {
+                return;
+            }
+            
+            if (other.gameObject.CompareTag("InteractableHighlighter"))
+            {
+                var parentCollider = other.GetComponent<ProximityHighlighter>().ParentCollider;
+                CollisionHighlighter(parentCollider);
+            }
+        }
+
         // TODO: move to private methods region
         private void CollisionHighlighter(Collider2D col)
         {
@@ -140,6 +155,7 @@ namespace Player_Control
                 }
 
                 _currentActive = interactable;
+                _getInteraction = false;
             }
         }
 
@@ -189,6 +205,7 @@ namespace Player_Control
                 // Debug.Log("<color=cyan>UnHighlight</color>", interactable);
                 _currentActive.RemoveInteraction(this);
                 _currentActive = null;
+                _getInteraction = true;
             }
         }
 
