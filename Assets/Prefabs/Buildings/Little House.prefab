@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2990784392763074508, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6031874028227309308, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -65,20 +69,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Size.x
-      value: 2.7105367
+      value: 2.140751
       objectReference: {fileID: 0}
     - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Size.y
-      value: 2.607379
+      value: 1.2674669
       objectReference: {fileID: 0}
     - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Offset.x
-      value: -0.015268445
+      value: -0.07925224
       objectReference: {fileID: 0}
     - target: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Offset.y
-      value: -0.1336894
+      value: 0.10014385
       objectReference: {fileID: 0}
+    - target: {fileID: 7106789864987092380, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6834655404998641469}
     - target: {fileID: 7106789865815028032, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -97,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028035, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.136157
+      value: -1.2498
       objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028035, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -287,5 +295,68 @@ PrefabInstance:
       propertyPath: clips.Array.data[0].audioEvent
       value: 
       objectReference: {fileID: 11400000, guid: 336c517e7be82844cb4d86d0b9204ff3, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8120228241601845740, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+--- !u!1 &2756239291939125516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7106789865815028047, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+  m_PrefabInstance: {fileID: 4963040124540635203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2756239291245374936 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7106789864987092379, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+  m_PrefabInstance: {fileID: 4963040124540635203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8197579628976854903
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756239291939125516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 705c418161edd93408c108b0ac9f4aae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6834655404998641469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756239291939125516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7754da28b5f984bb2b4bbb404b4349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresWord: 0
+  lastLink: {fileID: 0}
+  myCollider: {fileID: 2756239291245374936}
+  startInteractable: 1
+  interactMultipleTimes: 1
+  highlightInteract: 0
+  interactionEvents:
+    onInteraction:
+      m_PersistentCalls:
+        m_Calls: []
+    onInteractionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlight:
+      m_PersistentCalls:
+        m_Calls: []
+    onHighlightEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  useScriptedInteraction: 1
+  stayHighlightAfterInteract: 1

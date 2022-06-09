@@ -757,6 +757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cbb56839274ae545bea73d900e7c3af, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &59030631 stripped
@@ -1419,6 +1423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36f92fa1baef7cd4886922824cba4c29, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &114518120 stripped
@@ -9551,8 +9559,12 @@ PrefabInstance:
       value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.8527355
+      value: 14.8745
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9598,6 +9610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a6da9dfd16617d42bdf8bebe86dd9ae, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &643909900 stripped
@@ -10369,7 +10385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -174.20209, y: 6.153288, z: -10}
+  m_LocalPosition: {x: -174.20207, y: 6.162369, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10793,6 +10809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 28c7c13e468c63645a96ad33db583121, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &714979625 stripped
@@ -11800,8 +11820,12 @@ PrefabInstance:
       value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.42
+      value: 14.3958
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11847,6 +11871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24c0aa993eec2a84db64001cf94bf143, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &804780250 stripped
@@ -17844,6 +17872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ac2a8e27fc3f6b24dad303890df1349a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &897556712 stripped
@@ -18184,11 +18216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.1027355
+      value: 13.51
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.321193
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18234,6 +18266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 39305f5d891c04f488aba5d4bfe4eff0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &919641209 stripped
@@ -24131,6 +24167,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bench Back 2
       objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.3526669
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: -0.0023882668
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.34095645
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -0.3479247
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.5796812
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.26919976
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -0.32466125
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 932004668920679274, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.122707024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a68fba9a269c3e4aa1199897f69ddd1, type: 3}
 --- !u!4 &1358640038 stripped
@@ -28908,6 +28984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de5c11621a622644b6cb8b28f7c6b82, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1703326349 stripped
