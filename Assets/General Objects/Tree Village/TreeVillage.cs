@@ -21,6 +21,8 @@ namespace Interactable_Objects
 
         private bool _onTree = false;
 
+        private PolygonCollider2D _myCollider;
+
         #endregion
 
         #region Inspector
@@ -45,6 +47,16 @@ namespace Interactable_Objects
         [SerializeField] 
         [Tooltip("First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down")]
         private AudioClip[] villageClips;
+
+        #endregion
+        
+        #region Public Properties
+
+        public bool ONTree
+        {
+            get => _onTree;
+            set => _onTree = value;
+        }
 
         #endregion
 
@@ -83,7 +95,6 @@ namespace Interactable_Objects
                 _villageSound.PlayOneShot(villageClips[1]);
                 return;
             }
-
 
             if (_onTree && _playerScript.EnableMovement)
             {
