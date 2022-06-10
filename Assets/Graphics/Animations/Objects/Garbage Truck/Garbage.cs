@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Avrahamy;
 using Avrahamy.Audio;
 using BitStrap;
 using Player_Control;
@@ -74,6 +75,7 @@ namespace Interactable_Objects
             _myAudio.clip = mySounds[1];
             _myAudio.loop = true;
             _myAudio.Play();
+            DebugLog.Log("Fly play", this);
             // mySoundsAgain.buzzSound.Play(_myAudio);
         }
 
