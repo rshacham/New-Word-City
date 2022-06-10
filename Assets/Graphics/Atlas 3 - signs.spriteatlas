@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas 3 - signs
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: fe89310aee10b4dbf9fe4099af55f53c, type: 3}
+    - {fileID: 102900000, guid: 1569c0910589c4bd1aa44d02951c2309, type: 3}
+    - {fileID: 2800000, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 2028c050eaaf94372a8e39aa26ef92b6, type: 3}
+  - {fileID: 21300000, guid: 846b5d326724a4460b57c8c76615132d, type: 3}
+  - {fileID: 21300000, guid: b54dbb62425aa4c8d9da89acf0861854, type: 3}
+  - {fileID: 21300000, guid: 4d47c5354c4f649fe928f7c0615e7c8c, type: 3}
+  - {fileID: 21300000, guid: 302044b99cac34113a5705389e276cc4, type: 3}
+  - {fileID: 21300000, guid: 7b3a45f940a004d73ac453d4c49f4c54, type: 3}
+  - {fileID: 21300000, guid: cfe4e98a8379044cd8288521346f7f47, type: 3}
+  - {fileID: 21300000, guid: d3e5231c3aa6843098cf278d71127c1a, type: 3}
+  - {fileID: 6697679711613038285, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+  - {fileID: -2269617879607141331, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+  - {fileID: -5143300535157048456, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+  - {fileID: 147336627252456965, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+  - {fileID: 5681089073606342090, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+  - {fileID: 21300000, guid: 54fa625db57154f55a48b9cf2f33f451, type: 3}
+  - {fileID: 21300000, guid: 35d1b87ed6224490b917ae716f86cffe, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Drop Sign 5
+  - Drop Sign 3
+  - Drop Sign 2
+  - Cut Sign 3
+  - Cut Sign 2
+  - Drop Sign 4
+  - Cut Sign 4
+  - Cut Sign 1
+  - New_sign.nwc.spritesheet_0
+  - New_sign.nwc.spritesheet_1
+  - New_sign.nwc.spritesheet_2
+  - New_sign.nwc.spritesheet_3
+  - New_sign.nwc.spritesheet_4
+  - Cut Sign 5
+  - Drop Sign 1
+  m_RenderDataMap: {}
+  m_Tag: Atlas 3 - signs
+  m_IsVariant: 0

@@ -634,5 +634,5 @@ SpriteAtlas:
   - Coin2-1
   - Coin2-3
   m_RenderDataMap: {}
-  m_Tag: Atlas 1
+  m_Tag: Atlas 1 - All anim except signs
   m_IsVariant: 0
