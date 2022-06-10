@@ -75,7 +75,16 @@ namespace Interactable_Objects
 
         public void CloseToVillage(bool boolean)
         {
-            _villageAnimator.SetBool("Semi", boolean);
+            if (!ONTree && !_ladderOpen)
+            {
+                _villageAnimator.SetBool("Semi", boolean);
+            }
+        }
+
+
+        public void OpenCloseLadder(bool boolean)
+        {
+            _villageAnimator.SetBool("CanDrop", boolean);
         }
 
         #endregion
@@ -87,6 +96,7 @@ namespace Interactable_Objects
             if (!_ladderOpen)
             {
                 _villageAnimator.SetBool("Open", true);
+                _villageAnimator.SetBool("Semi", false);
                 _ladderOpen = true;
                 _villageSound.PlayOneShot(villageClips[0]);
                 return;

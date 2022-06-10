@@ -19,12 +19,12 @@ namespace Interactable_Objects
 
         
         #endregion
-        
-        
-        
+
         #region Private Fields
 
         private TreeVillage _myTree;
+
+        private Animator _myTreeAnimator;
 
         private AudioSource _audioSource;
 
@@ -42,6 +42,7 @@ namespace Interactable_Objects
             _playerMovement = FindObjectOfType<Movement>();
             _originalMovingPosition = movingObject.position;
             _audioSource = GetComponent<AudioSource>();
+            _myTreeAnimator = _myTree.GetComponent<Animator>();
         }
 
         protected override void ScriptInteract()
@@ -61,10 +62,12 @@ namespace Interactable_Objects
             _playerMovement.transform.parent = null;
             movingObject.position = _originalMovingPosition;
             _playerMovement.EnableMovement = true;
+            _playerMovement.DesiredVelocity = Vector2.zero;
             _playerCollider.isTrigger = false;
-            
-
         }
+        
+        
+        
 
         
         #endregion
