@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3516761544335890846}
   - component: {fileID: 3516761544335890847}
   - component: {fileID: 3516761544335890844}
-  m_Layer: 0
-  m_Name: Street_floor_spritsheet_20 FIXME
+  - component: {fileID: 487302129144695748}
+  m_Layer: 5
+  m_Name: Street Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,3 +103,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &487302129144695748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516761544335890845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e031b157bcff10d4ca6677ebc8e824d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTrigger:
+    name: Start
+    index: -1
+  range:
+    min: 0
+    max: 10
