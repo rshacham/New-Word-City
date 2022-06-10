@@ -10,14 +10,13 @@ public class Beach : MonoBehaviour
     [SerializeField]
     [Tooltip("First sound is beach sound, Second sound is shark interaction sound")]
     private AudioClip[] beachSounds;
-
     #endregion
     
     
     #region Private Fields
 
     private AudioSource _audioSource;
-    
+
     #endregion
 
     private void Start()
@@ -31,4 +30,7 @@ public class Beach : MonoBehaviour
         _audioSource.clip = beachSounds[sound];
         _audioSource.Play();
     }
+
+
+
 }
