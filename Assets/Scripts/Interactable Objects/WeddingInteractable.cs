@@ -33,6 +33,10 @@ namespace Interactable_Objects
         [Tooltip("Delay till the wedding sound clip begins. Only the Couple has any control over this")]
         private PassiveTimer soundDelay;
 
+        [SerializeField] 
+        [Tooltip("Gameobject of heart that appears above the couple when interaction can be made")]
+        private GameObject heart;
+
         #endregion
 
         #region Events
@@ -95,6 +99,11 @@ namespace Interactable_Objects
             weddingTimer.Start();
             soundDelay.Start();
             OnCelebrateWedding(this, true);
+        }
+
+        public void CloseToCouple(bool isClose)
+        {
+            heart.SetActive(isClose);
         }
 
         protected void Update()

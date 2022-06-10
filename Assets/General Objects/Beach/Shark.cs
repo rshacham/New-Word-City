@@ -13,6 +13,13 @@ namespace Interactable_Objects
         [SerializeField] 
         private Animator tubeAnimator;
 
+        [SerializeField]
+        [Tooltip("First sprite is when not close, Second sprite is when close")]
+        private Sprite[] tubeSprites;
+
+        [SerializeField] 
+        [Tooltip("SpriteRenderer of tube that player should be close to so interaction can be made")]
+        private SpriteRenderer tubeRenderer;
 
 
         #endregion
@@ -54,9 +61,9 @@ namespace Interactable_Objects
         }
 
 
-        public void CloseToTube(bool isClose)
+        public void CloseToTube(int sprite)
         {
-            _tubeAnimator.SetBool("Close", isClose);
+            tubeRenderer.sprite = tubeSprites[sprite];
         }
 
     }
