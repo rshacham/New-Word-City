@@ -35,7 +35,7 @@ namespace Interactable_Objects
 
         [SerializeField] 
         [Tooltip("Gameobject of heart that appears above the couple when interaction can be made")]
-        private GameObject heart;
+        private GameObject[] hearts;
 
         #endregion
 
@@ -103,7 +103,10 @@ namespace Interactable_Objects
 
         public void CloseToCouple(bool isClose)
         {
-            heart.SetActive(isClose);
+            foreach (var heart in hearts)
+            {
+                heart.SetActive(isClose);
+            }
         }
 
         protected void Update()
