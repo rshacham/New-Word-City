@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -203,14 +203,10 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 88f1e362baf69490794ba40c831a45d6, type: 3}
     - {fileID: 2800000, guid: f1db5502179f447e6a22b271402fc137, type: 3}
     - {fileID: 2800000, guid: bd233d06c95b2478bac1fabf0c504dd7, type: 3}
-    - {fileID: 2800000, guid: 0928feefe806ebb49806b56381e61edb, type: 3}
-    - {fileID: 2800000, guid: e05c4d701b8f1d24b90a9e9059c7efe8, type: 3}
-    - {fileID: 2800000, guid: eb5cb785e5f15ba4da3debc7934ed2ef, type: 3}
-    - {fileID: 2800000, guid: 617c27c6cbbab614ab651322502c3700, type: 3}
-    - {fileID: 102900000, guid: 231c35e4fcc1b484184184aa6bd34043, type: 3}
-    - {fileID: 102900000, guid: de26ad59aac2cde40a357607738bae9e, type: 3}
-    - {fileID: 2800000, guid: 4093624f53311fe449f2e44385e62f72, type: 3}
     - {fileID: 102900000, guid: 4a4989f7335a846ba9d00d37cc71e441, type: 3}
+    - {fileID: 2800000, guid: 4093624f53311fe449f2e44385e62f72, type: 3}
+    - {fileID: 102900000, guid: de26ad59aac2cde40a357607738bae9e, type: 3}
+    - {fileID: 102900000, guid: 231c35e4fcc1b484184184aa6bd34043, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -221,7 +217,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e853c540145fe4915a4ae5f784bbc866, type: 3}
   - {fileID: 21300000, guid: 44929d40737f12746b6ba11237b35ac3, type: 3}
   - {fileID: 21300000, guid: 01fd2e4035abc43868ab57326fa8851a, type: 3}
-  - {fileID: 21300000, guid: e05c4d701b8f1d24b90a9e9059c7efe8, type: 3}
   - {fileID: 21300000, guid: d1384b90dd4607b44be886228d57ec3d, type: 3}
   - {fileID: 21300000, guid: c370ac9005dddee4f9c538b0c7eb36b2, type: 3}
   - {fileID: 21300000, guid: 6c5987b0c70f447cfbd3ec57081547fe, type: 3}
@@ -275,7 +270,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 952b7875715ae7b4382c22a4c685dc96, type: 3}
   - {fileID: 21300000, guid: 98378485b39d5534482aa7889d6587ca, type: 3}
   - {fileID: 21300000, guid: d342b485005468b4db49fc2011210291, type: 3}
-  - {fileID: 21300000, guid: eb5cb785e5f15ba4da3debc7934ed2ef, type: 3}
   - {fileID: 21300000, guid: 15da8c852c6ea4e02944069f17fc8e59, type: 3}
   - {fileID: 21300000, guid: bc318a95c05075747bbb2e55a32c5aa5, type: 3}
   - {fileID: 21300000, guid: c06857b53ea5c4643bc8c8e60c87b33c, type: 3}
@@ -293,7 +287,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6aac2256ba342be4bb8949036046b6cf, type: 3}
   - {fileID: 21300000, guid: 6227b886ec7d74718bba1746a7e79dc4, type: 3}
   - {fileID: 21300000, guid: 0e84e6a6e29727243befed4f8ba34e00, type: 3}
-  - {fileID: 21300000, guid: 617c27c6cbbab614ab651322502c3700, type: 3}
   - {fileID: 21300000, guid: 45cc5ef6274071248b0f3e21c010a12d, type: 3}
   - {fileID: 21300000, guid: 8bbd6e077cd3f064d99fe24ccd5689a7, type: 3}
   - {fileID: 21300000, guid: dc3cda17bbd4840dfa4503c24bb5bd2a, type: 3}
@@ -384,7 +377,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1ecfb6cf4a1bac44b81c3048367359f7, type: 3}
   - {fileID: 21300000, guid: ccdda6dfb70914ac79e74c5d6ce77cee, type: 3}
   - {fileID: 8477449130644246864, guid: 9cea2ddfec04541bcbf22e6485b2ff1c, type: 3}
-  - {fileID: 21300000, guid: 0928feefe806ebb49806b56381e61edb, type: 3}
   - {fileID: 21300000, guid: af2d26ff87fb145fd8c519170d818327, type: 3}
   - {fileID: 21300000, guid: d1ae4fff70470b04188c557b7a7eb537, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -393,7 +385,6 @@ SpriteAtlas:
   - ilovenwbuldings
   - Safe
   - step5
-  - UI 2
   - bulding5
   - sign2
   - Street_floor_-2 2
@@ -447,7 +438,6 @@ SpriteAtlas:
   - trees1
   - Antenna top 1
   - Pot 1
-  - UI 3
   - protestor1
   - Tall With Signt Infront
   - Guest_1_26
@@ -465,7 +455,6 @@ SpriteAtlas:
   - double.bulding
   - protestor8
   - antena3
-  - UI 4
   - smallhouse
   - UI_particular-2
   - step4
@@ -556,7 +545,6 @@ SpriteAtlas:
   - antena2
   - protestor6
   - w SIGN_0
-  - UI 1
   - take2
   - Triple Building 1
   m_RenderDataMap: {}
