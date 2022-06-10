@@ -370,6 +370,7 @@ PrefabInstance:
     - {fileID: 1713515508995985040, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
     - {fileID: 1713515508419968632, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
     - {fileID: 1713515508995985041, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
+    - {fileID: 1713515508447893220, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
 --- !u!1 &2014846710662525635 stripped
 GameObject:
@@ -384,11 +385,6 @@ Transform:
 --- !u!1 &2014846712296620596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1713515508419968613, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
-  m_PrefabInstance: {fileID: 878638632619179089}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2014846712259783351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1713515508447893222, guid: 5bdc45d62edfcc648b38ad004b43bd0e, type: 3}
   m_PrefabInstance: {fileID: 878638632619179089}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &878638632539194068
@@ -736,25 +732,6 @@ MonoBehaviour:
   regularClip: {fileID: 878638632539194070}
   dropClip: {fileID: 878638632539194068}
   animationDelay: 7.7
---- !u!95 &878638632431239686
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014846712259783351}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 146ef8df76c9aaf48aabed3a3ba04e01, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!60 &878638632950814075
 PolygonCollider2D:
   m_ObjectHideFlags: 0
