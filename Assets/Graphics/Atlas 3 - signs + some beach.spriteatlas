@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atlas 3 - signs
+  m_Name: Atlas 3 - signs + some beach
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -46,12 +46,14 @@ SpriteAtlas:
     - {fileID: 102900000, guid: fe89310aee10b4dbf9fe4099af55f53c, type: 3}
     - {fileID: 102900000, guid: 1569c0910589c4bd1aa44d02951c2309, type: 3}
     - {fileID: 2800000, guid: 88fe6f8cac83f4961afaaef0035d9043, type: 3}
+    - {fileID: 2800000, guid: 86b88a701cd394590b2a8cff89735e2a, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2028c050eaaf94372a8e39aa26ef92b6, type: 3}
+  - {fileID: 21300000, guid: 86b88a701cd394590b2a8cff89735e2a, type: 3}
   - {fileID: 21300000, guid: 846b5d326724a4460b57c8c76615132d, type: 3}
   - {fileID: 21300000, guid: b54dbb62425aa4c8d9da89acf0861854, type: 3}
   - {fileID: 21300000, guid: 4d47c5354c4f649fe928f7c0615e7c8c, type: 3}
@@ -68,6 +70,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 35d1b87ed6224490b917ae716f86cffe, type: 3}
   m_PackedSpriteNamesToIndex:
   - Drop Sign 5
+  - Beach-1
   - Drop Sign 3
   - Drop Sign 2
   - Cut Sign 3
@@ -83,5 +86,5 @@ SpriteAtlas:
   - Cut Sign 5
   - Drop Sign 1
   m_RenderDataMap: {}
-  m_Tag: Atlas 3 - signs
+  m_Tag: Atlas 3 - signs + some beach
   m_IsVariant: 0
