@@ -10,14 +10,16 @@ namespace Interactable_Objects
     {
         #region Inspector
 
-        [SerializeField]
-        private Animator sharkAnimator;
+        [SerializeField] 
+        private Animator tubeAnimator;
 
 
 
         #endregion
         
         #region Private Fields
+        
+        private Animator _sharkAnimator;
 
         private Animator _tubeAnimator;
         
@@ -30,7 +32,7 @@ namespace Interactable_Objects
 
         private void Start()
         {
-            _tubeAnimator = GetComponent<Animator>();
+            _sharkAnimator = GetComponent<Animator>();
             _beach = FindObjectOfType<Beach>();
         }
 
@@ -39,8 +41,8 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            sharkAnimator.SetTrigger("Movement");
-            sharkAnimator.SetBool("Animation", true);
+            _sharkAnimator.SetTrigger("Movement");
+            _sharkAnimator.SetBool("Animation", true);
             _beach.ChangeSound(1);
         }
 
@@ -48,7 +50,7 @@ namespace Interactable_Objects
         public void StopInteraction()
         {
             _beach.ChangeSound(0);
-            sharkAnimator.SetBool("Animation", false);
+            _sharkAnimator.SetBool("Animation", false);
         }
 
 
