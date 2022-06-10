@@ -164,7 +164,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &8080587652560421294
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &8080587653421283806
 PolygonCollider2D:
   m_ObjectHideFlags: 0
