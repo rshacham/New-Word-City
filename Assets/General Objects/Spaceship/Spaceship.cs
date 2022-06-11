@@ -85,9 +85,6 @@ namespace Interactable_Objects
         }
 
 
-        public void MainMenuSound(int sound)
-        {
-            
-        }
+
     }
 }

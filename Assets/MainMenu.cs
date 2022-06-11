@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private void PlaySound(int sound)
+    public void PlaySound(int sound)
     {
         _audioSource.Stop();
         _audioSource.PlayOneShot(spaceshipSounds[sound]);
