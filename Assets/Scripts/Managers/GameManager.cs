@@ -166,6 +166,6 @@ namespace Managers
             yield return new WaitForSeconds(delay);
             state = newBoolean;
         }
-    
+
     }
 }

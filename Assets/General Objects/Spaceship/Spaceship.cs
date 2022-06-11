@@ -17,6 +17,8 @@ namespace Interactable_Objects
 
         private PolygonCollider2D _spaceshipCollider;
 
+        private MainMenu _mainMenu;
+
         #endregion
 
         #region Inspector
@@ -50,6 +52,7 @@ namespace Interactable_Objects
             _spaceshipCollider = GetComponentInChildren<PolygonCollider2D>();
             _originalPosition = transform.position;
             _mySpriteRenderer = GetComponent<SpriteRenderer>();
+            _mainMenu = FindObjectOfType<MainMenu>();
         }
 
         public void CloseToSpaceship(bool boolean)
@@ -79,6 +82,12 @@ namespace Interactable_Objects
                 _spaceshipAnimator.SetBool("Fly", true);
                 _spaceshipSound.Play();
             }
+        }
+
+
+        public void MainMenuSound(int sound)
+        {
+            
         }
     }
 }
