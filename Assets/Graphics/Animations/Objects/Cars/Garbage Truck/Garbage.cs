@@ -17,7 +17,7 @@ namespace Interactable_Objects
         [Header("Garbage")]
         [SerializeField]
         private BoolAnimationParameter highlightParam;
-        
+
         [SerializeField]
         private BoolAnimationParameter throwParam;
 
@@ -76,7 +76,7 @@ namespace Interactable_Objects
             // _myAudio.clip = mySounds[1];
             _myAudio.loop = true;
             // _myAudio.Play();
-            DebugLog.Log("Fly play", this);
+            DebugLog.Log(LogTag.Gameplay, "Fly play", this);
             mySoundsAgain.buzzSound.Play(_myAudio);
         }
 

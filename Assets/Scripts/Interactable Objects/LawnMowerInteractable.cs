@@ -120,19 +120,19 @@ namespace Interactable_Objects
         {
             if (col.collider.CompareTag(stopperTag))
             {
-                DebugLog.Log(LogTag.Gameplay, "Reached Stopper: ", col.collider);
+                DebugLog.Log(LogTag.Gameplay, "Mower Interaction, Reached Stopper: ", col.collider);
                 Interact();
                 _counter = 0;
             }
         }
 
-        private void OnCollisionExit2D(Collision2D other)
-        {
-            if (other.collider.CompareTag(stopperTag))
-            {
-                DebugLog.Log(LogTag.Gameplay, "Left Stopper: ", other.collider);
-            }
-        }
+        // private void OnCollisionExit2D(Collision2D other)
+        // {
+        //     if (other.collider.CompareTag(stopperTag))
+        //     {
+        //         DebugLog.Log(LogTag.Gameplay, "Left Stopper: ", other.collider);
+        //     }
+        // }
 
         #endregion
     }

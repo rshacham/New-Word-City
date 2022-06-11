@@ -39,6 +39,8 @@ AnimatorState:
   - {fileID: -2634967198856944246}
   m_StateMachineBehaviours:
   - {fileID: 1283840422430769121}
+  - {fileID: 5622193399195258987}
+  - {fileID: 2935622588044844037}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 0
@@ -92,13 +94,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: UnHighlight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -129,6 +131,58 @@ MonoBehaviour:
     index: -1
   duration:
     duration: 5
+--- !u!114 &2935622588044844037
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: Highlight
+--- !u!114 &4510042571538970852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: Unhighlight
+--- !u!114 &5039136058373519532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: Highlight
+--- !u!114 &5622193399195258987
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: UnHighlight
 --- !u!1107 &6100539745269995208
 AnimatorStateMachine:
   serializedVersion: 6
@@ -166,7 +220,9 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -488697681890954740}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 5039136058373519532}
+  - {fileID: 4510042571538970852}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 0
