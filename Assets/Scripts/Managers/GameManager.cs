@@ -103,7 +103,15 @@ namespace Managers
             DebugLog.Log("player on trampoline");
             _holeManager.CloseCircle();
             yield return new WaitForSeconds(2.5f);
+            _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
+            var trampolina = FindObjectOfType<Trampolina>();
+            trampolina.UseOnEnd = true;
+            trampolina.Interact();
             _playerMovement.TeleportPlayer(worldPosition);
+            if (!CanvasManager.ActiveCanvas.IsOpen)
+            {
+                CanvasManager.ActiveCanvas.OpenClose();
+            }
             ChangeCamera(1);
             ChangeFollowPlayer(1);
             yield return new WaitForSeconds(4f);
@@ -117,10 +125,6 @@ namespace Managers
             // // yield return new WaitForSeconds(3f);
             // GameManager._shared.ChangeFollowPlayer();
             // yield return new WaitForSeconds(2.5f);
-            _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
-            var trampolina = FindObjectOfType<Trampolina>();
-            trampolina.UseOnEnd = true;
-            trampolina.Interact();
         }
 
 
