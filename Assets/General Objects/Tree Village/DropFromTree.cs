@@ -19,14 +19,16 @@ namespace Interactable_Objects
 
         
         #endregion
-        
-        
-        
+
         #region Private Fields
 
         private TreeVillage _myTree;
 
+        private Animator _myTreeAnimator;
+
         private AudioSource _audioSource;
+
+        private AudioSource _villageAudioSource;
 
         private Movement _playerMovement;
 
@@ -42,6 +44,8 @@ namespace Interactable_Objects
             _playerMovement = FindObjectOfType<Movement>();
             _originalMovingPosition = movingObject.position;
             _audioSource = GetComponent<AudioSource>();
+            _villageAudioSource = _myTree.gameObject.GetComponent<AudioSource>();
+            _myTreeAnimator = _myTree.GetComponent<Animator>();
         }
 
         protected override void ScriptInteract()
@@ -52,6 +56,7 @@ namespace Interactable_Objects
             _playerCollider.isTrigger = true;
             movingObject.GetComponent<Animator>().SetTrigger("Jump");
             _playerMovement.gameObject.GetComponent<Animator>().SetTrigger("Jump");
+            _villageAudioSource.volume = 0;
             _audioSource.Play();
         }
 
@@ -61,10 +66,19 @@ namespace Interactable_Objects
             _playerMovement.transform.parent = null;
             movingObject.position = _originalMovingPosition;
             _playerMovement.EnableMovement = true;
+            _playerMovement.DesiredVelocity = Vector2.zero;
             _playerCollider.isTrigger = false;
-            
-
+            StartCoroutine(ReturnVillageSound());
         }
+
+        IEnumerator ReturnVillageSound()
+        {
+            yield return new WaitForSeconds(1f);
+            _villageAudioSource.volume = 1;
+        }
+        
+        
+        
 
         
         #endregion
