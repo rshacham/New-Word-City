@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Avrahamy;
 using Avrahamy.Audio;
 using Avrahamy.EditorGadgets;
@@ -37,6 +38,13 @@ namespace Interactable_Objects
         [Tooltip("Gameobject of heart that appears above the couple when interaction can be made")]
         private GameObject[] hearts;
 
+        [SerializeField]
+        [Tooltip("First and Second are is the standing version GameObjects, third is their dancing version GameObject")]
+        private List<GameObject> dancers = new List<GameObject>();
+
+        [SerializeField]
+        private PassiveTimer dancersDelay;
+
         #endregion
 
         #region Events
@@ -54,6 +62,7 @@ namespace Interactable_Objects
 
         private Animator _animator;
         private AudioSource _audioSource;
+        private bool _startDance;
 
         #endregion
 
@@ -75,6 +84,7 @@ namespace Interactable_Objects
             }
             
             base.Awake();
+            _startDance = false;
         }
 
 
@@ -87,6 +97,12 @@ namespace Interactable_Objects
         private void GuestCelebrateWedding(object sender, bool e)
         {
             boolParameter.Set(_animator, e);
+            if (!e && interactableType == WeddingType.Couple)
+            {
+                dancers[0].SetActive(true);
+                dancers[1].SetActive(true);
+                dancers[2].SetActive(false);
+            }
         }
 
         protected override void ScriptInteract()
@@ -98,6 +114,9 @@ namespace Interactable_Objects
 
             weddingTimer.Start();
             soundDelay.Start();
+            dancersDelay.Clear();
+            dancersDelay.Start();
+            _startDance = true;
             OnCelebrateWedding(this, true);
         }
 
@@ -122,7 +141,17 @@ namespace Interactable_Objects
                 // weddingSound.Play(_audioSource);
                 _audioSource.Play();
             }
+
+            if (_startDance && dancersDelay.IsSet && !dancersDelay.IsActive)
+            {
+                dancersDelay.Clear();
+                _startDance = false;
+                dancers[0].SetActive(false);
+                dancers[1].SetActive(false);
+                dancers[2].SetActive(true);
+            }
         }
+        
 
         #endregion
     }
