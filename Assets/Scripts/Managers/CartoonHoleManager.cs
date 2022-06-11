@@ -19,6 +19,10 @@ namespace Managers
         [SerializeField]
         private PassiveTimer transitionDurationTimer;
 
+        [SerializeField]
+        [Tooltip("If true, the cartoon hole will be closed at the start of the game")]
+        private bool startBlue;
+
         #endregion
 
         #region Static Events
@@ -69,6 +73,14 @@ namespace Managers
             _originalTransitionDuration = transitionDurationTimer.Duration;
             _originalMinMaxRadius = minMaxRadius;
             WordsGameManager.OnWordSwitch += OnWordSwitch;
+            if (startBlue)
+            {
+                _t = 0;
+                transitionDurationTimer.Start();
+                Moving = 0;
+                _t = Mathf.Clamp01(_t);
+                _sharedMaterial.SetFloat(Radius, Mathf.Lerp(minMaxRadius.x, minMaxRadius.y, _t));
+            }
         }
 
         private void Update()
