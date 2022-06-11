@@ -230,8 +230,6 @@ namespace Managers
                 _tutorialString = TutorialsTexts[_currentTutorial++];
                 // if (_currentTutorial != TutorialsTexts.Length) 
                 StartCoroutine(WriteLetters());
-
-                    return;
             }
             
             // if (_currentTutorial == TutorialsTexts.Length)

@@ -207,6 +207,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 4093624f53311fe449f2e44385e62f72, type: 3}
     - {fileID: 102900000, guid: de26ad59aac2cde40a357607738bae9e, type: 3}
     - {fileID: 102900000, guid: 231c35e4fcc1b484184184aa6bd34043, type: 3}
+    - {fileID: 2800000, guid: 57c330eefbf6d164a94f518871857d26, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -358,6 +359,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 292ff3bec80594dd8b8dc49558301b49, type: 3}
   - {fileID: 21300000, guid: 66c957bee0fbf4b65b6971221fd4c009, type: 3}
   - {fileID: 21300000, guid: e0d953cea1a714a6d9628e074c2d9c75, type: 3}
+  - {fileID: 21300000, guid: 57c330eefbf6d164a94f518871857d26, type: 3}
   - {fileID: 21300000, guid: b9f16cee944ada64fb933d474565e266, type: 3}
   - {fileID: 21300000, guid: 844bacfecb33c4416bd182f117131dcb, type: 3}
   - {fileID: 21300000, guid: f121260f2861c422bbc137235868e8a1, type: 3}
@@ -526,6 +528,7 @@ SpriteAtlas:
   - parktree2
   - _Character_1
   - parktree.4
+  - Danger
   - 5 Stack
   - protestor7
   - director
