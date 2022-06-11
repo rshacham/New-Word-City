@@ -18,7 +18,7 @@ namespace Managers
 
         [SerializeField]
         private PassiveTimer transitionDurationTimer;
-        
+
         #endregion
 
         #region Static Events
@@ -53,6 +53,7 @@ namespace Managers
         private float _t = 1;
         private float _originalTransitionDuration;
         private Vector2 _originalMinMaxRadius;
+        private bool _durationChanged = false;
 
         private static readonly int Radius = Shader.PropertyToID("_Radius");
 
@@ -103,7 +104,13 @@ namespace Managers
                 if (!GameManager.Shared.EndSceneIsOn)
                 {
                     transitionDurationTimer.Start();
-                    Moving = 0; 
+                    Moving = 0;
+
+                    if (_durationChanged)
+                    {
+                        transitionDurationTimer.Duration = _originalTransitionDuration;
+                        _durationChanged = false;
+                    }
                 }
 
                 else
@@ -111,6 +118,7 @@ namespace Managers
                     ChangeHole = false;
                 }
             }
+
         }
 
         #endregion
@@ -148,6 +156,12 @@ namespace Managers
         public void ChangeMinMax(int x, int y)
         {
             minMaxRadius = new Vector2(x, y);
+        }
+
+        public void ChangeDuration(float newDuration)
+        {
+            transitionDurationTimer.Duration = newDuration;
+            _durationChanged = true;
         }
 
         [Button]

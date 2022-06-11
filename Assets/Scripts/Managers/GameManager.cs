@@ -100,7 +100,7 @@ namespace Managers
             _playerMovement.GetComponent<SpriteRenderer>().enabled = false;
             _playerMovement.EnableMovement = false;
             _playerMovement.TeleportPlayer(transformsForCamera[0].position);
-            DebugLog.Log("player on trampoline");
+            _holeManager.ChangeDuration(5f);
             _holeManager.CloseCircle();
             yield return new WaitForSeconds(2.5f);
             _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
@@ -114,7 +114,7 @@ namespace Managers
             }
             ChangeCamera(1);
             ChangeFollowPlayer(1);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(6f);
             _playerMovement.TeleportPlayer(fallPosition);
             _playerMovement.GetComponent<SpriteRenderer>().enabled = true;
             StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f, false));
