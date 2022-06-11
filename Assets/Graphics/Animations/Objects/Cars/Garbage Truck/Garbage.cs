@@ -9,24 +9,26 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-
     public class Garbage : EventInteractable
     {
-        
         #region Inspector
 
+        [Space]
+        [Header("Garbage")]
         [SerializeField]
+        private BoolAnimationParameter highlightParam;
+        
+        [SerializeField]
+        private BoolAnimationParameter throwParam;
+
+        [SerializeField]
+        private GarbageSounds mySoundsAgain;
+
+        [SerializeField]
+        [HideInInspector]
         [Tooltip("First clip is the fall sound, second is the fly buzz sound")]
         private AudioClip[] mySounds;
 
-        [SerializeField]
-        private BoolAnimationParameter highlightParam;
-        [SerializeField]
-        private BoolAnimationParameter throwParam;
-        
-        [SerializeField]
-        private GarbageSounds mySoundsAgain;
-        
         #endregion
 
         #region Private Properties
@@ -47,8 +49,8 @@ namespace Interactable_Objects
 
         public void CloseToTruck(bool boolean)
         {
-            _truckAnimator.SetBool("Close", boolean);
-            // highlightParam.Set(_truckAnimator, boolean);
+            // _truckAnimator.SetBool("Close", boolean);
+            highlightParam.Set(_truckAnimator, boolean);
         }
 
         // TODO: use this instead
@@ -68,27 +70,26 @@ namespace Interactable_Objects
         // }
 
 
-
         public void StartBuzzSound()
         {
             _myAudio.Stop();
-            _myAudio.clip = mySounds[1];
+            // _myAudio.clip = mySounds[1];
             _myAudio.loop = true;
-            _myAudio.Play();
+            // _myAudio.Play();
             DebugLog.Log("Fly play", this);
-            // mySoundsAgain.buzzSound.Play(_myAudio);
+            mySoundsAgain.buzzSound.Play(_myAudio);
         }
 
 
         protected override void ScriptInteract()
         {
-            // if (!_truckAnimator.GetBool(throwParam))
-            if (!_truckAnimator.GetBool("Throw"))
+            if (!_truckAnimator.GetBool(throwParam.Index))
+                // if (!_truckAnimator.GetBool("Throw"))
             {
-                _myAudio.Play();
-                // mySoundsAgain.fallSound.Play(_myAudio);
-                _truckAnimator.SetBool("Throw", true);
-                // throwParam.Set(_truckAnimator, true);
+                // _myAudio.Play();
+                mySoundsAgain.fallSound.Play(_myAudio);
+                // _truckAnimator.SetBool("Throw", true);
+                throwParam.Set(_truckAnimator, true);
             }
         }
 
@@ -102,4 +103,3 @@ namespace Interactable_Objects
         public AudioEvent buzzSound;
     }
 }
-

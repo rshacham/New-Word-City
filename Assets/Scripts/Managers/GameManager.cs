@@ -117,7 +117,7 @@ namespace Managers
             yield return new WaitForSeconds(6f);
             _playerMovement.TeleportPlayer(fallPosition);
             _playerMovement.GetComponent<SpriteRenderer>().enabled = true;
-            StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f, false));
+            StartCoroutine(_playerMovement.ChangePosition(worldPosition, 1f));
             yield return new WaitForSeconds(1.5f);
             ChangeFollowPlayer(2);
             // _gameCamera.transform.position = worldStartingPosition;

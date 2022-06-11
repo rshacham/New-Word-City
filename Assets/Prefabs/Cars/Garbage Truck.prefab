@@ -236,15 +236,15 @@ MonoBehaviour:
           m_CallState: 2
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
+  highlightParam:
+    name: Close
+    index: -1
+  throwParam:
+    name: Throw
+    index: -1
+  mySoundsAgain:
+    fallSound: {fileID: 11400000, guid: dcf1a54c76081a84e8835178e3ac0f16, type: 2}
+    buzzSound: {fileID: 11400000, guid: 7209c08831a6bb7459f8be396231f2ad, type: 2}
   mySounds:
   - {fileID: 8300000, guid: ac42982c3b05fdb4eb1d8001341653b3, type: 3}
   - {fileID: 8300000, guid: 88f475a220350e94db148e19942b352f, type: 3}
-  highlightParam:
-    name: 
-    index: -1
-  throwParam:
-    name: 
-    index: -1
-  mySoundsAgain:
-    fallSound: {fileID: 0}
-    buzzSound: {fileID: 0}

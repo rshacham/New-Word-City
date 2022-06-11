@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106789865815028047, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Name
-      value: Residential Middle
+      value: Building 5
       objectReference: {fileID: 0}
     - target: {fileID: 7106789866457162375, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
       propertyPath: m_Sprite
@@ -215,5 +215,13 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
       value: -0.020786438
       objectReference: {fileID: 0}
+    - target: {fileID: 8120228241601845740, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: clips.Array.data[0].name
+      value: Ding
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120228241601845740, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
+      propertyPath: clips.Array.data[0].audioEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 336c517e7be82844cb4d86d0b9204ff3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa5a18e0249325348a29049b067d76a0, type: 3}
