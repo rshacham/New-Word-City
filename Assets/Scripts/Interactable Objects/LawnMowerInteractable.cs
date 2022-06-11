@@ -62,6 +62,10 @@ namespace Interactable_Objects
         {
             base.Awake();
             _myAnimator = GetComponentInParent<Animator>();
+            if (!animatedVersion)
+            {
+                _myAnimator.enabled = false;
+            }
             _myAudioSource = GetComponent<AudioSource>();
         }
 

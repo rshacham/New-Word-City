@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: INteract
+  trigger: Interact
 --- !u!1107 &-4555482450751227244
 AnimatorStateMachine:
   serializedVersion: 6
@@ -113,7 +113,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
