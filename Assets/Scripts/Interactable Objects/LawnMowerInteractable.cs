@@ -1,5 +1,6 @@
 ﻿using System;
 using Avrahamy;
+using Avrahamy.Audio;
 using Avrahamy.EditorGadgets;
 using BitStrap;
 using Player_Control;
@@ -27,25 +28,66 @@ namespace Interactable_Objects
 
         [SerializeField]
         [ConditionalHide("interactOnTrigger")]
-        [Tooltip("The number of triggers to cut before interaction (note cut that the mower starts above should count!)")]
+        [Tooltip(
+            "The number of triggers to cut before interaction (note cut that the mower starts above should count!)")]
         [Min(1)]
         private int triggerCount = 1;
+
+        [SerializeField]
+        [Tooltip("Should we include the animation option?")]
+        private bool animatedVersion;
+
+        [SerializeField]
+        [AnimatorField("_myAnimator")]
+        [ConditionalHide("animatedVersion")]
+        private TriggerAnimationParameter triggerAnimation;
+
+        [SerializeField]
+        [ConditionalHide("animatedVersion")]
+        private AudioEvent animationSound;
 
         #endregion
 
         #region Private Fields
 
         private int _counter;
+        private AudioSource _myAudioSource;
+        private Animator _myAnimator;
 
         #endregion
 
         #region EventInteractable
 
+        protected override void Awake()
+        {
+            base.Awake();
+            _myAnimator = GetComponentInParent<Animator>();
+            if (!animatedVersion)
+            {
+                _myAnimator.enabled = false;
+            }
+            _myAudioSource = GetComponent<AudioSource>();
+        }
+
+        protected override void ScriptInteract()
+        {
+            if (!animatedVersion)
+            {
+                return;
+            }
+
+            triggerAnimation.Set(_myAnimator);
+            if (!_myAudioSource.isPlaying)
+            {
+                animationSound.Play(_myAudioSource);
+            }
+        }
+
         public override bool SetInteraction(PlayerInteract other)
         {
-            base.SetInteraction(other);
+            var ret = base.SetInteraction(other);
             Player = other;
-            return false;
+            return animatedVersion && ret;
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -88,7 +130,7 @@ namespace Interactable_Objects
         {
             if (other.collider.CompareTag(stopperTag))
             {
-                DebugLog.Log(LogTag.Gameplay,"Left Stopper: ",other.collider);
+                DebugLog.Log(LogTag.Gameplay, "Left Stopper: ", other.collider);
             }
         }
 

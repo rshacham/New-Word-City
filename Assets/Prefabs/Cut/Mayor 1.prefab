@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1012089030329223067}
   - component: {fileID: 1012089030329223069}
   m_Layer: 6
-  m_Name: Mayor
+  m_Name: Mayor 1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
