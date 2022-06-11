@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Correct
   m_EditorClassIdentifier: 
   nameInSerialization: Correct
-  clip: {fileID: 8300000, guid: a3e80ce9dc1da6340acdc9afaf16d06f, type: 3}
+  clip: {fileID: 8300000, guid: 2b22ca32da07beb49bb65a9587c5f983, type: 3}
   mixerGroup: {fileID: 0}
   volume:
     min: 0.9

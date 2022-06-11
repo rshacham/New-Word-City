@@ -185,7 +185,6 @@ namespace UI
         public void MeaningFound(object sender, MeaningDescriptor e)
         {
             var index = WordsGameManager.Current.Meanings.IndexOf(e);
-            // DebugLog.Log($"{e} at index {index}");
             holders[index].FoundMeaning(e, sender as InteractableObject);
             coinAnimators[index].SetBool("Found", true);
         }
