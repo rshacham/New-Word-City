@@ -6184,7 +6184,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7781b1ef2a1d7f148a97061102258db3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5a95d7cfae24b44468dcea8e56cc62f6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -13243,7 +13243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691070847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -174.2021, y: 6.1523285, z: -10}
+  m_LocalPosition: {x: -174.2021, y: 6.1545544, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -24933,7 +24933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beachSounds:
-  - {fileID: 8300000, guid: 7781b1ef2a1d7f148a97061102258db3, type: 3}
+  - {fileID: 8300000, guid: 5a95d7cfae24b44468dcea8e56cc62f6, type: 3}
   - {fileID: 8300000, guid: 0ac8bd547d56c614ebc4d13a55aa6766, type: 3}
 --- !u!1001 &1064273121
 PrefabInstance:
