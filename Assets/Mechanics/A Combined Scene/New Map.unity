@@ -913,6 +913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d646a43a9ab15644be190eb177b79bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &54312379 stripped
@@ -1205,6 +1209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d646a43a9ab15644be190eb177b79bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &60653768 stripped
@@ -2693,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 061b30bec6c39ec47bd64dc654db892b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &156498073 stripped
@@ -3827,6 +3839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afa6b11968294d142839778f7de305d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &235783303 stripped
@@ -5639,6 +5655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0283bf22082474a4f8eb1b2e3f95f262, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &312697288 stripped
@@ -6327,6 +6347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0283bf22082474a4f8eb1b2e3f95f262, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &342399697 stripped
@@ -7134,6 +7158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d099584f8c0d0d34a8563f281b6a8950, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &368510594 stripped
@@ -9862,6 +9890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 707b1e278c887644c87662cad5dc9a40, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &502476506 stripped
@@ -11631,6 +11663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afa6b11968294d142839778f7de305d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &609066629 stripped
@@ -12340,6 +12376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 684e4603696383b44b40d773e93d120a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &643909900 stripped
@@ -13519,6 +13559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 707b1e278c887644c87662cad5dc9a40, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &709625224 stripped
@@ -15487,6 +15531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 707b1e278c887644c87662cad5dc9a40, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &835386638 stripped
@@ -21174,6 +21222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0283bf22082474a4f8eb1b2e3f95f262, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &897556712 stripped
@@ -24013,6 +24065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 061b30bec6c39ec47bd64dc654db892b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1013401118 stripped
@@ -26738,6 +26794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 061b30bec6c39ec47bd64dc654db892b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1163050074 stripped
@@ -26870,6 +26930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 684e4603696383b44b40d773e93d120a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1169314686 stripped
@@ -27745,6 +27809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 02ed403991e5628478ba7e9dfcc307c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1221471919 stripped
@@ -30566,6 +30634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d099584f8c0d0d34a8563f281b6a8950, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1417382002 stripped
@@ -31523,6 +31595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afa6b11968294d142839778f7de305d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1461732788 stripped
@@ -36399,8 +36475,12 @@ PrefabInstance:
       value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.987
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.472734
+      value: 30.4966
       objectReference: {fileID: 0}
     - target: {fileID: 2756239291939125504, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36446,6 +36526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little House (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 7881620669957255055, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afa6b11968294d142839778f7de305d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6ec7502c802844e90187ab425761b1, type: 3}
 --- !u!4 &1734689844 stripped
@@ -44847,6 +44931,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree Village
       objectReference: {fileID: 0}
+    - target: {fileID: 4707675154978770409, guid: 31d6639bee905ce439d80abd9298571c, type: 3}
+      propertyPath: villageClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707675154978770409, guid: 31d6639bee905ce439d80abd9298571c, type: 3}
+      propertyPath: villageClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 07c861a7517f67745b497d517d078dcf, type: 3}
     - target: {fileID: 5775457583533124469, guid: 31d6639bee905ce439d80abd9298571c, type: 3}
       propertyPath: m_FlipY
       value: 0
@@ -44878,7 +44970,7 @@ PrefabInstance:
     - target: {fileID: 6668977012749784237, guid: 31d6639bee905ce439d80abd9298571c, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 81db052fdd0aa8346b35f2cd407da3e4, type: 3}
+      objectReference: {fileID: 8300000, guid: eaca4d26a144acf4ea78603318338c43, type: 3}
     - target: {fileID: 6668977012749784237, guid: 31d6639bee905ce439d80abd9298571c, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0

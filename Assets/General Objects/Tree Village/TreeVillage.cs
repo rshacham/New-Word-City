@@ -45,7 +45,8 @@ namespace Interactable_Objects
         private Vector3 offTreePosition;
 
         [SerializeField] 
-        [Tooltip("First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down")]
+        [Tooltip("First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down." +
+                 " Fourth is for closing the ladder.")]
         private AudioClip[] villageClips;
 
         #endregion
@@ -85,6 +86,14 @@ namespace Interactable_Objects
         public void OpenCloseLadder(bool boolean)
         {
             _villageAnimator.SetBool("CanDrop", boolean);
+            if (boolean)
+            {
+                _villageSound.PlayOneShot(villageClips[3]);
+                return;
+            }
+            
+            _villageSound.PlayOneShot(villageClips[0]);
+
         }
 
         #endregion
