@@ -296,7 +296,7 @@ MonoBehaviour:
   triggerAnimation:
     name: Interact
     index: -1
-  animationSound: {fileID: 11400000, guid: 182b13c7a6da8cc4587c2f80f4c49316, type: 2}
+  animationSound: {fileID: 11400000, guid: 4adf4bde73840734a8800b70a574143f, type: 2}
 --- !u!50 &5844538880974835150
 Rigidbody2D:
   serializedVersion: 4

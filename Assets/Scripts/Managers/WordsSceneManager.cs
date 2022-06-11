@@ -81,6 +81,11 @@ namespace Managers
                 // TODO: update MeaningCountFound?
             }
 
+            if (!keepWordsAtReload)
+            {
+                WordsGameManager.Completed.Clear();
+            }
+
             WordsGameManager.Instance = this;
             WordsGameManager.SwitchToNextAvailableWord();
             // WordsGameManager.Current = words[0];

@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mechanics/A Combined Scene/New Map.unity
     guid: 80b04f7e5bd821c4aac5e1be1dff5b70
+  - enabled: 1
+    path: Assets/Mechanics/Opening Scene.unity
+    guid: 8f4fa0ac51dbac34994ac3f308ba1ae4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e325cb4de89458647a181af8c6e4e5d9, type: 2}

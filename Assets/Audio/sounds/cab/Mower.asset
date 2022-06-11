@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd6b217463f948e89ef6b141a525352, type: 3}
-  m_Name: Vacum
+  m_Name: Mower
   m_EditorClassIdentifier: 
-  nameInSerialization: Vacum
-  clip: {fileID: 8300000, guid: 9c2dbb9d1dbd31a46b5b8af97678070c, type: 3}
+  nameInSerialization: Mower
+  clip: {fileID: 8300000, guid: 6c33aa3f9f684f34facd8e625c1136a9, type: 3}
   mixerGroup: {fileID: 0}
   volume:
-    min: 1
-    max: 1
+    min: 0.4
+    max: 0.4
   pitch:
     min: 1
     max: 1

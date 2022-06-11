@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e827d43ea5cd341679ed7ba8ec4253f2, type: 3}
   m_Name: DebugLog
   m_EditorClassIdentifier: 
-  _logEverything: 1
+  _logEverything: 0
   _activeTags:
   - show: 1
     tag: 1
     color: {r: 0.0023755669, g: 0.6792453, b: 0, a: 1}
-  - show: 1
+  - show: 0
     tag: 21
     color: {r: 0.9394945, g: 1, b: 0, a: 1}
-  - show: 1
+  - show: 0
     tag: 22
     color: {r: 1, g: 0.54104865, b: 0, a: 1}
-  - show: 1
+  - show: 0
     tag: 30
     color: {r: 1, g: 0.06568921, b: 0, a: 1}
-  - show: 1
+  - show: 0
     tag: 40
     color: {r: 1, g: 0, b: 0.6844349, a: 1}
   - show: 1

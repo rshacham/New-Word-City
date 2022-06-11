@@ -183,7 +183,7 @@ namespace Managers
             if (_currentTutorial == TutorialsTexts.Length && !_isWriting // TODO: null check Current
                                                           && WordsGameManager.Current.WordComplete)
             {
-                Debug.Log(1);
+                DebugLog.Log(LogTag.UI,1);
                 WordsGameManager.SwitchToNextAvailableWord();
                 // TODO: uncomment both bellow to allow one press continue at end - Bug fix incoming
                 // WordsGameManager.SwitchToNextAvailableWord();
@@ -193,7 +193,7 @@ namespace Managers
 
             if (_currentTutorial != TutorialsTexts.Length)
             {
-                Debug.Log(2);
+                DebugLog.Log(LogTag.UI,2);
                 ContinueImage.gameObject.SetActive(false);
                 myText.text = "";
             }
@@ -202,7 +202,7 @@ namespace Managers
                 WordsGameManager.Current is {WordComplete: false} &&
                 CanvasManager.WordsToWrite == 0 && _lastTutorial)
             {
-                Debug.Log(3);
+                DebugLog.Log(LogTag.UI,3);
                 _lastTutorial = false;
                 StaticEventsGameManager.OnPlayerShouldInteract(Instance, true);
                 CanvasManager.ActiveCanvas.OpenClose();
@@ -212,20 +212,20 @@ namespace Managers
             if (_currentTutorial == TutorialsTexts.Length - 1 &&
                 WordsGameManager.Current is {WordComplete: false})
             {
-                Debug.Log(4);
+                DebugLog.Log(LogTag.UI,4);
                 return;
             }
 
             if (_currentTutorial >= TutorialsTexts.Length)
             {
-                Debug.Log(5);
+                DebugLog.Log(LogTag.UI,5);
                 _currentTutorial = _currentTutorial > TutorialsTexts.Length ? 0 : _currentTutorial;
                 return;
             }
 
             if (letterCount >= _tutorialString.Length)
             {
-                Debug.Log(6);
+                DebugLog.Log(LogTag.UI,6);
                 letterCount = 0;
                 _tutorialString = TutorialsTexts[_currentTutorial++];
                 // if (_currentTutorial != TutorialsTexts.Length) 
