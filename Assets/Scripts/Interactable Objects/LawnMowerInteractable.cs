@@ -67,6 +67,10 @@ namespace Interactable_Objects
                 _myAnimator.enabled = false;
             }
             _myAudioSource = GetComponent<AudioSource>();
+            if (!_myAudioSource.isPlaying)
+            {
+                animationSound.Play(_myAudioSource);
+            }
         }
 
         protected override void ScriptInteract()
@@ -77,10 +81,6 @@ namespace Interactable_Objects
             }
 
             triggerAnimation.Set(_myAnimator);
-            if (!_myAudioSource.isPlaying)
-            {
-                animationSound.Play(_myAudioSource);
-            }
         }
 
         public override bool SetInteraction(PlayerInteract other)
