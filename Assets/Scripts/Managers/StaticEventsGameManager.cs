@@ -1,4 +1,5 @@
 ﻿using System;
+using Avrahamy;
 using Avrahamy.EditorGadgets;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -33,6 +34,7 @@ namespace Managers
 
         public static void OnPlayerShouldInteract(object sender, bool e)
         {
+            DebugLog.Log(LogTag.LowPriority, $"Player Interact: {e}");
             PlayerShouldInteract?.Invoke(sender, e);
         }
 

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd6b217463f948e89ef6b141a525352, type: 3}
-  m_Name: Correct
+  m_Name: Cat 2
   m_EditorClassIdentifier: 
-  nameInSerialization: Correct
-  clip: {fileID: 8300000, guid: a3e80ce9dc1da6340acdc9afaf16d06f, type: 3}
+  nameInSerialization: Cat 2
+  clip: {fileID: 8300000, guid: 912f89a934a4c3249b9813bfca8320c6, type: 3}
   mixerGroup: {fileID: 0}
   volume:
-    min: 0.9
-    max: 1.1
+    min: 0.15
+    max: 0.25
   pitch:
-    min: 0.85
-    max: 1.15
+    min: 0.95
+    max: 1.05
   stereoPan: 0

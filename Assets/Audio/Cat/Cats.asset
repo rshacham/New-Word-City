@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cf5b3970f714772b0951fe99345d7b, type: 3}
+  m_Name: Cats
+  m_EditorClassIdentifier: 
+  nameInSerialization: New Random With Chances Audio Event
+  entries:
+  - value: {fileID: 11400000, guid: 769c02cf006e1864aa36877eaa9d2bf3, type: 2}
+    chance: 1
+  - value: {fileID: 11400000, guid: 6132375fe7398fc47af5fb6e5cf58c4c, type: 2}
+    chance: 1
+  - value: {fileID: 11400000, guid: 6df42f914f82ed84aac2d49d527e155c, type: 2}
+    chance: 1

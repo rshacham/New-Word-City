@@ -24,6 +24,9 @@ namespace Managers
         [Tooltip("List of words in this scene")]
         internal List<MeaningfulWord> words = new List<MeaningfulWord>();
 
+        [SerializeField]
+        private bool keepWordsAtReload;
+
         #endregion
 
         #region Internal Values
@@ -62,7 +65,7 @@ namespace Managers
         private void Awake()
         {
             // TODO: check on default getters?
-            if (SavedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
+            if (keepWordsAtReload && SavedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
             {
                 //TODO: move to MeaningfulWord as update method!
                 var saved = SavedScenesData[SceneManager.GetActiveScene().name];
