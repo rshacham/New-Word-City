@@ -35,8 +35,8 @@ namespace Interactable_Objects
                 return;
             }
 
-            int a = Random.Range(1, 5);
-            Debug.Log(a);
+            // int a = Random.Range(1, 5);
+            // DebugLog.Log(a);
             _myAnimator.SetBool("On", true);
             _myAnimator.SetInteger("Animation", Random.Range(1, 5));
         }

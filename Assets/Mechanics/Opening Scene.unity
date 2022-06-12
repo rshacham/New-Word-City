@@ -219,6 +219,8 @@ GameObject:
   m_Component:
   - component: {fileID: 308956021}
   - component: {fileID: 308956020}
+  - component: {fileID: 308956023}
+  - component: {fileID: 308956022}
   m_Layer: 0
   m_Name: space
   m_TagString: Untagged
@@ -291,6 +293,113 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &308956022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308956019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e20f892cc38d6e54c8fe8145e38a129d, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308956023}
+        m_TargetAssemblyTypeName: OpenSceneSprite, Assembly-CSharp
+        m_MethodName: OnDevice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308956023}
+        m_TargetAssemblyTypeName: OpenSceneSprite, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 80e44b83-00e6-4fd0-ae41-cb2e8a0ea8aa
+    m_ActionName: PlayerMovement/Interact[/Keyboard/e,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42345f15-971c-4c32-8c62-bc9dcde0df20
+    m_ActionName: PlayerMovement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6cd5c691-10b2-41ea-a3a5-e101ae13fe7d
+    m_ActionName: PlayerMovement/SecondaryInteract[/Keyboard/ctrl,/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99be8aa1-8d1b-4af3-86a9-6c954ac5589f
+    m_ActionName: PlayerMovement/MouseInteract[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: da3cf9ed-b7fd-458f-b471-f4c06240c679
+    m_ActionName: PlayerMovement/Exit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0bdd0580-8a10-4701-b4a8-716cebb2670b
+    m_ActionName: PlayerMovement/Reset[/Keyboard/f4]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd15b932-6804-40e1-a169-8fd2d453e332
+    m_ActionName: PlayerMovement/Teleport[/Keyboard/f7]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fe219db4-2408-4dd7-b0a9-b54685d3bfc1
+    m_ActionName: PlayerMovement/SwitchToNextWord[/Keyboard/f8]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerMovement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &308956023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308956019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b362f81ca4dcac41937cdd26e776788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+    offset: {x: 0, y: 0, z: 0}
+    controller:
+      interact: {fileID: 21300000, guid: b13d5292542318a4ebc6be8b83903e02, type: 3}
+      secondaryInteract: {fileID: 0}
+    kbm:
+      interact: {fileID: 21300000, guid: bc6263226f7d4b54a98803711628ec4a, type: 3}
+      secondaryInteract: {fileID: 0}
+    pool: {fileID: 0}
 --- !u!1 &1099060917
 GameObject:
   m_ObjectHideFlags: 0

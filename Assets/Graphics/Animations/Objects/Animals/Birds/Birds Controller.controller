@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891634c36744fa4f8338b5054416f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: Unhighlight
+  trigger: UnHighlight
 --- !u!114 &5039136058373519532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +194,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1240784134905447707}
-    m_Position: {x: 400, y: 80, z: 0}
+    m_Position: {x: 390, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9190155939089998952}
     m_Position: {x: 400, y: 220, z: 0}
