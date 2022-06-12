@@ -113,6 +113,7 @@ namespace Managers
             if (context.performed)
             {
                 DebugLog.Log(LogTag.HighPriority, "Reset Game");
+                PureCoroutines.Instance.RemoveAllCoroutines();
                 SceneManager.LoadScene(1);
             }
         }
