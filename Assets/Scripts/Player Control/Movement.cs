@@ -144,6 +144,7 @@ namespace Player_Control
                 // enableMovement = sender is Tutorial ? b : enableMovement; // todo: allow all?
                 enableMovement = b;
             };
+            StartCoroutine(ChangePosition(transform.position - new Vector3(0, 7f, 0f), 2));
 
             // Word Switch:
             // WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
