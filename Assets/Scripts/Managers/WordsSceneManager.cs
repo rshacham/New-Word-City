@@ -114,7 +114,7 @@ namespace Managers
             {
                 DebugLog.Log(LogTag.HighPriority, "Reset Game");
                 PureCoroutines.Instance.RemoveAllCoroutines();
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
         }
 
