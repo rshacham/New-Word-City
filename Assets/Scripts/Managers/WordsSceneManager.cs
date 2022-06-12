@@ -120,11 +120,14 @@ namespace Managers
 
         public void OnExit(InputAction.CallbackContext context)
         {
-            DebugLog.Log(LogTag.HighPriority, "Application Quit");
+            if (context.started)
+            {
+                DebugLog.Log(LogTag.HighPriority, "Application Quit");
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
 #endif
-            Application.Quit();
+                Application.Quit();
+            }
         }
 
         public void OnSwitchToNextWord(InputAction.CallbackContext context)
