@@ -23,6 +23,6 @@ public class MenuSpaceship : MonoBehaviour
 
     public void GoNext()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
