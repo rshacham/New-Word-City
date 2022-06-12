@@ -269,7 +269,7 @@ namespace Managers
             {
                 return null;
             }
-
+            print(Scheme);
             return Instance.tutorialObjects.CreateTutorial(position, type, Scheme);
         }
 

@@ -135,6 +135,7 @@ namespace Player_Control
         {
             ValidateAngle();
             _playerInput = GetComponent<PlayerInput>();
+            print(_playerInput.currentControlScheme);
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();
             Tutorial.PlayerMovement = this;

@@ -375,7 +375,7 @@ MonoBehaviour:
     m_ActionId: fe219db4-2408-4dd7-b0a9-b54685d3bfc1
     m_ActionName: PlayerMovement/SwitchToNextWord[/Keyboard/f8]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

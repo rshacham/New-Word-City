@@ -22,6 +22,7 @@ public class OpenSceneSprite : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         _myRenderer = GetComponent<SpriteRenderer>();
+        OnDevice();
         // _myRenderer.sprite = sprites.GetForScheme()
     }
 
