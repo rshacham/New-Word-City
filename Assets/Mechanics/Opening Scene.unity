@@ -394,11 +394,11 @@ MonoBehaviour:
   sprites:
     offset: {x: 0, y: 0, z: 0}
     controller:
-      interact: {fileID: 21300000, guid: b13d5292542318a4ebc6be8b83903e02, type: 3}
-      secondaryInteract: {fileID: 0}
+      interact: {fileID: 21300000, guid: 3cc7836c9f0974a068289014d22b27b6, type: 3}
+      secondaryInteract: {fileID: 21300000, guid: 0bc91343c6c6a4512b1ead47fe7c8752, type: 3}
     kbm:
       interact: {fileID: 21300000, guid: bc6263226f7d4b54a98803711628ec4a, type: 3}
-      secondaryInteract: {fileID: 0}
+      secondaryInteract: {fileID: 21300000, guid: 8d8f7d5f5bd554fa889dfedbd6d7e5ab, type: 3}
     pool: {fileID: 0}
 --- !u!1 &1099060917
 GameObject:

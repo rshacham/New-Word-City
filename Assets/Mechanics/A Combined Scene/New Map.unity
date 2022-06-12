@@ -48874,6 +48874,14 @@ PrefabInstance:
       propertyPath: myText
       value: 
       objectReference: {fileID: 308388203}
+    - target: {fileID: 5973284535904468855, guid: f2d92cf00bab26d48a8c1af0e8f78ad6, type: 3}
+      propertyPath: tutorialObjects.controller.interact
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cc7836c9f0974a068289014d22b27b6, type: 3}
+    - target: {fileID: 5973284535904468855, guid: f2d92cf00bab26d48a8c1af0e8f78ad6, type: 3}
+      propertyPath: tutorialObjects.controller.secondaryInteract
+      value: 
+      objectReference: {fileID: 21300000, guid: 0bc91343c6c6a4512b1ead47fe7c8752, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2d92cf00bab26d48a8c1af0e8f78ad6, type: 3}
 --- !u!114 &6709026760889776395 stripped
