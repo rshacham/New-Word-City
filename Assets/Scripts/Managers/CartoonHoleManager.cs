@@ -60,6 +60,7 @@ namespace Managers
         private bool _durationChanged = false;
 
         private static readonly int Radius = Shader.PropertyToID("_Radius");
+        private bool _first = true;
 
         #endregion
 
@@ -107,9 +108,9 @@ namespace Managers
             if (_t >= 1)
             {
                 Moving = 0;
-                DebugLog.Log(LogTag.UI,"Open", this);
+                DebugLog.Log(LogTag.UI, "Open", this);
             }
-            
+
             else if (_t <= 0)
             {
                 OnTransitionEnd(this);
@@ -130,7 +131,6 @@ namespace Managers
                     ChangeHole = false;
                 }
             }
-
         }
 
         #endregion
@@ -139,6 +139,13 @@ namespace Managers
 
         private void OnWordSwitch(object sender, MeaningfulWord e)
         {
+            // DebugLog.Log(WordsGameManager.Tutorial, this);
+            if (_first)
+            {
+                _first = false;
+                return;
+            }
+
             if (WordsGameManager.Tutorial)
             {
                 WordsGameManager.Tutorial = false;
