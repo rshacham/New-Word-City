@@ -113,7 +113,7 @@ namespace Managers
             if (context.performed)
             {
                 DebugLog.Log(LogTag.HighPriority, "Reset Game");
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
 
