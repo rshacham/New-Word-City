@@ -139,16 +139,22 @@ namespace Player_Control
             _playerAnimator = GetComponent<Animator>();
             _playerRigidBody = GetComponent<Rigidbody2D>();
             Tutorial.PlayerMovement = this;
-            StaticEventsGameManager.PlayerShouldInteract += (sender, b) =>
-            {
-                // enableMovement = sender is Tutorial ? b : enableMovement; // todo: allow all?
-                enableMovement = b;
-            };
-            StartCoroutine(ChangePosition(transform.position - new Vector3(0, 7f, 0f), 2));
+            StaticEventsGameManager.PlayerShouldInteract += UpdateEnableMovement;
+            StartCoroutine(ChangePosition(transform.position - new Vector3(0, 7f, 0f), 2, false));
 
             // Word Switch:
             // WordsGameManager.OnWordSwitch += (sender, word) => enableMovement = false;
             // CartoonHoleManager.TransitionEnd += (sender, manager) => enableMovement = true;
+        }
+
+        private void OnDisable()
+        {
+            StaticEventsGameManager.PlayerShouldInteract -= UpdateEnableMovement;
+        }
+
+        private void UpdateEnableMovement(object sender, bool b)
+        {
+            enableMovement = b;
         }
 
         private void Update()

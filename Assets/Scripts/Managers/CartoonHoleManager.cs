@@ -60,7 +60,6 @@ namespace Managers
         private bool _durationChanged = false;
 
         private static readonly int Radius = Shader.PropertyToID("_Radius");
-        private bool _first = true;
 
         #endregion
 
@@ -82,6 +81,11 @@ namespace Managers
                 _t = Mathf.Clamp01(_t);
                 _sharedMaterial.SetFloat(Radius, Mathf.Lerp(minMaxRadius.x, minMaxRadius.y, _t));
             }
+        }
+
+        private void OnDisable()
+        {
+            WordsGameManager.OnWordSwitch -= OnWordSwitch;
         }
 
         private void Update()
@@ -138,16 +142,14 @@ namespace Managers
 
         private void OnWordSwitch(object sender, MeaningfulWord e)
         {
-            // DebugLog.Log(WordsGameManager.Tutorial, this);
-            if (_first)
-            {
-                _first = false;
-                return;
-            }
-
             if (WordsGameManager.Tutorial)
             {
                 WordsGameManager.Tutorial = false;
+                return;
+            }
+
+            if (e.Word.Equals("Drop"))
+            {
                 return;
             }
 
@@ -156,8 +158,6 @@ namespace Managers
                 transitionDurationTimer.Clear();
                 Moving = Moving != 0 ? -Moving : _t >= 1 ? -1 : 1;
             }
-            // _sharedMaterial.SetFloat("_StartTime", Time.time);
-            // _sharedMaterial.SetInt("_Open", (_moving + 1) / 2);
         }
 
         #endregion

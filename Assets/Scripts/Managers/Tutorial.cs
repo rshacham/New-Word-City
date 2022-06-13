@@ -94,6 +94,7 @@ namespace Managers
 
         private void Awake()
         {
+            WordsGameManager.Tutorial = true;
             if (Instance != null)
             {
                 Destroy(gameObject);
@@ -101,10 +102,6 @@ namespace Managers
             }
 
             Instance = this;
-        }
-
-        private void Update()
-        {
         }
 
         private void Start()

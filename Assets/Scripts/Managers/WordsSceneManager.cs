@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Avrahamy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -95,18 +96,18 @@ namespace Managers
                 SavedScenesData.Clear();
                 WordsGameManager.Completed.Clear();
             }
-
-
+            
             WordsGameManager.Instance = this;
-            WordsGameManager.SwitchToNextAvailableWord();
-            // WordsGameManager.Current = words[0];
-            // TODO if empty, changing based on level, so on and so forth.
-            // WordsGameManager.RegisterCurrentMeanings();
 
             DebugLog.Log(
                 "Debug Keys: \nExit\t\t[Esc]\nReset\t\t[F4]\nReset Position\t[F7]\nSwitch Word\t[F8]\nShow Logs\t[F10]\n",
                 this
             );
+        }
+
+        private void Start()
+        {
+            WordsGameManager.SwitchToNextAvailableWord();
         }
 
         private void OnDisable()
