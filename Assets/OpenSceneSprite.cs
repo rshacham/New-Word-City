@@ -28,6 +28,7 @@ public class OpenSceneSprite : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        // TODO: move to MenuSpaceship, and set _first=true only at the end of tutorial animation!
         if (context.started && _first)
         {
             _first = false;
