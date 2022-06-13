@@ -23,8 +23,8 @@ namespace Interactable_Objects
 
         #region Private Fields
 
-        private ParticleController _particleSystem = new ParticleController();
-        // private ParticleSystem _particleSystem;
+        // private static InteractableParticleController instance;
+        private readonly ParticleController _particleSystem = new ParticleController();
 
         #endregion
 
@@ -32,6 +32,12 @@ namespace Interactable_Objects
 
         private void Awake()
         {
+            // if (instance != null) {
+            //     Destroy(gameObject);
+            //     return;
+            // }
+            // instance = this;
+            
             // _particleSystem = GetComponent<ParticleSystem>();
             _particleSystem.RootParticleSystem = GetComponent<ParticleSystem>();
             WordsGameManager.OnMeaningFound += SetParticles;
@@ -42,6 +48,7 @@ namespace Interactable_Objects
         private void OnDisable()
         {
             StaticEventsGameManager.EmitParticles -= OnEmitCallback;
+            WordsGameManager.OnMeaningFound -= SetParticles;
         }
 
         #endregion

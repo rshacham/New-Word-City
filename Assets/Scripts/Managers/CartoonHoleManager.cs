@@ -125,7 +125,6 @@ namespace Managers
                         _durationChanged = false;
                     }
                 }
-
                 else
                 {
                     ChangeHole = false;

@@ -13,8 +13,6 @@ namespace Managers
     /// </summary>
     public class WordsSceneManager : MonoBehaviour
     {
-        //TODO: index? scene object itself?
-        // TODO: move to the static Manager?
         private static readonly Dictionary<string, List<MeaningfulWord>> SavedScenesData =
             new Dictionary<string, List<MeaningfulWord>>();
 
@@ -64,27 +62,40 @@ namespace Managers
 
         private void Awake()
         {
-            // TODO: check on default getters?
-            if (keepWordsAtReload && SavedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
+            if (keepWordsAtReload)
             {
-                //TODO: move to MeaningfulWord as update method!
-                var saved = SavedScenesData[SceneManager.GetActiveScene().name];
-                for (int i = 0; i < words.Count; i++)
+                // TODO: check on default getters?
+                if (SavedScenesData.ContainsKey(SceneManager.GetActiveScene().name))
                 {
-                    for (int j = 0; j < words[i].Meanings.Count; j++)
+                    //TODO: move to MeaningfulWord as update method!
+                    var saved = SavedScenesData[SceneManager.GetActiveScene().name];
+                    for (int i = 0; i < words.Count; i++)
                     {
-                        words[i].Meanings[j].Found = saved[i].Meanings[j].Found;
+                        for (int j = 0; j < words[i].Meanings.Count; j++)
+                        {
+                            words[i].Meanings[j].Found = saved[i].Meanings[j].Found;
+                        }
+                    }
+                    // TODO: save more information! can be done by creating a state class with all the
+                    //  serialized data! 
+                    // TODO: update MeaningCountFound?
+                }
+            }
+            else
+            {
+                foreach (var word in words)
+                {
+                    word.WordComplete = false;
+                    foreach (var meaning in word.Meanings)
+                    {
+                        meaning.Found = false;
                     }
                 }
-                // TODO: save more information! can be done by creating a state class with all the
-                //  serialized data! 
-                // TODO: update MeaningCountFound?
-            }
 
-            if (!keepWordsAtReload)
-            {
+                SavedScenesData.Clear();
                 WordsGameManager.Completed.Clear();
             }
+
 
             WordsGameManager.Instance = this;
             WordsGameManager.SwitchToNextAvailableWord();

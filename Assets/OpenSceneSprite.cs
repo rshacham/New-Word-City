@@ -16,7 +16,7 @@ public class OpenSceneSprite : MonoBehaviour
     private bool _first = true;
     private const string Controller = "Controller";
 
-    public bool IsController => _playerInput != null && _playerInput.currentControlScheme == Controller;
+    private bool IsController => _playerInput != null && _playerInput.currentControlScheme == Controller;
 
     private void Awake()
     {
