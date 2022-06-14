@@ -47,7 +47,7 @@ public class MenuSpaceship : MonoBehaviour
             // Check if the load has finished
             if (asyncOperation.progress >= 0.9f)
             {
-                DebugLog.Log(LogTag.Default, "Ready to load", this);
+                // DebugLog.Log(LogTag.Default, "Ready to load", this);
                 //Change the Text to show the Scene is ready
                 // m_Text.text = "Press the space bar to continue";
                 //Wait to you press the space key to activate the Scene
