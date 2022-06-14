@@ -1,10 +1,11 @@
 using System;
 using Avrahamy;
 using BitStrap;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Managers
+namespace UI
 {
     public class CartoonHoleManager : MonoBehaviour
     {
@@ -56,8 +57,7 @@ namespace Managers
         private Material _sharedMaterial;
         private float _t = 1;
         private float _originalTransitionDuration;
-        private Vector2 _originalMinMaxRadius;
-        private bool _durationChanged = false;
+        private bool _durationChanged;
 
         private static readonly int Radius = Shader.PropertyToID("_Radius");
 
@@ -71,7 +71,6 @@ namespace Managers
             _sharedMaterial = _myImage.material;
             _sharedMaterial.SetFloat(Radius, minMaxRadius.y);
             _originalTransitionDuration = transitionDurationTimer.Duration;
-            _originalMinMaxRadius = minMaxRadius;
             WordsGameManager.OnWordSwitch += OnWordSwitch;
             if (startBlue)
             {
@@ -118,7 +117,7 @@ namespace Managers
             else if (_t <= 0)
             {
                 OnTransitionEnd(this);
-                if (!GameManager.Shared.EndSceneIsOn)
+                if (!CameraAndTeleportManager.Shared.EndSceneIsOn)
                 {
                     transitionDurationTimer.Start();
                     Moving = 0;

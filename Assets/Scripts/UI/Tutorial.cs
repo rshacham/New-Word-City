@@ -1,12 +1,12 @@
 using System.Collections;
 using Avrahamy;
+using Managers;
 using Player_Control;
 using TMPro;
-using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Managers
+namespace UI
 {
     public class Tutorial : MonoBehaviour
     {
@@ -15,9 +15,6 @@ namespace Managers
         [SerializeField]
         [Tooltip("Delay between the letters")]
         private float letterDelay = 0.1f;
-
-        [SerializeField]
-        private float tutorialStartDelay;
 
         [SerializeField]
         [Tooltip("The Tutorial objects used")]
@@ -51,7 +48,7 @@ namespace Managers
             set => tutorialsTexts = value;
         }
 
-        public int letterCount = 0;
+        public int letterCount;
 
         public static int CurrentTutorial
         {
@@ -79,9 +76,9 @@ namespace Managers
 
         private string _tutorialString = "";
 
-        private bool _isWriting = false;
+        private bool _isWriting;
 
-        private bool _lastTutorial = false;
+        private bool _lastTutorial;
 
         private AudioSource _myAudio;
 
@@ -171,9 +168,9 @@ namespace Managers
             }
 
             if (WordsGameManager.Instance.CurrentIndex == WordsGameManager.Instance.words.Count - 1 &&
-                !GameManager.Shared.EndScenePlayed)
+                !CameraAndTeleportManager.Shared.EndScenePlayed)
             {
-                GameManager.Shared.EndScene();
+                CameraAndTeleportManager.Shared.EndScene();
                 return;
             }
 
@@ -243,7 +240,6 @@ namespace Managers
             if (_isWriting)
             {
                 letterCount = _tutorialString.Length;
-                return;
             }
         }
 

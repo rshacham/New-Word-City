@@ -1,5 +1,4 @@
 using System;
-using Avrahamy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,7 +24,7 @@ namespace UI
             set => CanvasManagerInstance.writingWord = value;
         }
 
-        public static int WordsToWrite { get; set; } = 0;
+        public static int WordsToWrite { get; set; }
 
         public static int TutorialTextAmount { get; set; }
 
@@ -64,14 +63,14 @@ namespace UI
 
         public void ContinueTutorial(InputAction.CallbackContext context)
         {
-            if (ActiveCanvas.TutorialHolder == null || !ActiveCanvas.IsOpen || ActiveCanvas.EndingCanvas)
+            if (Pokedex.TutorialHolder == null || !ActiveCanvas.IsOpen || ActiveCanvas.EndingCanvas)
             {
                 return;
             }
 
             if (context.started) //  TODO: && WordsToWrite == 0 ??
             {
-                ActiveCanvas.TutorialHolder.TutorialContinue();
+                Pokedex.TutorialHolder.TutorialContinue();
             }
         }
 

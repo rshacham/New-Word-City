@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Avrahamy;
-using Cinemachine;
-using UI;
 using UnityEngine;
 
 namespace Managers
@@ -24,7 +22,7 @@ namespace Managers
         public static MeaningfulWord Current
         {
             get => Active ? Instance.Current : null;
-            internal set
+            private set
             {
                 if (Active)
                 {
@@ -95,7 +93,6 @@ namespace Managers
 
         private static WordsSceneManager _instance;
 
-
         #endregion
 
         #region Public Methods
@@ -113,7 +110,8 @@ namespace Managers
             // TODO: loop back to original using for loop with index modulo, not just to the end.
             while (Instance.CurrentIndex < Words.Count)
             {
-                if (Words[Instance.CurrentIndex].WordComplete || Completed.Contains(Words[Instance.CurrentIndex]))
+                if (Words[Instance.CurrentIndex].WordComplete ||
+                    Completed.Contains(Words[Instance.CurrentIndex]))
                 {
                     Instance.CurrentIndex++;
                     continue;
@@ -153,6 +151,7 @@ namespace Managers
                 {
                     OnWordSwitch?.Invoke(Current, null);
                 }
+
                 Current = null;
                 DebugLog.Log("No More Words", Color.red); // TODO:?
                 return;
@@ -217,6 +216,5 @@ namespace Managers
         }
 
         #endregion
-        
     }
 }

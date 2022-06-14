@@ -1,7 +1,4 @@
-﻿using System;
-using Avrahamy;
-using Avrahamy.EditorGadgets;
-using BitStrap;
+﻿using BitStrap;
 using Managers;
 using Player_Control;
 using UnityEngine;
@@ -15,10 +12,6 @@ namespace UI
 
         [SerializeField]
         private BoolAnimationParameter highlightParameter;
-
-        [SerializeField]
-        [HideInInspector]
-        private Sprite menuSprite;
 
         [SerializeField]
         [Tooltip("Should the first highlighting event emit particles")]
@@ -37,7 +30,6 @@ namespace UI
 
         #region Private Fields
 
-        private Image _myImage;
         private Animator _myAnimator;
         private bool _firstTime = true;
         private GameObject _tutorialSprite;
@@ -51,7 +43,7 @@ namespace UI
 
         private void Start()
         {
-            _myImage = GetComponent<Image>();
+            GetComponent<Image>();
             _myAnimator = GetComponent<Animator>();
             WordsGameManager.OnMeaningFound += OnMeaningFound;
             WordsGameManager.OnWordSwitch += OnWordSwitch;

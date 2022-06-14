@@ -5,10 +5,11 @@ namespace StateMachine
 {
     public class TaxiMoveState : StateMachineBehaviour
     {
+        // TODO: use AnimatorParameters
         private static readonly int Highlight = Animator.StringToHash("Highlight");
 
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.SetBool(Highlight, false);
         }
@@ -20,7 +21,7 @@ namespace StateMachine
         //}
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.GetComponent<InteractableObject>().Interact();
             animator.SetBool(Highlight, true);

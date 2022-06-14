@@ -80,7 +80,7 @@ namespace Managers
         /// <summary>
         /// Did we find this meaning?
         /// </summary>
-        public bool Found { get; set; } = false;
+        public bool Found { get; set; }
 
         /// <summary>
         /// Getter for the meaning itself.

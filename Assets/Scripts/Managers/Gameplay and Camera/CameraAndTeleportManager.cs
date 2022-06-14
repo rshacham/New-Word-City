@@ -9,61 +9,57 @@ using UnityEngine.Serialization;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class CameraAndTeleportManager : MonoBehaviour
     {
-        public static GameManager Shared;
-    
+        public static CameraAndTeleportManager Shared;
+
         #region Inspector
-    
+
         [SerializeField]
         [Tooltip("Camera Confiner")]
         private CinemachineConfiner cameraConfiner;
 
 
-        [SerializeField] 
+        [SerializeField]
         [Tooltip("Camera Virtual Camera")]
         private CinemachineVirtualCamera virtualCamera;
-    
-    
+
+
         [SerializeField]
         [Tooltip("First collider is the tutorial collider, second one is the world collider")]
         private PolygonCollider2D[] cameraColliders;
-    
 
-        [SerializeField] 
-        [Tooltip("The world position where the player will fall after the tutorial")]
-        private Vector3 worldStartingPosition;
 
-    
-        [SerializeField] 
+        // TODO: struct or another solution.
+        [SerializeField]
         [Tooltip("First is the tutorial ending position." +
                  "Second is the new world starting position. Third is added on awake, and is the player transform. ")]
-        Transform[] transformsForCamera;
+        private Transform[] transformsForCamera;
 
 
-        [FormerlySerializedAs("endingScene")] [SerializeField] [Tooltip("Ending Canvas")]
+        [FormerlySerializedAs("endingScene")]
+        [SerializeField]
+        [Tooltip("Ending Canvas")]
         private Pokedex endingCanvas;
 
-
         #endregion
-    
+
         #region Private Fields
-    
+
         private Movement _playerMovement;
 
-        private Camera _gameCamera;
-    
         private CartoonHoleManager _holeManager;
-
-
+        
+        // TODO: use AnimatorParameter
+        private static readonly int Dance = Animator.StringToHash("Dance");
 
         #endregion
-    
+
         #region Public Fields
 
-        public bool EndScenePlayed { get; set; } = false;
+        public bool EndScenePlayed { get; set; }
 
-        public bool EndSceneIsOn { get; set; } = false;
+        public bool EndSceneIsOn { get; set; }
 
         public Pokedex EndingCanvas
         {
@@ -72,14 +68,29 @@ namespace Managers
         }
 
         #endregion
+
+        #region MonoBehaviour
+
         private void Awake()
         {
+            if (Shared != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             Shared = this;
-            _playerMovement = FindObjectOfType<Movement>();
-            _gameCamera = FindObjectOfType<Camera>();
+            // TODO:  _playerMovement = Tutorial.PlayerMovement;
+            _playerMovement =  FindObjectOfType<Movement>();
+            // TODO: make CartoonHoleManager singleton instead
             _holeManager = FindObjectOfType<CartoonHoleManager>();
+            FindObjectOfType<Camera>(); // TODO: ????
         }
-    
+
+        #endregion
+
+        #region Public Methods
+
         public void ChangeCamera(int cameraNum)
         {
             cameraConfiner.m_BoundingShape2D = cameraColliders[cameraNum];
@@ -91,11 +102,33 @@ namespace Managers
             virtualCamera.m_Follow = transformsForCamera[newTransform];
         }
 
+        public void EndScene()
+        {
+            _holeManager.ChangeMinMax(2, 30);
+            _holeManager.CloseCircle();
+            EndSceneIsOn = true;
+            EndScenePlayed = true;
+            _playerMovement.EnableMovement = false;
+            _playerMovement.DesiredVelocity = Vector2.zero;
+            _playerMovement.GetComponent<Animator>().SetBool(Dance, true);
+            // CanvasManager.ActiveCanvas.gameObject.SetActive(false);
+            // CanvasManager.ActiveCanvas = endingCanvas;
+            // CanvasManager.ActiveCanvas.gameObject.SetActive(true);
+            //
+            Pokedex.TutorialHolder.TutorialContinue();
+            StartCoroutine(ContinueAfterEndingScene());
+        }
+
+        #endregion
+
+        #region Coroutines
+
         public IEnumerator ThrowPlayerOnWorld()
         {
             Vector3 worldPosition = transformsForCamera[1].position;
             Vector3 fallPosition = new Vector3(transformsForCamera[1].position.x,
-                transformsForCamera[1].position.y + 20, transformsForCamera[1].position.z);
+                transformsForCamera[1].position.y + 20,
+                transformsForCamera[1].position.z);
             yield return new WaitForSeconds(1.5f);
             _playerMovement.GetComponent<SpriteRenderer>().enabled = false;
             _playerMovement.EnableMovement = false;
@@ -104,14 +137,15 @@ namespace Managers
             _holeManager.CloseCircle();
             yield return new WaitForSeconds(2.5f);
             _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
-            var trampolina = FindObjectOfType<TrampolineInteractable>();
-            trampolina.UseOnEnd = true;
-            trampolina.Interact();
+            var trampoline = FindObjectOfType<TrampolineInteractable>();
+            trampoline.UseOnEnd = true;
+            trampoline.Interact();
             _playerMovement.TeleportPlayer(worldPosition);
             if (!CanvasManager.ActiveCanvas.IsOpen)
             {
                 CanvasManager.ActiveCanvas.OpenClose();
             }
+
             ChangeCamera(1);
             ChangeFollowPlayer(1);
             yield return new WaitForSeconds(6f);
@@ -128,24 +162,7 @@ namespace Managers
         }
 
 
-        public void EndScene()
-        {
-            _holeManager.ChangeMinMax(2, 30);
-            _holeManager.CloseCircle();
-            EndSceneIsOn = true;
-            EndScenePlayed = true;
-            _playerMovement.EnableMovement = false;
-            _playerMovement.DesiredVelocity = Vector2.zero;
-            _playerMovement.GetComponent<Animator>().SetBool("Dance", true);
-            // CanvasManager.ActiveCanvas.gameObject.SetActive(false);
-            // CanvasManager.ActiveCanvas = endingCanvas;
-            // CanvasManager.ActiveCanvas.gameObject.SetActive(true);
-            //
-            endingCanvas.TutorialHolder.TutorialContinue();
-            StartCoroutine(ContinueAfterEndingScene());
-        }
-    
-        public IEnumerator ContinueAfterEndingScene()
+        private IEnumerator ContinueAfterEndingScene()
         {
             while (Tutorial.CurrentTutorial != Tutorial.Instance.TutorialsTexts.Length - 1)
             {
@@ -153,11 +170,10 @@ namespace Managers
                 DebugLog.Log(Tutorial.Instance.TutorialsTexts.Length);
                 yield return new WaitForSeconds(0.2f);
             }
-        
-            _playerMovement.GetComponent<Animator>().SetBool("Dance", false);
+
+            _playerMovement.GetComponent<Animator>().SetBool(Dance, false);
             EndSceneIsOn = false;
             _holeManager.ChangeHole = true;
-
         }
 
 
@@ -167,5 +183,6 @@ namespace Managers
             state = newBoolean;
         }
 
+        #endregion
     }
 }

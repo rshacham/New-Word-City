@@ -2,6 +2,7 @@ using System.Collections;
 using BitStrap;
 using Managers;
 using Player_Control;
+using UI;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -46,7 +47,7 @@ namespace Interactable_Objects
             {
                 _myAudio.Play();
                 // GameManager._shared.ChangeCamera(1);
-                GameManager.Shared.ChangeFollowPlayer(0);
+                CameraAndTeleportManager.Shared.ChangeFollowPlayer(0);
                 var transformPosition = transform.position;
                 StartCoroutine(
                     _playerMovement.ChangePosition(
@@ -60,7 +61,7 @@ namespace Interactable_Objects
                     )
                 );
                 UseOnEnd = false;
-                StartCoroutine(GameManager.Shared.ThrowPlayerOnWorld());
+                StartCoroutine(CameraAndTeleportManager.Shared.ThrowPlayerOnWorld());
                 // TODO: this should stop the player when landing?
             }
         }

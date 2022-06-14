@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using Avrahamy;
-using Cinemachine;
 using Interactable_Objects;
 using Managers;
-using Player_Control;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,17 +14,15 @@ namespace UI
 
         [SerializeField]
         private bool openOnStart;
+
         [SerializeField]
         private bool stopPlayerInteractionOnStart = true;
+
         [SerializeField]
         private bool stopPlayerMovementOnStart = true;
 
         [SerializeField]
         private MeaningCanvasHolder[] holders;
-
-        [SerializeField]
-        [HideInInspector]
-        private Tutorial tutorialHolder;
 
         [SerializeField]
         private string[] tutorialStrings;
@@ -38,12 +33,8 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI tutorialTextObject;
 
-        public Tutorial TutorialHolder
-        {
-            get => Tutorial.Instance;
-            // set => tutorialHolder = value;
-        }
-
+        public static Tutorial TutorialHolder => Tutorial.Instance;
+        // set => tutorialHolder = value;
 
         [SerializeField]
         private Animator[] coinAnimators;
@@ -69,10 +60,14 @@ namespace UI
         #region Private Fields
 
         private static readonly Vector3 ZAxis = Vector3.forward;
-        private bool _isOpening = false;
-        private bool _isOpen = false;
-        private float _angle = 0;
+        private bool _isOpening;
+        private bool _isOpen;
+        private float _angle;
         private RectTransform _pokedexTransform;
+
+        // TODO: use ANimatorParameters
+        private static readonly int Found = Animator.StringToHash("Found");
+        private static readonly int Word = Animator.StringToHash("Word");
 
         #endregion
 
@@ -133,10 +128,10 @@ namespace UI
 
             foreach (var coin in coinAnimators)
             {
-                coin.SetBool("Found", false);
+                coin.SetBool(Found, false);
             }
 
-            boardAnimator.SetInteger("Word", boardInt);
+            boardAnimator.SetInteger(Word, boardInt);
         }
 
         // Update is called once per frame
@@ -145,7 +140,9 @@ namespace UI
             // DebugLog.Log(_isOpen);
             if (_angle > targetAngle && _isOpening)
             {
-                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * -rotatingSpeed);
+                _pokedexTransform.RotateAround(pivot.transform.position,
+                    ZAxis,
+                    Time.deltaTime * -rotatingSpeed);
                 _angle -= rotatingSpeed * Time.deltaTime;
             }
 
@@ -156,7 +153,9 @@ namespace UI
 
             if (_angle < 0 && !_isOpening)
             {
-                _pokedexTransform.RotateAround(pivot.transform.position, ZAxis, Time.deltaTime * rotatingSpeed);
+                _pokedexTransform.RotateAround(pivot.transform.position,
+                    ZAxis,
+                    Time.deltaTime * rotatingSpeed);
                 _angle += rotatingSpeed * Time.deltaTime;
             }
 
@@ -186,12 +185,12 @@ namespace UI
         {
             var index = WordsGameManager.Current.Meanings.IndexOf(e);
             holders[index].FoundMeaning(e, sender as InteractableObject);
-            coinAnimators[index].SetBool("Found", true);
+            coinAnimators[index].SetBool(Found, true);
         }
 
         public void SetAnimator()
         {
-            boardAnimator.SetInteger("Word", boardInt);
+            boardAnimator.SetInteger(Word, boardInt);
         }
 
         IEnumerator StartTutorial(float startDelay)

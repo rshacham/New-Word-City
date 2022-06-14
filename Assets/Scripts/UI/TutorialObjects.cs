@@ -1,9 +1,8 @@
 ﻿using System;
 using Avrahamy.Collections;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace Player_Control
+namespace UI
 {
     /// <summary>
     /// Class to create and activate tutorial sprites

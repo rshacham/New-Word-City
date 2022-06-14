@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -30,7 +31,7 @@ namespace Interactable_Objects
             _spaceshipSound = GetComponent<AudioSource>();
             GetComponentInChildren<PolygonCollider2D>();
             _mySpriteRenderer = GetComponent<SpriteRenderer>();
-            FindObjectOfType<MainMenu>();
+            FindObjectOfType<OpeningSceneMenu>();
         }
 
         #endregion

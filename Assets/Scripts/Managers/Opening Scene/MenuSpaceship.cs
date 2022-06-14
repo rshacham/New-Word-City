@@ -1,64 +1,77 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Avrahamy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuSpaceship : MonoBehaviour
+namespace Managers
 {
-    private Animator _myAnimator;
-    private MainMenu _mainMenu;
-    private bool _next;
-
-    private void Start()
+    // TODO: merge all opening scene scripts
+    public class MenuSpaceship : MonoBehaviour
     {
-        _myAnimator = GetComponent<Animator>();
-        _myAnimator.SetBool("Menu", true);
-        _mainMenu = FindObjectOfType<MainMenu>();
-        StartCoroutine(LoadScene(1));
-    }
+        private Animator _myAnimator;
+        private OpeningSceneMenu _openingSceneMenu;
+        private bool _next;
 
-    public void MainMenuSound(int sound)
-    {
-        _mainMenu.PlaySound(sound);
-    }
+        // TODO: use AnimatorParameter
+        private static readonly int Menu = Animator.StringToHash("Menu");
 
-    public void GoNext()
-    {
-        _next = true;
-    }
+        #region MonoBehaviour
 
-    private IEnumerator LoadScene(int scene)
-    {
-        yield return null;
-
-        //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
-        //Don't let the Scene activate until you allow it to
-        asyncOperation.allowSceneActivation = false;
-        DebugLog.Log(LogTag.Default, "Start async load", this);
-        //When the load is still in progress, output the Text and progress bar
-        while (!asyncOperation.isDone)
+        private void Start()
         {
-            //Output the current progress
-            // m_Text.text = "Loading progress: " + (asyncOperation.progress * 100) + "%";
-
-            // Check if the load has finished
-            if (asyncOperation.progress >= 0.9f)
-            {
-                // DebugLog.Log(LogTag.Default, "Ready to load", this);
-                //Change the Text to show the Scene is ready
-                // m_Text.text = "Press the space bar to continue";
-                //Wait to you press the space key to activate the Scene
-                if (_next)
-                {
-                    //Activate the Scene
-                    asyncOperation.allowSceneActivation = true;
-                }
-            }
-
-            yield return null;
+            _myAnimator = GetComponent<Animator>();
+            _myAnimator.SetBool(Menu, true);
+            _openingSceneMenu = FindObjectOfType<OpeningSceneMenu>();
+            StartCoroutine(LoadScene(1));
         }
+
+        #endregion
+
+        #region Public Mehtods
+
+        public void MainMenuSound(int sound)
+        {
+            _openingSceneMenu.PlaySound(sound);
+        }
+
+        public void GoNext()
+        {
+            _next = true;
+        }
+
+        #endregion
+
+        #region Coroutines
+
+        private IEnumerator LoadScene(int scene)
+        {
+            yield return null;
+
+            //Begin to load the Scene you specify
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
+            //Don't let the Scene activate until you allow it to
+            asyncOperation.allowSceneActivation = false;
+            DebugLog.Log(LogTag.Default, "Start async load", this);
+
+            while (!asyncOperation.isDone)
+            {
+
+                // Check if the load has finished
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    // DebugLog.Log(LogTag.Default, "Ready to load", this);
+                    //Wait to you press the space key to activate the Scene
+                    if (_next)
+                    {
+                        //Activate the Scene
+                        asyncOperation.allowSceneActivation = true;
+                    }
+                }
+
+                yield return null;
+            }
+        }
+
+        #endregion
     }
 }

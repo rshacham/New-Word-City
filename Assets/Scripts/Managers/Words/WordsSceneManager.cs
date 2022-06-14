@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Avrahamy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
 using Player_Control;
 using UnityEngine.InputSystem;
 
@@ -162,8 +160,8 @@ namespace Managers
             {
                 DebugLog.Log(LogTag.HighPriority, "Resetting Position");
                 FindObjectOfType<Movement>().TeleportPlayer(Vector3.zero);
-                GameManager.Shared.ChangeCamera(1);
-                GameManager.Shared.ChangeFollowPlayer(2);
+                CameraAndTeleportManager.Shared.ChangeCamera(1);
+                CameraAndTeleportManager.Shared.ChangeFollowPlayer(2);
                 StaticEventsGameManager.OnPlayerShouldInteract(this, true);
             }
         }

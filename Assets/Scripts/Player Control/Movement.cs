@@ -4,6 +4,7 @@ using Avrahamy;
 using Avrahamy.EditorGadgets;
 using BitStrap;
 using Managers;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -94,7 +95,8 @@ namespace Player_Control
 
         #region Public Properties
 
-        public bool IsController => _playerInput != null && _playerInput.currentControlScheme == Controller;
+        public bool IsController =>
+            _playerInput != null && _playerInput.currentControlScheme == Controller;
 
         public bool EnableMovement
         {
@@ -108,13 +110,7 @@ namespace Player_Control
             set => _desiredVelocity = value;
         }
 
-        private bool _fellToWorld = false;
-
-        public bool FellToWorld
-        {
-            get => _fellToWorld;
-            set => _fellToWorld = value;
-        }
+        public bool FellToWorld { get; set; }
 
         #endregion
 
@@ -123,12 +119,6 @@ namespace Player_Control
         private void OnValidate()
         {
             ValidateAngle();
-        }
-
-        private void ValidateAngle()
-        {
-            var angle = Mathf.Deg2Rad * ((180 - isometricAngle) / 2f);
-            _isoVector = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         }
 
         private void Awake()
@@ -150,11 +140,6 @@ namespace Player_Control
         private void OnDisable()
         {
             StaticEventsGameManager.PlayerShouldInteract -= UpdateEnableMovement;
-        }
-
-        private void UpdateEnableMovement(object sender, bool b)
-        {
-            enableMovement = b;
         }
 
         private void Update()
@@ -194,8 +179,32 @@ namespace Player_Control
                 _playerRigidBody.velocity = _desiredVelocity;
             }
 
-            Vector4 _myPosition = _playerRigidBody.position;
-            peepingMat.SetVector(PlayerPos, new Vector3(_myPosition.x, _myPosition.y + 0.6f, _myPosition.z));
+            Vector4 myPosition = _playerRigidBody.position;
+            peepingMat.SetVector(PlayerPos, new Vector3(myPosition.x, myPosition.y + 0.6f, myPosition.z));
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void ValidateAngle()
+        {
+            var angle = Mathf.Deg2Rad * ((180 - isometricAngle) / 2f);
+            _isoVector = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        }
+
+        private void UpdateEnableMovement(object sender, bool b)
+        {
+            enableMovement = b;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void TeleportPlayer(Vector3 newPosition)
+        {
+            transform.position = newPosition;
         }
 
         #endregion
@@ -228,14 +237,9 @@ namespace Player_Control
             _desiredVelocity = movementVector * maxSpeed;
         }
 
-
-        private void TeleportToWorld(InputAction.CallbackContext context)
-        {
-            TeleportPlayer(new Vector3(-11.8f, -3.1f, 0));
-            GameManager.Shared.ChangeCamera(1);
-        }
-
-        public IEnumerator ChangePosition(Vector3 newPosition, float animationSpeed, bool enableMove = true)
+        public IEnumerator ChangePosition(Vector3 newPosition,
+            float animationSpeed,
+            bool enableMove = true)
         {
             DebugLog.Log(LogTag.Messages, newPosition, this);
             if (enableMovement)
@@ -260,12 +264,6 @@ namespace Player_Control
             // {
             //     StartCoroutine(GameManager._shared.ChangeBoolWithDelay(_fellToWorld, true, animationSpeed));
             // }
-        }
-
-
-        public void TeleportPlayer(Vector3 newPosition)
-        {
-            transform.position = newPosition;
         }
 
         #endregion

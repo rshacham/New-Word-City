@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Avrahamy;
 using Interactable_Objects;
 using Managers;
 using TMPro;
@@ -19,7 +18,7 @@ namespace UI
         #region Private Fields
 
         private TextMeshProUGUI _myText;
-        private int _letterCount = 0;
+        private int _letterCount;
         private string _meaningString;
         private AudioSource _myAudio;
         // private bool _startAnimation = false;

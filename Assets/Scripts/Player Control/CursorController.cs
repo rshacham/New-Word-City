@@ -1,10 +1,10 @@
-using System;
 using Interactable_Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Mechanics.Cursor_Change
+namespace Player_Control
 {
+    // TODO: Unused in final version - no mouse usage
     public class CursorController : MonoBehaviour
     {
         [SerializeField]

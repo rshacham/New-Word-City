@@ -3,6 +3,7 @@ using Avrahamy;
 using Interactable_Objects;
 using Interactable_Objects.Utilities;
 using Managers;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -25,7 +26,7 @@ namespace Player_Control
 
         [SerializeField]
         [Tooltip("Are collisions with interactable objects count as setting them active?")]
-        private bool highlightOnCollision = false;
+        private bool highlightOnCollision;
 
         [SerializeField]
         [Tooltip("Do proximity triggers highlight objects? Use with caution together with highlightOnCollision")]
@@ -33,7 +34,7 @@ namespace Player_Control
 
         [SerializeField]
         [Tooltip("Start with the ability to interact?")]
-        private bool startActive = false;
+        private bool startActive;
 
         [SerializeField]
         [Space]
@@ -66,8 +67,6 @@ namespace Player_Control
 
         private Rigidbody2D _rigidbody2D;
 
-        private Collider2D _collider2D;
-
         /// <summary>
         /// Current object that the user is attached to
         /// </summary>
@@ -84,7 +83,7 @@ namespace Player_Control
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _collider2D = GetComponent<Collider2D>();
+            GetComponent<Collider2D>();
             StaticEventsGameManager.PlayerShouldInteract += (sender, b) => IsActive = b;
         }
 

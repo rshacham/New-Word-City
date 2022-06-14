@@ -1,8 +1,6 @@
 ﻿using System;
 using Avrahamy;
-using Avrahamy.EditorGadgets;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Managers
 {
