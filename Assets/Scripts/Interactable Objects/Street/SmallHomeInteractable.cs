@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class SmallHome : EventInteractable
+    public class SmallHomeInteractable : EventInteractable
     {
         #region Private Fields
 
         private Animator _myAnimator;
         private AudioSource _myAudio;
+
+        // TODO: Use AnimatorParameter
+        private static readonly int Blue = Animator.StringToHash("Blue");
 
         #endregion
 
@@ -24,8 +24,8 @@ namespace Interactable_Objects
         }
 
         #endregion
-        
-        
+
+
         #region Event Interactable
 
         protected override void ScriptInteract()
@@ -34,11 +34,10 @@ namespace Interactable_Objects
             {
                 _myAudio.Play();
             }
-            _myAnimator.SetTrigger("Blue");
+
+            _myAnimator.SetTrigger(Blue);
         }
 
-        
         #endregion
     }
 }
-

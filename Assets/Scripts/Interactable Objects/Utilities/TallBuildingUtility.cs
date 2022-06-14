@@ -1,12 +1,12 @@
 using BitStrap;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// Set fade effect to tall objects that hide the player
     /// </summary>
-    public class TallBuilding : MonoBehaviour
+    public class TallBuildingUtility : MonoBehaviour
     {
         #region Inspector
 
@@ -47,7 +47,7 @@ namespace Interactable_Objects
         private Color _fadeColor;
 
         // private static readonly int PlayerBehind = Shader.PropertyToID("_PlayerBehind");
-        private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
+        // private static readonly int PlayerPos = Shader.PropertyToID("_PlayerPos");
         // private Material _sharedMaterial;
 
         #endregion

@@ -1,17 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class Mayor : EventInteractable
+    public class MayorInteractable : EventInteractable
     {
+        
         #region Private Fields
 
         private Animator _mayorAnimator;
 
         private AudioSource _mayorAudioSource;
+        
+        // TODO: switch to AnimationTriggerParameters
+        private static readonly int Close = Animator.StringToHash("Close");
+        private static readonly int Cut = Animator.StringToHash("Cut");
 
         #endregion
 
@@ -29,15 +32,15 @@ namespace Interactable_Objects
 
         public void CloseToMayor(bool boolean)
         {
-            _mayorAnimator.SetBool("Close", boolean);
+            _mayorAnimator.SetBool(Close, boolean); // TODO: OnSetInteraction
         }
 
         #region Coroutines
 
-        public IEnumerator FinishAnimation()
+        private IEnumerator FinishAnimation()
         {
             yield return new WaitForSeconds(_mayorAudioSource.clip.length);
-            _mayorAnimator.SetBool("Cut", false);
+            _mayorAnimator.SetBool(Cut, false);
         }
 
         #endregion
@@ -48,7 +51,7 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            _mayorAnimator.SetBool("Cut", true);
+            _mayorAnimator.SetBool(Cut, true);
             _mayorAudioSource.Play();
             StartCoroutine(FinishAnimation());
         }

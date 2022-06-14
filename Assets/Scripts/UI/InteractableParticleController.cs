@@ -1,11 +1,9 @@
-﻿using System;
-using Avrahamy;
-using Avrahamy.Math;
-using BitStrap;
+﻿using BitStrap;
+using Interactable_Objects;
 using Managers;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace UI
 {
     /// <summary>
     /// Create Particle Effects From interacted objects

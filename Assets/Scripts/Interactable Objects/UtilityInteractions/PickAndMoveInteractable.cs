@@ -7,7 +7,7 @@ namespace Interactable_Objects
     /// InteractableObject that sticks itself to the user.
     /// </summary>
     // TODO: change movement to animation/body/follow script/something else.
-    // TODO: UNUSED - can be moved to mechanics
+    // TODO: Remove: Unused
     [RequireComponent(typeof(Rigidbody2D))]
     public class PickAndMoveInteractable : EventInteractable
     {

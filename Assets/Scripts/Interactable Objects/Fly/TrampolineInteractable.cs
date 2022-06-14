@@ -6,19 +6,12 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class Trampolina : PairedAnimationInteractable
+    public class TrampolineInteractable : PairedAnimationInteractable
     {
         #region Inspector
 
         [Space]
         [Header("Trampoline Interactable")]
-        [SerializeField]
-        [Tooltip("How much the circle will be close between tutorial-world transition")]
-        private float duration;
-
-        [SerializeField]
-        private Vector3 jumpNewPosition;
-
         [SerializeField]
         private float jumpSpeed;
 
@@ -28,8 +21,6 @@ namespace Interactable_Objects
         #endregion
 
         #region Private Fields
-
-        private CartoonHoleManager _holeManager;
 
         private Movement _playerMovement;
 
@@ -43,7 +34,7 @@ namespace Interactable_Objects
 
         private void Start()
         {
-            _holeManager = FindObjectOfType<CartoonHoleManager>();
+            FindObjectOfType<CartoonHoleManager>();
             _playerMovement = FindObjectOfType<Movement>();
             _myAudio = GetComponent<AudioSource>();
             _myAnimator = GetComponent<Animator>();
@@ -80,8 +71,8 @@ namespace Interactable_Objects
 
         public void OnTrampoline(bool boolean)
         {
-            _myAnimator.SetBool("On", boolean);
-            // onParam.Set(_myAnimator, boolean);
+            // _myAnimator.SetBool("On", boolean);
+            onParam.Set(_myAnimator, boolean);
         }
 
         #region Coroutines

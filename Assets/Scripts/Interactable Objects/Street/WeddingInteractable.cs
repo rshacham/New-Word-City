@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Avrahamy;
 using Avrahamy.Audio;
-using Avrahamy.EditorGadgets;
 using BitStrap;
-using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -25,7 +22,7 @@ namespace Interactable_Objects
         [SerializeField]
         [Tooltip("The boolean parameter that controls the animation")]
         private BoolAnimationParameter boolParameter;
-        
+
         [SerializeField]
         [HideInInspector]
         private PassiveTimer weddingTimer = new PassiveTimer();
@@ -34,12 +31,14 @@ namespace Interactable_Objects
         [Tooltip("Delay till the wedding sound clip begins. Only the Couple has any control over this")]
         private PassiveTimer soundDelay;
 
-        [SerializeField] 
-        [Tooltip("Gameobject of heart that appears above the couple when interaction can be made")]
+        [SerializeField]
+        [Tooltip("GameObject of heart that appears above the couple when interaction can be made")]
         private GameObject[] hearts;
 
+        // TODO: either just create animation for a parent object, or create a struct. this solution is backwards.
         [SerializeField]
-        [Tooltip("First and Second are is the standing version GameObjects, third is their dancing version GameObject")]
+        [Tooltip(
+            "First and Second are is the standing version GameObjects, third is their dancing version GameObject")]
         private List<GameObject> dancers = new List<GameObject>();
 
         [SerializeField]
@@ -72,7 +71,7 @@ namespace Interactable_Objects
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
-            
+
             CelebrateWedding += GuestCelebrateWedding;
             if (interactableType == WeddingType.Guest)
             {
@@ -82,27 +81,9 @@ namespace Interactable_Objects
             {
                 weddingTimer.Duration = _audioSource.clip.length;
             }
-            
+
             base.Awake();
             _startDance = false;
-        }
-
-
-        // IEnumerator _delayClip()
-        // {
-        //     yield return new WaitForSeconds(soundDelay);
-        //     _audioSource.Play();
-        // }
-
-        private void GuestCelebrateWedding(object sender, bool e)
-        {
-            boolParameter.Set(_animator, e);
-            if (!e && interactableType == WeddingType.Couple)
-            {
-                dancers[0].SetActive(true);
-                dancers[1].SetActive(true);
-                dancers[2].SetActive(false);
-            }
         }
 
         protected override void ScriptInteract()
@@ -120,14 +101,6 @@ namespace Interactable_Objects
             OnCelebrateWedding(this, true);
         }
 
-        public void CloseToCouple(bool isClose)
-        {
-            foreach (var heart in hearts)
-            {
-                heart.SetActive(isClose);
-            }
-        }
-
         protected void Update()
         {
             if (weddingTimer.IsSet && !weddingTimer.IsActive)
@@ -135,6 +108,7 @@ namespace Interactable_Objects
                 weddingTimer.Clear();
                 OnCelebrateWedding(this, false);
             }
+
             if (soundDelay.IsSet && !soundDelay.IsActive)
             {
                 soundDelay.Clear();
@@ -151,12 +125,33 @@ namespace Interactable_Objects
                 dancers[2].SetActive(true);
             }
         }
-        
+
+        #endregion
+
+        #region WeddingInteractable
+
+        private void GuestCelebrateWedding(object sender, bool e)
+        {
+            boolParameter.Set(_animator, e);
+            if (!e && interactableType == WeddingType.Couple)
+            {
+                dancers[0].SetActive(true);
+                dancers[1].SetActive(true);
+                dancers[2].SetActive(false);
+            }
+        }
+
+        public void CloseToCouple(bool isClose)
+        {
+            foreach (var heart in hearts)
+            {
+                heart.SetActive(isClose);
+            }
+        }
 
         #endregion
     }
-    
-    
+
 
     public enum WeddingType
     {

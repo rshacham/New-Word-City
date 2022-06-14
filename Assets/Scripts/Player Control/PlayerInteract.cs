@@ -1,6 +1,7 @@
 ﻿using System;
 using Avrahamy;
 using Interactable_Objects;
+using Interactable_Objects.Utilities;
 using Managers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -157,6 +158,10 @@ namespace Player_Control
                 _currentActive = interactable;
                 _getInteraction = false;
             }
+            // else  // TODO: add this functionality - require testing existing objects.
+            // {
+            //     interactable.RemoveInteraction(this);
+            // }
         }
 
         private void OnTriggerExit2D(Collider2D other)

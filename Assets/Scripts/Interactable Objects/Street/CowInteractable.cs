@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class CowInteraction : EventInteractable
+    public class CowInteractable : EventInteractable
     {
         #region Inspector
 

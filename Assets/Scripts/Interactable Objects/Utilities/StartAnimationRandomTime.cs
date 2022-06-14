@@ -4,11 +4,11 @@ using BitStrap;
 using UnityEngine;
 using FloatRange = Avrahamy.Math.FloatRange;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// Start the animation in random time
-    /// </summary> TODO: use stateMachine instead
+    /// </summary> TODO: replace all usage with the stateMachine version
     public class StartAnimationRandomTime : MonoBehaviour
     {
         #region Inspector
@@ -31,7 +31,7 @@ namespace Interactable_Objects
         {
             _animator = GetComponent<Animator>();
             var delay = RandomUtils.Range(range);
-            PureCoroutines.DelaySeconds(() => startTrigger.Set(_animator), delay);
+            PureCoroutines.DelaySeconds(() => startTrigger.Set(_animator), delay); // TODO: self routine instead
             // DebugLog.Log(LogTag.LowPriority, $"delay: {delay}", this);
         }
 

@@ -1,10 +1,8 @@
 ﻿using System;
-using Avrahamy;
 using Avrahamy.Audio;
-using Avrahamy.Math;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// Class to satisfy my need to have names for everything in the inspector.

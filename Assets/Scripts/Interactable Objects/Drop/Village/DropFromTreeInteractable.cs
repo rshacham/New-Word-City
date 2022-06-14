@@ -1,30 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
+using Managers;
 using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class DropFromTree : EventInteractable
+    public class DropFromTreeInteractable : EventInteractable
     {
-
         #region Inspector
 
-        [SerializeField] 
-        private Transform movingObject;
-        
         [SerializeField]
-        private BoxCollider2D _playerCollider;
+        private Transform movingObject;
 
-        
         #endregion
 
         #region Private Fields
 
-        private TreeVillage _myTree;
-
-        private Animator _myTreeAnimator;
+        private TreeVillageInteractable _myTree;
 
         private AudioSource _audioSource;
 
@@ -34,32 +26,39 @@ namespace Interactable_Objects
 
         private Vector2 _originalMovingPosition;
 
+        // TODO: to AnimatorParameter
+        private static readonly int Jump = Animator.StringToHash("Jump");
 
         #endregion
-        
-        #region EventInteractable 
+
+        #region EventInteractable
+
         void Start()
         {
-            _myTree = GetComponentInParent<TreeVillage>();
+            _myTree = GetComponentInParent<TreeVillageInteractable>();
             _playerMovement = FindObjectOfType<Movement>();
             _originalMovingPosition = movingObject.position;
             _audioSource = GetComponent<AudioSource>();
             _villageAudioSource = _myTree.gameObject.GetComponent<AudioSource>();
-            _myTreeAnimator = _myTree.GetComponent<Animator>();
+            _myTree.GetComponent<Animator>();
         }
 
         protected override void ScriptInteract()
         {
-            _myTree.ONTree = false;
+            _myTree.OnTree = false;
             _playerMovement.EnableMovement = false;
             _playerMovement.transform.parent = movingObject;
-            _playerCollider.isTrigger = true;
-            movingObject.GetComponent<Animator>().SetTrigger("Jump");
-            _playerMovement.gameObject.GetComponent<Animator>().SetTrigger("Jump");
+            // playerCollider.isTrigger = true;
+            StaticEventsGameManager.OnPlayerShouldCollide(this, false);
+            movingObject.GetComponent<Animator>().SetTrigger(Jump);
+            _playerMovement.gameObject.GetComponent<Animator>().SetTrigger(Jump);
             _villageAudioSource.volume = 0;
             _audioSource.Play();
         }
 
+        #endregion
+
+        #region DropInteractable
 
         public void EndJump()
         {
@@ -67,7 +66,8 @@ namespace Interactable_Objects
             movingObject.position = _originalMovingPosition;
             _playerMovement.EnableMovement = true;
             _playerMovement.DesiredVelocity = Vector2.zero;
-            _playerCollider.isTrigger = false;
+            // playerCollider.isTrigger = false;
+            StaticEventsGameManager.OnPlayerShouldCollide(this, true);
             StartCoroutine(ReturnVillageSound());
         }
 
@@ -76,12 +76,7 @@ namespace Interactable_Objects
             yield return new WaitForSeconds(1f);
             _villageAudioSource.volume = 1;
         }
-        
-        
-        
 
-        
         #endregion
     }
 }
-

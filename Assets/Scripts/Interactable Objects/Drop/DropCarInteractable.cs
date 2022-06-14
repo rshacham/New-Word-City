@@ -6,7 +6,7 @@ namespace Interactable_Objects
     /// <summary>
     /// Drop the beat car interaction 
     /// </summary>
-    public class DropCar : EventInteractable
+    public class DropCarInteractable : EventInteractable
     {
         #region Inspector
 
@@ -24,10 +24,11 @@ namespace Interactable_Objects
 
         #region Private Fields
 
-        // private bool _firstPlay;
         private Animator _carAnimator;
 
-        // private int _counter;
+        // TODO: use AnimatorParameters
+        private static readonly int Close = Animator.StringToHash("Close");
+        private static readonly int Drop = Animator.StringToHash("Drop");
 
         #endregion
 
@@ -40,11 +41,8 @@ namespace Interactable_Objects
 
         public void ChangeAnimatorClose(bool boolean)
         {
-            // print("yo" + counter++.ToString());
-            _carAnimator.SetBool("Close", boolean);
+            _carAnimator.SetBool(Close, boolean);
         }
-        
-        
 
         #endregion
 
@@ -56,13 +54,11 @@ namespace Interactable_Objects
         private IEnumerator RegularSound()
         {
             yield return new WaitForSeconds(dropClip.clip.length);
-            _carAnimator.SetBool("Drop", false);
+            _carAnimator.SetBool(Drop, false);
             yield return new WaitForSeconds(2f);
             // _carAnimator.enabled = false;
             regularClip.loop = true;
             regularClip.Play();
-
-
         }
 
         /// <summary>
@@ -84,7 +80,7 @@ namespace Interactable_Objects
             {
                 regularClip.loop = false;
                 dropClip.PlayDelayed(+regularClip.clip.length - regularClip.time - 0.1f);
-                _carAnimator.SetBool("Drop", true);
+                _carAnimator.SetBool(Drop, true);
                 StartCoroutine(RegularSound());
                 // StartCoroutine(StartAnimation());
             }

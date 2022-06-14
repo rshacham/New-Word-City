@@ -1,9 +1,7 @@
-using System;
 using Avrahamy;
-using Interactable_Objects;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// This class acts as the highlighting element of interactable objects by proximity to player
@@ -83,12 +81,12 @@ namespace Interactable_Objects
 
         public virtual void HighlightEvent(InteractableObject o)
         {
-            DebugLog.Log("Highlight", Color.green, o);
+            DebugLog.Log(LogTag.MediumPriority, "Highlight", o);
         }
 
         public virtual void UnHighlightEvent(InteractableObject o)
         {
-            DebugLog.Log("UnHighlight", Color.green, o);
+            DebugLog.Log(LogTag.MediumPriority, "UnHighlight", o);
         }
 
         #endregion

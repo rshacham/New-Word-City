@@ -209,6 +209,7 @@ MonoBehaviour:
   interactTrigger:
     name: Interact
     index: -1
-  duration: 1
-  jumpNewPosition: {x: -107, y: 25, z: 0}
-  jumpSpeed: 2
+  jumpSpeed: 0.8
+  onParam:
+    name: On
+    index: -1

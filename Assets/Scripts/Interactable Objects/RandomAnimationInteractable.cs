@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using Avrahamy;
-using Avrahamy.Audio;
+﻿using Avrahamy.Audio;
 using Avrahamy.Math;
 using BitStrap;
-using UnityEditor;
+using Interactable_Objects.Utilities;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Interactable_Objects
 {
@@ -37,8 +34,6 @@ namespace Interactable_Objects
         #endregion
 
         #region Private Fields
-
-        private static readonly int InteractTrigger = Animator.StringToHash("Interact");
 
         private int _count;
         private Animator _myAnimator;

@@ -103,7 +103,7 @@ namespace Interactable_Objects
                     DebugLog.Log("<color=yellow>Taxi Hold</color>", this);
                     _waitForPlayer = TaxiState.Hold;
                     // _myAnimator.ResetTrigger(taxiHighlight.Index);
-                    _myAnimator.Play("CloseDoor");
+                    _myAnimator.Play("CloseDoor"); // TODO: Use AnimatorParameter
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -112,7 +112,8 @@ namespace Interactable_Objects
 
         public override void RemoveInteraction(PlayerInteract other)
         {
-            var player = Player; // TODO: fix this
+            // TODO: should not keep the player using this - this hides the problem with removing the player at all.
+            var player = Player;
             base.RemoveInteraction(other);
             Player = player;
             taxiHighlight.Set(_myAnimator, false);

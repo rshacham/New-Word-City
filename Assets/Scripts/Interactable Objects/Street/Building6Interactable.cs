@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
 using UnityEngine;
 
 
@@ -11,6 +8,10 @@ namespace Interactable_Objects
         #region Private Fields
 
         private Animator _myAnimator;
+
+        // TODO: Use AnimatorParameter
+        private static readonly int On = Animator.StringToHash("On");
+        private static readonly int Animation1 = Animator.StringToHash("Animation");
 
         #endregion
 
@@ -29,16 +30,14 @@ namespace Interactable_Objects
 
         protected override void ScriptInteract()
         {
-            if (_myAnimator.GetBool("On"))
+            if (_myAnimator.GetBool(On))
             {
-                _myAnimator.SetBool("On", false);
+                _myAnimator.SetBool(On, false);
                 return;
             }
 
-            // int a = Random.Range(1, 5);
-            // DebugLog.Log(a);
-            _myAnimator.SetBool("On", true);
-            _myAnimator.SetInteger("Animation", Random.Range(1, 5));
+            _myAnimator.SetBool(On, true);
+            _myAnimator.SetInteger(Animation1, Random.Range(1, 5));
         }
 
         #endregion

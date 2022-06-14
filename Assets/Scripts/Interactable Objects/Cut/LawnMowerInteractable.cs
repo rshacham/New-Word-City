@@ -1,14 +1,14 @@
-﻿using System;
-using Avrahamy;
+﻿using Avrahamy;
 using Avrahamy.Audio;
 using Avrahamy.EditorGadgets;
 using BitStrap;
+using Interactable_Objects.Utilities;
 using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    class LawnMowerInteractable : EventInteractable
+    public class LawnMowerInteractable : EventInteractable
     {
         #region Inspector
 

@@ -1,18 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class DropFromSink : EventInteractable
+    public class DropFromSinkInteractable : EventInteractable
     {
         #region Private Fields
 
         private AudioSource _audioSource;
         private bool _interactionActive;
         private Animator _myAnimator;
+        
+        // TODO: use AnimatorParameter
+        private static readonly int Drop = Animator.StringToHash("Drop");
 
         #endregion
 
@@ -33,7 +32,7 @@ namespace Interactable_Objects
             if (!_interactionActive)
             {
                 _interactionActive = true;
-                _myAnimator.SetTrigger("Drop");
+                _myAnimator.SetTrigger(Drop);
             }
         }
 

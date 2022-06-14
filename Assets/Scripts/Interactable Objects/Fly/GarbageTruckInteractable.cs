@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Avrahamy;
 using Avrahamy.Audio;
 using BitStrap;
-using Player_Control;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    public class Garbage : EventInteractable
+    public class GarbageTruckInteractable : EventInteractable
     {
         #region Inspector
 
@@ -23,11 +20,6 @@ namespace Interactable_Objects
 
         [SerializeField]
         private GarbageSounds mySoundsAgain;
-
-        [SerializeField]
-        [HideInInspector]
-        [Tooltip("First clip is the fall sound, second is the fly buzz sound")]
-        private AudioClip[] mySounds;
 
         #endregion
 
@@ -53,7 +45,7 @@ namespace Interactable_Objects
             highlightParam.Set(_truckAnimator, boolean);
         }
 
-        // TODO: use this instead
+        // TODO: use this instead of CloseToTruck
         // public override bool SetInteraction(PlayerInteract other)
         // {
         //     var ret = base.SetInteraction(other);
@@ -84,11 +76,8 @@ namespace Interactable_Objects
         protected override void ScriptInteract()
         {
             if (!_truckAnimator.GetBool(throwParam.Index))
-                // if (!_truckAnimator.GetBool("Throw"))
             {
-                // _myAudio.Play();
                 mySoundsAgain.fallSound.Play(_myAudio);
-                // _truckAnimator.SetBool("Throw", true);
                 throwParam.Set(_truckAnimator, true);
             }
         }

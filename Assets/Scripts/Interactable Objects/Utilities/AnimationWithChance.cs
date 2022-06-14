@@ -2,7 +2,7 @@
 using Avrahamy.Math;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// Utility class to hold animation clip that has random chance 

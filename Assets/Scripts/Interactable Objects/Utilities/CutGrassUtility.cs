@@ -1,9 +1,11 @@
-﻿using System;
-using Avrahamy;
+﻿using Avrahamy;
 using UnityEngine;
 
-namespace Interactable_Objects
+namespace Interactable_Objects.Utilities
 {
+    /// <summary>
+    /// Manage grass respawn/de-spawn after cut
+    /// </summary>
     class CutGrassUtility : MonoBehaviour
     {
         #region Inspector

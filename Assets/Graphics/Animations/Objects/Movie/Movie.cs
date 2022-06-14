@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BitStrap;
 using Interactable_Objects;
+using Interactable_Objects.Utilities;
 using UnityEngine;
 
 namespace Interactable_Objects

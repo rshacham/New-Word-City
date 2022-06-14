@@ -1,5 +1,4 @@
-﻿using Avrahamy;
-using Avrahamy.EditorGadgets;
+﻿using Avrahamy.EditorGadgets;
 using BitStrap;
 using UnityEngine;
 

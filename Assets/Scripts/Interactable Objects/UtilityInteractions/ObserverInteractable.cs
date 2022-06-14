@@ -1,10 +1,10 @@
 ﻿using Avrahamy;
-using Mechanics.WordBase;
+using Interactable_Objects.Utilities;
 using UnityEngine;
 
 namespace Interactable_Objects
 {
-    // TODO: unused - can be moved to mechanics 
+    // TODO: Remove: replaced by PairedAnimationInteractable
     class ObserverInteractable : EventInteractable
     {
         [Space]

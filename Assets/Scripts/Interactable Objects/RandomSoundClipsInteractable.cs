@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Avrahamy.Math;
+using Interactable_Objects.Utilities;
 using UnityEngine;
 
 namespace Interactable_Objects
@@ -8,7 +9,7 @@ namespace Interactable_Objects
     /// Choose random Audio Event to play as interaction
     /// </summary>
     [RequireComponent(typeof(AudioSource))]
-    class RandomSoundClipsInteractable : EventInteractable
+    public class RandomSoundClipsInteractable : EventInteractable
     {
         #region Inspector
 

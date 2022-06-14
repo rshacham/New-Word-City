@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using Interactable_Objects;
 using UnityEngine;
 
-public class JumpingObject : MonoBehaviour
+namespace Interactable_Objects.Utilities
 {
-
-    private DropFromTree _dropTree;
-    // Start is called before the first frame update
-    void Start()
+    public class JumpingObject : MonoBehaviour
     {
-        _dropTree = GetComponentInParent<DropFromTree>();
-    }
 
-    // Update is called once per frame
-    public void InteractionEnd()
-    {
-        _dropTree.EndJump();
+        private DropFromTreeInteractable _dropTreeInteractable;
+        // Start is called before the first frame update
+        void Start()
+        {
+            _dropTreeInteractable = GetComponentInParent<DropFromTreeInteractable>();
+        }
+
+        // Update is called once per frame
+        public void InteractionEnd()
+        {
+            _dropTreeInteractable.EndJump();
+        }
     }
 }

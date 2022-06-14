@@ -104,7 +104,7 @@ namespace Managers
             _holeManager.CloseCircle();
             yield return new WaitForSeconds(2.5f);
             _playerMovement.FellToWorld = true; // TODO: just call interact here instead...
-            var trampolina = FindObjectOfType<Trampolina>();
+            var trampolina = FindObjectOfType<TrampolineInteractable>();
             trampolina.UseOnEnd = true;
             trampolina.Interact();
             _playerMovement.TeleportPlayer(worldPosition);

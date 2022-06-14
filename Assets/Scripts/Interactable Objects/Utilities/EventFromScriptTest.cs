@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Avrahamy;
-using Interactable_Objects;
 using Managers;
 using UnityEngine;
 
-namespace Mechanics.WordBase
+namespace Interactable_Objects.Utilities
 {
     /// <summary>
     /// Activate scripts for events from prefab - doesnt require the object to be in the scene

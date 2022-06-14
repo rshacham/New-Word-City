@@ -49918,8 +49918,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2093192553}
     - target: {fileID: 1069546968891251624, guid: d4e49caa326334e40b262c86a8fce9d7, type: 3}
-      propertyPath: jumpSpeed
-      value: 0.8
+      propertyPath: onParam.name
+      value: On
       objectReference: {fileID: 0}
     - target: {fileID: 1257685736630854947, guid: d4e49caa326334e40b262c86a8fce9d7, type: 3}
       propertyPath: m_EdgeRadius

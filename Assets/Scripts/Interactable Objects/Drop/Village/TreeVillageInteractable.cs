@@ -1,30 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using Player_Control;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Interactable_Objects
 {
-    public class TreeVillage : EventInteractable
+    public class TreeVillageInteractable : EventInteractable
     {
-        #region Private Properties
-
-        private Animator _villageAnimator;
-
-        private AudioSource _villageSound;
-
-        private bool _ladderOpen;
-
-        private Movement _playerScript;
-
-        private bool _onTree = false;
-
-        private Collider2D _myCollider;
-
-        #endregion
-
         #region Inspector
 
         [FormerlySerializedAs("animationSpeed")]
@@ -44,16 +25,36 @@ namespace Interactable_Objects
         [Tooltip("New position after climbing down tree")]
         private Vector3 offTreePosition;
 
-        [SerializeField] 
-        [Tooltip("First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down." +
-                 " Fourth is for closing the ladder.")]
+        [SerializeField]
+        [Tooltip(
+            "First clip is for opening the ladder. Second clip is for climbing up. Third clip is for going down." +
+            " Fourth is for closing the ladder.")]
         private AudioClip[] villageClips;
 
         #endregion
-        
+
+        #region Private Properties
+
+        private Animator _villageAnimator;
+
+        private AudioSource _villageSound;
+
+        private bool _ladderOpen;
+
+        private Movement _playerScript;
+
+        private bool _onTree;
+
+        // TODO: use AnimatorParameter
+        private static readonly int Semi = Animator.StringToHash("Semi");
+        private static readonly int CanDrop = Animator.StringToHash("CanDrop");
+        private static readonly int Open = Animator.StringToHash("Open");
+
+        #endregion
+
         #region Public Properties
 
-        public bool ONTree
+        public bool OnTree
         {
             get => _onTree;
             set => _onTree = value;
@@ -76,36 +77,35 @@ namespace Interactable_Objects
 
         public void CloseToVillage(bool boolean)
         {
-            if (!ONTree && !_ladderOpen)
+            if (!OnTree && !_ladderOpen)
             {
-                _villageAnimator.SetBool("Semi", boolean);
+                _villageAnimator.SetBool(Semi, boolean);
             }
         }
 
 
         public void OpenCloseLadder(bool boolean)
         {
-            _villageAnimator.SetBool("CanDrop", boolean);
+            _villageAnimator.SetBool(CanDrop, boolean);
             if (boolean)
             {
                 _villageSound.PlayOneShot(villageClips[3]);
                 return;
             }
-            
-            _villageSound.PlayOneShot(villageClips[0]);
 
+            _villageSound.PlayOneShot(villageClips[0]);
         }
 
         #endregion
-        
+
         #region EventInteractable
 
         protected override void ScriptInteract()
         {
             if (!_ladderOpen)
             {
-                _villageAnimator.SetBool("Open", true);
-                _villageAnimator.SetBool("Semi", false);
+                _villageAnimator.SetBool(Open, true);
+                _villageAnimator.SetBool(Semi, false);
                 _ladderOpen = true;
                 _villageSound.PlayOneShot(villageClips[0]);
                 return;

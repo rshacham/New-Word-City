@@ -1,43 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using Avrahamy;
-using Interactable_Objects;
 using UnityEngine;
 
-public class HonkInteraction : EventInteractable
+namespace Interactable_Objects
 {
-    #region Inspector
-
-    [SerializeField]
-    private AudioSource firstSound;
-    [SerializeField]
-    private AudioSource secondSound;
-
-    #endregion
-
-
-    #region Private Fields
-
-    private static int counter;
-
-    #endregion
-
-    protected override void ScriptInteract()
+    // TODO: Remove: replaced by RandomSounds
+    public class HonkInteraction : EventInteractable
     {
-        if (firstSound.isPlaying && secondSound.isPlaying)
-        {
-            return;
-        }
+        #region Inspector
 
-        DebugLog.Log(LogTag.Audio, "HONKS", this);
-        switch (++counter % 2)
+        [SerializeField]
+        private AudioSource firstSound;
+        [SerializeField]
+        private AudioSource secondSound;
+
+        #endregion
+
+
+        #region Private Fields
+
+        private static int _counter;
+
+        #endregion
+
+        protected override void ScriptInteract()
         {
-            case 0:
-                firstSound.PlayOneShot(firstSound.clip);
+            if (firstSound.isPlaying && secondSound.isPlaying)
+            {
                 return;
-            case 1:
-                secondSound.PlayOneShot(secondSound.clip);
-                return;
+            }
+
+            DebugLog.Log(LogTag.Audio, "HONKS", this);
+            switch (++_counter % 2)
+            {
+                case 0:
+                    firstSound.PlayOneShot(firstSound.clip);
+                    return;
+                case 1:
+                    secondSound.PlayOneShot(secondSound.clip);
+                    return;
+            }
         }
     }
 }
