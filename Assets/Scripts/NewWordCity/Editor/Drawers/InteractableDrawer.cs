@@ -2,10 +2,10 @@ using Interactable_Objects;
 using UnityEditor;
 using UnityEngine;
 
-namespace Drawers
+namespace NewWordCity.Editor.Drawers
 {
     [CustomEditor(typeof(InteractableObject), true)]
-    public class InteractableDrawer : Editor
+    public class InteractableDrawer : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

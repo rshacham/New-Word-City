@@ -2,7 +2,7 @@
 Library/
 Temp/
 Obj/
-Build/
+Build[s]/
 UserSettings/
 UnityPackageManager/
 Logs/
