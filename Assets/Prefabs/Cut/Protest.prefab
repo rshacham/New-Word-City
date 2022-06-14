@@ -1654,7 +1654,7 @@ MonoBehaviour:
           m_CallState: 2
   useScriptedInteraction: 1
   stayHighlightAfterInteract: 1
-  _protestorsSounds:
+  protestorsSounds:
   - {fileID: 8300000, guid: eabb6c624a38f8c4fa00fed511cb3870, type: 3}
   - {fileID: 8300000, guid: 4329c9f1db0eeae4d894bec3418fc462, type: 3}
   - {fileID: 8300000, guid: fc7865ab11a03324494a5c162565c6cc, type: 3}
