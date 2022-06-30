@@ -19,6 +19,4 @@ Your Wordex will  shows you what to look for.
 # Credits
 This game was made for Bezalel Academy of Arts and Design "Gaming Lab" course.
 
-**Designers** - Guy Mizrachi, Nadav Baruch
-
-**Developers** - Roi Shacham, Bar Nemesh
+City creators - Guy Mizrachi, Nadav Baruch, Bar Nemesh and  Roi Shacham
