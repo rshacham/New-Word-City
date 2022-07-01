@@ -49194,7 +49194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056233200308150033, guid: 03bee2a2ea6788b4992cb8e9e9d780da, type: 3}
       propertyPath: words.Array.data[1].meanings.Array.data[2].meaning
-      value: Drom From a Tree
+      value: Drop From a Tree
       objectReference: {fileID: 0}
     - target: {fileID: 8056233200308150033, guid: 03bee2a2ea6788b4992cb8e9e9d780da, type: 3}
       propertyPath: words.Array.data[1].meanings.Array.data[4].meaning
