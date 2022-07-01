@@ -12,13 +12,11 @@ Your Wordex will  shows you what to look for.
 [Check our itch page to play the game!](https://guymizrachi.itch.io/nwc)
 
 
-# Trailer
-[![ALT TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+# Trailer(Press The Cow)
+[![ALT TEXT](Images/CowGif.png)](https://www.youtube.com/watch?v=D7jajgx-w_Y)
 
 
 # Credits
 This game was made for Bezalel Academy of Arts and Design "Gaming Lab" course.
 
-**Designers** - Guy Mizrachi, Nadav Baruch
-
-**Developers** - Roi Shacham, Bar Nemesh
+City creators - Guy Mizrachi, Nadav Baruch, Bar Nemesh and  Roi Shacham
