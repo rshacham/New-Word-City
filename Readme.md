@@ -18,7 +18,7 @@ Search for hidden meaning of words in hand-drawn, interactive, miniature landsca
   <img src='https://img.itch.zone/aW1nLzkyMzA3NTIucG5n/original/S80awG.png' width = "400" height = "225">             <img src='https://i.gyazo.com/813f77179698b6cd0e47668610f43212.jpg' width = "400" height = "225">
 
 
-<div align='left'>
+<div align='center'>
 
 # Trailer(Press The Cow)
 [![ALT TEXT](Images/CowGif.png)](https://www.youtube.com/watch?v=D7jajgx-w_Y)
