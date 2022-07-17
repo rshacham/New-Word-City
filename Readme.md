@@ -43,4 +43,6 @@ Search for hidden meaning of words in hand-drawn, interactive, miniature landsca
 # Credits
 This game was made for Bezalel Academy of Arts and Design "Gaming Lab" course.
 
-City creators - Guy Mizrachi, Nadav Baruch, Bar Nemesh and  Roi Shacham
+City Designers - Guy Mizrachi, Nadav Baruch
+
+City Developers - Bar Nemesh, Roi Shacham
